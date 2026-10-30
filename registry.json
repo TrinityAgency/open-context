@@ -1429,6 +1429,11 @@
       "category": "layout",
       "version": "1.0.0"
     },
+    "site-starter": {
+      "description": "Next 16 + Tailwind 4 (no preflight) + TypeScript strict starter for a client website with design-sync, guard tests and a standalone build",
+      "category": "starter",
+      "version": "1.0.0"
+    },
     "skill-accessibility": {
       "description": "WCAG compliance and accessibility audit skill",
       "category": "skill",
