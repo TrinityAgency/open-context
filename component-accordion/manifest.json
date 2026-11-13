@@ -1,0 +1,16 @@
+{
+  "name": "component-accordion",
+  "version": "1.0.0",
+  "title": "Accordion",
+  "description": "Disclosure list on native details, keyboard complete without JavaScript",
+  "type": "component",
+  "category": "COMPONENTS",
+  "tags": ["accordion", "disclosure", "details", "faq"],
+  "stack": ["react", "tailwind"],
+  "family": "site",
+  "outputDir": "components/component-accordion",
+  "files": ["accordion.tsx", "README.md"],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; keyboard and exclusive mode tested in Chromium",
+  "peerDependencies": { "react": ">=19", "tailwindcss": ">=4" },
+  "postMessage": "See components/component-accordion/README.md for props, the German label set and the Next link/image wiring."
+}
