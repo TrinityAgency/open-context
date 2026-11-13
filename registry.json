@@ -1,344 +1,1145 @@
 {
-  "version": "1.0",
+  "version": 2,
   "templates": {
     "agent-codemod": {
+      "name": "Codemod Agent",
       "description": "Automated codemod and migration agent",
-      "category": "agent",
+      "type": "agent",
+      "category": "AGENTIC",
+      "tags": [
+        "codemod",
+        "migration",
+        "agent"
+      ],
+      "stack": [
+        "markdown",
+        "python"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "agent-docs-writer": {
-      "description": "Documentation generation agent \u2014 reads code, produces structured docs with examples",
-      "category": "agent",
+      "name": "Docs Writer Agent",
+      "description": "Documentation generation agent — reads code, produces structured docs with examples",
+      "type": "agent",
+      "category": "AGENTIC",
+      "tags": [
+        "docs",
+        "documentation",
+        "writer",
+        "agent"
+      ],
+      "stack": [
+        "markdown",
+        "python"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "agent-ontologist": {
-      "description": "Data-model agent \u2014 owns every schema, migration, view, trigger and grant, and proves each law bites with a scratch-database battery and mutants",
-      "category": "agent",
+      "name": "Ontologist Agent",
+      "description": "Data-model agent — owns every schema, migration, view, trigger and grant, and proves each law bites with a scratch-database battery and mutants",
+      "type": "agent",
+      "category": "AGENTIC",
+      "tags": [
+        "agent",
+        "database",
+        "postgres",
+        "schema",
+        "migrations"
+      ],
+      "stack": [
+        "postgresql",
+        "claude-code"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "agent-refactor": {
-      "description": "Automated code refactoring agent \u2014 identifies patterns, applies transformations, validates results",
-      "category": "agent",
+      "name": "Refactor Agent",
+      "description": "Automated code refactoring agent — identifies patterns, applies transformations, validates results",
+      "type": "agent",
+      "category": "AGENTIC",
+      "tags": [
+        "refactor",
+        "cleanup",
+        "agent"
+      ],
+      "stack": [
+        "markdown",
+        "python"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "agent-translator": {
-      "description": "Multi-language translation agent \u2014 context-aware translation with tone preservation and i18n support",
-      "category": "agent",
+      "name": "Translator Agent",
+      "description": "Multi-language translation agent — context-aware translation with tone preservation and i18n support",
+      "type": "agent",
+      "category": "AGENTIC",
+      "tags": [
+        "translation",
+        "i18n",
+        "multi-language",
+        "agent"
+      ],
+      "stack": [
+        "markdown",
+        "python"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "agentic-layer": {
-      "description": "Production-ready Claude Code agentic layer \u2014 skills, agents, hooks, and commands",
-      "category": "agentic",
-      "version": "1.0.0"
+      "name": "Agentic Layer Starter",
+      "description": "Production-ready Claude Code agentic layer with commands, skills, agents, and hooks — zero project-specific dependencies",
+      "type": "pipe",
+      "category": "AGENTIC",
+      "tags": [
+        "claude-code",
+        "hooks",
+        "skills",
+        "agents"
+      ],
+      "stack": [
+        "python",
+        "markdown"
+      ],
+      "fileCount": 25,
+      "version": "2.0.0"
     },
     "animation-3d-card-tilt": {
-      "description": "3D card tilt effect \u2014 interactive perspective transform on mouse hover with glare highlight",
-      "category": "animation",
+      "name": "3D Card Tilt",
+      "description": "3D card tilt effect — interactive perspective transform on mouse hover with glare highlight",
+      "type": "animation",
+      "category": "ANIMATION",
+      "tags": [
+        "animation",
+        "3d",
+        "tilt",
+        "hover",
+        "perspective"
+      ],
+      "stack": [
+        "react",
+        "css"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "animation-confetti": {
-      "description": "Canvas-based confetti burst with gravity, rotation, and auto-cleanup \u2014 fire on button click, form submit, or achievement unlock",
-      "category": "animation",
+      "name": "Confetti",
+      "description": "Canvas-based confetti particle celebration animation. Fire confetti bursts on demand with configurable colors, particle count, spread, and gravity.",
+      "type": "animation",
+      "category": "ANIMATION",
+      "tags": [
+        "animation",
+        "confetti",
+        "celebration",
+        "particles"
+      ],
+      "stack": [
+        "react",
+        "canvas"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "animation-cursor-follow": {
-      "description": "Smooth cursor-tracking element with spring physics, magnetic snap zones, and blur trail effects",
-      "category": "animation",
-      "version": "1.0.0"
-    },
-    "animation-gradient-mesh": {
-      "description": "Animated gradient mesh background using pure CSS keyframes \u2014 no JS runtime cost, GPU-accelerated",
-      "category": "animation",
+      "name": "Cursor Follow",
+      "description": "Cursor-following elements with spring physics. Wrap any content to make it magnetically track the mouse pointer with configurable spring stiffness and damping.",
+      "type": "animation",
+      "category": "ANIMATION",
+      "tags": [
+        "animation",
+        "cursor",
+        "follow",
+        "spring"
+      ],
+      "stack": [
+        "react",
+        "framer-motion"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "animation-liquid-button": {
+      "name": "Liquid Button",
       "description": "Liquid morphing button with SVG turbulence-driven distortion on hover. Supports primary, secondary, and ghost variants with configurable intensity.",
-      "category": "animation",
+      "type": "animation",
+      "category": "ANIMATION",
+      "tags": [
+        "animation",
+        "liquid",
+        "button",
+        "morph"
+      ],
+      "stack": [
+        "react",
+        "css"
+      ],
+      "fileCount": 2,
       "version": "2.0.0"
     },
     "animation-magnetic-button": {
-      "description": "Button that pulls toward the cursor with spring physics and snaps back on leave \u2014 hover delight effect",
-      "category": "animation",
-      "version": "1.0.0"
-    },
-    "animation-morphing-shape": {
-      "description": "SVG blob that morphs between organic shapes with smooth interpolation \u2014 decorative or interactive",
-      "category": "animation",
+      "name": "Magnetic Button",
+      "description": "Button that magnetically attracts toward the cursor when hovering nearby. Uses spring physics for natural-feeling attraction and release.",
+      "type": "animation",
+      "category": "ANIMATION",
+      "tags": [
+        "animation",
+        "magnetic",
+        "button",
+        "cursor"
+      ],
+      "stack": [
+        "react",
+        "framer-motion"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "animation-noise-grain": {
+      "name": "Noise Grain",
       "description": "Film grain and noise overlay effect using HTML Canvas",
-      "category": "animation",
+      "type": "animation",
+      "category": "ANIMATION",
+      "tags": [
+        "animation",
+        "noise",
+        "grain",
+        "film",
+        "overlay"
+      ],
+      "stack": [
+        "react",
+        "canvas"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "animation-number-counter": {
-      "description": "Animated number counting with easing \u2014 counts from start to end value with configurable duration, formatting, and viewport trigger",
-      "category": "animation",
+      "name": "Number Counter",
+      "description": "Animated number counting with easing — counts from start to end value with configurable duration, formatting, and viewport trigger",
+      "type": "animation",
+      "category": "ANIMATION",
+      "tags": [
+        "animation",
+        "number",
+        "counter",
+        "counting"
+      ],
+      "stack": [
+        "react",
+        "framer-motion"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "animation-page-transition": {
-      "description": "Page transition wrapper with fade, slide, scale, and flip presets \u2014 drop-in for route changes",
-      "category": "animation",
-      "version": "1.0.0"
-    },
-    "animation-parallax-scroll": {
-      "description": "Scroll-driven parallax layers with configurable speed, direction, and opacity fade",
-      "category": "animation",
+      "name": "Page Transition",
+      "description": "Page transition wrapper with multiple animation presets -- fade, slide, scale, and flip. Drop-in wrapper for route transitions in React apps.",
+      "type": "animation",
+      "category": "ANIMATION",
+      "tags": [
+        "animation",
+        "page",
+        "transition",
+        "framer-motion"
+      ],
+      "stack": [
+        "react",
+        "framer-motion"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "animation-scroll-reveal": {
-      "description": "Viewport-triggered reveal animations with stagger support \u2014 fade, slide, scale, and rotate presets",
-      "category": "animation",
+      "name": "Scroll Reveal",
+      "description": "Scroll-triggered reveal animations with multiple presets — fade up, slide in, scale, blur, and stagger groups. Uses Intersection Observer for performance.",
+      "type": "animation",
+      "category": "ANIMATION",
+      "tags": [
+        "animation",
+        "scroll",
+        "reveal",
+        "intersection"
+      ],
+      "stack": [
+        "react",
+        "framer-motion"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "animation-skeleton-loading": {
-      "description": "Composable skeleton loading placeholders with shimmer animation \u2014 text, avatar, card, and table variants",
-      "category": "animation",
+      "name": "Skeleton Loading",
+      "description": "Skeleton loading placeholders with shimmer animation. Includes presets for text, avatar, card, and table rows — plus a custom skeleton builder.",
+      "type": "animation",
+      "category": "ANIMATION",
+      "tags": [
+        "animation",
+        "skeleton",
+        "loading",
+        "shimmer"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "animation-text-reveal": {
-      "description": "Character and word staggered text reveal animation with multiple presets \u2014 fade, blur, scale, and rotate effects",
-      "category": "animation",
+      "name": "Text Reveal",
+      "description": "Character and word staggered text reveal animation with multiple presets — fade, blur, scale, and rotate effects",
+      "type": "animation",
+      "category": "ANIMATION",
+      "tags": [
+        "animation",
+        "text",
+        "reveal",
+        "stagger"
+      ],
+      "stack": [
+        "react",
+        "framer-motion"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "animation-typing-effect": {
-      "description": "Typewriter text animation with cursor blink, configurable speed, and multi-string rotation",
-      "category": "animation",
+      "name": "Typing Effect",
+      "description": "Typewriter text animation with blinking cursor. Supports multiple strings, configurable typing/deleting speed, pause duration, and loop control.",
+      "type": "animation",
+      "category": "ANIMATION",
+      "tags": [
+        "animation",
+        "typing",
+        "typewriter",
+        "cursor"
+      ],
+      "stack": [
+        "react"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "animation-webgl-background": {
+      "name": "WebGL Background",
       "description": "Interactive WebGL shader background with animated gradients",
-      "category": "animation",
+      "type": "animation",
+      "category": "ANIMATION",
+      "tags": [
+        "animation",
+        "webgl",
+        "shader",
+        "background"
+      ],
+      "stack": [
+        "react",
+        "three"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "auth-2fa-setup": {
-      "description": "2FA setup flow \u2014 QR scan, recovery codes, and verification",
-      "category": "module",
+      "name": "2FA Setup",
+      "description": "2FA setup flow — QR scan, recovery codes, and verification",
+      "type": "module",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "2fa",
+        "totp",
+        "security"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "auth-age-verification": {
+      "name": "Age Verification",
       "description": "Age verification gate with date picker and localStorage persistence",
-      "category": "component",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "age",
+        "verification",
+        "gate"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "auth-api-key-manager": {
-      "description": "API key management UI \u2014 create keys with scoped permissions, copy to clipboard, rotate, and revoke with confirmation",
-      "category": "component",
+      "name": "API Key Manager",
+      "description": "API key management UI — create keys with scoped permissions, copy to clipboard, rotate, and revoke with confirmation",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "api-key",
+        "rotation",
+        "permissions"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "auth-audit-log": {
-      "description": "Authentication audit log viewer \u2014 filterable event timeline with user details, IP addresses, and risk indicators",
-      "category": "component",
+      "name": "Auth Audit Log",
+      "description": "Authentication audit log viewer — filterable event timeline with user details, IP addresses, and risk indicators",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "audit",
+        "log",
+        "events"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "auth-biometric": {
+      "name": "Biometric Auth",
       "description": "Biometric authentication UI using WebAuthn API with fingerprint/face recognition",
-      "category": "component",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "biometric",
+        "fingerprint",
+        "face-id"
+      ],
+      "stack": [
+        "react",
+        "next"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "auth-connected-accounts": {
+      "name": "Connected Accounts",
       "description": "OAuth provider management settings panel with connect/disconnect, lockout protection, and connection timestamps",
-      "category": "component",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "oauth",
+        "connected",
+        "accounts"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "auth-consent-screen": {
+      "name": "OAuth Consent Screen",
       "description": "OAuth authorization consent screen with scope display and risk indicators",
-      "category": "page",
+      "type": "page",
+      "category": "AUTH",
+      "tags": [],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "auth-device-trust": {
+      "name": "Trusted Devices",
       "description": "Trusted devices list with browser, OS, location info and device revocation",
-      "category": "component",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "auth-email-verification": {
+      "name": "Email Verification",
       "description": "Email verification flow with resend countdown, optional code input, expiry timer, and success/expired states",
-      "category": "module",
+      "type": "module",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "email",
+        "verification",
+        "confirm"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "auth-impersonation-banner": {
+      "name": "Impersonation Banner",
       "description": "Sticky admin impersonation banner with user info and stop button",
-      "category": "component",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "auth-invite-flow": {
-      "description": "Team member invitation flow \u2014 bulk email invite with role selection, pending invites list, and resend/revoke actions",
-      "category": "component",
+      "name": "Invite Flow",
+      "description": "Team member invitation flow — bulk email invite with role selection, pending invites list, and resend/revoke actions",
+      "type": "module",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "invite",
+        "team",
+        "email",
+        "role"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "auth-ip-allowlist": {
+      "name": "IP Allowlist",
       "description": "IP allowlist management with CIDR validation, per-entry toggles, and enforcement control",
+      "type": "component",
       "category": "AUTH",
+      "tags": [],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "zod"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "auth-lockout-screen": {
-      "description": "Account lockout page with countdown timer and unlock options",
-      "category": "page",
+      "name": "Account Lockout",
+      "description": "Account locked page after too many failed login attempts with countdown timer, animated lock icon, and alternative unlock methods",
+      "type": "page",
+      "category": "AUTH",
+      "tags": [],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "auth-login-form": {
+      "name": "Login Form",
       "description": "Centered card login form with email, password, show/hide toggle, remember me, and OAuth buttons",
-      "category": "component",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "login",
+        "form",
+        "oauth"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "auth-magic-link": {
+      "name": "Magic Link Auth",
       "description": "Passwordless magic link sign-in flow with email entry, check-email confirmation, resend countdown, and expired link handling",
-      "category": "module",
+      "type": "module",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "magic-link",
+        "passwordless",
+        "email"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "auth-mfa-recovery": {
+      "name": "MFA Recovery Codes",
       "description": "MFA recovery codes display with copy, download, print, and regenerate actions",
-      "category": "component",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "auth-oauth-buttons": {
+      "name": "OAuth Buttons",
       "description": "Branded Google, Apple, GitHub, and Microsoft OAuth sign-in buttons with loading states and multiple variants",
-      "category": "component",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "oauth",
+        "google",
+        "apple",
+        "github"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "auth-onboarding": {
-      "description": "Multi-step onboarding wizard with progress bar \u2014 welcome, profile setup, preferences, and completion",
+      "name": "Onboarding Wizard",
+      "description": "Multi-step onboarding wizard with progress bar -- welcome, profile setup, preferences, and completion",
+      "type": "module",
       "category": "AUTH",
+      "tags": [],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 8,
       "version": "1.0.0"
     },
     "auth-org-switcher": {
+      "name": "Org Switcher",
       "description": "Organization and workspace switcher dropdown with search, avatars, and create new org option",
-      "category": "component",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "org",
+        "workspace",
+        "switcher"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "auth-passkey-webauthn": {
-      "description": "WebAuthn passkey registration and login \u2014 fingerprint, face ID, and security key support with fallback options",
-      "category": "component",
+      "name": "Passkey WebAuthn",
+      "description": "WebAuthn passkey registration and login — fingerprint, face ID, and security key support with fallback options",
+      "type": "module",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "passkey",
+        "webauthn",
+        "biometric"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "auth-password-change": {
+      "name": "Password Change",
       "description": "In-app password change form with current password verification, strength meter, and confirmation",
-      "category": "component",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "zod"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "auth-password-reset": {
-      "description": "Multi-step password reset flow \u2014 email request, 6-digit code verification, new password",
-      "category": "module",
+      "name": "Password Reset Flow",
+      "description": "Multi-step password reset flow — email request, 6-digit code verification, new password with requirements checklist",
+      "type": "module",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "password",
+        "reset",
+        "flow"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "auth-profile-security": {
-      "description": "Security settings dashboard with password, 2FA, sessions, and events",
-      "category": "page",
+      "name": "Security Settings",
+      "description": "Security settings dashboard with password status, 2FA setup, active sessions, trusted devices, and recent security events",
+      "type": "page",
+      "category": "AUTH",
+      "tags": [],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 6,
       "version": "1.0.0"
     },
     "auth-rate-limit-ui": {
+      "name": "Rate Limit UI",
       "description": "Rate limiting feedback component with attempt counter, countdown timer, and progressive warnings",
-      "category": "component",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "rate-limit",
+        "retry",
+        "throttle"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "auth-rbac-permissions": {
+      "name": "RBAC Permissions UI",
       "description": "Role and permission management with interactive matrix editor, role creation dialog, and delete confirmation",
-      "category": "module",
+      "type": "module",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "rbac",
+        "roles",
+        "permissions"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "auth-seed": {
-      "description": "Autonomous auth composer \u2014 discovers security requirements, installs auth modules, and wires auth context + session management + protected routes.",
-      "category": "skill",
+      "name": "Auth Seed",
+      "description": "Autonomous auth composer -- discovers security requirements, selects auth modules, installs them, and wires the auth context + session management. Delivers a working authentication system.",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "auth-session-manager": {
+      "name": "Session Manager",
       "description": "Active sessions list with device info, last active time, and revoke controls",
-      "category": "component",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "sessions",
+        "devices",
+        "security"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "auth-signup-form": {
+      "name": "Signup Form",
       "description": "Registration form with validation, password strength meter, terms checkbox, and OAuth buttons",
-      "category": "component",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "signup",
+        "registration",
+        "validation"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "zod"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "auth-sso-saml": {
+      "name": "SSO SAML",
       "description": "SAML SSO integration module for enterprise Next.js applications",
-      "category": "module",
+      "type": "module",
+      "category": "AUTH",
+      "tags": [
+        "auth",
+        "sso",
+        "saml",
+        "enterprise"
+      ],
+      "stack": [
+        "next"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "auth-team-roles": {
-      "description": "Team member management with role assignment and invitations",
-      "category": "component",
+      "name": "Team Roles Manager",
+      "description": "Team member management with role badges, role change dropdown, member removal, search/filter, and pending invites section",
+      "type": "component",
+      "category": "AUTH",
+      "tags": [],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "bento-features": {
+      "name": "Features Bento",
       "description": "Visual feature showcase in bento grid layout with badges and configurable spans",
+      "type": "component",
       "category": "BENTO",
+      "tags": [
+        "bento",
+        "marketing",
+        "features"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "bento-grid-base": {
-      "description": "Configurable bento grid layout with CSS grid \u2014 base component for bento-style sections",
+      "name": "Bento Grid Base",
+      "description": "Configurable bento grid layout with CSS grid — base component for bento-style sections",
+      "type": "component",
       "category": "BENTO",
+      "tags": [
+        "bento",
+        "layout",
+        "grid"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "bento-saas": {
+      "name": "SaaS Showcase Bento",
       "description": "SaaS landing page bento grid with hero, features, integrations, testimonial, and stats cards",
+      "type": "component",
       "category": "BENTO",
+      "tags": [
+        "bento",
+        "marketing",
+        "saas"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "bento-stats": {
+      "name": "Stats Bento",
       "description": "Dashboard-style metrics in bento grid layout with trend indicators and badges",
+      "type": "component",
       "category": "BENTO",
+      "tags": [
+        "bento",
+        "dashboard",
+        "data"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "blog-category-page": {
+      "name": "Category Page",
       "description": "Blog category page with filtered post list, grid/list views, pagination, and sidebar",
-      "category": "page",
+      "type": "page",
+      "category": "BLOG",
+      "tags": [
+        "blog",
+        "category",
+        "filter",
+        "listing"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "blog-comments-giscus": {
-      "description": "Blog comments powered by GitHub Discussions via Giscus \u2014 zero database needed",
-      "category": "component",
+      "name": "Comments (Giscus)",
+      "description": "Blog comments powered by GitHub Discussions via Giscus — zero database needed",
+      "type": "component",
+      "category": "BLOG",
+      "tags": [
+        "blog",
+        "comments",
+        "giscus",
+        "github"
+      ],
+      "stack": [
+        "react"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "blog-reading-mode": {
-      "description": "Distraction-free reading mode toggle \u2014 hides nav, widens content, adjusts typography",
-      "category": "component",
+      "name": "Reading Mode",
+      "description": "Distraction-free reading mode toggle — hides nav, widens content, adjusts typography",
+      "type": "component",
+      "category": "BLOG",
+      "tags": [
+        "blog",
+        "reading",
+        "focus",
+        "distraction-free"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "blog-search-results": {
+      "name": "Search Results",
       "description": "Blog search results page with query highlighting, filters, and pagination",
-      "category": "page",
+      "type": "page",
+      "category": "BLOG",
+      "tags": [
+        "blog",
+        "search",
+        "results",
+        "highlight"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "blog-share-buttons": {
+      "name": "Share Buttons",
       "description": "Social media share buttons with copy-link functionality",
-      "category": "component",
+      "type": "component",
+      "category": "BLOG",
+      "tags": [
+        "blog",
+        "share",
+        "social",
+        "copy-link"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "blog-tag-cloud": {
+      "name": "Tag Cloud",
       "description": "Interactive tag cloud with weighted sizing, color scaling, and staggered animations",
-      "category": "component",
+      "type": "component",
+      "category": "BLOG",
+      "tags": [
+        "blog",
+        "tags",
+        "cloud",
+        "weighted"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "booking-availability": {
-      "description": "Free appointment slots from working hours, busy footprints, buffers and travel time \u2014 pure TypeScript, DST-correct, multi-resource",
-      "category": "utility",
+      "name": "Booking Availability",
+      "description": "Free appointment slots from working hours, busy footprints, buffers and travel time between zones — pure TypeScript, time-zone and DST correct, multi-resource, never throws.",
+      "type": "utility",
+      "category": "STORAGE",
+      "tags": [
+        "booking",
+        "scheduling",
+        "availability",
+        "typescript"
+      ],
+      "stack": [
+        "typescript"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "booking-cancellation": {
-      "description": "Whether a booking can still be cancelled and the exact late fee \u2014 free-until window, basis-point fees, pure TypeScript",
-      "category": "utility",
+      "name": "Booking Cancellation",
+      "description": "Whether a booking can still be cancelled and the exact late fee — free-until window, basis-point fees rounded half up, customer vs business, pure TypeScript.",
+      "type": "utility",
+      "category": "STORAGE",
+      "tags": [
+        "booking",
+        "cancellation",
+        "fees",
+        "typescript"
+      ],
+      "stack": [
+        "typescript"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "booking-manage-link": {
-      "description": "Account-free manage links for bookings \u2014 256-bit token, only its SHA-256 stored, one answer for every bad link; storage as callbacks",
-      "category": "module",
+      "name": "Booking Manage Link",
+      "description": "Account-free manage links for bookings — random 256-bit token, only its SHA-256 stored, constant-time check, one answer for expired/revoked/tampered/unknown; storage as callbacks, node:crypto only.",
+      "type": "module",
+      "category": "STORAGE",
+      "tags": [
+        "booking",
+        "manage-link",
+        "token",
+        "security",
+        "typescript"
+      ],
+      "stack": [
+        "typescript",
+        "node"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "booking-schema": {
-      "description": "PostgreSQL 16 booking schema that refuses every conflict itself \u2014 double booking, travel, holds, lifecycle; ships its own law battery",
-      "category": "module",
+      "name": "Booking Schema",
+      "description": "PostgreSQL 16 booking schema that refuses every conflict itself: no double booking (buffers, multi-resource), travel time between visits, request holds with deadlines, consented notes with retention, hashed manage links. Ships its own law battery.",
+      "type": "module",
+      "category": "STORAGE",
+      "tags": [
+        "booking",
+        "postgres",
+        "schema",
+        "scheduling"
+      ],
+      "stack": [
+        "postgres"
+      ],
+      "fileCount": 3,
       "version": "1.0.1"
     },
     "booking-service-area": {
-      "description": "Which service zone an address falls in, or outside \u2014 postcode patterns, accent-free localities, optional radius/polygon; pure TypeScript, no network",
-      "category": "utility",
+      "name": "Booking Service Area",
+      "description": "Which service zone an address falls in, or outside — postcode exact/prefix/range, accent-free locality, optional radius and polygon matchers; pure TypeScript, no network.",
+      "type": "utility",
+      "category": "STORAGE",
+      "tags": [
+        "booking",
+        "service-area",
+        "postcode",
+        "geo",
+        "typescript"
+      ],
+      "stack": [
+        "typescript"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "chatbot-api": {
-      "description": "Express chat API with SSE streaming, Anthropic Claude, rate limiting, and escalation",
-      "category": "ai-assistant",
+      "name": "Chatbot API",
+      "description": "Express chat API with SSE streaming, Anthropic Claude, API key auth, origin guard, rate limiting, and escalation",
+      "type": "module",
+      "category": "SUPPORT",
+      "tags": [
+        "chatbot",
+        "api",
+        "sse",
+        "streaming"
+      ],
+      "stack": [
+        "express"
+      ],
+      "fileCount": 14,
+      "version": "1.0.0",
       "composableWith": [
         "chatbot-widget",
         "chatbot-db",
@@ -346,23 +1147,58 @@
       ]
     },
     "chatbot-context": {
+      "name": "Chatbot Context",
       "description": "Dynamic context assembly engine with pluggable modules and token budgeting",
-      "category": "ai-assistant",
+      "type": "module",
+      "category": "SUPPORT",
+      "tags": [
+        "chatbot",
+        "context",
+        "prompt"
+      ],
+      "stack": [],
+      "fileCount": 11,
+      "version": "1.0.0",
       "composableWith": [
         "chatbot-api"
       ]
     },
     "chatbot-db": {
+      "name": "Chatbot Database",
       "description": "PostgreSQL schema and repository for chatbot conversations with Prisma + raw SQL options",
-      "category": "ai-assistant",
+      "type": "module",
+      "category": "SUPPORT",
+      "tags": [
+        "chatbot",
+        "schema",
+        "conversations"
+      ],
+      "stack": [
+        "postgres",
+        "prisma"
+      ],
+      "fileCount": 5,
+      "version": "1.0.0",
       "composableWith": [
         "chatbot-api",
         "chatbot-context"
       ]
     },
     "chatbot-widget": {
+      "name": "Chatbot Widget",
       "description": "Drop-in React chat widget with SSE streaming, session persistence, and human escalation",
-      "category": "ai-assistant",
+      "type": "module",
+      "category": "SUPPORT",
+      "tags": [
+        "chatbot",
+        "widget",
+        "chat"
+      ],
+      "stack": [
+        "react"
+      ],
+      "fileCount": 21,
+      "version": "1.0.0",
       "composableWith": [
         "chatbot-api",
         "chatbot-db",
@@ -370,653 +1206,2312 @@
       ]
     },
     "commerce-seed": {
-      "description": "Autonomous storefront composer \u2014 discovers business model, installs purchase flow components, and wires cart state + product types.",
-      "category": "skill",
+      "name": "Commerce Seed",
+      "description": "Autonomous storefront composer — discovers business model, selects components, installs the purchase flow, and wires cart state + product types. Delivers a working e-commerce frontend.",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "component-barcode-scanner": {
+      "name": "Barcode Scanner",
       "description": "Camera-based barcode and QR code scanner using BarcodeDetector API",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "barcode",
+        "scanner",
+        "camera"
+      ],
+      "stack": [
+        "react"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "component-code-block": {
+      "name": "Code Block",
       "description": "Syntax-highlighted code block with copy button, line numbers, and language badge",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "code",
+        "syntax",
+        "highlight",
+        "copy"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shiki"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "component-color-picker": {
+      "name": "Color Picker",
       "description": "HSL/RGB color picker with saturation canvas, presets, and EyeDropper API",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "color",
+        "picker",
+        "hsl",
+        "rgb",
+        "eyedropper"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "component-command-palette": {
+      "name": "Command Palette",
       "description": "Cmd+K command palette with search, keyboard navigation, grouped results, and shortcut display",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "command-palette",
+        "search",
+        "keyboard",
+        "cmdk"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "component-copy-button": {
+      "name": "Copy Button",
       "description": "Click-to-copy button with animated checkmark confirmation",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "copy",
+        "clipboard",
+        "button",
+        "confirmation"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "component-countdown-timer": {
-      "description": "Countdown timer with days/hours/minutes/seconds \u2014 target date and duration modes",
-      "category": "component",
+      "name": "Countdown Timer",
+      "description": "Countdown timer with days, hours, minutes, seconds — supports target date and duration modes",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "countdown",
+        "timer",
+        "clock",
+        "deadline"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "component-diff-viewer": {
+      "name": "Diff Viewer",
       "description": "Side-by-side and inline text diff viewer with built-in diff algorithm",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "diff",
+        "viewer",
+        "compare",
+        "code"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "component-emoji-picker": {
+      "name": "Emoji Picker",
       "description": "Emoji picker with search, categories, recent emojis, and keyboard navigation",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "emoji",
+        "picker",
+        "search",
+        "categories"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "component-form-builder": {
+      "name": "Form Builder",
       "description": "Multi-step form system with per-step Zod validation, field type rendering, and step progress indicator",
-      "category": "module",
+      "type": "module",
+      "category": "COMPONENTS",
+      "tags": [
+        "form",
+        "multi-step",
+        "zod",
+        "validation"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "zod"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "component-image-cropper": {
+      "name": "Image Cropper",
       "description": "Image crop and resize with aspect ratio presets, zoom, and rotation controls",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "image",
+        "crop",
+        "resize",
+        "aspect-ratio"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "component-markdown-preview": {
+      "name": "Markdown Preview",
       "description": "Live markdown editor with split preview pane and built-in parser",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "markdown",
+        "preview",
+        "editor",
+        "split"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "component-qr-code": {
-      "description": "QR code generator component with Canvas rendering and inline encoder",
-      "category": "component",
+      "name": "QR Code",
+      "description": "QR code generator component with Canvas rendering",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "qr-code",
+        "generator",
+        "scanner"
+      ],
+      "stack": [
+        "react"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "component-signature-pad": {
+      "name": "Signature Pad",
       "description": "Digital signature drawing pad with undo, clear, and PNG/SVG export",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "signature",
+        "draw",
+        "pad",
+        "canvas"
+      ],
+      "stack": [
+        "react",
+        "canvas"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "component-slider-range": {
+      "name": "Slider Range",
       "description": "Single and dual-handle range slider with tooltips, marks, and keyboard navigation",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "slider",
+        "range",
+        "input",
+        "dual-handle"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "component-star-rating": {
-      "description": "Interactive star rating with half-star support, hover preview, and keyboard navigation",
-      "category": "component",
+      "name": "Star Rating",
+      "description": "Interactive star rating with half-star support, hover preview, and accessible keyboard navigation",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "rating",
+        "stars",
+        "review",
+        "score"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "component-stepper": {
+      "name": "Stepper",
       "description": "Step progress indicator with labels, validation states, and click navigation",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "stepper",
+        "progress",
+        "steps",
+        "indicator"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "component-tag-input": {
+      "name": "Tag Input",
       "description": "Tag input with autocomplete suggestions, validation, and keyboard navigation",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "tag",
+        "input",
+        "autocomplete",
+        "chips"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "component-timeline": {
+      "name": "Timeline",
       "description": "Vertical timeline with alternating layout, icons, and scroll animations",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "timeline",
+        "vertical",
+        "history",
+        "events"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "component-toast-notifications": {
+      "name": "Toast Notifications",
       "description": "Stacked toast system with success/error/warning/info variants, auto-dismiss, and pause on hover",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "toast",
+        "notification",
+        "feedback",
+        "alert"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "component-tree-view": {
+      "name": "Tree View",
       "description": "Expandable tree view with checkboxes, lazy loading, search, and keyboard navigation",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "tree",
+        "hierarchy",
+        "expandable",
+        "checkbox"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "config-backup-script": {
-      "description": "Database and file backup scripts with rotation, encryption, S3 upload, and webhook notifications.",
-      "category": "config",
+      "name": "Backup Script",
+      "description": "Database and file backup scripts with rotation, encryption, S3 upload, and webhook notifications. Supports PostgreSQL and MySQL.",
+      "type": "config",
+      "category": "DEVOPS",
+      "tags": [
+        "backup",
+        "database",
+        "rotation",
+        "script"
+      ],
+      "stack": [
+        "bash"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "config-docker-compose-fullstack": {
-      "description": "Full-stack Docker Compose \u2014 app, PostgreSQL, Redis, and Traefik reverse proxy with SSL",
-      "category": "config",
+      "name": "Docker Compose Full Stack",
+      "description": "Full-stack Docker Compose — app, PostgreSQL, Redis, and Traefik reverse proxy with SSL",
+      "type": "config",
+      "category": "DEVOPS",
+      "tags": [
+        "docker",
+        "compose",
+        "fullstack",
+        "postgres",
+        "redis"
+      ],
+      "stack": [
+        "docker",
+        "yaml"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "config-docker-next": {
-      "description": "Docker setup for Next.js \u2014 multi-stage Dockerfile, docker-compose dev/prod, env template",
-      "category": "config",
+      "name": "Docker Next.js",
+      "description": "Production Docker setup for Next.js — multi-stage build, standalone output, and compose orchestration",
+      "type": "config",
+      "category": "DEVOPS",
+      "tags": [
+        "docker",
+        "dockerfile",
+        "compose",
+        "nextjs"
+      ],
+      "stack": [
+        "docker",
+        "yaml"
+      ],
+      "fileCount": 6,
       "version": "1.0.0"
     },
     "config-eslint-prettier": {
-      "description": "ESLint flat config + Prettier + EditorConfig for TypeScript React projects",
-      "category": "config",
+      "name": "ESLint + Prettier",
+      "description": "ESLint flat config + Prettier — TypeScript, React, import sorting, and consistent formatting",
+      "type": "config",
+      "category": "DEVOPS",
+      "tags": [
+        "eslint",
+        "prettier",
+        "lint",
+        "format"
+      ],
+      "stack": [
+        "json",
+        "js"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "config-github-actions": {
-      "description": "GitHub Actions CI/CD workflows \u2014 CI pipeline, deploy with staging/production, and semantic release",
-      "category": "config",
+      "name": "GitHub Actions CI/CD",
+      "description": "GitHub Actions workflows — CI pipeline (lint, typecheck, test), deploy, and release automation",
+      "type": "config",
+      "category": "DEVOPS",
+      "tags": [
+        "ci",
+        "cd",
+        "github-actions",
+        "lint",
+        "test"
+      ],
+      "stack": [
+        "yaml"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "config-github-pr-template": {
-      "description": "GitHub PR template, issue templates (bug report + feature request), and CODEOWNERS",
-      "category": "config",
+      "name": "GitHub PR Template",
+      "description": "GitHub PR and issue templates with review checklists, CODEOWNERS, and structured workflows",
+      "type": "config",
+      "category": "DEVOPS",
+      "tags": [
+        "github",
+        "pr",
+        "template",
+        "review"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "config-k8s-deployment": {
-      "description": "Production-ready Kubernetes manifests \u2014 Deployment, Service, Ingress, HPA, ConfigMap with security best practices.",
-      "category": "config",
+      "name": "Kubernetes Deployment",
+      "description": "Production-ready Kubernetes manifests -- Deployment, Service, Ingress, HPA, ConfigMap with security best practices and cert-manager TLS.",
+      "type": "config",
+      "category": "DEVOPS",
+      "tags": [
+        "k8s",
+        "kubernetes",
+        "deployment",
+        "service"
+      ],
+      "stack": [
+        "yaml"
+      ],
+      "fileCount": 7,
       "version": "1.0.0"
     },
     "config-monitoring-grafana": {
-      "description": "Grafana dashboards + Prometheus config \u2014 app overview, node metrics, alert rules, and Docker Compose monitoring stack.",
-      "category": "config",
+      "name": "Grafana Monitoring",
+      "description": "Grafana dashboards + Prometheus config — app overview, node metrics, alert rules, and Docker Compose monitoring stack.",
+      "type": "config",
+      "category": "DEVOPS",
+      "tags": [
+        "grafana",
+        "prometheus",
+        "monitoring",
+        "metrics"
+      ],
+      "stack": [
+        "json",
+        "yaml"
+      ],
+      "fileCount": 6,
       "version": "1.0.0"
     },
     "config-nginx-reverse-proxy": {
-      "description": "Production Nginx reverse proxy \u2014 SSL termination, rate limiting, caching, and security headers",
-      "category": "config",
+      "name": "Nginx Reverse Proxy",
+      "description": "Production Nginx reverse proxy — SSL termination, rate limiting, caching, and security headers",
+      "type": "config",
+      "category": "DEVOPS",
+      "tags": [
+        "nginx",
+        "reverse-proxy",
+        "ssl",
+        "rate-limit"
+      ],
+      "stack": [
+        "nginx"
+      ],
+      "fileCount": 6,
       "version": "1.0.0"
     },
     "config-playwright-e2e": {
+      "name": "Playwright E2E",
       "description": "Playwright E2E test setup with page object model, fixtures, and parallel execution",
-      "category": "config",
+      "type": "config",
+      "category": "DEVOPS",
+      "tags": [
+        "playwright",
+        "e2e",
+        "testing",
+        "page-objects"
+      ],
+      "stack": [
+        "typescript",
+        "playwright"
+      ],
+      "fileCount": 7,
       "version": "1.0.0"
     },
     "config-terraform-hetzner": {
-      "description": "Terraform config for Hetzner Cloud infrastructure \u2014 servers, networks, firewalls, and volumes",
-      "category": "config",
+      "name": "Terraform Hetzner",
+      "description": "Terraform config for Hetzner Cloud infrastructure -- servers, networks, firewalls, and volumes",
+      "type": "config",
+      "category": "DEVOPS",
+      "tags": [
+        "terraform",
+        "hetzner",
+        "infrastructure",
+        "iac"
+      ],
+      "stack": [
+        "terraform",
+        "hcl"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "config-turbo-monorepo": {
-      "description": "Turborepo monorepo scaffold with apps/, packages/, shared configs, and pnpm workspaces",
-      "category": "config",
+      "name": "Turbo Monorepo",
+      "description": "Turborepo monorepo scaffold — workspace structure, shared packages, and optimized pipeline",
+      "type": "config",
+      "category": "DEVOPS",
+      "tags": [
+        "turborepo",
+        "monorepo",
+        "pipeline",
+        "build"
+      ],
+      "stack": [
+        "json",
+        "yaml"
+      ],
+      "fileCount": 13,
       "version": "1.0.0"
     },
     "config-vitest-setup": {
+      "name": "Vitest Setup",
       "description": "Vitest unit test config with MSW mocks, React Testing Library, coverage, and factory helpers",
-      "category": "config",
+      "type": "config",
+      "category": "DEVOPS",
+      "tags": [
+        "vitest",
+        "testing",
+        "unit",
+        "coverage",
+        "mocks"
+      ],
+      "stack": [
+        "typescript",
+        "vitest"
+      ],
+      "fileCount": 8,
       "version": "1.0.0"
     },
     "context-engineer": {
-      "description": "Inspect, diagnose, and optimize agent context for maximum signal density. Identifies context-bloat, context-rot, and context-overfit across three layers.",
-      "category": "skill",
+      "name": "Context Engineer Skill",
+      "description": "Inspect, diagnose, and optimize agent context for maximum signal density. Identifies context-bloat, context-rot, and context-overfit across three layers: static context files, context bundles, and knowledge graph.",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [],
+      "stack": [
+        "claude"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "context-graph": {
-      "description": "Full-stack knowledge graph with hybrid search (vector + graph), RAG document ingestion, React visualization, and kg CLI + MCP integration",
-      "category": "starter",
+      "name": "Context Graph",
+      "description": "Full-stack knowledge graph with hybrid search (vector + graph), RAG document ingestion, React visualization, and CLI + MCP integration. Powered by PostgreSQL + Apache AGE, Qdrant, Redis, and FastAPI.",
+      "type": "starter",
+      "category": "AGENTIC",
+      "tags": [
+        "knowledge-graph",
+        "rag",
+        "semantic-search",
+        "postgresql-age",
+        "qdrant",
+        "mcp",
+        "vector-search",
+        "graph-database"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "postgres",
+        "python",
+        "docker"
+      ],
+      "fileCount": 51,
       "version": "1.1.0"
     },
     "context-seed": {
-      "description": "Autonomous project seeder \u2014 reads a PRD, maps requirements to packages, installs them in dependency order, delegates design system composition to design-system-seed.",
-      "category": "skill",
+      "name": "Context Seed",
+      "description": "Autonomous project seeder — reads a PRD, maps requirements to packages, installs them in dependency order, delegates design system composition to design-system-seed, and delivers a scaffolded project.",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "prd",
+        "packages",
+        "guide",
+        "kickstart",
+        "mapping"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "3.0.0"
     },
     "crm-ai-assistant": {
+      "name": "CRM AI Assistant",
       "description": "AI-powered CRM assistant with deal analysis, insights, and chat interface",
-      "category": "module",
+      "type": "module",
+      "category": "CRM",
+      "tags": [
+        "crm",
+        "ai",
+        "assistant",
+        "insights"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "crm-commission-calculator": {
+      "name": "Commission Calculator",
       "description": "Sales commission calculator with configurable tier rules and visual breakdown",
-      "category": "component",
+      "type": "component",
+      "category": "CRM",
+      "tags": [
+        "crm",
+        "commission",
+        "calculator",
+        "tiers"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "crm-company-page": {
-      "description": "Company detail page with contacts list, deal history, and activity timeline",
-      "category": "page",
+      "name": "Company Page",
+      "description": "Company detail page with header, contacts list, deal history, and activity timeline",
+      "type": "page",
+      "category": "CRM",
+      "tags": [
+        "crm",
+        "company",
+        "detail",
+        "contacts",
+        "deals"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "crm-custom-fields": {
-      "description": "Custom field system for CRM \u2014 define, configure, and render dynamic fields on contacts and deals",
-      "category": "module",
+      "name": "Custom Fields",
+      "description": "Custom field system for CRM — define, configure, and render dynamic fields on contacts and deals",
+      "type": "module",
+      "category": "CRM",
+      "tags": [
+        "crm",
+        "custom",
+        "fields",
+        "builder"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "crm-dashboard-overview": {
-      "description": "CRM overview dashboard with KPI cards, pipeline summary, revenue chart, and activity feed",
-      "category": "page",
+      "name": "CRM Dashboard",
+      "description": "CRM overview dashboard with KPI cards, pipeline summary, recent activities, and revenue chart",
+      "type": "page",
+      "category": "CRM",
+      "tags": [
+        "crm",
+        "dashboard",
+        "kpi",
+        "pipeline"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "recharts"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "crm-email-integration": {
-      "description": "CRM email integration \u2014 compose, send, receive, and thread emails linked to contacts and deals",
-      "category": "module",
+      "name": "Email Integration",
+      "description": "CRM email integration — compose, send, receive, and thread emails linked to contacts and deals",
+      "type": "module",
+      "category": "CRM",
+      "tags": [
+        "crm",
+        "email",
+        "thread",
+        "integration"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "crm-import-export": {
-      "description": "CSV import and export utilities for CRM contacts and deals \u2014 parse, validate, transform, and download",
-      "category": "utility",
+      "name": "Import/Export",
+      "description": "CSV import and export utilities for CRM contacts and deals — parse, validate, transform, and download",
+      "type": "utility",
+      "category": "CRM",
+      "tags": [
+        "crm",
+        "import",
+        "export",
+        "csv",
+        "excel"
+      ],
+      "stack": [
+        "react",
+        "next"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "crm-notes-system": {
-      "description": "Rich text notes with @mentions, timestamps, and author attribution",
-      "category": "component",
+      "name": "Notes System",
+      "description": "Rich text notes with @mentions, timestamps, and author attribution — for contacts, deals, and companies",
+      "type": "component",
+      "category": "CRM",
+      "tags": [
+        "crm",
+        "notes",
+        "mentions",
+        "attachments"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "tiptap"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "crm-reporting-charts": {
-      "description": "Sales reporting with pipeline funnel, revenue trends, win/loss analysis, and activity breakdown charts",
-      "category": "page",
+      "name": "Reporting Charts",
+      "description": "Sales reporting dashboard with pipeline funnel, revenue trends, win/loss analysis, and activity breakdown charts",
+      "type": "page",
+      "category": "CRM",
+      "tags": [
+        "crm",
+        "reporting",
+        "charts",
+        "sales"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "recharts"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "crm-sales-forecast": {
-      "description": "Sales forecasting with pipeline probability weighting, monthly projections, and confidence bands",
-      "category": "component",
+      "name": "Sales Forecast",
+      "description": "Sales forecasting widget with pipeline probability weighting, monthly projections, and confidence bands",
+      "type": "component",
+      "category": "CRM",
+      "tags": [
+        "crm",
+        "forecast",
+        "sales",
+        "probability"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "recharts"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "crm-task-manager": {
-      "description": "CRM task management \u2014 create, assign, and track tasks with due dates, priorities, and contact/deal linking",
-      "category": "module",
+      "name": "Task Manager",
+      "description": "CRM task management — create, assign, and track tasks with due dates, priorities, and contact/deal linking",
+      "type": "module",
+      "category": "CRM",
+      "tags": [
+        "crm",
+        "task",
+        "manager",
+        "assignment"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "crm-territory-map": {
+      "name": "Territory Map",
       "description": "Sales territory map with Mapbox GL, assignment management, and quota tracking",
-      "category": "module",
+      "type": "module",
+      "category": "CRM",
+      "tags": [
+        "crm",
+        "territory",
+        "map",
+        "sales"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "mapbox-gl"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "dashboard-activity-feed": {
+      "name": "Activity Feed",
       "description": "Timestamped activity timeline with avatars, action types, and entity links",
-      "category": "component",
-      "version": "1.0.0"
-    },
-    "dashboard-audit-trail": {
-      "description": "Enterprise audit trail with filters, expandable rows, stats, pagination.",
-      "category": "page",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "activity",
+        "feed",
+        "timeline"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "dashboard-calendar": {
-      "description": "Interactive calendar with month/week/day views, event display, navigation, and today indicator.",
-      "category": "component",
+      "name": "Calendar View",
+      "description": "Interactive calendar with month/week/day views, event display, navigation, today indicator, and click callbacks. shadcn/ui + Tailwind.",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "calendar",
+        "events",
+        "schedule"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "dashboard-charts": {
+      "name": "Chart Set",
       "description": "Area, bar, line, and donut chart components wrapped in shadcn Cards. Powered by recharts.",
-      "category": "component",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "charts",
+        "area",
+        "line",
+        "bar",
+        "donut"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "recharts"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "dashboard-data-table": {
-      "description": "Generic data table with sorting, filtering, pagination, row selection. TanStack Table + shadcn/ui.",
-      "category": "component",
+      "name": "Data Table",
+      "description": "Generic data table with sorting, filtering, pagination, row selection, and column visibility. TanStack Table + shadcn/ui.",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "table",
+        "data",
+        "sort",
+        "filter",
+        "pagination"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "tanstack-table"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "dashboard-feature-flags": {
-      "description": "Feature flag management dashboard with toggles, environments, targeting rules.",
-      "category": "page",
+      "name": "Feature Flags",
+      "description": "Feature flag management dashboard with toggle switches, environment badges, targeting rules, search, and delete confirmation. LaunchDarkly-style.",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "feature-flags",
+        "toggle",
+        "targeting"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "dashboard-file-browser": {
+      "name": "File Browser",
       "description": "File and folder browser with breadcrumbs, grid/list views, and file type icons",
-      "category": "component",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "files",
+        "browser",
+        "folders"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "dashboard-gantt-chart": {
-      "description": "Project timeline Gantt chart with task groups, progress bars, dependency arrows, and day/week/month views.",
-      "category": "component",
+      "name": "Gantt Chart",
+      "description": "Project timeline Gantt chart with task groups, progress bars, dependency arrows, today marker, and day/week/month views. Pure React + SVG, no external chart library.",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "gantt",
+        "timeline",
+        "project"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "dashboard-heatmap": {
-      "description": "Data heatmap with grid, calendar (GitHub-style), and correlation matrix variants.",
-      "category": "component",
+      "name": "Heatmap",
+      "description": "Data heatmap with grid, calendar (GitHub-style), and correlation matrix variants. Color-scaled cells, tooltips, legends, and summary stats.",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "heatmap",
+        "data",
+        "visualization"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "dashboard-kanban": {
-      "description": "Kanban board with native drag-and-drop, priority badges, assignee avatars, and column management.",
-      "category": "component",
+      "name": "Kanban Board",
+      "description": "Kanban board with drag-and-drop cards, priority badges, assignee avatars, column management, and horizontal scroll. shadcn/ui + Tailwind.",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "kanban",
+        "board",
+        "drag-drop"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "dnd"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "dashboard-kpi-cards": {
+      "name": "KPI Cards",
       "description": "KPI stat cards with trend indicators, percentage change, and optional sparkline mini-charts",
-      "category": "component",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "kpi",
+        "stats",
+        "sparkline"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "recharts"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "dashboard-logs-viewer": {
-      "description": "Real-time log viewer with level filtering, text search, and auto-scroll",
-      "category": "component",
+      "name": "Logs Viewer",
+      "description": "Real-time log viewer with level filtering, text search, auto-scroll, and timestamp formatting",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "logs",
+        "viewer",
+        "filter",
+        "realtime"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "dashboard-map-visualization": {
-      "description": "Geographic data visualization with SVG world map, interactive markers, choropleth regions, and stats panel.",
-      "category": "component",
+      "name": "Map Visualization",
+      "description": "Geographic data visualization with SVG world map, interactive markers, choropleth regions, tooltips, and stats panel. Zero external map dependencies.",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "map",
+        "geo",
+        "visualization"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "mapbox-gl"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "dashboard-notification-center": {
-      "description": "Bell icon popover with unread badge, notification list with tabs, mark as read, and empty state.",
-      "category": "component",
+      "name": "Notification Center",
+      "description": "Bell icon popover with unread badge, notification list with tabs (all/unread), mark as read, and empty state. shadcn/ui + Tailwind.",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "notifications",
+        "bell",
+        "badge"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "dashboard-onboarding-wizard": {
-      "description": "Multi-step onboarding wizard with progress bar, profile, preferences, team invite.",
-      "category": "page",
+      "name": "Onboarding Wizard",
+      "description": "Multi-step onboarding wizard with progress bar, profile setup, preferences, team invite, and completion summary. Self-contained React page.",
+      "type": "module",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "onboarding",
+        "wizard",
+        "steps"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "dashboard-realtime-websocket": {
-      "description": "Real-time dashboard with WebSocket simulation, live KPI cards, event feed, and sparkline charts.",
-      "category": "component",
+      "name": "Realtime WebSocket",
+      "description": "Real-time dashboard with WebSocket simulation, live KPI cards, event feed, and sparkline charts. Plug in your own WebSocket endpoint for production.",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "realtime",
+        "websocket",
+        "live"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "dashboard-resource-scheduler": {
-      "description": "Resource scheduling grid with drag-and-drop block assignment, day/week views, and capacity tracking.",
-      "category": "module",
+      "name": "Resource Scheduler",
+      "description": "Resource scheduling grid with drag-and-drop block assignment, day/week views, capacity tracking, and time navigation. HTML5 native DnD, no external dependencies.",
+      "type": "module",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "scheduler",
+        "resource",
+        "drag-drop"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "dnd"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "dashboard-search-global": {
-      "description": "Cmd+K global search dialog with recent searches, categorized results, and keyboard navigation.",
-      "category": "component",
+      "name": "Global Search",
+      "description": "Cmd+K global search dialog with recent searches, categorized results (pages/users/actions), and keyboard navigation. shadcn/ui + Tailwind.",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "search",
+        "global",
+        "keyboard"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "dashboard-seed": {
-      "description": "Autonomous dashboard composer \u2014 discovers data model, selects widgets, installs layout + components, and wires navigation config.",
-      "category": "skill",
+      "name": "Dashboard Seed",
+      "description": "Autonomous dashboard composer — discovers data model and user roles, selects widgets, installs layout + components, and wires navigation. Delivers a working dashboard shell with the right widgets for your domain.",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "dashboard-settings-page": {
+      "name": "Settings Page",
       "description": "Settings page with profile, appearance, notifications, and security tabs",
-      "category": "page",
+      "type": "page",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "settings",
+        "profile",
+        "preferences"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "dashboard-shell": {
-      "description": "Responsive dashboard layout shell with collapsible sidebar, topbar, breadcrumbs, and global search.",
-      "category": "layout",
+      "name": "Dashboard Shell",
+      "description": "Responsive dashboard layout shell with collapsible sidebar, topbar, breadcrumbs, and global search. shadcn/ui + Tailwind.",
+      "type": "layout",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "shell",
+        "sidebar",
+        "layout"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "dashboard-sidebar-nav": {
-      "description": "Collapsible sidebar navigation with grouped sections, badges, sub-items, tooltips, and mobile sheet.",
-      "category": "component",
+      "name": "Sidebar Navigation",
+      "description": "Collapsible sidebar navigation with grouped sections, badges, sub-items, tooltips when collapsed, and mobile sheet. shadcn/ui + Tailwind.",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "sidebar",
+        "nav",
+        "collapsible"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "dashboard-user-menu": {
+      "name": "User Menu",
       "description": "Avatar dropdown menu with profile, settings, theme switcher, and logout",
-      "category": "component",
+      "type": "component",
+      "category": "DASHBOARD",
+      "tags": [
+        "dashboard",
+        "user",
+        "menu",
+        "dropdown",
+        "avatar"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "data-card-grid": {
-      "description": "Responsive card grid with optional masonry layout \u2014 adapts from 1 to 4 columns",
-      "category": "component",
+      "name": "Card Grid",
+      "description": "Responsive card grid with optional masonry layout — adapts from 1 to 4 columns",
+      "type": "component",
+      "category": "DATA_DISPLAY",
+      "tags": [
+        "cards",
+        "grid",
+        "masonry",
+        "responsive"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "data-comparison-table": {
+      "name": "Comparison Table",
       "description": "Side-by-side comparison table with sticky headers and highlighted differences",
-      "category": "component",
+      "type": "component",
+      "category": "DATA_DISPLAY",
+      "tags": [
+        "comparison",
+        "table",
+        "sticky",
+        "features"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "data-json-viewer": {
+      "name": "JSON Viewer",
       "description": "Collapsible JSON tree viewer with syntax coloring, search, and copy support",
-      "category": "component",
+      "type": "component",
+      "category": "DATA_DISPLAY",
+      "tags": [
+        "json",
+        "viewer",
+        "tree",
+        "syntax"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "data-list-infinite-scroll": {
-      "description": "Virtualized infinite scroll list \u2014 loads more items as you scroll with intersection observer",
-      "category": "component",
+      "name": "Infinite Scroll List",
+      "description": "Virtualized infinite scroll list — loads more items as you scroll with intersection observer",
+      "type": "component",
+      "category": "DATA_DISPLAY",
+      "tags": [
+        "list",
+        "infinite-scroll",
+        "virtual",
+        "lazy"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "data-stats-dashboard": {
+      "name": "Stats Dashboard",
       "description": "Statistics dashboard with animated counters, trend indicators, and sparkline-style bars",
-      "category": "component",
+      "type": "component",
+      "category": "DATA_DISPLAY",
+      "tags": [
+        "stats",
+        "dashboard",
+        "counters",
+        "realtime"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "data-table-editable": {
-      "description": "Inline-editable table cells \u2014 click to edit with validation and save callbacks",
-      "category": "component",
+      "name": "Editable Table",
+      "description": "Inline-editable table cells — click to edit with validation and save callbacks",
+      "type": "component",
+      "category": "DATA_DISPLAY",
+      "tags": [
+        "table",
+        "editable",
+        "inline",
+        "validation"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "tanstack-table"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "data-table-expandable": {
-      "description": "Table with expandable row details \u2014 click to reveal nested content per row",
-      "category": "component",
+      "name": "Expandable Table",
+      "description": "Table with expandable row details — click to reveal nested content per row",
+      "type": "component",
+      "category": "DATA_DISPLAY",
+      "tags": [
+        "table",
+        "expandable",
+        "details",
+        "row"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "tanstack-table"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "data-table-virtual": {
-      "description": "Virtualized table for large datasets \u2014 renders only visible rows for 60fps scrolling",
-      "category": "component",
+      "name": "Virtual Table",
+      "description": "Virtualized table for large datasets — renders only visible rows for 60fps scrolling",
+      "type": "component",
+      "category": "DATA_DISPLAY",
+      "tags": [
+        "table",
+        "virtual",
+        "performance",
+        "large-data"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "tanstack-virtual"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "data-timeline-vertical": {
+      "name": "Vertical Timeline",
       "description": "Chronological vertical timeline with category filtering and alternating layout",
-      "category": "component",
+      "type": "component",
+      "category": "DATA_DISPLAY",
+      "tags": [
+        "timeline",
+        "vertical",
+        "chronological",
+        "filter"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "data-tree-table": {
-      "description": "Hierarchical tree table with expand/collapse \u2014 nested rows with indentation and toggle controls",
-      "category": "component",
+      "name": "Tree Table",
+      "description": "Hierarchical tree table with expand/collapse — nested rows with indentation and toggle controls",
+      "type": "component",
+      "category": "DATA_DISPLAY",
+      "tags": [
+        "table",
+        "tree",
+        "hierarchical",
+        "expand"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "tanstack-table"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "design-accessibility-primitives": {
-      "description": "Focus rings, skip links, screen reader utilities, focus traps, and reduced motion.",
-      "category": "design-system",
+      "name": "Accessibility Primitives",
+      "description": "Accessibility primitives: focus rings, skip links, screen reader utilities, focus traps, and reduced motion support. CSS utilities plus React components.",
+      "type": "design-system",
+      "category": "DESIGN_SYSTEM",
+      "tags": [
+        "a11y",
+        "focus",
+        "skip-link",
+        "screen-reader"
+      ],
+      "stack": [
+        "react",
+        "css"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "design-animation-library": {
-      "description": "Reusable animation primitives built on framer-motion with viewport triggers.",
-      "category": "design-system",
+      "name": "Animation Library",
+      "description": "Reusable animation primitives built on framer-motion. Includes AnimateIn, AnimatePresence wrapper, staggered children, and animation presets.",
+      "type": "design-system",
+      "category": "DESIGN_SYSTEM",
+      "tags": [
+        "animation",
+        "library",
+        "presets",
+        "primitives"
+      ],
+      "stack": [
+        "react",
+        "framer-motion"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "design-color-system": {
-      "description": "Semantic color palette with CSS variables, dark mode support, and contrast utilities.",
-      "category": "design-system",
+      "name": "Color System",
+      "description": "Semantic color palette with CSS custom properties, dark mode support, and contrast utilities. Built on shadcn/ui HSL color system.",
+      "type": "design-system",
+      "category": "DESIGN_SYSTEM",
+      "tags": [
+        "color",
+        "palette",
+        "semantic",
+        "css-variables"
+      ],
+      "stack": [
+        "css",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "design-component-docs-template": {
-      "description": "Template and guide for documenting design system components.",
-      "category": "document",
+      "name": "Component Docs Template",
+      "description": "Template and guide for documenting design system components. Includes a fillable component doc template and a writing guide with examples.",
+      "type": "document",
+      "category": "DESIGN_SYSTEM",
+      "tags": [
+        "docs",
+        "template",
+        "component",
+        "documentation"
+      ],
+      "stack": [
+        "mdx",
+        "react"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "design-icon-set": {
-      "description": "SVG icon system with polymorphic Icon component and 24 essential icons.",
-      "category": "design-system",
+      "name": "Icon Set",
+      "description": "SVG icon system with a polymorphic Icon component, size variants, and tree-shakeable icon definitions. 24 essential icons included.",
+      "type": "design-system",
+      "category": "DESIGN_SYSTEM",
+      "tags": [
+        "icons",
+        "svg",
+        "tree-shaking",
+        "system"
+      ],
+      "stack": [
+        "react",
+        "svg"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "design-motion-tokens": {
-      "description": "Duration, easing, and spring animation presets with reduced-motion support.",
-      "category": "design-system",
+      "name": "Motion Tokens",
+      "description": "Duration, easing, and spring animation presets as CSS custom properties. Includes reduced-motion support and Tailwind integration.",
+      "type": "design-system",
+      "category": "DESIGN_SYSTEM",
+      "tags": [
+        "motion",
+        "animation",
+        "easing",
+        "spring",
+        "duration"
+      ],
+      "stack": [
+        "css",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "design-responsive-breakpoints": {
-      "description": "Breakpoint system with container queries and mobile-first media queries.",
-      "category": "design-system",
+      "name": "Responsive Breakpoints",
+      "description": "Breakpoint system with container queries, responsive utility mixins, and mobile-first media queries. Includes Tailwind integration.",
+      "type": "design-system",
+      "category": "DESIGN_SYSTEM",
+      "tags": [
+        "responsive",
+        "breakpoints",
+        "container-queries"
+      ],
+      "stack": [
+        "css",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "design-shadow-system": {
-      "description": "Elevation shadow tokens from xs to 2xl with colored variants and dark mode.",
-      "category": "design-system",
+      "name": "Shadow System",
+      "description": "Elevation shadow tokens from xs to 2xl with colored shadow variants and dark mode support. CSS custom properties with Tailwind integration.",
+      "type": "design-system",
+      "category": "DESIGN_SYSTEM",
+      "tags": [
+        "shadow",
+        "elevation",
+        "depth",
+        "token"
+      ],
+      "stack": [
+        "css",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "design-spacing-grid": {
-      "description": "4px/8px base grid spacing system with layout utilities and gap classes.",
-      "category": "design-system",
+      "name": "Spacing Grid",
+      "description": "4px/8px base grid spacing system with CSS custom properties, layout utilities, and gap classes. Drop-in foundation for consistent spatial rhythm.",
+      "type": "design-system",
+      "category": "DESIGN_SYSTEM",
+      "tags": [
+        "spacing",
+        "grid",
+        "4px",
+        "8px",
+        "utility"
+      ],
+      "stack": [
+        "css",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "design-system-seed": {
-      "description": "Design system composition engine \u2014 maps brand identity to a working design system from 12 atomic primitives. Installs, configures, and generates the glue layer autonomously.",
-      "category": "skill",
+      "name": "Design System Seed",
+      "description": "Design system composition engine — maps brand identity to a cohesive design system from 12 atomic primitives. Generates install plan, brand overrides, and the glue layer that turns packages into one system.",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [],
+      "stack": [
+        "react",
+        "tailwind",
+        "css"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "design-theme-switcher": {
-      "description": "Light/dark/system theme toggle with React context and localStorage persistence.",
-      "category": "component",
+      "name": "Theme Switcher",
+      "description": "Light/dark/system theme toggle with React context, localStorage persistence, and CSS variable switching. Zero dependencies beyond React.",
+      "type": "component",
+      "category": "DESIGN_SYSTEM",
+      "tags": [
+        "theme",
+        "dark-mode",
+        "light-mode",
+        "toggle"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "css"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "design-tokens": {
-      "description": "Design token system with CSS custom properties \u2014 colors, typography, spacing, radius, shadows. Uses shadcn/ui defaults.",
-      "category": "design-system",
+      "name": "Design Tokens",
+      "description": "Design token system with CSS custom properties — colors, typography, spacing, radius, shadows. Uses shadcn/ui defaults as a starting point.",
+      "type": "design-system",
+      "category": "DESIGN_SYSTEM",
+      "tags": [
+        "tokens",
+        "color",
+        "typography",
+        "spacing",
+        "css-variables"
+      ],
+      "stack": [
+        "css",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "design-typography-scale": {
-      "description": "Fluid type scale with prose styles, heading hierarchy, and font stack definitions.",
-      "category": "design-system",
+      "name": "Typography Scale",
+      "description": "Fluid type scale with prose styles, heading hierarchy, and font stack definitions. Works with any font — system defaults included.",
+      "type": "design-system",
+      "category": "DESIGN_SYSTEM",
+      "tags": [
+        "typography",
+        "fluid",
+        "scale",
+        "prose"
+      ],
+      "stack": [
+        "css",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "email-abandoned-cart": {
-      "description": "E-commerce abandoned cart recovery email with product listing, order summary, and urgency CTA.",
-      "category": "email",
+      "name": "Abandoned Cart Email",
+      "description": "E-commerce abandoned cart recovery email with product listing, order summary, and urgency CTA. Built with React Email.",
+      "type": "email",
+      "category": "EMAIL",
+      "tags": [
+        "email",
+        "abandoned-cart",
+        "recovery",
+        "ecommerce"
+      ],
+      "stack": [
+        "react-email",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "email-feature-announcement": {
+      "name": "Feature Announcement Email",
       "description": "New feature announcement email with screenshot showcase, highlight cards, and CTA. Built with React Email.",
-      "category": "email",
+      "type": "email",
+      "category": "EMAIL",
+      "tags": [
+        "email",
+        "announcement",
+        "feature",
+        "marketing"
+      ],
+      "stack": [
+        "react-email",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "email-payment-failed": {
+      "name": "Payment Failed Email",
       "description": "Payment failure notification with payment details card, retry schedule, and update payment CTA. Built with React Email.",
-      "category": "email",
+      "type": "email",
+      "category": "EMAIL",
+      "tags": [
+        "email",
+        "payment",
+        "failed",
+        "retry"
+      ],
+      "stack": [
+        "react-email",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "email-product-launch": {
-      "description": "Product launch announcement email with feature highlights, social proof, pricing teaser, and early-bird CTA.",
-      "category": "email",
+      "name": "Product Launch Email",
+      "description": "Product launch announcement email with feature highlights, social proof, pricing teaser, and early-bird CTA. Built with React Email.",
+      "type": "email",
+      "category": "EMAIL",
+      "tags": [
+        "email",
+        "product",
+        "launch",
+        "announcement"
+      ],
+      "stack": [
+        "react-email",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "email-referral-program": {
-      "description": "Referral program invitation email with discount offer, referral code, and social proof.",
-      "category": "email",
+      "name": "Referral Email",
+      "description": "Referral program invitation email with discount offer, referral code, how-it-works steps, and social proof. Built with React Email.",
+      "type": "email",
+      "category": "EMAIL",
+      "tags": [
+        "email",
+        "referral",
+        "invitation",
+        "program"
+      ],
+      "stack": [
+        "react-email",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "email-team-invite": {
+      "name": "Team Invite Email",
       "description": "Team invitation email with inviter details, team info card, role badge, accept/decline actions. Built with React Email.",
-      "category": "email",
+      "type": "email",
+      "category": "EMAIL",
+      "tags": [
+        "email",
+        "invite",
+        "team",
+        "accept"
+      ],
+      "stack": [
+        "react-email",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "email-trial-ending": {
+      "name": "Trial Ending Email",
       "description": "Trial expiration warning email with urgency badge, feature loss list, pricing card, and upgrade CTA. Built with React Email.",
-      "category": "email",
+      "type": "email",
+      "category": "EMAIL",
+      "tags": [
+        "email",
+        "trial",
+        "expiring",
+        "upgrade"
+      ],
+      "stack": [
+        "react-email",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "email-verification": {
+      "name": "Verification Email",
       "description": "Email verification transactional template with confirmation button, fallback URL, and expiration notice. Built with React Email.",
-      "category": "email",
+      "type": "email",
+      "category": "EMAIL",
+      "tags": [
+        "email",
+        "verification",
+        "confirm"
+      ],
+      "stack": [
+        "react-email",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "email-weekly-digest": {
+      "name": "Weekly Digest Email",
       "description": "Weekly activity digest with stats grid, change indicators, activity feed, and key insights. Built with React Email.",
-      "category": "email",
+      "type": "email",
+      "category": "EMAIL",
+      "tags": [
+        "email",
+        "digest",
+        "weekly",
+        "summary"
+      ],
+      "stack": [
+        "react-email",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "form-address-autocomplete": {
+      "name": "Address Autocomplete",
       "description": "Address form with autocomplete suggestions and map preview placeholder",
-      "category": "component",
+      "type": "component",
+      "category": "FORMS",
+      "tags": [
+        "form",
+        "address",
+        "autocomplete",
+        "map"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "form-array-fields": {
+      "name": "Array Fields",
       "description": "Dynamic repeatable field groups with add, remove, and reorder controls",
-      "category": "component",
+      "type": "component",
+      "category": "FORMS",
+      "tags": [
+        "form",
+        "array",
+        "repeatable",
+        "dynamic"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "zod"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "form-autosave-draft": {
+      "name": "Autosave Draft",
       "description": "Form autosave hook with draft recovery, conflict detection, and debounced localStorage persistence",
-      "category": "utility",
+      "type": "utility",
+      "category": "FORMS",
+      "tags": [
+        "form",
+        "autosave",
+        "draft",
+        "recovery"
+      ],
+      "stack": [
+        "react"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "form-checkout": {
+      "name": "Checkout Form",
       "description": "Multi-step checkout form with shipping, payment, and review steps",
-      "category": "module",
+      "type": "module",
+      "category": "FORMS",
+      "tags": [
+        "form",
+        "checkout",
+        "payment",
+        "shipping"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "zod"
+      ],
+      "fileCount": 7,
       "version": "1.0.0"
     },
     "form-conditional-logic": {
+      "name": "Conditional Logic",
       "description": "Form fields with conditional show/hide rules, supporting AND/OR logic",
-      "category": "component",
+      "type": "component",
+      "category": "FORMS",
+      "tags": [
+        "form",
+        "conditional",
+        "logic",
+        "show-hide"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "zod"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "form-credit-card": {
+      "name": "Credit Card Input",
       "description": "Credit card input with auto-formatting, card type detection, and visual preview",
-      "category": "component",
+      "type": "component",
+      "category": "FORMS",
+      "tags": [
+        "form",
+        "credit-card",
+        "payment",
+        "formatting"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "form-inline-edit": {
+      "name": "Inline Edit",
       "description": "Click-to-edit inline form fields with save/cancel, validation, and async support",
-      "category": "component",
+      "type": "component",
+      "category": "FORMS",
+      "tags": [
+        "form",
+        "inline",
+        "edit",
+        "click-to-edit"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "form-phone-input": {
+      "name": "Phone Input",
       "description": "International phone input with country code picker and auto-formatting",
-      "category": "component",
+      "type": "component",
+      "category": "FORMS",
+      "tags": [
+        "form",
+        "phone",
+        "international",
+        "country"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "form-survey-builder": {
+      "name": "Survey Builder",
       "description": "Dynamic survey form builder with multiple question types and live preview",
-      "category": "module",
+      "type": "module",
+      "category": "FORMS",
+      "tags": [
+        "form",
+        "survey",
+        "builder",
+        "questions"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "zod"
+      ],
+      "fileCount": 6,
       "version": "1.0.0"
     },
     "form-wizard-multistep": {
+      "name": "Multi-Step Wizard",
       "description": "Reusable multi-step form wizard with per-step Zod validation and progress tracking",
-      "category": "module",
+      "type": "module",
+      "category": "FORMS",
+      "tags": [
+        "form",
+        "wizard",
+        "multi-step",
+        "validation"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "zod"
+      ],
+      "fileCount": 6,
       "version": "1.0.0"
     },
     "hex-grid": {
-      "description": "Hexagonal grid with cube coordinates, both orientations, hit testing, rings, spirals, and smart cover/resize",
-      "category": "utility",
+      "name": "Hex Grid",
+      "description": "Hexagonal grid with cube coordinates, both orientations, hit testing, rings, spirals, line drawing, and smart cover/resize. Derived from IVM principles.",
+      "type": "utility",
+      "category": "ANIMATION",
+      "tags": [],
+      "stack": [
+        "typescript"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "integration-ai-openai": {
+      "name": "OpenAI Integration",
       "description": "OpenAI integration with chat completions, streaming, embeddings, and structured output. Uses official SDK.",
-      "category": "integration",
+      "type": "integration",
+      "category": "INTEGRATION",
+      "tags": [
+        "openai",
+        "ai",
+        "chat",
+        "streaming"
+      ],
+      "stack": [
+        "next",
+        "react"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "integration-analytics-posthog": {
+      "name": "PostHog Analytics",
       "description": "PostHog event tracking, user identification, and feature flags for Next.js",
-      "category": "integration",
+      "type": "integration",
+      "category": "INTEGRATION",
+      "tags": [
+        "posthog",
+        "analytics",
+        "tracking",
+        "feature-flags"
+      ],
+      "stack": [
+        "next",
+        "react"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "integration-blockchain-wallet": {
+      "name": "Blockchain Wallet",
       "description": "Web3 wallet connection and transaction signing with ethers.js",
-      "category": "integration",
-      "version": "1.0.0"
-    },
-    "integration-calendar-google": {
-      "description": "Google Calendar API integration \u2014 OAuth2 client, CRUD events, incremental sync, free/busy lookup, and webhook notifications.",
-      "category": "integration",
+      "type": "integration",
+      "category": "INTEGRATION",
+      "tags": [
+        "web3",
+        "wallet",
+        "blockchain",
+        "ethereum"
+      ],
+      "stack": [
+        "react",
+        "ethers"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "integration-email-sendgrid": {
+      "name": "SendGrid Integration",
       "description": "SendGrid email sending with dynamic templates and batch support",
-      "category": "integration",
+      "type": "integration",
+      "category": "INTEGRATION",
+      "tags": [
+        "sendgrid",
+        "email",
+        "templates",
+        "api"
+      ],
+      "stack": [
+        "next"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "integration-maps-mapbox": {
+      "name": "Mapbox Maps",
       "description": "Mapbox GL interactive map with markers, popups, fly-to animations, and fit-bounds. Includes React component and standalone utilities.",
-      "category": "integration",
+      "type": "integration",
+      "category": "INTEGRATION",
+      "tags": [
+        "mapbox",
+        "maps",
+        "markers",
+        "interactive"
+      ],
+      "stack": [
+        "react",
+        "mapbox-gl"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "integration-ocr-tesseract": {
-      "description": "Tesseract.js OCR \u2014 text extraction from images with bounding boxes, structured output, language detection, and worker pool.",
-      "category": "integration",
+      "name": "Tesseract OCR",
+      "description": "Tesseract.js OCR integration — text extraction from images with bounding boxes, structured output, language detection, batch processing, and worker pool.",
+      "type": "integration",
+      "category": "INTEGRATION",
+      "tags": [
+        "ocr",
+        "tesseract",
+        "text-extraction",
+        "image"
+      ],
+      "stack": [
+        "next",
+        "node"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "integration-payments-lemon-squeezy": {
+      "name": "Lemon Squeezy",
       "description": "Lemon Squeezy payment integration with checkout, subscription management, and webhook verification.",
-      "category": "integration",
+      "type": "integration",
+      "category": "INTEGRATION",
+      "tags": [
+        "lemon-squeezy",
+        "payments",
+        "subscription"
+      ],
+      "stack": [
+        "next"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "integration-pdf-generation": {
-      "description": "Server-side PDF generation with Puppeteer \u2014 HTML-to-PDF, invoice and report templates, merge, and watermark.",
-      "category": "integration",
+      "name": "PDF Generation",
+      "description": "Server-side PDF generation with Puppeteer — HTML-to-PDF, URL-to-PDF, invoice and report templates, merge, and watermark.",
+      "type": "integration",
+      "category": "INTEGRATION",
+      "tags": [
+        "pdf",
+        "generation",
+        "puppeteer",
+        "server"
+      ],
+      "stack": [
+        "next",
+        "puppeteer"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "integration-push-notifications": {
+      "name": "Push Notifications",
       "description": "Web push notifications with service worker, VAPID auth, and React hook",
-      "category": "integration",
+      "type": "integration",
+      "category": "INTEGRATION",
+      "tags": [
+        "push",
+        "notifications",
+        "service-worker",
+        "web"
+      ],
+      "stack": [
+        "next",
+        "react"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "integration-search-algolia": {
+      "name": "Algolia Search",
       "description": "Algolia instant search with autocomplete, React components, and Tailwind styling",
-      "category": "integration",
+      "type": "integration",
+      "category": "INTEGRATION",
+      "tags": [
+        "algolia",
+        "search",
+        "instant",
+        "autocomplete"
+      ],
+      "stack": [
+        "react",
+        "algolia"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "integration-sms-twilio": {
-      "description": "Twilio SMS integration \u2014 send/receive messages, bulk SMS, delivery status, phone validation, and webhook handling.",
-      "category": "integration",
+      "name": "Twilio SMS",
+      "description": "Twilio SMS integration — send/receive messages, bulk SMS, delivery status, phone validation, and webhook handling with signature verification.",
+      "type": "integration",
+      "category": "INTEGRATION",
+      "tags": [
+        "twilio",
+        "sms",
+        "messaging"
+      ],
+      "stack": [
+        "next"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "integration-video-mux": {
+      "name": "Mux Video",
       "description": "Mux video integration with direct uploads, asset management, and React player component.",
-      "category": "integration",
+      "type": "integration",
+      "category": "INTEGRATION",
+      "tags": [
+        "mux",
+        "video",
+        "upload",
+        "player"
+      ],
+      "stack": [
+        "next",
+        "react"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "ivm-grid": {
-      "description": "IVM triangle tessellation with tri-cube coordinates, D3 symmetry, cover/resize, and hit testing",
-      "category": "utility",
+      "name": "IVM Grid",
+      "description": "IVM (Isotropic Vector Matrix) triangle tessellation with tri-cube coordinates, D3 symmetry, cover/resize, and hit testing. The mathematical foundation for hexagonal and other grids.",
+      "type": "utility",
+      "category": "ANIMATION",
+      "tags": [],
+      "stack": [
+        "typescript"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "mail-client": {
-      "description": "Trinity Mail transport: provider-agnostic sendMail() over the shared relay with durable outbox (retry + dead-letter), idempotency, message-contract headers, plaintext autogen, rate-limit + consent guardrails, and a console dev driver",
-      "category": "mail",
+      "name": "Mail Client",
+      "description": "Provider-agnostic sendMail() client with a durable outbox (retry and dead-letter), idempotency, plain-text generation, rate-limit and consent guards, and a console driver for development",
+      "type": "integration",
+      "category": "EMAIL",
+      "tags": [
+        "mail",
+        "smtp",
+        "outbox"
+      ],
+      "stack": [
+        "postgres"
+      ],
+      "fileCount": 19,
+      "version": "1.0.0",
       "composableWith": [
         "mail-templates",
         "mail-webhook",
@@ -1025,8 +3520,20 @@
       ]
     },
     "mail-dns": {
-      "description": "Provider-neutral mail-dns.yaml generator + DNS verify (SPF include / per-domain DKIM / DMARC rua / bounce subdomain) \u2014 the tenant-side mirror of the relay's onboard-domain.sh",
-      "category": "mail",
+      "name": "Mail DNS",
+      "description": "DNS records for sending domains: generates copy-paste SPF, DKIM, DMARC and bounce records and verifies that each one is published and aligned",
+      "type": "config",
+      "category": "EMAIL",
+      "tags": [
+        "mail",
+        "dns",
+        "spf",
+        "dkim",
+        "dmarc"
+      ],
+      "stack": [],
+      "fileCount": 7,
+      "version": "1.0.0",
       "composableWith": [
         "mail-client",
         "mail-templates",
@@ -1035,8 +3542,20 @@
       ]
     },
     "mail-templates": {
-      "description": "React Email base layout + 6 German-first starters (verify-email, password-reset, magic-link, welcome, receipt, generic-notification) on the vendored Trinity brand theme, with preheader support and renderEmail() emitting html + plaintext",
-      "category": "mail",
+      "name": "Mail Templates",
+      "description": "React Email transactional templates (verify, password reset, magic link, welcome, receipt, notification) with a preheader-aware base layout, German-first copy with English fallback, and HTML plus plain-text rendering",
+      "type": "email",
+      "category": "EMAIL",
+      "tags": [
+        "mail",
+        "react-email",
+        "templates"
+      ],
+      "stack": [
+        "react"
+      ],
+      "fileCount": 18,
+      "version": "1.0.0",
       "composableWith": [
         "mail-client",
         "mail-webhook",
@@ -1045,8 +3564,18 @@
       ]
     },
     "mail-tresor": {
-      "description": "Tresor env-schema fragment governing the full Trinity Mail env contract (SMTP creds, webhook secret, body key) with per-key risk/rotation/validation",
-      "category": "mail",
+      "name": "Mail Env Schema",
+      "description": "Environment schema fragment for mail settings: every key declared with risk level, rotation policy, validation and a secret flag, plus an example env file",
+      "type": "config",
+      "category": "EMAIL",
+      "tags": [
+        "mail",
+        "env",
+        "schema"
+      ],
+      "stack": [],
+      "fileCount": 4,
+      "version": "1.0.0",
       "composableWith": [
         "mail-client",
         "mail-templates",
@@ -1055,8 +3584,20 @@
       ]
     },
     "mail-webhook": {
-      "description": "Signature-verified relay webhook receivers (delivery events + bounces), email_logs/email_events lifecycle with a local suppression mirror, and crypto-shreddable AES-256-GCM body retention",
-      "category": "mail",
+      "name": "Mail Webhook",
+      "description": "Signature-verified webhook receivers for delivery events and bounces, with an append-only event log, a suppression list checked before sending, and encrypted, erasable body retention",
+      "type": "integration",
+      "category": "EMAIL",
+      "tags": [
+        "mail",
+        "webhook",
+        "bounces"
+      ],
+      "stack": [
+        "postgres"
+      ],
+      "fileCount": 16,
+      "version": "1.0.0",
       "composableWith": [
         "mail-client",
         "mail-templates",
@@ -1065,610 +3606,2181 @@
       ]
     },
     "page-app-download": {
-      "description": "Mobile app download page with store badges",
-      "category": "page",
+      "name": "App Download Page",
+      "description": "Mobile app download page with store badges, phone mockup, features grid, screenshot gallery, and QR code section",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "app",
+        "download",
+        "mobile",
+        "store-badges"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 6,
       "version": "1.0.0"
     },
     "page-careers": {
+      "name": "Careers Page",
       "description": "Job listings page with filters and apply flow",
-      "category": "page",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "careers",
+        "jobs",
+        "listings",
+        "apply"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "page-case-study": {
+      "name": "Case Study Page",
       "description": "Case study template with problem, solution, results",
-      "category": "page",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "case-study",
+        "portfolio",
+        "results"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 6,
       "version": "1.0.0"
     },
     "page-coming-soon": {
-      "description": "Coming soon page with countdown and email capture",
-      "category": "page",
+      "name": "Coming Soon Page",
+      "description": "Coming soon page with countdown timer, email capture form, and social links. Dark gradient background with flip-style countdown animation.",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "coming-soon",
+        "countdown",
+        "email",
+        "launch"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "page-event-landing": {
+      "name": "Event Landing Page",
       "description": "Event landing page with speakers, schedule, pricing tiers, and sponsor sections",
-      "category": "page",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "event",
+        "landing",
+        "speakers",
+        "schedule"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "page-faq": {
+      "name": "FAQ Page",
       "description": "FAQ page with categories and search",
-      "category": "page",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "faq",
+        "questions",
+        "answers",
+        "search"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "page-partner-integrations": {
+      "name": "Partner Integrations Page",
       "description": "Integration marketplace with categories, search, and detail panels",
-      "category": "page",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "integrations",
+        "partners",
+        "marketplace"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "page-podcast-show": {
+      "name": "Podcast Page",
       "description": "Podcast show page with episode list, season filters, and interactive audio player bar",
-      "category": "page",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "podcast",
+        "episodes",
+        "audio",
+        "player"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "page-press-kit": {
+      "name": "Press Kit Page",
       "description": "Press kit with logos, photos, and brand guidelines",
-      "category": "page",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "press",
+        "kit",
+        "logos",
+        "brand"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "page-restaurant-menu": {
+      "name": "Restaurant Menu Page",
       "description": "Digital restaurant menu with category navigation, dietary badges, and elegant dark theme",
-      "category": "page",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "restaurant",
+        "menu",
+        "food",
+        "categories"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "page-saas-comparison": {
+      "name": "SaaS Comparison Page",
       "description": "SaaS tool comparison page with scoring matrix, card view, and interactive filters",
-      "category": "page",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "saas",
+        "comparison",
+        "scoring",
+        "matrix"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "page-security-trust": {
-      "description": "Security practices and compliance badges page",
-      "category": "page",
+      "name": "Security & Trust Page",
+      "description": "Security practices and compliance badges page with trust stats, data handling policies, and responsible disclosure info",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "security",
+        "trust",
+        "compliance",
+        "certifications"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "page-status": {
-      "description": "Service status page with uptime and incidents",
-      "category": "page",
+      "name": "Status Page",
+      "description": "Service status page with uptime chart, service cards, recent incidents, and subscribe-to-updates section",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "status",
+        "uptime",
+        "incidents",
+        "monitoring"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "page-waitlist": {
-      "description": "Pre-launch waitlist with position counter",
-      "category": "page",
+      "name": "Waitlist Page",
+      "description": "Pre-launch waitlist page with email signup, animated position counter, social sharing, and referral system",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "waitlist",
+        "pre-launch",
+        "signup",
+        "counter"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "pdf-certificate": {
-      "name": "pdf-certificate",
-      "description": "Elegant certificate of completion/achievement PDF with decorative borders and signature field \u2014 powered by @react-pdf/renderer",
+      "name": "Certificate Template",
+      "description": "Elegant certificate of completion/achievement PDF with decorative borders and signature field — powered by @react-pdf/renderer",
+      "type": "document",
+      "category": "PDF",
+      "tags": [
+        "pdf",
+        "certificate",
+        "achievement",
+        "completion"
+      ],
+      "stack": [
+        "react-pdf",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "pdf-contract": {
-      "name": "pdf-contract",
-      "description": "Service contract PDF with numbered clauses, payment terms, and signature blocks \u2014 powered by @react-pdf/renderer",
+      "name": "Contract Template",
+      "description": "Service contract PDF with numbered clauses, payment terms, and signature blocks — powered by @react-pdf/renderer",
+      "type": "document",
+      "category": "PDF",
+      "tags": [
+        "pdf",
+        "contract",
+        "legal",
+        "signature"
+      ],
+      "stack": [
+        "react-pdf",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "pdf-cover-letter": {
-      "name": "pdf-cover-letter",
-      "description": "Professional cover letter PDF with applicant info, body paragraphs, and signature \u2014 powered by @react-pdf/renderer",
+      "name": "Cover Letter Template",
+      "description": "Professional cover letter PDF with applicant info, body paragraphs, and signature — powered by @react-pdf/renderer",
+      "type": "document",
+      "category": "PDF",
+      "tags": [
+        "pdf",
+        "cover-letter",
+        "application"
+      ],
+      "stack": [
+        "react-pdf",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "pdf-data-export": {
-      "name": "pdf-data-export",
-      "description": "Tabular data export to formatted PDF with auto-pagination and summary \u2014 powered by @react-pdf/renderer",
+      "name": "Data Export PDF",
+      "description": "Tabular data export to formatted PDF with auto-pagination and summary — powered by @react-pdf/renderer",
+      "type": "document",
+      "category": "PDF",
+      "tags": [
+        "pdf",
+        "data",
+        "export",
+        "table"
+      ],
+      "stack": [
+        "react-pdf",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "pdf-invoice-template": {
-      "name": "pdf-invoice-template",
-      "description": "Professional invoice PDF with line items, tax calculation, and payment details \u2014 powered by @react-pdf/renderer",
+      "name": "Invoice Template",
+      "description": "Professional invoice PDF with line items, tax calculation, and payment details — powered by @react-pdf/renderer",
+      "type": "document",
+      "category": "PDF",
+      "tags": [
+        "pdf",
+        "invoice",
+        "financial",
+        "line-items"
+      ],
+      "stack": [
+        "react-pdf",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "pdf-nda": {
-      "name": "pdf-nda",
-      "description": "Non-Disclosure Agreement PDF with numbered articles, party details, and signature blocks \u2014 powered by @react-pdf/renderer",
+      "name": "NDA Template",
+      "description": "Non-Disclosure Agreement PDF with numbered articles, party details, and signature blocks — powered by @react-pdf/renderer",
+      "type": "document",
+      "category": "PDF",
+      "tags": [
+        "pdf",
+        "nda",
+        "legal",
+        "confidentiality"
+      ],
+      "stack": [
+        "react-pdf",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "pdf-proposal": {
-      "name": "pdf-proposal",
-      "description": "Business proposal PDF with scope, deliverables, pricing table, and timeline \u2014 powered by @react-pdf/renderer",
+      "name": "Proposal Template",
+      "description": "Business proposal PDF with scope, deliverables, pricing table, and timeline — powered by @react-pdf/renderer",
+      "type": "document",
+      "category": "PDF",
+      "tags": [
+        "pdf",
+        "proposal",
+        "business",
+        "pricing"
+      ],
+      "stack": [
+        "react-pdf",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "pdf-receipt": {
-      "name": "pdf-receipt",
-      "description": "Payment receipt PDF with transaction details, PAID stamp, and payment method \u2014 powered by @react-pdf/renderer",
+      "name": "Receipt Template",
+      "description": "Payment receipt PDF with transaction details, PAID stamp, and payment method — powered by @react-pdf/renderer",
+      "type": "document",
+      "category": "PDF",
+      "tags": [
+        "pdf",
+        "receipt",
+        "payment",
+        "transaction"
+      ],
+      "stack": [
+        "react-pdf",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "pdf-report-branded": {
-      "name": "pdf-report-branded",
-      "description": "Branded PDF report with header, footer, tables, and bar charts \u2014 powered by @react-pdf/renderer",
+      "name": "Branded Report",
+      "description": "Branded PDF report with header, footer, tables, and bar charts — powered by @react-pdf/renderer",
+      "type": "document",
+      "category": "PDF",
+      "tags": [
+        "pdf",
+        "report",
+        "branded",
+        "charts"
+      ],
+      "stack": [
+        "react-pdf",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "pdf-resume": {
-      "name": "pdf-resume",
-      "description": "Professional resume/CV PDF with experience, education, skills sections \u2014 ATS-friendly, powered by @react-pdf/renderer",
+      "name": "Resume Template",
+      "description": "Professional resume/CV PDF with experience, education, skills sections — ATS-friendly, powered by @react-pdf/renderer",
+      "type": "document",
+      "category": "PDF",
+      "tags": [
+        "pdf",
+        "resume",
+        "cv",
+        "professional"
+      ],
+      "stack": [
+        "react-pdf",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "pipe-content-pipeline": {
-      "description": "Content creation pipeline \u2014 research, draft, edit, publish workflow",
-      "category": "pipe",
+      "name": "Content Pipeline",
+      "description": "Content creation pipeline — multi-stage workflow for research, drafting, editing, and publishing content",
+      "type": "pipe",
+      "category": "AGENTIC",
+      "tags": [
+        "content",
+        "pipeline",
+        "research",
+        "publish"
+      ],
+      "stack": [
+        "markdown",
+        "python"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "pipe-onboarding-automation": {
+      "name": "Onboarding Automation",
       "description": "Automated employee/user onboarding pipeline with configurable steps per role",
-      "category": "pipe",
+      "type": "pipe",
+      "category": "AGENTIC",
+      "tags": [
+        "onboarding",
+        "automation",
+        "pipeline"
+      ],
+      "stack": [
+        "markdown",
+        "python"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "pipe-plan-build-review": {
+      "name": "Plan-Build-Review Pipeline",
       "description": "Full agentic pipeline: plan, build, review, fix. Each phase runs as a focused Claude agent with restricted tools and file visibility via .claudeignore.",
-      "category": "pipe",
+      "type": "pipe",
+      "category": "AGENTIC",
+      "tags": [
+        "pipeline",
+        "plan",
+        "build",
+        "review"
+      ],
+      "stack": [
+        "markdown",
+        "python"
+      ],
+      "fileCount": 15,
       "version": "2.0.0"
     },
     "pipe-security-audit": {
-      "description": "Security audit pipeline \u2014 OWASP checks, dependency scanning, secrets detection, report generation",
-      "category": "pipe",
+      "name": "Security Audit Pipeline",
+      "description": "Security audit pipeline — OWASP checks, dependency scanning, secrets detection, and report generation",
+      "type": "pipe",
+      "category": "AGENTIC",
+      "tags": [
+        "security",
+        "audit",
+        "pipeline",
+        "report"
+      ],
+      "stack": [
+        "markdown",
+        "python"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "prd-architect": {
-      "description": "Write and iterate on AI-optimized Product Requirements Documents",
-      "category": "skill",
+      "name": "PRD Architect",
+      "description": "Write and iterate on AI-optimized Product Requirements Documents with full lifecycle support",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "skill",
+        "prd",
+        "requirements"
+      ],
+      "stack": [],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "prd-discovery": {
-      "description": "Deep product discovery session \u2014 asks provocative questions, maps user flows, eliminates uncertainty, produces PRD-ready Discovery Canvas",
-      "category": "skill",
-      "version": "1.0.0"
+      "name": "PRD Discovery Skill",
+      "description": "Product discovery skill — structured brainstorming sessions that produce PRD-ready discovery canvases. Phase-gated conversation with meta-cognitive monitoring, conversation excerpts, pre-decided client protocol, discovery off-ramp, and multi-PRD detection.",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 4,
+      "version": "3.0.0"
     },
     "pricing-billing-toggle": {
+      "name": "Billing Toggle",
       "description": "Monthly/annual billing switch with savings percentage badge",
-      "category": "component",
+      "type": "component",
+      "category": "PRICING",
+      "tags": [
+        "pricing",
+        "toggle",
+        "monthly",
+        "annual",
+        "billing"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "pricing-calculator": {
+      "name": "Price Calculator",
       "description": "Usage-based pricing calculator with slider and tier breakdown",
-      "category": "component",
+      "type": "component",
+      "category": "PRICING",
+      "tags": [
+        "pricing",
+        "calculator",
+        "usage",
+        "slider"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "pricing-cards": {
+      "name": "Pricing Cards",
       "description": "2-4 tier pricing cards with highlighted recommended plan",
-      "category": "component",
+      "type": "component",
+      "category": "PRICING",
+      "tags": [
+        "pricing",
+        "cards",
+        "tiers",
+        "plans"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "pricing-comparison-table": {
+      "name": "Comparison Table",
       "description": "Full feature comparison matrix across pricing plans",
-      "category": "component",
+      "type": "component",
+      "category": "PRICING",
+      "tags": [
+        "pricing",
+        "comparison",
+        "features",
+        "matrix"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "pricing-enterprise-cta": {
+      "name": "Enterprise CTA",
       "description": "Enterprise contact sales CTA section with feature highlights",
-      "category": "component",
+      "type": "component",
+      "category": "PRICING",
+      "tags": [
+        "pricing",
+        "enterprise",
+        "contact",
+        "sales"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "pricing-faq": {
+      "name": "Pricing FAQ",
       "description": "Pricing FAQ accordion section with smooth expand/collapse animation",
-      "category": "component",
+      "type": "component",
+      "category": "PRICING",
+      "tags": [
+        "pricing",
+        "faq",
+        "accordion",
+        "questions"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "pricing-plan-badge": {
+      "name": "Plan Badge",
       "description": "Current plan badge with upgrade indicator",
-      "category": "component",
+      "type": "component",
+      "category": "PRICING",
+      "tags": [
+        "pricing",
+        "plan",
+        "badge",
+        "upgrade"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "pricing-quota-warning": {
+      "name": "Quota Warning",
       "description": "Approaching quota warning banner with dismiss and upgrade actions",
-      "category": "component",
+      "type": "component",
+      "category": "PRICING",
+      "tags": [
+        "pricing",
+        "quota",
+        "warning",
+        "banner"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "pricing-upgrade-modal": {
+      "name": "Upgrade Modal",
       "description": "Plan upgrade modal with feature comparison",
-      "category": "component",
+      "type": "component",
+      "category": "PRICING",
+      "tags": [
+        "pricing",
+        "upgrade",
+        "modal",
+        "comparison"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "pricing-usage-meter": {
+      "name": "Usage Meter",
       "description": "Usage meter with quota bar and overage warning",
-      "category": "component",
+      "type": "component",
+      "category": "PRICING",
+      "tags": [
+        "pricing",
+        "usage",
+        "meter",
+        "quota"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "primitive-alert": {
-      "description": "Alert banner with variants and dismiss",
-      "category": "component",
+      "name": "Alert",
+      "description": "Alert banner with info/success/warning/error variants and optional dismiss button",
+      "type": "component",
+      "category": "PRIMITIVES",
+      "tags": [
+        "ui",
+        "primitive",
+        "feedback"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "primitive-avatar": {
-      "description": "Avatar with status dot and group stacking",
-      "category": "component",
+      "name": "Avatar",
+      "description": "Avatar with image, fallback initials, status dot, and group stacking",
+      "type": "component",
+      "category": "PRIMITIVES",
+      "tags": [
+        "ui",
+        "primitive"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "primitive-badge": {
-      "description": "Badge with color variants and dot indicator",
-      "category": "component",
+      "name": "Badge",
+      "description": "Badge/chip with color variants (default/success/warning/info/destructive) and dot indicator",
+      "type": "component",
+      "category": "PRIMITIVES",
+      "tags": [
+        "ui",
+        "primitive"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "primitive-button": {
-      "description": "Button with variants, sizes, and loading state",
-      "category": "component",
+      "name": "Button",
+      "description": "Button with variants (default/destructive/outline/ghost/link), sizes, and loading state",
+      "type": "component",
+      "category": "PRIMITIVES",
+      "tags": [
+        "ui",
+        "primitive",
+        "interactive"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "primitive-card": {
-      "description": "Card with header/body/footer and interactive variant",
-      "category": "component",
+      "name": "Card",
+      "description": "Card container with header, body, and footer slots — plus interactive hover variant",
+      "type": "component",
+      "category": "PRIMITIVES",
+      "tags": [
+        "ui",
+        "primitive",
+        "layout"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "primitive-dropdown": {
-      "description": "Dropdown menu with icons and destructive variant",
-      "category": "component",
+      "name": "Dropdown",
+      "description": "Dropdown menu with items, separators, labels, icon slots, and destructive variant",
+      "type": "component",
+      "category": "PRIMITIVES",
+      "tags": [
+        "ui",
+        "primitive",
+        "interactive"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "primitive-input": {
-      "description": "Input with icon slots and error state",
-      "category": "component",
+      "name": "Input",
+      "description": "Input field with optional leading/trailing icon, error state, and helper text",
+      "type": "component",
+      "category": "PRIMITIVES",
+      "tags": [
+        "ui",
+        "primitive",
+        "form"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "primitive-modal": {
-      "description": "Modal dialog with size variants and focus trap",
-      "category": "component",
+      "name": "Modal",
+      "description": "Modal dialog with size variants (sm/default/lg/xl/full), header, body, footer slots and built-in close button",
+      "type": "component",
+      "category": "PRIMITIVES",
+      "tags": [
+        "ui",
+        "primitive",
+        "overlay"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "primitive-separator": {
-      "description": "Separator with labeled variant",
-      "category": "component",
+      "name": "Separator",
+      "description": "Horizontal or vertical separator — plus LabeledSeparator with centered text",
+      "type": "component",
+      "category": "PRIMITIVES",
+      "tags": [
+        "ui",
+        "primitive",
+        "layout"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "primitive-skeleton": {
-      "description": "Skeleton with text/card/article/table presets",
-      "category": "component",
+      "name": "Skeleton",
+      "description": "Skeleton loader — base Skeleton plus SkeletonText, SkeletonCard, SkeletonArticle, SkeletonTableRow presets",
+      "type": "component",
+      "category": "PRIMITIVES",
+      "tags": [
+        "ui",
+        "primitive",
+        "loading"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "primitive-spinner": {
-      "description": "Loading spinner with size and color variants",
-      "category": "component",
+      "name": "Spinner",
+      "description": "Loading spinner with size (xs/sm/default/lg/xl) and color variants",
+      "type": "component",
+      "category": "PRIMITIVES",
+      "tags": [
+        "ui",
+        "primitive",
+        "loading"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "primitive-tooltip": {
-      "description": "Tooltip with placement and convenience wrapper",
-      "category": "component",
+      "name": "Tooltip",
+      "description": "Tooltip with configurable placement and delay — convenience wrapper + low-level exports",
+      "type": "component",
+      "category": "PRIMITIVES",
+      "tags": [
+        "ui",
+        "primitive"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "scraper-bun-hono": {
-      "description": "Self-hosted web scraper starter \u2014 Bun + Hono + Postgres with content cache, per-domain policy learning, and bundled Claude skill. Grows into a full tier-escalation cascade.",
-      "category": "starter",
+      "name": "Bun + Hono Scraper Starter",
+      "description": "Self-hosted web scraper starter with Bun, Hono and Postgres: content cache, per-domain policy learning and a bundled Claude skill; grows into a tiered fetch cascade (headless browser, proxy rotation, hosted fallback)",
+      "type": "starter",
+      "category": "DEVOPS",
+      "tags": [
+        "scraper",
+        "crawler",
+        "self-hosted",
+        "hetzner"
+      ],
+      "stack": [
+        "bun",
+        "hono",
+        "postgres",
+        "docker",
+        "typescript"
+      ],
+      "fileCount": 15,
       "version": "1.0.0"
     },
     "section-cta": {
+      "name": "CTA Section",
       "description": "Call-to-action section with dark, brand, and light background variants",
+      "type": "component",
       "category": "SECTIONS",
+      "tags": [
+        "section",
+        "marketing",
+        "conversion"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "section-faq": {
+      "name": "FAQ Section",
       "description": "FAQ section with shadcn accordion and optional category tabs",
+      "type": "component",
       "category": "SECTIONS",
+      "tags": [
+        "section",
+        "marketing",
+        "content"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "section-features": {
+      "name": "Features Section",
       "description": "Features section with icon cards in 3-column or 4-column responsive grid layout",
+      "type": "component",
       "category": "SECTIONS",
+      "tags": [
+        "section",
+        "marketing",
+        "landing"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "section-hero": {
-      "description": "Hero section with centered, split, and video variants \u2014 responsive with dark mode support",
+      "name": "Hero Section",
+      "description": "Hero section with centered, split, and video variants — responsive with dark mode support",
+      "type": "component",
       "category": "SECTIONS",
+      "tags": [
+        "section",
+        "marketing",
+        "landing"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "section-logo-cloud": {
-      "description": "Logo cloud section with static grid or infinite marquee scroll",
+      "name": "Logo Cloud Section",
+      "description": "Logo cloud section with static grid or infinite marquee scroll — inline SVG logos, zero dependencies",
+      "type": "component",
       "category": "SECTIONS",
+      "tags": [
+        "section",
+        "marketing",
+        "social-proof"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "section-pricing": {
+      "name": "Pricing Section",
       "description": "Pricing section with tier cards, billing toggle, feature lists, and highlighted popular plan",
+      "type": "component",
       "category": "SECTIONS",
+      "tags": [
+        "section",
+        "marketing",
+        "pricing"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "section-stats": {
+      "name": "Stats Section",
       "description": "Stats section with animated count-up numbers, separators, and responsive grid",
+      "type": "component",
       "category": "SECTIONS",
+      "tags": [
+        "section",
+        "marketing",
+        "data"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "section-testimonials": {
+      "name": "Testimonials Section",
       "description": "Testimonials section with avatar cards, star ratings, and responsive grid layout",
+      "type": "component",
       "category": "SECTIONS",
+      "tags": [
+        "section",
+        "marketing",
+        "social-proof"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "shop-cart": {
-      "description": "Shopping cart sheet with quantity controls, order summary, localStorage persistence, and empty state.",
-      "category": "component",
+      "name": "Shopping Cart",
+      "description": "Shopping cart sheet with quantity controls, order summary, localStorage persistence, and empty state. shadcn/ui + Tailwind.",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "shop",
+        "ecommerce",
+        "shadcn"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "shop-category-nav": {
+      "name": "Category Navigation",
       "description": "Hierarchical category sidebar with accordion tree, breadcrumbs, count badges, and mobile sheet",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "shop",
+        "ecommerce",
+        "shadcn"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "shop-checkout": {
+      "name": "Checkout Flow",
       "description": "Multi-step checkout flow with shipping, payment, review, and confirmation steps",
-      "category": "page",
+      "type": "page",
+      "category": "COMPONENTS",
+      "tags": [
+        "shop",
+        "ecommerce",
+        "shadcn"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "shop-order-history": {
-      "description": "Order history page with status badges, expandable row details, re-order action, date filtering, and pagination.",
-      "category": "page",
+      "name": "Order History",
+      "description": "Order history page with status badges, expandable row details, re-order action, date filtering, and pagination. shadcn/ui + Tailwind.",
+      "type": "page",
+      "category": "DASHBOARD",
+      "tags": [
+        "shop",
+        "ecommerce",
+        "shadcn",
+        "dashboard"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "shop-product-detail": {
-      "description": "Product detail page with image gallery, variant selectors, rating, tabs for description/reviews/specs.",
-      "category": "component",
+      "name": "Product Detail",
+      "description": "Product detail page with image gallery, variant selectors, rating, tabs for description/reviews/specs. shadcn/ui + Tailwind.",
+      "type": "page",
+      "category": "COMPONENTS",
+      "tags": [
+        "shop",
+        "ecommerce",
+        "shadcn"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "shop-product-grid": {
+      "name": "Product Grid",
       "description": "Responsive product card grid with image, price, rating, sale badges, add-to-cart, and grid/list toggle",
-      "category": "component",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "shop",
+        "ecommerce",
+        "shadcn"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "shop-search-filters": {
-      "description": "Product search with faceted filters: price range, category checkboxes, color swatches, sort dropdown, and active filter badges.",
-      "category": "component",
+      "name": "Search & Filters",
+      "description": "Product search with faceted filters: price range, category checkboxes, color swatches, sort dropdown, and active filter badges. shadcn/ui + Tailwind.",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "shop",
+        "ecommerce",
+        "shadcn"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "shop-wishlist": {
-      "description": "Wishlist grid with heart toggle, move-to-cart, share list, localStorage persistence, and empty state.",
-      "category": "component",
+      "name": "Wishlist",
+      "description": "Wishlist grid with heart toggle, move-to-cart, share list, localStorage persistence, and empty state. shadcn/ui + Tailwind.",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "shop",
+        "ecommerce",
+        "shadcn"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "sidebar-dashboard": {
+      "name": "Dashboard Sidebar",
       "description": "Collapsible app sidebar with nav groups, icons, badge counts, and user menu",
-      "category": "layout",
+      "type": "layout",
+      "category": "SIDEBAR",
+      "tags": [
+        "sidebar",
+        "navigation",
+        "layout"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "sidebar-docs": {
+      "name": "Docs Sidebar",
       "description": "Documentation tree sidebar with nested sections, expand/collapse, and search",
-      "category": "layout",
+      "type": "layout",
+      "category": "SIDEBAR",
+      "tags": [
+        "sidebar",
+        "navigation",
+        "docs"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 4,
       "version": "1.0.0"
     },
     "sidebar-mobile": {
+      "name": "Mobile Sidebar",
       "description": "Slide-out mobile drawer sidebar with overlay and close button",
-      "category": "layout",
+      "type": "layout",
+      "category": "SIDEBAR",
+      "tags": [
+        "sidebar",
+        "navigation",
+        "mobile"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "sidebar-settings": {
+      "name": "Settings Sidebar",
       "description": "Settings panel sidebar with grouped section links and active highlight",
-      "category": "layout",
+      "type": "layout",
+      "category": "SIDEBAR",
+      "tags": [
+        "sidebar",
+        "navigation",
+        "settings"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "shadcn"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "site-starter": {
-      "description": "Next 16 + Tailwind 4 (no preflight) + TypeScript strict starter for a client website with design-sync, guard tests and a standalone build",
-      "category": "starter",
+      "name": "Site Starter",
+      "description": "Company website starter — Next 16, React 19, Tailwind 4 without preflight, a Claude Design export turned into tokens and a typed class catalog (design-sync), guard tests for facts and colours",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "nextjs",
+        "tailwind",
+        "design-sync",
+        "starter",
+        "standalone"
+      ],
+      "stack": [
+        "next",
+        "react",
+        "tailwind",
+        "typescript",
+        "vitest"
+      ],
+      "fileCount": 27,
       "version": "1.0.0"
     },
     "skill-accessibility": {
+      "name": "Accessibility Skill",
       "description": "WCAG compliance and accessibility audit skill",
-      "category": "skill",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "a11y",
+        "accessibility",
+        "wcag",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "skill-api-design": {
-      "description": "REST and GraphQL API design best practices \u2014 resource modeling, versioning, error handling, pagination",
-      "category": "skill",
+      "name": "API Design Skill",
+      "description": "REST and GraphQL API design best practices — resource modeling, versioning, error handling, pagination",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "api",
+        "rest",
+        "graphql",
+        "design",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "skill-copywriter": {
-      "description": "Content creation skill \u2014 SEO-aware copy, blog posts, headlines",
-      "category": "skill",
+      "name": "Copywriter Skill",
+      "description": "Content creation skill — SEO-aware copy, blog posts, headlines, marketing content",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "copywriting",
+        "seo",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "skill-data-analysis": {
-      "description": "Data analysis skill \u2014 statistical analysis, data visualization, pattern recognition, reporting",
-      "category": "skill",
+      "name": "Data Analysis Skill",
+      "description": "Data analysis skill — statistical analysis, data visualization, pattern recognition, reporting",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "data",
+        "analysis",
+        "visualization",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "skill-database": {
-      "description": "Database ontologist skill \u2014 PostgreSQL schema as constitution: enums, named CHECKs, explicit FK policy, law-naming triggers, re-runnable migrations with grants, scratch-DB batteries proven by mutants, query and index patterns. Pairs with agent-ontologist.",
-      "category": "skill",
+      "name": "Database Skill",
+      "description": "Database ontologist skill — PostgreSQL schema as constitution: enums, named CHECKs, explicit FK policy, law-naming triggers, re-runnable migrations with grants, scratch-DB batteries proven by mutants, query and index patterns. Pairs with agent-ontologist.",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "database",
+        "postgres",
+        "migration",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "2.0.0"
     },
     "skill-design-system": {
-      "description": "Agent skill for building and maintaining design system components.",
-      "category": "skill",
+      "name": "Design System Skill",
+      "description": "Agent skill for building, maintaining, and iterating on design system components. Covers token management, component creation, Storybook stories, and documentation.",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "design-system",
+        "storybook",
+        "ui",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "skill-devops": {
+      "name": "DevOps Skill",
       "description": "Infrastructure and deployment skill",
-      "category": "skill",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "devops",
+        "infrastructure",
+        "deployment",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "skill-graph-engineering": {
+      "name": "Graph Engineering Skill",
       "description": "Maintainer's skill for a Postgres + Apache AGE + Qdrant knowledge graph: rebuild-gate-flip projections, tokenizer-true chunking, bound Cypher, rank fusion, retrieval gates, AGE dialect traps",
-      "category": "skill",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "skill",
+        "knowledge-graph",
+        "apache-age",
+        "qdrant",
+        "rag"
+      ],
+      "stack": [
+        "postgresql",
+        "apache-age",
+        "qdrant",
+        "fastapi"
+      ],
+      "fileCount": 3,
       "version": "1.0.0"
     },
     "skill-i18n": {
-      "description": "Internationalization and localization skill \u2014 next-intl, message extraction, RTL support, locale routing",
-      "category": "skill",
+      "name": "i18n Skill",
+      "description": "Internationalization and localization skill — next-intl, message extraction, RTL support, locale routing",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "i18n",
+        "localization",
+        "translation",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "skill-legal-review": {
-      "description": "Legal review skill \u2014 contract analysis, clause identification, risk flagging, compliance checks",
-      "category": "skill",
+      "name": "Legal Review Skill",
+      "description": "Legal review skill — contract analysis, clause identification, risk flagging, compliance checks",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "legal",
+        "review",
+        "contract",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "skill-monitor": {
+      "name": "Monitor Skill",
       "description": "System and process monitoring skill",
-      "category": "skill",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "monitoring",
+        "health",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "skill-plan": {
-      "description": "Planning skill \u2014 analyze requirements, explore codebase, and produce structured implementation plans",
+      "name": "Planning Skill",
+      "description": "Planning skill — analyze requirements, explore codebase, and produce structured implementation plans",
+      "type": "skill",
       "category": "AGENTIC",
+      "tags": [
+        "planning",
+        "spec",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "skill-prd-architect": {
-      "description": "Write and iterate on AI-optimized Product Requirements Documents",
-      "category": "skill",
+      "name": "PRD Architect Skill",
+      "description": "Write and iterate on AI-optimized Product Requirements Documents with full lifecycle support",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "skill",
+        "prd",
+        "requirements"
+      ],
+      "stack": [],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "skill-react-perf": {
-      "description": "React performance optimization and profiling \u2014 memoization, code splitting, bundle analysis, rendering patterns",
-      "category": "skill",
+      "name": "React Performance Skill",
+      "description": "React performance optimization and profiling — memoization, code splitting, bundle analysis, rendering patterns",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "react",
+        "performance",
+        "profiling",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "skill-review": {
+      "name": "Code Review Skill",
       "description": "Automated code review with risk tiers and checklist",
-      "category": "skill",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "review",
+        "code-review",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "skill-security": {
-      "description": "Security review skill \u2014 OWASP checklist, auth patterns, input validation",
-      "category": "skill",
+      "name": "Security Review Skill",
+      "description": "Security review skill — OWASP checklist, auth patterns, input validation",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "security",
+        "owasp",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "skill-seo": {
-      "description": "Technical SEO audit and optimization skill \u2014 meta tags, structured data, Core Web Vitals, Open Graph",
-      "category": "skill",
+      "name": "SEO Skill",
+      "description": "Technical SEO audit and optimization skill — meta tags, structured data, Core Web Vitals, Open Graph",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "seo",
+        "audit",
+        "optimization",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "skill-testing": {
-      "description": "Testing skill \u2014 Vitest patterns, Playwright E2E, coverage strategies",
-      "category": "skill",
+      "name": "Testing Skill",
+      "description": "Testing skill — Vitest patterns, Playwright E2E, coverage strategies, and test best practices",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "testing",
+        "vitest",
+        "jest",
+        "playwright",
+        "skill"
+      ],
+      "stack": [
+        "markdown"
+      ],
+      "fileCount": 1,
       "version": "1.0.0"
     },
     "starter-admin-panel": {
-      "description": "Admin panel starter with CRUD data tables, forms, auth, and PostgreSQL. Next.js 14, shadcn/ui, TanStack Table, Recharts.",
+      "name": "Admin Panel Starter",
+      "description": "Admin panel starter with RBAC, audit log, Cmd+K search, CRUD data tables, forms, auth, and PostgreSQL. Next.js 14, shadcn/ui, TanStack Table, Recharts.",
+      "type": "starter",
       "category": "STARTER",
-      "version": "1.1.0"
+      "tags": [
+        "admin",
+        "crud",
+        "panel",
+        "starter"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "postgres"
+      ],
+      "fileCount": 38,
+      "version": "1.2.0"
     },
     "starter-booking-system": {
+      "name": "Booking System Starter",
       "description": "Appointment booking system with calendar view and availability management",
-      "category": "starter",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "booking",
+        "calendar",
+        "availability"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "postgres"
+      ],
+      "fileCount": 21,
       "version": "1.0.0"
     },
     "starter-course-platform": {
+      "name": "Course Platform Starter",
       "description": "Online course platform with lessons and progress",
-      "category": "starter",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "course",
+        "education",
+        "lessons"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "postgres"
+      ],
+      "fileCount": 19,
       "version": "1.0.0"
     },
     "starter-event-platform": {
-      "description": "Next.js 14 event platform with event listings, speaker profiles, ticket tiers, schedule timeline, and countdown timer. Purple/violet theme.",
-      "category": "starter",
+      "name": "Event Platform Starter",
+      "description": "Next.js 14 event platform starter with event listings, speaker profiles, ticket tiers, schedule timeline, and countdown timer. Purple/violet theme. TypeScript, Tailwind CSS, App Router.",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "events",
+        "tickets",
+        "schedule"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "postgres"
+      ],
+      "fileCount": 25,
       "version": "1.0.0"
     },
     "starter-gym-fitness": {
-      "description": "Next.js 14 gym and fitness starter with class schedule, membership plans, trainer profiles, and testimonials",
-      "category": "starter",
-      "version": "1.0.1"
+      "name": "Gym/Fitness Starter",
+      "description": "Next.js 14 gym and fitness starter with class schedule, membership plans, trainer profiles, and testimonials. Dark theme with orange accents. TypeScript, Tailwind CSS, App Router.",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "gym",
+        "fitness",
+        "classes"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "postgres"
+      ],
+      "fileCount": 25,
+      "version": "1.0.0"
     },
     "starter-healthcare-portal": {
-      "description": "Next.js 14 healthcare patient portal with appointments, health records, doctor profiles, multi-step booking, and departments. Teal/cyan theme.",
-      "category": "starter",
+      "name": "Healthcare Portal Starter",
+      "description": "Next.js 14 healthcare patient portal with appointments, health records, doctor profiles, multi-step booking, and department directory. Teal/cyan theme. TypeScript, Tailwind CSS, App Router.",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "healthcare",
+        "portal",
+        "patient"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "postgres"
+      ],
+      "fileCount": 25,
       "version": "1.0.0"
     },
     "starter-inventory": {
+      "name": "Inventory Starter",
       "description": "Inventory management with products and stock tracking",
-      "category": "starter",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "inventory",
+        "products",
+        "stock"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "postgres"
+      ],
+      "fileCount": 24,
       "version": "1.0.0"
     },
     "starter-job-board": {
-      "description": "Next.js 14 job board starter with job listings, search filters, company profiles, application forms, and employer posting",
-      "category": "starter",
-      "version": "1.0.1"
+      "name": "Job Board Starter",
+      "description": "Next.js 14 job board starter with job listings, search filters, company profiles, application forms, and employer posting. Blue/indigo theme. TypeScript, Tailwind CSS, App Router.",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "job-board",
+        "listings",
+        "applications"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "postgres"
+      ],
+      "fileCount": 24,
+      "version": "1.0.0"
     },
     "starter-marketplace": {
+      "name": "Marketplace Starter",
       "description": "Two-sided marketplace with listings and profiles",
-      "category": "starter",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "marketplace",
+        "listings",
+        "profiles"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "postgres"
+      ],
+      "fileCount": 17,
       "version": "1.0.0"
     },
     "starter-project-management": {
+      "name": "Project Management Starter",
       "description": "Project management with tasks, boards, and timelines",
-      "category": "starter",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "project",
+        "tasks",
+        "boards",
+        "timeline"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "postgres"
+      ],
+      "fileCount": 19,
       "version": "1.0.0"
     },
     "starter-real-estate": {
-      "description": "Next.js 14 real estate starter with property listings, search filters, neighborhoods, agent profiles, and contact form",
-      "category": "starter",
-      "version": "1.0.1"
+      "name": "Real Estate Starter",
+      "description": "Next.js 14 real estate starter with property listings, search filters, neighborhoods, agent profiles, and contact form. TypeScript, Tailwind CSS, App Router.",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "real-estate",
+        "listings",
+        "map"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "postgres"
+      ],
+      "fileCount": 26,
+      "version": "1.0.0"
     },
     "starter-restaurant": {
-      "description": "Next.js 14 restaurant starter with menu, reservations, chef team, and testimonials",
-      "category": "starter",
-      "version": "1.0.1"
+      "name": "Restaurant Starter",
+      "description": "Next.js 14 restaurant starter with menu, reservations, chef team, and testimonials. TypeScript, Tailwind CSS, App Router, shadcn/ui theming.",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "restaurant",
+        "menu",
+        "ordering"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "postgres"
+      ],
+      "fileCount": 22,
+      "version": "1.0.0"
     },
     "starter-saas-minimal": {
-      "description": "Next.js 14 SaaS + Shop starter with shadcn/ui, dashboard shell, product catalog, cart, and checkout",
-      "category": "starter",
-      "version": "1.0.1"
+      "name": "SaaS Minimal Starter",
+      "description": "Next.js 14 SaaS + Shop starter with shadcn/ui, dashboard shell, product catalog, cart, and checkout. TypeScript, Tailwind CSS, App Router.",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "saas",
+        "starter",
+        "auth",
+        "dashboard",
+        "billing"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "postgres"
+      ],
+      "fileCount": 23,
+      "version": "1.0.0"
     },
     "starter-social-network": {
+      "name": "Social Network Starter",
       "description": "Social network with feeds, profiles, and messaging",
-      "category": "starter",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "social",
+        "feed",
+        "profiles",
+        "messaging"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "postgres"
+      ],
+      "fileCount": 22,
       "version": "1.0.0"
     },
     "storage-avatar-upload": {
+      "name": "Avatar Upload",
       "description": "Avatar upload with crop, resize, and preview",
-      "category": "component",
+      "type": "component",
+      "category": "STORAGE",
+      "tags": [
+        "storage",
+        "avatar",
+        "upload",
+        "crop"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "storage-bulk-upload": {
+      "name": "Bulk Upload",
       "description": "Multi-file bulk upload with queue management",
-      "category": "component",
+      "type": "component",
+      "category": "STORAGE",
+      "tags": [
+        "storage",
+        "bulk",
+        "upload",
+        "queue"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "storage-download-manager": {
+      "name": "Download Manager",
       "description": "File download manager with progress and resume",
-      "category": "component",
+      "type": "component",
+      "category": "STORAGE",
+      "tags": [
+        "storage",
+        "download",
+        "progress",
+        "resume"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "storage-file-manager": {
+      "name": "File Manager",
       "description": "File manager with grid/list views and context menu",
-      "category": "module",
+      "type": "module",
+      "category": "STORAGE",
+      "tags": [
+        "storage",
+        "file-manager",
+        "grid",
+        "list"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 7,
       "version": "1.0.0"
     },
     "storage-image-gallery": {
+      "name": "Image Gallery",
       "description": "Image gallery with lightbox and lazy loading",
-      "category": "component",
+      "type": "component",
+      "category": "STORAGE",
+      "tags": [
+        "storage",
+        "gallery",
+        "lightbox",
+        "images"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "storage-media-library": {
+      "name": "Media Library",
       "description": "Media library with categories, search, and metadata",
-      "category": "module",
+      "type": "module",
+      "category": "STORAGE",
+      "tags": [
+        "storage",
+        "media",
+        "library",
+        "search"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 6,
       "version": "1.0.0"
     },
     "storage-s3-browser": {
+      "name": "S3 Browser",
       "description": "S3-compatible bucket browser with upload and preview",
-      "category": "module",
+      "type": "module",
+      "category": "STORAGE",
+      "tags": [
+        "storage",
+        "s3",
+        "browser",
+        "bucket"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "aws-sdk"
+      ],
+      "fileCount": 7,
       "version": "1.0.0"
     },
     "support-csat-survey": {
+      "name": "CSAT Survey",
       "description": "Customer satisfaction survey with emoji rating",
-      "category": "component",
+      "type": "component",
+      "category": "SUPPORT",
+      "tags": [
+        "support",
+        "csat",
+        "satisfaction",
+        "emoji"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "support-feedback-widget": {
+      "name": "Feedback Widget",
       "description": "In-app feedback widget with screenshot and mood",
-      "category": "component",
+      "type": "component",
+      "category": "SUPPORT",
+      "tags": [
+        "support",
+        "feedback",
+        "widget",
+        "screenshot"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "support-knowledge-base": {
+      "name": "Knowledge Base",
       "description": "Knowledge base with articles, search, and categories",
-      "category": "module",
+      "type": "module",
+      "category": "SUPPORT",
+      "tags": [
+        "support",
+        "knowledge",
+        "base",
+        "articles"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 7,
       "version": "1.0.0"
     },
     "support-nps-survey": {
+      "name": "NPS Survey",
       "description": "Net Promoter Score survey with follow-up",
-      "category": "component",
+      "type": "component",
+      "category": "SUPPORT",
+      "tags": [
+        "support",
+        "nps",
+        "survey",
+        "score"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
       "version": "1.0.0"
     },
     "support-status-page": {
+      "name": "Status Page",
       "description": "Service status page with incident history",
-      "category": "page",
+      "type": "page",
+      "category": "SUPPORT",
+      "tags": [
+        "support",
+        "status",
+        "uptime",
+        "incidents"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     },
     "swarm-layer": {
-      "description": "Thermodynamic field coordination: task fields, agent spawning, autonomous hooks, context bundles. Requires agentic-layer template and PostgreSQL.",
-      "category": "pipe",
-      "version": "1.0.0"
+      "name": "Swarm Layer",
+      "description": "Thermodynamic field coordination: task fields, agent spawning, autonomous hooks, context bundles, PRD intake. Requires agentic-layer template and PostgreSQL.",
+      "type": "pipe",
+      "category": "AGENTIC",
+      "tags": [],
+      "stack": [],
+      "fileCount": 19,
+      "version": "1.1.0"
     },
     "swarm-sdk": {
-      "description": "TypeScript Agent SDK worker for thermodynamic field coordination. Billing switch, PRD intake, eventbus, context bundles.",
-      "category": "module",
+      "name": "Swarm SDK",
+      "description": "TypeScript Agent SDK worker for thermodynamic field coordination. Includes billing switch, PRD intake, eventbus, and context bundles. Requires swarm-layer template.",
+      "type": "pipe",
+      "category": "AGENTIC",
+      "tags": [
+        "agents",
+        "sdk",
+        "worker"
+      ],
+      "stack": [
+        "postgres"
+      ],
+      "fileCount": 15,
       "version": "1.0.0"
     },
     "thumbnail-generator": {
       "name": "Thumbnail Generator",
       "description": "AI thumbnail generation with Reve + Flux backends, IVM overlay system, dashboard UI, and self-adapting Claude Code skill",
-      "category": "STORAGE",
       "type": "pipe",
+      "category": "STORAGE",
       "tags": [
         "ai",
         "image-generation",
@@ -1689,8 +5801,20 @@
       "version": "1.0.0"
     },
     "trinity-signature": {
+      "name": "Trinity Signature Easter Egg",
       "description": "Animated triangle signature easter-egg for client sites",
-      "category": "component",
+      "type": "component",
+      "category": "ANIMATION",
+      "tags": [
+        "animation",
+        "easter-egg",
+        "branding"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 5,
       "version": "1.0.0"
     }
   }
