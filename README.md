@@ -1,6 +1,6 @@
 # Open Context
 
-322 standalone templates for Next.js, React and agent tooling, each installed with one command.
+331 standalone templates for Next.js, React and agent tooling, each installed with one command.
 
 ## Quick start
 
@@ -22,7 +22,7 @@ npx @trinity369/use <template>
 | `--dir <path>` | install into another folder |
 | `--no-overwrite` | keep files that already exist |
 
-## Templates (322)
+## Templates (331)
 
 ### AGENTIC (39)
 
@@ -143,11 +143,13 @@ npx @trinity369/use <template>
 | `blog-share-buttons` | component | Social media share buttons with copy-link functionality |
 | `blog-tag-cloud` | component | Interactive tag cloud with weighted sizing, color scaling, and staggered animations |
 
-### COMPONENTS (27)
+### COMPONENTS (32)
 
 | Template | Type | Description |
 |---|---|---|
+| `component-accordion` | component | Disclosure list on native details, keyboard complete without JavaScript |
 | `component-barcode-scanner` | component | Camera-based barcode and QR code scanner using BarcodeDetector API |
+| `component-breadcrumbs` | component | Breadcrumb trail with overflow that emits its BreadcrumbList data |
 | `component-code-block` | component | Syntax-highlighted code block with copy button, line numbers, and language badge |
 | `component-color-picker` | component | HSL/RGB color picker with saturation canvas, presets, and EyeDropper API |
 | `component-command-palette` | component | Cmd+K command palette with search, keyboard navigation, grouped results, and shortcut display |
@@ -158,11 +160,14 @@ npx @trinity369/use <template>
 | `component-form-builder` | module | Multi-step form system with per-step Zod validation, field type rendering, and step progress indicator |
 | `component-image-cropper` | component | Image crop and resize with aspect ratio presets, zoom, and rotation controls |
 | `component-markdown-preview` | component | Live markdown editor with split preview pane and built-in parser |
+| `component-modal-system` | module | Dialog, drawer and alert dialog on native dialog, with focus returned on close |
+| `component-pagination` | component | Page links from page, page count and an href function, with the pure page-window function |
 | `component-qr-code` | component | QR code generator component with Canvas rendering |
 | `component-signature-pad` | component | Digital signature drawing pad with undo, clear, and PNG/SVG export |
 | `component-slider-range` | component | Single and dual-handle range slider with tooltips, marks, and keyboard navigation |
 | `component-star-rating` | component | Interactive star rating with half-star support, hover preview, and accessible keyboard navigation |
 | `component-stepper` | component | Step progress indicator with labels, validation states, and click navigation |
+| `component-tabs-system` | component | Tabs with roving focus and optional URL sync |
 | `component-tag-input` | component | Tag input with autocomplete suggestions, validation, and keyboard navigation |
 | `component-timeline` | component | Vertical timeline with alternating layout, icons, and scroll animations |
 | `component-toast-notifications` | component | Stacked toast system with success/error/warning/info variants, auto-dismiss, and pause on hover |
@@ -442,7 +447,7 @@ npx @trinity369/use <template>
 | `support-nps-survey` | component | Net Promoter Score survey with follow-up |
 | `support-status-page` | page | Service status page with incident history |
 
-### WEB_DESIGN (14)
+### WEB_DESIGN (18)
 
 | Template | Type | Description |
 |---|---|---|
@@ -460,6 +465,10 @@ npx @trinity369/use <template>
 | `page-security-trust` | page | Security practices and compliance badges page with trust stats, data handling policies, and responsible disclosure info |
 | `page-status` | page | Service status page with uptime chart, service cards, recent incidents, and subscribe-to-updates section |
 | `page-waitlist` | page | Pre-launch waitlist page with email signup, animated position counter, social sharing, and referral system |
+| `site-cookie-consent` | module | Consent banner, preferences dialog and a gate that holds back anything non-essential until a choice is made |
+| `site-footer` | component | Footer with link columns, contact block, legal links and a cookie-settings hook |
+| `site-header` | component | Responsive site navigation with mobile drawer, skip link and current-page mark |
+| `site-seo` | utility | JSON-LD builders plus canonical and Open Graph helpers |
 
 ## How it works
 
