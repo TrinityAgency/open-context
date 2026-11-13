@@ -1219,6 +1219,26 @@
       "fileCount": 1,
       "version": "1.0.0"
     },
+    "component-accordion": {
+      "name": "Accordion",
+      "description": "Disclosure list on native details, keyboard complete without JavaScript",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "accordion",
+        "disclosure",
+        "details",
+        "faq"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 2,
+      "version": "1.0.0",
+      "family": "site",
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; keyboard and exclusive mode tested in Chromium"
+    },
     "component-barcode-scanner": {
       "name": "Barcode Scanner",
       "description": "Camera-based barcode and QR code scanner using BarcodeDetector API",
@@ -1234,6 +1254,26 @@
       ],
       "fileCount": 2,
       "version": "1.0.0"
+    },
+    "component-breadcrumbs": {
+      "name": "Breadcrumbs",
+      "description": "Breadcrumb trail with overflow that emits its BreadcrumbList data",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "breadcrumb",
+        "navigation",
+        "json-ld"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 7,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; JSON-LD shape and escaping tested"
     },
     "component-code-block": {
       "name": "Code Block",
@@ -1418,6 +1458,47 @@
       "fileCount": 1,
       "version": "1.0.0"
     },
+    "component-modal-system": {
+      "name": "Modal System",
+      "description": "Dialog, drawer and alert dialog on native dialog, with focus returned on close",
+      "type": "module",
+      "category": "COMPONENTS",
+      "tags": [
+        "modal",
+        "dialog",
+        "drawer",
+        "alert-dialog",
+        "overlay"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 9,
+      "version": "1.0.0",
+      "family": "site",
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight, open and closed; axe clean; focus, Escape and backdrop tested in Chromium"
+    },
+    "component-pagination": {
+      "name": "Pagination",
+      "description": "Page links from page, page count and an href function, with the pure page-window function",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "pagination",
+        "pages",
+        "navigation"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 6,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; window rules table-tested; mutants caught"
+    },
     "component-qr-code": {
       "name": "QR Code",
       "description": "QR code generator component with Canvas rendering",
@@ -1505,6 +1586,26 @@
       ],
       "fileCount": 2,
       "version": "1.0.0"
+    },
+    "component-tabs-system": {
+      "name": "Tabs",
+      "description": "Tabs with roving focus and optional URL sync",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "tabs",
+        "navigation",
+        "url-sync",
+        "keyboard"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 4,
+      "version": "1.0.0",
+      "family": "site",
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; keyboard and URL sync tested in Chromium"
     },
     "component-tag-input": {
       "name": "Tag Input",
@@ -4918,6 +5019,91 @@
       ],
       "fileCount": 2,
       "version": "1.0.0"
+    },
+    "site-cookie-consent": {
+      "name": "Cookie Consent",
+      "description": "Consent banner, preferences dialog and a gate that holds back anything non-essential until a choice is made",
+      "type": "module",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "cookie",
+        "consent",
+        "privacy",
+        "banner"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "zod"
+      ],
+      "fileCount": 10,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; no storage or foreign request before a choice; cookie rules table-tested; mutants caught"
+    },
+    "site-footer": {
+      "name": "Site Footer",
+      "description": "Footer with link columns, contact block, legal links and a cookie-settings hook",
+      "type": "component",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "footer",
+        "navigation",
+        "legal",
+        "contact"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 5,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
+    },
+    "site-header": {
+      "name": "Site Header",
+      "description": "Responsive site navigation with mobile drawer, skip link and current-page mark",
+      "type": "component",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "header",
+        "navigation",
+        "navbar",
+        "mobile-menu"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 7,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight at 390 and 1280 px; axe clean; drawer, menus and skip link tested in Chromium"
+    },
+    "site-seo": {
+      "name": "Site SEO",
+      "description": "JSON-LD builders plus canonical and Open Graph helpers",
+      "type": "utility",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "seo",
+        "json-ld",
+        "open-graph",
+        "metadata"
+      ],
+      "stack": [
+        "next",
+        "react"
+      ],
+      "fileCount": 6,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); JSON-LD validated against its shapes and escaped; canonical and Open Graph rendered in the built page; mutants caught"
     },
     "site-starter": {
       "name": "Site Starter",
