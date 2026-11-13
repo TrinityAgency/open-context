@@ -1,0 +1,17 @@
+{
+  "name": "component-pagination",
+  "version": "1.0.0",
+  "title": "Pagination",
+  "description": "Page links from page, page count and an href function, with the pure page-window function",
+  "type": "component",
+  "category": "COMPONENTS",
+  "tags": ["pagination", "pages", "navigation"],
+  "stack": ["react", "tailwind"],
+  "family": "site",
+  "vocabVersion": 1,
+  "outputDir": "components/component-pagination",
+  "files": ["pagination.tsx", "page-window.ts", "labels.ts", "labels.de.ts", "site-types.ts", "README.md"],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; window rules table-tested; mutants caught",
+  "peerDependencies": { "react": ">=19", "tailwindcss": ">=4" },
+  "postMessage": "See components/component-pagination/README.md for props, the German label set and the Next link/image wiring."
+}
