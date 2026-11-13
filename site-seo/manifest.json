@@ -1,0 +1,17 @@
+{
+  "name": "site-seo",
+  "version": "1.0.0",
+  "title": "Site SEO",
+  "description": "JSON-LD builders plus canonical and Open Graph helpers",
+  "type": "utility",
+  "category": "WEB_DESIGN",
+  "tags": ["seo", "json-ld", "open-graph", "metadata"],
+  "stack": ["next", "react"],
+  "family": "site",
+  "vocabVersion": 1,
+  "outputDir": "src/utils/site-seo",
+  "files": ["index.ts", "json-ld.ts", "json-ld-script.tsx", "metadata.ts", "site-types.ts", "README.md"],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); JSON-LD validated against its shapes and escaped; canonical and Open Graph rendered in the built page; mutants caught",
+  "peerDependencies": { "next": ">=16", "react": ">=19" },
+  "postMessage": "See src/utils/site-seo/README.md for props, the German label set and the Next link/image wiring."
+}
