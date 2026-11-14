@@ -1,0 +1,22 @@
+/* Tailwind's theme and utilities only. Its preflight reset is left out on purpose: a Claude Design export is built
+   for the browser's own base, and preflight would restyle the export's element rules (every svg a block, lists and
+   headings reset). Layer order: the design's components sit below Tailwind's utilities, so a utility always wins. */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+/* Uncomment after the first design:sync (pnpm design:sync writes both files into src/design/):
+@import '../design/tokens.css';
+@import '../design/components.css';
+*/
+
+body {
+  margin: 0;
+}
+
+/* After the first design:sync, let Tailwind utilities read the design tokens, so no colour is written here
+   (src/design/no-hardcoded-colour.test.ts and design:guards refuse one). One line per colour token, e.g.:
+@theme inline {
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+}
+   Fonts need no mapping when tokens.css defines --font-sans, which Tailwind's font-sans picks up. */

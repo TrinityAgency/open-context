@@ -1,0 +1,45 @@
+{
+  "name": "starter-landing-page",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A company landing page from the website kit: Next 16, Tailwind 4 without preflight, cookie consent, legal pages, guard tests.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "postbuild": "node scripts/assemble-standalone.mjs",
+    "start": "node .next/standalone/server.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "design:sync": "node scripts/design-sync.mjs",
+    "design:check": "node scripts/design-sync.mjs --check || echo \"no export yet\"",
+    "design:diff": "node scripts/design-sync.mjs --diff",
+    "design:guards": "node scripts/design-sync.mjs --guards",
+    "test": "pnpm design:check && pnpm design:guards && pnpm typecheck && vitest run"
+  },
+  "dependencies": {
+    "next": "^16.4.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zod": "^3.23"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^22",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "eslint": "^9",
+    "eslint-config-next": "^16.4.1",
+    "jsdom": "^30.1.3",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9",
+    "vitest": "^5.0.4"
+  }
+}
