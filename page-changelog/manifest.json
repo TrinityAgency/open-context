@@ -1,0 +1,39 @@
+{
+  "name": "page-changelog",
+  "version": "1.0.0",
+  "title": "Changelog Page",
+  "description": "Changelog page: releases from a typed list with version badges, dates and anchor links",
+  "type": "page",
+  "category": "WEB_DESIGN",
+  "tags": [
+    "changelog",
+    "releases",
+    "page",
+    "versions"
+  ],
+  "stack": [
+    "react",
+    "next",
+    "tailwind"
+  ],
+  "family": "site",
+  "vocabVersion": 1,
+  "outputDir": "app/page-changelog",
+  "files": [
+    "README.md",
+    "changelog-order.ts",
+    "changelog.tsx",
+    "content.ts",
+    "labels.de.ts",
+    "labels.ts",
+    "page.tsx",
+    "site-types.ts"
+  ],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; ordering and anchors table-tested; mutants caught",
+  "peerDependencies": {
+    "react": ">=19",
+    "next": ">=16",
+    "tailwindcss": ">=4"
+  },
+  "postMessage": "Installed at app/page-changelog/ (served at /page-changelog; rename the folder for another path). Edit content.ts; see README.md."
+}
