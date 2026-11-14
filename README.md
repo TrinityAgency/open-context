@@ -1,6 +1,6 @@
 # Open Context
 
-331 standalone templates for Next.js, React and agent tooling, each installed with one command.
+343 standalone templates for Next.js, React and agent tooling, each installed with one command.
 
 ## Quick start
 
@@ -22,7 +22,7 @@ npx @trinity369/use <template>
 | `--dir <path>` | install into another folder |
 | `--no-overwrite` | keep files that already exist |
 
-## Templates (331)
+## Templates (343)
 
 ### AGENTIC (39)
 
@@ -377,14 +377,14 @@ npx @trinity369/use <template>
 
 | Template | Type | Description |
 |---|---|---|
-| `section-cta` | component | Call-to-action section with dark, brand, and light background variants |
-| `section-faq` | component | FAQ section with shadcn accordion and optional category tabs |
-| `section-features` | component | Features section with icon cards in 3-column or 4-column responsive grid layout |
-| `section-hero` | component | Hero section with centered, split, and video variants — responsive with dark mode support |
-| `section-logo-cloud` | component | Logo cloud section with static grid or infinite marquee scroll — inline SVG logos, zero dependencies |
-| `section-pricing` | component | Pricing section with tier cards, billing toggle, feature lists, and highlighted popular plan |
-| `section-stats` | component | Stats section with animated count-up numbers, separators, and responsive grid |
-| `section-testimonials` | component | Testimonials section with avatar cards, star ratings, and responsive grid layout |
+| `section-cta` | component | Call-to-action band with a title, a line of text and its links |
+| `section-faq` | component | FAQ section on native details: questions open in place, keyboard complete without JavaScript |
+| `section-features` | component | Features section: a grid or alternating rows of items with icon, text and image |
+| `section-hero` | component | Hero section: title, lead, calls to action and an optional image, as a server component with typed content |
+| `section-logo-cloud` | component | Logo cloud: a row of client or partner logos, optionally linked |
+| `section-pricing` | component | Pricing section: plans with prices from minor units, a no-JavaScript interval switch and a highlighted plan |
+| `section-stats` | component | Stats section: key figures as a description list |
+| `section-testimonials` | component | Testimonials section: quotes with name, role and portrait |
 
 ### SIDEBAR (4)
 
@@ -395,7 +395,7 @@ npx @trinity369/use <template>
 | `sidebar-mobile` | layout | Slide-out mobile drawer sidebar with overlay and close button |
 | `sidebar-settings` | layout | Settings panel sidebar with grouped section links and active highlight |
 
-### STARTER (15)
+### STARTER (16)
 
 | Template | Type | Description |
 |---|---|---|
@@ -408,6 +408,7 @@ npx @trinity369/use <template>
 | `starter-healthcare-portal` | starter | Next.js 14 healthcare patient portal with appointments, health records, doctor profiles, multi-step booking, and department directory. Teal/cyan theme. TypeScript, Tailwind CSS, App Router. |
 | `starter-inventory` | starter | Inventory management with products and stock tracking |
 | `starter-job-board` | starter | Next.js 14 job board starter with job listings, search filters, company profiles, application forms, and employer posting. Blue/indigo theme. TypeScript, Tailwind CSS, App Router. |
+| `starter-landing-page` | starter | Company landing page assembled from the website kit: header, footer, cookie consent, SEO, eight sections, legal and error pages, with guard tests |
 | `starter-marketplace` | starter | Two-sided marketplace with listings and profiles |
 | `starter-project-management` | starter | Project management with tasks, boards, and timelines |
 | `starter-real-estate` | starter | Next.js 14 real estate starter with property listings, search filters, neighborhoods, agent profiles, and contact form. TypeScript, Tailwind CSS, App Router. |
@@ -447,19 +448,30 @@ npx @trinity369/use <template>
 | `support-nps-survey` | component | Net Promoter Score survey with follow-up |
 | `support-status-page` | page | Service status page with incident history |
 
-### WEB_DESIGN (18)
+### WEB_DESIGN (29)
 
 | Template | Type | Description |
 |---|---|---|
+| `page-404-error` | page | Not-found and error pages with a way onward: views plus two one-line route files |
+| `page-about` | page | About page: story, values, figures and team |
 | `page-app-download` | page | Mobile app download page with store badges, phone mockup, features grid, screenshot gallery, and QR code section |
 | `page-careers` | page | Job listings page with filters and apply flow |
 | `page-case-study` | page | Case study template with problem, solution, results |
+| `page-changelog` | page | Changelog page: releases from a typed list with version badges, dates and anchor links |
 | `page-coming-soon` | page | Coming soon page with countdown timer, email capture form, and social links. Dark gradient background with flip-style countdown animation. |
+| `page-contact` | page | Contact page: a form with a server action, spam traps and validation, contact details and a map link |
 | `page-event-landing` | page | Event landing page with speakers, schedule, pricing tiers, and sponsor sections |
 | `page-faq` | page | FAQ page with categories and search |
+| `page-features` | page | Features page: feature groups with icon, text and image, then a call to action |
+| `page-landing-full` | page | Full landing page: hero, logos, features, figures, testimonials, pricing, questions and a call to action |
+| `page-landing-hero` | page | Short landing page: hero, features and a call to action, assembled from the kit's sections |
+| `page-legal-imprint` | page | Imprint page: provider identification fields for German and Austrian sites, as marked placeholders |
+| `page-legal-privacy` | page | Privacy policy page: table of contents, short summaries and clearly marked placeholders |
+| `page-legal-terms` | page | Terms page: collapsible sections with a table of contents and marked placeholders |
 | `page-partner-integrations` | page | Integration marketplace with categories, search, and detail panels |
 | `page-podcast-show` | page | Podcast show page with episode list, season filters, and interactive audio player bar |
 | `page-press-kit` | page | Press kit with logos, photos, and brand guidelines |
+| `page-pricing` | page | Pricing page: plans with an interval switch, a comparison table and questions |
 | `page-restaurant-menu` | page | Digital restaurant menu with category navigation, dietary badges, and elegant dark theme |
 | `page-saas-comparison` | page | SaaS tool comparison page with scoring matrix, card view, and interactive filters |
 | `page-security-trust` | page | Security practices and compliance badges page with trust stats, data handling policies, and responsible disclosure info |
