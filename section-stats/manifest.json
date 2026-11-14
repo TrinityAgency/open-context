@@ -1,12 +1,17 @@
 {
   "name": "section-stats",
-  "version": "1.0.0",
-  "description": "Stats section with animated count-up numbers, separators, and responsive grid",
+  "version": "2.0.0",
+  "title": "Stats Section",
+  "description": "Stats section: key figures as a description list",
+  "type": "component",
+  "category": "SECTIONS",
+  "tags": ["stats", "section", "numbers", "landing"],
+  "stack": ["react", "tailwind"],
+  "family": "site",
+  "vocabVersion": 1,
   "outputDir": "components/section-stats",
-  "files": ["stats-section.tsx", "stats-section.types.ts"],
-  "peerDependencies": {
-    "react": ">=18",
-    "tailwindcss": ">=3"
-  },
-  "postMessage": "Install shadcn deps: npx shadcn@latest add separator\nImport: import { StatsSection } from '@/components/section-stats/stats-section'"
+  "files": ["stats-section.tsx", "site-types.ts", "README.md"],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean",
+  "peerDependencies": { "react": ">=19", "tailwindcss": ">=4" },
+  "postMessage": "See components/section-stats/README.md for the content props."
 }
