@@ -1,0 +1,72 @@
+{
+  "name": "page-about",
+  "version": "1.0.0",
+  "title": "About Page",
+  "description": "About page: story, values, figures and team",
+  "type": "page",
+  "category": "WEB_DESIGN",
+  "tags": [
+    "about",
+    "company",
+    "team",
+    "page"
+  ],
+  "stack": [
+    "react",
+    "next",
+    "tailwind"
+  ],
+  "family": "site",
+  "vocabVersion": 1,
+  "parts": [
+    {
+      "slug": "section-hero",
+      "version": "2.0.0",
+      "into": "_sections/hero"
+    },
+    {
+      "slug": "section-features",
+      "version": "2.0.0",
+      "into": "_sections/features"
+    },
+    {
+      "slug": "section-stats",
+      "version": "2.0.0",
+      "into": "_sections/stats"
+    },
+    {
+      "slug": "section-cta",
+      "version": "2.0.0",
+      "into": "_sections/cta"
+    }
+  ],
+  "outputDir": "app/page-about",
+  "files": [
+    "README.md",
+    "about-page.tsx",
+    "about-story.tsx",
+    "content.ts",
+    "page.tsx",
+    "site-types.ts",
+    "team-grid.tsx",
+    "_sections/cta/README.md",
+    "_sections/cta/cta-section.tsx",
+    "_sections/cta/site-types.ts",
+    "_sections/features/README.md",
+    "_sections/features/features-section.tsx",
+    "_sections/features/site-types.ts",
+    "_sections/hero/README.md",
+    "_sections/hero/hero-section.tsx",
+    "_sections/hero/site-types.ts",
+    "_sections/stats/README.md",
+    "_sections/stats/site-types.ts",
+    "_sections/stats/stats-section.tsx"
+  ],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; sections byte-identical to their pinned versions",
+  "peerDependencies": {
+    "react": ">=19",
+    "next": ">=16",
+    "tailwindcss": ">=4"
+  },
+  "postMessage": "Installed at app/page-about/ (served at /page-about; rename the folder for another path). Edit content.ts; see README.md."
+}
