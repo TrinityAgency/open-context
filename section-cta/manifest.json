@@ -1,12 +1,17 @@
 {
   "name": "section-cta",
-  "version": "1.0.0",
-  "description": "Call-to-action section with dark, brand, and light background variants",
+  "version": "2.0.0",
+  "title": "CTA Section",
+  "description": "Call-to-action band with a title, a line of text and its links",
+  "type": "component",
+  "category": "SECTIONS",
+  "tags": ["cta", "section", "landing", "conversion"],
+  "stack": ["react", "tailwind"],
+  "family": "site",
+  "vocabVersion": 1,
   "outputDir": "components/section-cta",
-  "files": ["cta-section.tsx", "cta-section.types.ts"],
-  "peerDependencies": {
-    "react": ">=18",
-    "tailwindcss": ">=3"
-  },
-  "postMessage": "Install shadcn deps: npx shadcn@latest add button\nImport: import { CtaSection } from '@/components/section-cta/cta-section'\n\nVariants: 'dark' (default), 'brand', 'light'"
+  "files": ["cta-section.tsx", "site-types.ts", "README.md"],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean",
+  "peerDependencies": { "react": ">=19", "tailwindcss": ">=4" },
+  "postMessage": "See components/section-cta/README.md for the content props and the Next link wiring."
 }

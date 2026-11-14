@@ -1,195 +1,50 @@
-"use client";
+import { useId, type ComponentProps } from 'react';
+import type { Cta, LinkComponent } from './site-types';
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+export type CtaContent = { title: string; text?: string; ctas: Cta[] };
 
-import type { CtaSectionProps, CtaSectionVariant } from "./cta-section.types";
-
-// ---------------------------------------------------------------------------
-// Variant style maps
-// ---------------------------------------------------------------------------
-
-const sectionVariants: Record<CtaSectionVariant, string> = {
-  dark: "bg-primary text-primary-foreground",
-  brand:
-    "bg-gradient-to-br from-primary via-primary/90 to-primary/70 text-primary-foreground",
-  light: "bg-muted text-foreground",
+export type CtaSectionProps = {
+  content: CtaContent;
+  /** Renders the links; pass next/link's Link in a Next app. Default: a plain `a`. */
+  LinkComponent?: LinkComponent;
+  id?: string;
+  className?: string;
 };
 
-const descriptionVariants: Record<CtaSectionVariant, string> = {
-  dark: "text-primary-foreground/70",
-  brand: "text-primary-foreground/80",
-  light: "text-muted-foreground",
-};
-
-const primaryButtonVariants: Record<
-  CtaSectionVariant,
-  { variant: "default" | "secondary" | "outline"; className?: string }
-> = {
-  dark: {
-    variant: "secondary",
-    className: "min-w-[160px]",
-  },
-  brand: {
-    variant: "secondary",
-    className: "min-w-[160px]",
-  },
-  light: {
-    variant: "default",
-    className: "min-w-[160px]",
-  },
-};
-
-const secondaryButtonVariants: Record<
-  CtaSectionVariant,
-  { variant: "outline" | "secondary" | "default"; className?: string }
-> = {
-  dark: {
-    variant: "outline",
-    className:
-      "min-w-[160px] border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10",
-  },
-  brand: {
-    variant: "outline",
-    className:
-      "min-w-[160px] border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10",
-  },
-  light: {
-    variant: "outline",
-    className: "min-w-[160px]",
-  },
-};
-
-// ---------------------------------------------------------------------------
-// Decorative glow (subtle background element)
-// ---------------------------------------------------------------------------
-
-function DecorativeGlow({ variant }: { variant: CtaSectionVariant }) {
-  if (variant === "light") return null;
-
-  return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-      {/* Top-right soft glow */}
-      <div
-        className={cn(
-          "absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-20 blur-3xl",
-          variant === "dark" && "bg-primary-foreground/30",
-          variant === "brand" && "bg-white/25"
-        )}
-      />
-      {/* Bottom-left soft glow */}
-      <div
-        className={cn(
-          "absolute -bottom-16 -left-16 h-56 w-56 rounded-full opacity-15 blur-3xl",
-          variant === "dark" && "bg-primary-foreground/20",
-          variant === "brand" && "bg-white/20"
-        )}
-      />
-    </div>
-  );
+function PlainLink(props: ComponentProps<LinkComponent>) {
+  return <a {...props} />;
 }
 
-// ---------------------------------------------------------------------------
-// CtaSection
-// ---------------------------------------------------------------------------
+const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+const CTA_CLASS: Record<Cta['variant'], string> = {
+  primary: `box-border inline-flex h-10 items-center justify-center rounded-md border border-solid border-neutral-900 bg-neutral-900 px-4 text-sm font-medium whitespace-nowrap text-white no-underline hover:bg-neutral-700 ${FOCUS}`,
+  secondary: `box-border inline-flex h-10 items-center justify-center rounded-md border border-solid border-neutral-300 bg-white px-4 text-sm font-medium whitespace-nowrap text-neutral-900 no-underline hover:bg-neutral-100 ${FOCUS}`,
+};
+const ROOT = 'box-border bg-neutral-100 px-6 py-16 text-neutral-900';
 
 /**
- * A full-width call-to-action section with three background variants.
- *
- * ```tsx
- * <CtaSection
- *   variant="brand"
- *   title="Ready to get started?"
- *   description="Join thousands of teams already shipping faster."
- *   primaryAction={{ label: "Start free trial", href: "/signup" }}
- *   secondaryAction={{ label: "Talk to sales", href: "/contact" }}
- * />
- * ```
+ * A call-to-action band: a title, an optional line of text and its links, centred on a light band. Server component.
  */
-export function CtaSection({
-  variant = "dark",
-  title,
-  description,
-  primaryAction,
-  secondaryAction,
-  className,
-}: CtaSectionProps) {
-  return (
-    <section
-      className={cn(
-        "relative w-full overflow-hidden",
-        sectionVariants[variant],
-        className
-      )}
-    >
-      <DecorativeGlow variant={variant} />
+export function CtaSection({ content, LinkComponent: Link = PlainLink, id, className }: CtaSectionProps) {
+  const headingId = useId();
+  const { title, text, ctas } = content;
 
-      <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 text-center sm:py-24 lg:py-28">
-        {/* Heading */}
-        <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+  return (
+    <section id={id} aria-labelledby={headingId} className={className ? `${ROOT} ${className}` : ROOT}>
+      <div className="mx-auto max-w-5xl text-center">
+        <h2 id={headingId} className="m-0 text-3xl font-semibold tracking-tight text-balance">
           {title}
         </h2>
-
-        {/* Description */}
-        {description && (
-          <p
-            className={cn(
-              "mx-auto mt-4 max-w-xl text-balance text-base leading-relaxed sm:mt-5 sm:text-lg",
-              descriptionVariants[variant]
-            )}
-          >
-            {description}
-          </p>
-        )}
-
-        {/* Actions */}
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
-          <Button
-            size="lg"
-            variant={primaryButtonVariants[variant].variant}
-            className={primaryButtonVariants[variant].className}
-            asChild
-          >
-            <a
-              href={primaryAction.href}
-              onClick={primaryAction.onClick}
-            >
-              {primaryAction.label}
-              {/* Inline arrow icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="ml-1.5 h-4 w-4"
-              >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </a>
-          </Button>
-
-          {secondaryAction && (
-            <Button
-              size="lg"
-              variant={secondaryButtonVariants[variant].variant}
-              className={secondaryButtonVariants[variant].className}
-              asChild
-            >
-              <a
-                href={secondaryAction.href}
-                onClick={secondaryAction.onClick}
-              >
-                {secondaryAction.label}
-              </a>
-            </Button>
-          )}
-        </div>
+        {text ? <p className="m-0 mx-auto mt-4 max-w-2xl text-lg text-neutral-700">{text}</p> : null}
+        {ctas.length > 0 ? (
+          <div data-ctas className="mt-8 flex flex-wrap justify-center gap-3">
+            {ctas.map((cta, i) => (
+              <Link key={i} href={cta.href} data-variant={cta.variant} className={CTA_CLASS[cta.variant]}>
+                {cta.label}
+              </Link>
+            ))}
+          </div>
+        ) : null}
       </div>
     </section>
   );
