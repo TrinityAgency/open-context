@@ -1,0 +1,13 @@
+# Die Autorinnen und Autoren des Blogs. Ein Beitrag nennt sie per id (authorIds); jede id bekommt eine Seite unter
+# /blog/author/<id>. Die ids sind Teil der Adresse und bleiben englisch. bio: eine Leerzeile beginnt einen Absatz.
+# url: ein Pfad dieser Website (/about) oder eine https-Adresse. image: eine Datei in public/, wie im Beitrag.
+- id: alex-sample
+  name: Alex Sample
+  bio: |
+    Alex Sample schreibt die Anleitungen in diesem Blog und probiert jeden Schritt an einem frischen Projekt aus,
+    bevor er erscheint.
+
+    Funktioniert ein Schritt nicht wie beschrieben, sagen Sie es Alex: Dann wird die Anleitung korrigiert.
+- id: robin-example
+  name: Robin Example
+  bio: Robin Example schreibt die Neuigkeiten in diesem Blog und hält jeden Beitrag kurz genug für eine Kaffeepause.

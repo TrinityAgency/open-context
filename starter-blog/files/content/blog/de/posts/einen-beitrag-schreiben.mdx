@@ -1,0 +1,47 @@
+---
+title: Einen Beitrag schreiben
+description: Das Format eines Beitrags in diesem Blog, Feld für Feld. Diese Datei ist ein Entwurf; sie erscheint nie auf der Website.
+publishedAt: 2026-01-05
+authorIds: [alex-sample]
+category: guides
+tags: [mdx]
+draft: true
+---
+
+Dieser Beitrag ist ein Entwurf (`draft: true`), deshalb zeigt die Website ihn nie. Er ist zum Lesen im Editor da:
+Kopieren Sie ihn für einen neuen Beitrag und ändern Sie dann Einstellungen und Text.
+
+## Die Datei
+
+Ein Beitrag ist eine Datei in `content/blog/de/posts/` (dem Ordner der Sprache der Website). Ihr Name ist ihre
+Adresse: Kleinbuchstaben und Ziffern, verbunden durch einzelne Bindestriche, mit der Endung `.mdx`. Die Namen
+`page`, `author` und `category` sind für die eigenen Seiten des Blogs vergeben.
+
+## Die Einstellungen
+
+Zwischen den beiden Zeilen aus drei Strichen oben:
+
+```yaml
+title: Einen Beitrag schreiben          # Pflicht, bis 200 Zeichen
+description: Ein oder zwei Sätze.       # Pflicht, bis 500 Zeichen; auf Karten und in Feeds
+publishedAt: 2026-03-01                 # Pflicht: ein Datum, oder Datum und Uhrzeit mit Zeitzone
+updatedAt: 2026-03-05T14:00:00+01:00    # optional, nie vor publishedAt
+authorIds: [alex-sample]                # Pflicht: ids aus authors.yaml
+category: guides                        # Pflicht: eine id aus categories.yaml
+tags: [mdx, bilder]                     # optional
+image:                                  # optional: das Bild oben
+  src: /blog/mein-bild.svg              # eine Datei in public/blog/
+  alt: Was das Bild zeigt
+  width: 1200
+  height: 630
+draft: true                             # optional: true hält den Beitrag von der Website fern
+```
+
+Ein Beitrag erscheint, sobald `publishedAt` vorbei ist, beim nächsten Build. Ein Datum allein gilt ab Mitternacht
+UTC dieses Tages.
+
+## Was der Build ablehnt
+
+Der Build stoppt und nennt Datei und Zeile, wenn ein Beitrag eine unbekannte Einstellung hat, ein Datum, das es nicht
+gibt, eine Person oder Kategorie, die nicht in den Listen steht, oder ein Bild oder eine Einbettung von einem anderen
+Server. Beiträge dürfen JSX enthalten, deshalb kommen sie nur von den Menschen, die die Website betreiben.

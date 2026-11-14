@@ -1,0 +1,38 @@
+---
+title: A blog in plain files
+description: Every post on this blog is one file in the repository. Here is what that means for writing, reviewing and publishing.
+publishedAt: 2026-09-08
+authorIds: [alex-sample]
+category: guides
+tags: [mdx, publishing]
+image:
+  src: /blog/plain-files.svg
+  alt: Three grey pages stacked on top of each other
+  width: 1200
+  height: 630
+---
+
+There is no database behind this blog. Each post is a file in `content/blog/en/posts/`, written in Markdown with a
+few lines of settings at the top. The site reads the folder when it is built and turns every file into a page.
+
+## One file per post
+
+The file name is the address: `a-blog-in-plain-files.mdx` becomes `/blog/a-blog-in-plain-files`. The settings at
+the top, between the two lines of three dashes, say who wrote the post, when it appears and where it belongs:
+
+```yaml
+title: A blog in plain files
+publishedAt: 2026-09-08
+authorIds: [alex-sample]
+category: guides
+```
+
+## Review it like code
+
+Because a post is a file, a change to it is a change like any other: it can be read before it goes live, and the
+history shows who changed what and when. A post that is not ready yet carries `draft: true` and never appears.
+
+## Publish by building
+
+The site is built ahead of time. A new post, or one scheduled for a later date, appears with the first build after
+its date: run the build again, or let your hosting run it on a schedule.

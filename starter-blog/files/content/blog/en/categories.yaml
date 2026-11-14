@@ -1,0 +1,7 @@
+# The blog's categories. A post names one by id (category); each gets a page at /blog/category/<id>.
+- id: guides
+  name: Guides
+  description: How to write, publish and look after the posts on this blog.
+- id: news
+  name: News
+  description: What changed on this blog and why.
