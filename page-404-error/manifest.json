@@ -1,0 +1,40 @@
+{
+  "name": "page-404-error",
+  "version": "1.0.0",
+  "title": "Not-Found and Error Pages",
+  "description": "Not-found and error pages with a way onward: views plus two one-line route files",
+  "type": "page",
+  "category": "WEB_DESIGN",
+  "tags": [
+    "404",
+    "error",
+    "not-found",
+    "page"
+  ],
+  "stack": [
+    "react",
+    "next",
+    "tailwind"
+  ],
+  "family": "site",
+  "vocabVersion": 1,
+  "outputDir": "app/page-404-error",
+  "files": [
+    "README.md",
+    "content.ts",
+    "error-page.tsx",
+    "error-view.tsx",
+    "labels.de.ts",
+    "labels.ts",
+    "not-found-page.tsx",
+    "not-found-view.tsx",
+    "site-types.ts"
+  ],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean",
+  "peerDependencies": {
+    "react": ">=19",
+    "next": ">=16",
+    "tailwindcss": ">=4"
+  },
+  "postMessage": "Add app/not-found.tsx and app/error.tsx as shown in app/page-404-error/README.md (one line each)."
+}
