@@ -1,0 +1,60 @@
+{
+  "name": "page-landing-hero",
+  "version": "1.0.0",
+  "title": "Landing Page (Short)",
+  "description": "Short landing page: hero, features and a call to action, assembled from the kit's sections",
+  "type": "page",
+  "category": "WEB_DESIGN",
+  "tags": [
+    "landing-page",
+    "marketing",
+    "page",
+    "sections"
+  ],
+  "stack": [
+    "react",
+    "next",
+    "tailwind"
+  ],
+  "family": "site",
+  "parts": [
+    {
+      "slug": "section-hero",
+      "version": "2.0.0",
+      "into": "_sections/hero"
+    },
+    {
+      "slug": "section-features",
+      "version": "2.0.0",
+      "into": "_sections/features"
+    },
+    {
+      "slug": "section-cta",
+      "version": "2.0.0",
+      "into": "_sections/cta"
+    }
+  ],
+  "outputDir": "app/page-landing-hero",
+  "files": [
+    "README.md",
+    "content.ts",
+    "landing-page.tsx",
+    "page.tsx",
+    "_sections/cta/README.md",
+    "_sections/cta/cta-section.tsx",
+    "_sections/cta/site-types.ts",
+    "_sections/features/README.md",
+    "_sections/features/features-section.tsx",
+    "_sections/features/site-types.ts",
+    "_sections/hero/README.md",
+    "_sections/hero/hero-section.tsx",
+    "_sections/hero/site-types.ts"
+  ],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; sections byte-identical to their pinned versions",
+  "peerDependencies": {
+    "react": ">=19",
+    "next": ">=16",
+    "tailwindcss": ">=4"
+  },
+  "postMessage": "Installed at app/page-landing-hero/ (served at /page-landing-hero; rename the folder for another path). Edit content.ts; see README.md."
+}
