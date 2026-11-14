@@ -1,14 +1,81 @@
 {
   "name": "blog-category-page",
-  "version": "1.0.0",
-  "description": "Blog category page with filtered post list, grid/list views, pagination, and sidebar",
-  "outputDir": "app/blog/category",
-  "files": ["page.tsx"],
+  "version": "2.0.0",
+  "title": "Category Page",
+  "description": "Blog category page: that category's posts with its description and static pagination",
+  "type": "page",
+  "category": "BLOG",
+  "tags": [
+    "blog",
+    "category",
+    "listing",
+    "pagination"
+  ],
+  "stack": [
+    "react",
+    "next",
+    "tailwind",
+    "mdx",
+    "zod"
+  ],
+  "family": "site",
+  "parts": [
+    {
+      "slug": "blog-content",
+      "version": "1.0.0",
+      "into": "_parts/blog-content"
+    },
+    {
+      "slug": "blog-card",
+      "version": "1.0.0",
+      "into": "_parts/blog-card"
+    },
+    {
+      "slug": "component-pagination",
+      "version": "1.0.0",
+      "into": "_parts/component-pagination"
+    }
+  ],
+  "outputDir": "app/blog/category/[category]",
+  "files": [
+    "page.tsx",
+    "page/[page]/page.tsx",
+    "category-page.tsx",
+    "content.ts",
+    "labels.ts",
+    "labels.de.ts",
+    "README.md",
+    "_parts/blog-card/README.md",
+    "_parts/blog-card/blog-card.tsx",
+    "_parts/blog-card/format-date.ts",
+    "_parts/blog-card/labels.de.ts",
+    "_parts/blog-card/labels.ts",
+    "_parts/blog-card/site-types.ts",
+    "_parts/blog-content/README.md",
+    "_parts/blog-content/blog-paths.ts",
+    "_parts/blog-content/blog.ts",
+    "_parts/blog-content/collection.ts",
+    "_parts/blog-content/front-matter.ts",
+    "_parts/blog-content/index.ts",
+    "_parts/blog-content/mdx-components.tsx",
+    "_parts/blog-content/mdx.ts",
+    "_parts/blog-content/reading-time.ts",
+    "_parts/blog-content/site-types.ts",
+    "_parts/component-pagination/README.md",
+    "_parts/component-pagination/labels.de.ts",
+    "_parts/component-pagination/labels.ts",
+    "_parts/component-pagination/page-window.ts",
+    "_parts/component-pagination/pagination.tsx",
+    "_parts/component-pagination/site-types.ts"
+  ],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; parts byte-identical to their pinned versions",
   "peerDependencies": {
-    "react": ">=18",
-    "next": ">=14",
-    "tailwindcss": ">=3",
-    "lucide-react": ">=0.263"
+    "react": ">=19",
+    "next": ">=16",
+    "tailwindcss": ">=4",
+    "zod": ">=3",
+    "@mdx-js/mdx": ">=3",
+    "yaml": ">=2"
   },
-  "postMessage": "Blog category page available at /blog/category.\nCustomize posts, categories, and sidebar content in page.tsx.\nSupports grid/list views, sorting, and pagination."
+  "postMessage": "Installed at app/blog/category/[category]/ (served at /blog/category/<id>). Categories go in content/blog/categories.yaml (see app/blog/category/[category]/_parts/blog-content/README.md); needs @mdx-js/mdx, yaml and zod. Edit content.ts; see README.md."
 }
