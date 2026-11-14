@@ -1,0 +1,37 @@
+{
+  "name": "page-legal-terms",
+  "version": "1.0.0",
+  "title": "Terms Page",
+  "description": "Terms page: collapsible sections with a table of contents and marked placeholders",
+  "type": "page",
+  "category": "WEB_DESIGN",
+  "tags": [
+    "legal",
+    "terms",
+    "page"
+  ],
+  "stack": [
+    "react",
+    "next",
+    "tailwind"
+  ],
+  "family": "site",
+  "outputDir": "app/page-legal-terms",
+  "files": [
+    "README.md",
+    "content.ts",
+    "labels.de.ts",
+    "labels.ts",
+    "legal-document.tsx",
+    "legal-text.tsx",
+    "page.tsx",
+    "placeholders.ts"
+  ],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; placeholder marking table-tested; mutants caught",
+  "peerDependencies": {
+    "react": ">=19",
+    "next": ">=16",
+    "tailwindcss": ">=4"
+  },
+  "postMessage": "Installed at app/page-legal-terms/ (served at /page-legal-terms; rename the folder for another path). Edit content.ts; see README.md."
+}
