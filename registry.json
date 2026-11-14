@@ -927,24 +927,101 @@
       "fileCount": 2,
       "version": "1.0.0"
     },
+    "blog-author-page": {
+      "name": "Author Page",
+      "description": "Author page: name, portrait, bio, website link and that author's posts",
+      "type": "page",
+      "category": "BLOG",
+      "tags": [
+        "blog",
+        "author",
+        "bio",
+        "posts"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "mdx",
+        "zod"
+      ],
+      "fileCount": 22,
+      "version": "1.0.0",
+      "family": "site",
+      "parts": [
+        {
+          "slug": "blog-content",
+          "version": "1.0.0",
+          "into": "_parts/blog-content"
+        },
+        {
+          "slug": "blog-card",
+          "version": "1.0.0",
+          "into": "_parts/blog-card"
+        }
+      ],
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; parts byte-identical to their pinned versions"
+    },
+    "blog-card": {
+      "name": "Blog Card",
+      "description": "Post preview card: image, category, title link, excerpt, date, reading time and authors, as a server component",
+      "type": "component",
+      "category": "BLOG",
+      "tags": [
+        "blog",
+        "card",
+        "post",
+        "preview"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 6,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; dates table-tested; mutants caught"
+    },
     "blog-category-page": {
       "name": "Category Page",
-      "description": "Blog category page with filtered post list, grid/list views, pagination, and sidebar",
+      "description": "Blog category page: that category's posts with its description and static pagination",
       "type": "page",
       "category": "BLOG",
       "tags": [
         "blog",
         "category",
-        "filter",
-        "listing"
+        "listing",
+        "pagination"
       ],
       "stack": [
         "react",
         "next",
-        "tailwind"
+        "tailwind",
+        "mdx",
+        "zod"
       ],
-      "fileCount": 1,
-      "version": "1.0.0"
+      "fileCount": 29,
+      "version": "2.0.0",
+      "family": "site",
+      "parts": [
+        {
+          "slug": "blog-content",
+          "version": "1.0.0",
+          "into": "_parts/blog-content"
+        },
+        {
+          "slug": "blog-card",
+          "version": "1.0.0",
+          "into": "_parts/blog-card"
+        },
+        {
+          "slug": "component-pagination",
+          "version": "1.0.0",
+          "into": "_parts/component-pagination"
+        }
+      ],
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; parts byte-identical to their pinned versions"
     },
     "blog-comments-giscus": {
       "name": "Comments (Giscus)",
@@ -963,6 +1040,141 @@
       "fileCount": 1,
       "version": "1.0.0"
     },
+    "blog-content": {
+      "name": "Blog Content Loader",
+      "description": "Typed post collection from MDX files: validated front matter, authors and categories, drafts and scheduled posts hidden, headings and reading time",
+      "type": "utility",
+      "category": "BLOG",
+      "tags": [
+        "blog",
+        "mdx",
+        "content",
+        "posts"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "mdx",
+        "zod"
+      ],
+      "fileCount": 10,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); post body same with and without preflight; axe clean; front matter, visibility, refusals and paging table-tested; mutants caught"
+    },
+    "blog-index-page": {
+      "name": "Blog Index Page",
+      "description": "Blog listing: post cards with a category filter and static pagination, from MDX files",
+      "type": "page",
+      "category": "BLOG",
+      "tags": [
+        "blog",
+        "index",
+        "listing",
+        "pagination"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "mdx",
+        "zod"
+      ],
+      "fileCount": 29,
+      "version": "1.0.0",
+      "family": "site",
+      "parts": [
+        {
+          "slug": "blog-content",
+          "version": "1.0.0",
+          "into": "_parts/blog-content"
+        },
+        {
+          "slug": "blog-card",
+          "version": "1.0.0",
+          "into": "_parts/blog-card"
+        },
+        {
+          "slug": "component-pagination",
+          "version": "1.0.0",
+          "into": "_parts/component-pagination"
+        }
+      ],
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; parts byte-identical to their pinned versions"
+    },
+    "blog-newsletter-cta": {
+      "name": "Newsletter CTA",
+      "description": "Newsletter signup, inline or sticky: a form on a server action with validation and a honeypot; double opt-in stays with the provider",
+      "type": "component",
+      "category": "BLOG",
+      "tags": [
+        "blog",
+        "newsletter",
+        "signup",
+        "email"
+      ],
+      "stack": [
+        "react",
+        "tailwind",
+        "zod"
+      ],
+      "fileCount": 7,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; validation and honeypot table-tested; works without JavaScript; mutants caught"
+    },
+    "blog-post-page": {
+      "name": "Blog Post Page",
+      "description": "Blog post: MDX body, table of contents, reading progress, related posts, share links, breadcrumbs and Article data",
+      "type": "page",
+      "category": "BLOG",
+      "tags": [
+        "blog",
+        "post",
+        "article",
+        "toc"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "mdx",
+        "zod"
+      ],
+      "fileCount": 43,
+      "version": "1.0.0",
+      "family": "site",
+      "parts": [
+        {
+          "slug": "blog-content",
+          "version": "1.0.0",
+          "into": "_parts/blog-content"
+        },
+        {
+          "slug": "blog-card",
+          "version": "1.0.0",
+          "into": "_parts/blog-card"
+        },
+        {
+          "slug": "component-breadcrumbs",
+          "version": "1.0.0",
+          "into": "_parts/component-breadcrumbs"
+        },
+        {
+          "slug": "blog-share-buttons",
+          "version": "2.0.0",
+          "into": "_parts/blog-share-buttons"
+        },
+        {
+          "slug": "site-seo",
+          "version": "1.0.0",
+          "into": "_parts/site-seo"
+        }
+      ],
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; parts byte-identical to their pinned versions"
+    },
     "blog-reading-mode": {
       "name": "Reading Mode",
       "description": "Distraction-free reading mode toggle — hides nav, widens content, adjusts typography",
@@ -980,6 +1192,26 @@
       ],
       "fileCount": 1,
       "version": "1.0.0"
+    },
+    "blog-rss-sitemap": {
+      "name": "RSS & Sitemap",
+      "description": "RSS 2.0 and Atom feeds and sitemap entries for blog posts, as pure functions for route handlers",
+      "type": "utility",
+      "category": "BLOG",
+      "tags": [
+        "blog",
+        "rss",
+        "atom",
+        "sitemap"
+      ],
+      "stack": [
+        "next"
+      ],
+      "fileCount": 5,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); RSS 2.0 and Atom well-formed, escaped and table-tested, served by route handlers; mutants caught"
     },
     "blog-search-results": {
       "name": "Search Results",
@@ -1002,7 +1234,7 @@
     },
     "blog-share-buttons": {
       "name": "Share Buttons",
-      "description": "Social media share buttons with copy-link functionality",
+      "description": "Share links for X, LinkedIn, Facebook, Bluesky, WhatsApp and email, plus native share and copy link where the browser has them; no third-party script",
       "type": "component",
       "category": "BLOG",
       "tags": [
@@ -1015,8 +1247,10 @@
         "react",
         "tailwind"
       ],
-      "fileCount": 1,
-      "version": "1.0.0"
+      "fileCount": 6,
+      "version": "2.0.0",
+      "family": "site",
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; share links table-tested"
     },
     "blog-tag-cloud": {
       "name": "Tag Cloud",
@@ -5825,6 +6059,107 @@
       ],
       "fileCount": 38,
       "version": "1.2.0"
+    },
+    "starter-blog": {
+      "name": "Blog Starter",
+      "description": "Blog with MDX posts, authors, categories, RSS and Atom feeds, newsletter signup, cookie consent, SEO, legal and error pages, assembled from the website kit",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "blog",
+        "mdx",
+        "rss",
+        "website"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "mdx",
+        "zod"
+      ],
+      "fileCount": 176,
+      "version": "1.0.0",
+      "family": "site",
+      "parts": [
+        {
+          "slug": "site-header",
+          "version": "1.0.0",
+          "into": "src/components/site-header"
+        },
+        {
+          "slug": "site-footer",
+          "version": "1.0.0",
+          "into": "src/components/site-footer"
+        },
+        {
+          "slug": "site-cookie-consent",
+          "version": "1.0.0",
+          "into": "src/modules/site-cookie-consent"
+        },
+        {
+          "slug": "site-seo",
+          "version": "1.0.0",
+          "into": "src/utils/site-seo"
+        },
+        {
+          "slug": "component-pagination",
+          "version": "1.0.0",
+          "into": "src/components/component-pagination"
+        },
+        {
+          "slug": "component-breadcrumbs",
+          "version": "1.0.0",
+          "into": "src/components/component-breadcrumbs"
+        },
+        {
+          "slug": "blog-content",
+          "version": "1.0.0",
+          "into": "src/utils/blog-content"
+        },
+        {
+          "slug": "blog-rss-sitemap",
+          "version": "1.0.0",
+          "into": "src/utils/blog-rss-sitemap"
+        },
+        {
+          "slug": "blog-card",
+          "version": "1.0.0",
+          "into": "src/components/blog-card"
+        },
+        {
+          "slug": "blog-newsletter-cta",
+          "version": "1.0.0",
+          "into": "src/components/blog-newsletter-cta"
+        },
+        {
+          "slug": "blog-share-buttons",
+          "version": "2.0.0",
+          "into": "src/components/blog-share-buttons"
+        },
+        {
+          "slug": "page-legal-imprint",
+          "version": "1.0.0",
+          "into": "src/app/_page-legal-imprint"
+        },
+        {
+          "slug": "page-legal-privacy",
+          "version": "1.0.0",
+          "into": "src/app/_page-legal-privacy"
+        },
+        {
+          "slug": "page-legal-terms",
+          "version": "1.0.0",
+          "into": "src/app/_page-legal-terms"
+        },
+        {
+          "slug": "page-404-error",
+          "version": "1.0.0",
+          "into": "src/app/_page-404-error"
+        }
+      ],
+      "proof": "assembled from its pinned parts byte for byte; installs into an empty folder, passes its tests, lint and build; crawl: no dead link, axe violation or foreign request before consent; feeds parse"
     },
     "starter-booking-system": {
       "name": "Booking System Starter",
