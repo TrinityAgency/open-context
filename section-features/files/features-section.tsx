@@ -1,96 +1,93 @@
-"use client"
+import { useId, type ComponentProps } from 'react';
+import type { Feature, ImageComponent } from './site-types';
 
-import { cn } from "@/lib/utils"
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import type { Feature, FeaturesSectionProps } from "./features-section.types"
+export type FeaturesContent = { title: string; intro?: string; items: Feature[] };
 
-/**
- * Default placeholder icon rendered when a feature does not provide its own icon.
- * Uses an inline SVG so there are no external icon-library dependencies.
- */
-function DefaultIcon() {
+export type FeaturesSectionProps = {
+  content: FeaturesContent;
+  /** `grid` (the default): 1, 2 or 3 columns. `rows`: one item per row, the image side alternating. */
+  layout?: 'grid' | 'rows';
+  /** Renders the images; pass a next/image wrapper in a Next app. Default: a plain `img`. */
+  ImageComponent?: ImageComponent;
+  id?: string;
+  className?: string;
+};
+
+function PlainImage({ src, alt, width, height, className }: ComponentProps<ImageComponent>) {
+  return <img src={src} alt={alt} width={width} height={height} className={className} />;
+}
+
+/** One SVG path in a 24-unit box: `Feature.icon` is its `d`. */
+function Icon({ d }: { d: string }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="h-5 w-5"
-      aria-hidden="true"
-    >
-      <path d="M12 2L2 7l10 5 10-5-10-5Z" />
-      <path d="M2 17l10 5 10-5" />
-      <path d="M2 12l10 5 10-5" />
-    </svg>
-  )
+    <span className="mb-4 flex size-10 items-center justify-center rounded-md bg-neutral-100 text-neutral-900">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} aria-hidden="true" className="block size-6">
+        <path d={d} strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
 }
 
-/** Grid class mapping for each layout variant. */
-const variantGridClasses: Record<
-  NonNullable<FeaturesSectionProps["variant"]>,
-  string
-> = {
-  "three-column": "sm:grid-cols-2 lg:grid-cols-3",
-  "four-column": "sm:grid-cols-2 lg:grid-cols-4",
-}
+const ROOT = 'box-border px-6 py-16 text-neutral-900';
+const IMAGE = 'block h-auto w-full max-w-full rounded-lg';
 
 /**
- * Features section displaying a heading, optional description, and a responsive
- * grid of feature cards. Supports 3-column (default) and 4-column layout variants.
- *
- * Each card renders an icon (or a default placeholder), a title, and a description
- * using shadcn Card primitives for consistent styling and dark-mode support.
+ * A titled list of features: each with an optional icon, a title, a description and an optional image. Server
+ * component. `grid` shows them as cards in up to three columns; `rows` gives each its own row, text beside the image
+ * from `md`, the image side alternating.
  */
 export function FeaturesSection({
-  title,
-  description,
-  features,
-  variant = "three-column",
+  content,
+  layout = 'grid',
+  ImageComponent: Image = PlainImage,
+  id,
   className,
 }: FeaturesSectionProps) {
+  const headingId = useId();
+  const { title, intro, items } = content;
+
+  const picture = (item: Feature, cls: string) =>
+    item.image ? (
+      <Image src={item.image.src} alt={item.image.alt} width={item.image.width} height={item.image.height} className={cls} />
+    ) : null;
+  const text = (item: Feature) => (
+    <>
+      {item.icon ? <Icon d={item.icon} /> : null}
+      <h3 className="m-0 text-lg font-semibold">{item.title}</h3>
+      <p className="m-0 mt-2 text-neutral-700">{item.description}</p>
+    </>
+  );
+
   return (
-    <section className={cn("py-16 md:py-24", className)}>
-      {/* Section header */}
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+    <section id={id} aria-labelledby={headingId} className={className ? `${ROOT} ${className}` : ROOT}>
+      <div className="mx-auto max-w-5xl">
+        <h2 id={headingId} className="m-0 text-3xl font-semibold tracking-tight">
           {title}
         </h2>
-        {description && (
-          <p className="mt-4 text-lg text-muted-foreground">{description}</p>
+        {intro ? <p className="m-0 mt-4 max-w-2xl text-lg text-neutral-700">{intro}</p> : null}
+        {items.length === 0 ? null : layout === 'rows' ? (
+          <ul className="m-0 mt-12 grid list-none gap-16 p-0">
+            {items.map((item, i) => {
+              const side = i % 2 === 0 ? 'start' : 'end';
+              return (
+                <li key={i} data-side={side} className="grid items-center gap-8 md:grid-cols-2">
+                  <div className="min-w-0">{text(item)}</div>
+                  {picture(item, side === 'start' ? `${IMAGE} md:order-first` : IMAGE)}
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <ul className="m-0 mt-10 grid list-none grid-cols-1 gap-8 p-0 sm:grid-cols-2 lg:grid-cols-3">
+            {items.map((item, i) => (
+              <li key={i} className="min-w-0">
+                {picture(item, `${IMAGE} mb-4`)}
+                {text(item)}
+              </li>
+            ))}
+          </ul>
         )}
-      </div>
-
-      {/* Feature grid */}
-      <div
-        className={cn(
-          "mt-12 grid gap-6",
-          variantGridClasses[variant],
-        )}
-      >
-        {features.map((feature: Feature) => (
-          <Card key={feature.title} className="border bg-card">
-            <CardHeader>
-              <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                {feature.icon ?? <DefaultIcon />}
-              </div>
-              <CardTitle className="text-lg">{feature.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                {feature.description}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
       </div>
     </section>
-  )
+  );
 }
