@@ -1,0 +1,17 @@
+{
+  "name": "blog-rss-sitemap",
+  "version": "1.0.0",
+  "title": "RSS & Sitemap",
+  "description": "RSS 2.0 and Atom feeds and sitemap entries for blog posts, as pure functions for route handlers",
+  "type": "utility",
+  "category": "BLOG",
+  "tags": ["blog", "rss", "atom", "sitemap"],
+  "stack": ["next"],
+  "family": "site",
+  "vocabVersion": 1,
+  "outputDir": "src/utils/blog-rss-sitemap",
+  "files": ["feeds.ts", "xml.ts", "sitemap.ts", "site-types.ts", "README.md"],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); RSS 2.0 and Atom well-formed, escaped and table-tested, served by route handlers; mutants caught",
+  "peerDependencies": { "next": ">=16" },
+  "postMessage": "See src/utils/blog-rss-sitemap/README.md for the two feed route handlers and the sitemap entries."
+}
