@@ -1,12 +1,17 @@
 {
   "name": "section-pricing",
-  "version": "1.0.0",
-  "description": "Pricing section with tier cards, billing toggle, feature lists, and highlighted popular plan",
+  "version": "2.0.0",
+  "title": "Pricing Section",
+  "description": "Pricing section: plans with prices from minor units, a no-JavaScript interval switch and a highlighted plan",
+  "type": "component",
+  "category": "SECTIONS",
+  "tags": ["pricing", "section", "plans", "landing"],
+  "stack": ["react", "tailwind"],
+  "family": "site",
+  "vocabVersion": 1,
   "outputDir": "components/section-pricing",
-  "files": ["pricing-section.tsx", "pricing-section.types.ts"],
-  "peerDependencies": {
-    "react": ">=18",
-    "tailwindcss": ">=3"
-  },
-  "postMessage": "Install shadcn deps: npx shadcn@latest add card button badge switch\nImport: import { PricingSection } from '@/components/section-pricing/pricing-section'"
+  "files": ["pricing-section.tsx", "format-price.ts", "labels.ts", "labels.de.ts", "site-types.ts", "README.md"],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; prices table-tested; mutants caught",
+  "peerDependencies": { "react": ">=19", "tailwindcss": ">=4" },
+  "postMessage": "See components/section-pricing/README.md for the content props, the German label set and the Next link wiring."
 }
