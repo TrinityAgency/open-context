@@ -1,0 +1,44 @@
+{
+  "name": "page-contact",
+  "version": "1.0.0",
+  "title": "Contact Page",
+  "description": "Contact page: a form with a server action, spam traps and validation, contact details and a map link",
+  "type": "page",
+  "category": "WEB_DESIGN",
+  "tags": [
+    "contact",
+    "form",
+    "server-action",
+    "page"
+  ],
+  "stack": [
+    "react",
+    "next",
+    "tailwind",
+    "zod"
+  ],
+  "family": "site",
+  "vocabVersion": 1,
+  "outputDir": "app/page-contact",
+  "files": [
+    "README.md",
+    "actions.ts",
+    "contact-form.tsx",
+    "contact-message.ts",
+    "contact-view.tsx",
+    "content.ts",
+    "deliver.ts",
+    "labels.de.ts",
+    "labels.ts",
+    "page.tsx",
+    "site-types.ts"
+  ],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; validation and spam traps table-tested; mutants caught",
+  "peerDependencies": {
+    "react": ">=19",
+    "next": ">=16",
+    "tailwindcss": ">=4",
+    "zod": ">=3"
+  },
+  "postMessage": "Installed at app/page-contact/ (served at /page-contact; rename the folder for another path). Edit content.ts, and replace deliver() in deliver.ts before production (it refuses there); see README.md."
+}
