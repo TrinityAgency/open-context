@@ -1,0 +1,103 @@
+{
+  "name": "page-landing-full",
+  "version": "1.0.0",
+  "title": "Landing Page (Full)",
+  "description": "Full landing page: hero, logos, features, figures, testimonials, pricing, questions and a call to action",
+  "type": "page",
+  "category": "WEB_DESIGN",
+  "tags": [
+    "landing-page",
+    "marketing",
+    "page",
+    "sections"
+  ],
+  "stack": [
+    "react",
+    "next",
+    "tailwind"
+  ],
+  "family": "site",
+  "parts": [
+    {
+      "slug": "section-hero",
+      "version": "2.0.0",
+      "into": "_sections/hero"
+    },
+    {
+      "slug": "section-logo-cloud",
+      "version": "2.0.0",
+      "into": "_sections/logo-cloud"
+    },
+    {
+      "slug": "section-features",
+      "version": "2.0.0",
+      "into": "_sections/features"
+    },
+    {
+      "slug": "section-stats",
+      "version": "2.0.0",
+      "into": "_sections/stats"
+    },
+    {
+      "slug": "section-testimonials",
+      "version": "2.0.0",
+      "into": "_sections/testimonials"
+    },
+    {
+      "slug": "section-pricing",
+      "version": "2.0.0",
+      "into": "_sections/pricing"
+    },
+    {
+      "slug": "section-faq",
+      "version": "2.0.0",
+      "into": "_sections/faq"
+    },
+    {
+      "slug": "section-cta",
+      "version": "2.0.0",
+      "into": "_sections/cta"
+    }
+  ],
+  "outputDir": "app/page-landing-full",
+  "files": [
+    "README.md",
+    "content.ts",
+    "landing-page.tsx",
+    "page.tsx",
+    "_sections/cta/README.md",
+    "_sections/cta/cta-section.tsx",
+    "_sections/cta/site-types.ts",
+    "_sections/faq/README.md",
+    "_sections/faq/faq-section.tsx",
+    "_sections/faq/site-types.ts",
+    "_sections/features/README.md",
+    "_sections/features/features-section.tsx",
+    "_sections/features/site-types.ts",
+    "_sections/hero/README.md",
+    "_sections/hero/hero-section.tsx",
+    "_sections/hero/site-types.ts",
+    "_sections/logo-cloud/README.md",
+    "_sections/logo-cloud/logo-cloud-section.tsx",
+    "_sections/logo-cloud/site-types.ts",
+    "_sections/pricing/README.md",
+    "_sections/pricing/format-price.ts",
+    "_sections/pricing/labels.de.ts",
+    "_sections/pricing/labels.ts",
+    "_sections/pricing/pricing-section.tsx",
+    "_sections/pricing/site-types.ts",
+    "_sections/stats/README.md",
+    "_sections/stats/site-types.ts",
+    "_sections/stats/stats-section.tsx",
+    "_sections/testimonials/README.md",
+    "_sections/testimonials/site-types.ts",
+    "_sections/testimonials/testimonials-section.tsx"
+  ],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; sections byte-identical to their pinned versions",
+  "peerDependencies": {
+    "react": ">=19",
+    "next": ">=16",
+    "tailwindcss": ">=4"
+  },
+  "postMessage": "Installed at app/page-landing-full/ (served at /page-landing-full; rename the folder for another path). Edit content.ts; see README.md."
+}
