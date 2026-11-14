@@ -1,54 +1,51 @@
-'use client';
+import { useId } from 'react';
+import { SHARE_LABELS, type ShareLabels } from './labels';
+import { ShareActions } from './share-actions';
+import { SHARE_NETWORKS, shareHref, type ShareNetwork } from './share-targets';
 
-import { useState } from 'react';
-
-interface ShareButtonsProps {
+export type ShareButtonsProps = {
+  /** The page's absolute address (`https://…`). */
   url: string;
   title: string;
+  /** Which networks, in which order. Default: all six (`SHARE_NETWORKS`). */
+  networks?: ShareNetwork[];
+  labels?: Partial<ShareLabels>;
   className?: string;
-}
+};
 
-export function ShareButtons({ url, title, className }: ShareButtonsProps) {
-  const [copied, setCopied] = useState(false);
-  const [hasNativeShare] = useState(() => typeof navigator !== 'undefined' && !!navigator.share);
-  const encoded = encodeURIComponent(url);
-  const encodedTitle = encodeURIComponent(title);
+const LINK =
+  'box-border inline-flex h-9 items-center rounded-md border border-solid border-neutral-300 bg-white px-3 font-sans text-sm font-medium text-neutral-900 no-underline hover:border-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
 
-  const share = (href: string) => window.open(href, '_blank', 'noopener,noreferrer,width=600,height=400');
-
-  const copyLink = async () => {
-    await navigator.clipboard.writeText(url);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const nativeShare = () => navigator.share({ url, title });
-
-  const btn = 'inline-flex items-center justify-center rounded-lg p-2 text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-100';
-
+/**
+ * Share links as plain links (no third-party script, nothing loaded from a network on your page), then native share
+ * and copy link where the browser has them. Renders on the server; the two buttons are the client island.
+ */
+export function ShareButtons({ url, title, networks = SHARE_NETWORKS, labels, className }: ShareButtonsProps) {
+  const text = { ...SHARE_LABELS, ...labels };
+  const titleId = useId();
+  const page = { url, title };
   return (
-    <div className={`flex items-center gap-1 ${className ?? ''}`}>
-      <button aria-label="Share on X" className={btn} onClick={() => share(`https://twitter.com/intent/tweet?url=${encoded}&text=${encodedTitle}`)}>
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </button>
-      <button aria-label="Share on LinkedIn" className={btn} onClick={() => share(`https://www.linkedin.com/sharing/share-offsite/?url=${encoded}`)}>
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </button>
-      <button aria-label="Share on Facebook" className={btn} onClick={() => share(`https://www.facebook.com/sharer/sharer.php?u=${encoded}`)}>
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </button>
-      <button aria-label={copied ? 'Copied!' : 'Copy link'} className={btn} onClick={copyLink}>
-        {copied ? (
-          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        ) : (
-          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-        )}
-      </button>
-      {hasNativeShare && (
-        <button aria-label="Share via device" className={btn} onClick={nativeShare}>
-          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-        </button>
-      )}
+    <div role="group" aria-labelledby={titleId} className={['min-w-0', className].filter(Boolean).join(' ')}>
+      <p id={titleId} className="m-0 font-sans text-sm font-semibold text-neutral-900">
+        {text.title}
+      </p>
+      <ul className="m-0 mt-3 flex list-none flex-wrap gap-2 p-0">
+        {networks.map((network) => (
+          <li key={network} className="m-0 p-0">
+            {network === 'email' ? (
+              <a href={shareHref(network, page)} className={LINK}>
+                {text.networks[network]}
+              </a>
+            ) : (
+              <a href={shareHref(network, page)} target="_blank" rel="noopener noreferrer" className={LINK}>
+                {text.networks[network]}{' '}
+                <span className="sr-only">{text.newTab}</span>
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+      <ShareActions url={url} title={title} labels={text} />
     </div>
   );
 }
