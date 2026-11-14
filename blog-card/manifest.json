@@ -1,0 +1,17 @@
+{
+  "name": "blog-card",
+  "version": "1.0.0",
+  "title": "Blog Card",
+  "description": "Post preview card: image, category, title link, excerpt, date, reading time and authors, as a server component",
+  "type": "component",
+  "category": "BLOG",
+  "tags": ["blog", "card", "post", "preview"],
+  "stack": ["react", "tailwind"],
+  "family": "site",
+  "vocabVersion": 1,
+  "outputDir": "components/blog-card",
+  "files": ["blog-card.tsx", "format-date.ts", "labels.ts", "labels.de.ts", "site-types.ts", "README.md"],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; dates table-tested; mutants caught",
+  "peerDependencies": { "react": ">=19", "tailwindcss": ">=4" },
+  "postMessage": "See components/blog-card/README.md for props, the German label set and the Next link/image wiring."
+}
