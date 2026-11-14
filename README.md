@@ -1,6 +1,6 @@
 # Open Context
 
-343 standalone templates for Next.js, React and agent tooling, each installed with one command.
+351 standalone templates for Next.js, React and agent tooling, each installed with one command.
 
 ## Quick start
 
@@ -22,7 +22,7 @@ npx @trinity369/use <template>
 | `--dir <path>` | install into another folder |
 | `--no-overwrite` | keep files that already exist |
 
-## Templates (343)
+## Templates (351)
 
 ### AGENTIC (39)
 
@@ -132,15 +132,22 @@ npx @trinity369/use <template>
 | `bento-saas` | component | SaaS landing page bento grid with hero, features, integrations, testimonial, and stats cards |
 | `bento-stats` | component | Dashboard-style metrics in bento grid layout with trend indicators and badges |
 
-### BLOG (6)
+### BLOG (13)
 
 | Template | Type | Description |
 |---|---|---|
-| `blog-category-page` | page | Blog category page with filtered post list, grid/list views, pagination, and sidebar |
+| `blog-author-page` | page | Author page: name, portrait, bio, website link and that author's posts |
+| `blog-card` | component | Post preview card: image, category, title link, excerpt, date, reading time and authors, as a server component |
+| `blog-category-page` | page | Blog category page: that category's posts with its description and static pagination |
 | `blog-comments-giscus` | component | Blog comments powered by GitHub Discussions via Giscus — zero database needed |
+| `blog-content` | utility | Typed post collection from MDX files: validated front matter, authors and categories, drafts and scheduled posts hidden, headings and reading time |
+| `blog-index-page` | page | Blog listing: post cards with a category filter and static pagination, from MDX files |
+| `blog-newsletter-cta` | component | Newsletter signup, inline or sticky: a form on a server action with validation and a honeypot; double opt-in stays with the provider |
+| `blog-post-page` | page | Blog post: MDX body, table of contents, reading progress, related posts, share links, breadcrumbs and Article data |
 | `blog-reading-mode` | component | Distraction-free reading mode toggle — hides nav, widens content, adjusts typography |
+| `blog-rss-sitemap` | utility | RSS 2.0 and Atom feeds and sitemap entries for blog posts, as pure functions for route handlers |
 | `blog-search-results` | page | Blog search results page with query highlighting, filters, and pagination |
-| `blog-share-buttons` | component | Social media share buttons with copy-link functionality |
+| `blog-share-buttons` | component | Share links for X, LinkedIn, Facebook, Bluesky, WhatsApp and email, plus native share and copy link where the browser has them; no third-party script |
 | `blog-tag-cloud` | component | Interactive tag cloud with weighted sizing, color scaling, and staggered animations |
 
 ### COMPONENTS (32)
@@ -395,12 +402,13 @@ npx @trinity369/use <template>
 | `sidebar-mobile` | layout | Slide-out mobile drawer sidebar with overlay and close button |
 | `sidebar-settings` | layout | Settings panel sidebar with grouped section links and active highlight |
 
-### STARTER (16)
+### STARTER (17)
 
 | Template | Type | Description |
 |---|---|---|
 | `site-starter` | starter | Company website starter — Next 16, React 19, Tailwind 4 without preflight, a Claude Design export turned into tokens and a typed class catalog (design-sync), guard tests for facts and colours |
 | `starter-admin-panel` | starter | Admin panel starter with RBAC, audit log, Cmd+K search, CRUD data tables, forms, auth, and PostgreSQL. Next.js 14, shadcn/ui, TanStack Table, Recharts. |
+| `starter-blog` | starter | Blog with MDX posts, authors, categories, RSS and Atom feeds, newsletter signup, cookie consent, SEO, legal and error pages, assembled from the website kit |
 | `starter-booking-system` | starter | Appointment booking system with calendar view and availability management |
 | `starter-course-platform` | starter | Online course platform with lessons and progress |
 | `starter-event-platform` | starter | Next.js 14 event platform starter with event listings, speaker profiles, ticket tiers, schedule timeline, and countdown timer. Purple/violet theme. TypeScript, Tailwind CSS, App Router. |
