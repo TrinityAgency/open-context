@@ -3706,6 +3706,72 @@
         "mail-tresor"
       ]
     },
+    "page-404-error": {
+      "name": "Not-Found and Error Pages",
+      "description": "Not-found and error pages with a way onward: views plus two one-line route files",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "404",
+        "error",
+        "not-found",
+        "page"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 9,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
+    },
+    "page-about": {
+      "name": "About Page",
+      "description": "About page: story, values, figures and team",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "about",
+        "company",
+        "team",
+        "page"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 19,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "parts": [
+        {
+          "slug": "section-hero",
+          "version": "2.0.0",
+          "into": "_sections/hero"
+        },
+        {
+          "slug": "section-features",
+          "version": "2.0.0",
+          "into": "_sections/features"
+        },
+        {
+          "slug": "section-stats",
+          "version": "2.0.0",
+          "into": "_sections/stats"
+        },
+        {
+          "slug": "section-cta",
+          "version": "2.0.0",
+          "into": "_sections/cta"
+        }
+      ],
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; sections byte-identical to their pinned versions"
+    },
     "page-app-download": {
       "name": "App Download Page",
       "description": "Mobile app download page with store badges, phone mockup, features grid, screenshot gallery, and QR code section",
@@ -3762,6 +3828,28 @@
       "fileCount": 6,
       "version": "1.0.0"
     },
+    "page-changelog": {
+      "name": "Changelog Page",
+      "description": "Changelog page: releases from a typed list with version badges, dates and anchor links",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "changelog",
+        "releases",
+        "page",
+        "versions"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 8,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; ordering and anchors table-tested; mutants caught"
+    },
     "page-coming-soon": {
       "name": "Coming Soon Page",
       "description": "Coming soon page with countdown timer, email capture form, and social links. Dark gradient background with flip-style countdown animation.",
@@ -3780,6 +3868,29 @@
       ],
       "fileCount": 4,
       "version": "1.0.0"
+    },
+    "page-contact": {
+      "name": "Contact Page",
+      "description": "Contact page: a form with a server action, spam traps and validation, contact details and a map link",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "contact",
+        "form",
+        "server-action",
+        "page"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "zod"
+      ],
+      "fileCount": 11,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; validation and spam traps table-tested; mutants caught"
     },
     "page-event-landing": {
       "name": "Event Landing Page",
@@ -3818,6 +3929,207 @@
       ],
       "fileCount": 5,
       "version": "1.0.0"
+    },
+    "page-features": {
+      "name": "Features Page",
+      "description": "Features page: feature groups with icon, text and image, then a call to action",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "features",
+        "marketing",
+        "page",
+        "sections"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 13,
+      "version": "1.0.0",
+      "family": "site",
+      "parts": [
+        {
+          "slug": "section-hero",
+          "version": "2.0.0",
+          "into": "_sections/hero"
+        },
+        {
+          "slug": "section-features",
+          "version": "2.0.0",
+          "into": "_sections/features"
+        },
+        {
+          "slug": "section-cta",
+          "version": "2.0.0",
+          "into": "_sections/cta"
+        }
+      ],
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; sections byte-identical to their pinned versions"
+    },
+    "page-landing-full": {
+      "name": "Landing Page (Full)",
+      "description": "Full landing page: hero, logos, features, figures, testimonials, pricing, questions and a call to action",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "landing-page",
+        "marketing",
+        "page",
+        "sections"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 31,
+      "version": "1.0.0",
+      "family": "site",
+      "parts": [
+        {
+          "slug": "section-hero",
+          "version": "2.0.0",
+          "into": "_sections/hero"
+        },
+        {
+          "slug": "section-logo-cloud",
+          "version": "2.0.0",
+          "into": "_sections/logo-cloud"
+        },
+        {
+          "slug": "section-features",
+          "version": "2.0.0",
+          "into": "_sections/features"
+        },
+        {
+          "slug": "section-stats",
+          "version": "2.0.0",
+          "into": "_sections/stats"
+        },
+        {
+          "slug": "section-testimonials",
+          "version": "2.0.0",
+          "into": "_sections/testimonials"
+        },
+        {
+          "slug": "section-pricing",
+          "version": "2.0.0",
+          "into": "_sections/pricing"
+        },
+        {
+          "slug": "section-faq",
+          "version": "2.0.0",
+          "into": "_sections/faq"
+        },
+        {
+          "slug": "section-cta",
+          "version": "2.0.0",
+          "into": "_sections/cta"
+        }
+      ],
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; sections byte-identical to their pinned versions"
+    },
+    "page-landing-hero": {
+      "name": "Landing Page (Short)",
+      "description": "Short landing page: hero, features and a call to action, assembled from the kit's sections",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "landing-page",
+        "marketing",
+        "page",
+        "sections"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 13,
+      "version": "1.0.0",
+      "family": "site",
+      "parts": [
+        {
+          "slug": "section-hero",
+          "version": "2.0.0",
+          "into": "_sections/hero"
+        },
+        {
+          "slug": "section-features",
+          "version": "2.0.0",
+          "into": "_sections/features"
+        },
+        {
+          "slug": "section-cta",
+          "version": "2.0.0",
+          "into": "_sections/cta"
+        }
+      ],
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; sections byte-identical to their pinned versions"
+    },
+    "page-legal-imprint": {
+      "name": "Imprint Page",
+      "description": "Imprint page: provider identification fields for German and Austrian sites, as marked placeholders",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "legal",
+        "imprint",
+        "impressum",
+        "page"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 8,
+      "version": "1.0.0",
+      "family": "site",
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; placeholder marking table-tested; mutants caught"
+    },
+    "page-legal-privacy": {
+      "name": "Privacy Policy Page",
+      "description": "Privacy policy page: table of contents, short summaries and clearly marked placeholders",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "legal",
+        "privacy",
+        "gdpr",
+        "page"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 8,
+      "version": "1.0.0",
+      "family": "site",
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; placeholder marking table-tested; mutants caught"
+    },
+    "page-legal-terms": {
+      "name": "Terms Page",
+      "description": "Terms page: collapsible sections with a table of contents and marked placeholders",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "legal",
+        "terms",
+        "page"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 8,
+      "version": "1.0.0",
+      "family": "site",
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; placeholder marking table-tested; mutants caught"
     },
     "page-partner-integrations": {
       "name": "Partner Integrations Page",
@@ -3874,6 +4186,44 @@
       ],
       "fileCount": 4,
       "version": "1.0.0"
+    },
+    "page-pricing": {
+      "name": "Pricing Page",
+      "description": "Pricing page: plans with an interval switch, a comparison table and questions",
+      "type": "page",
+      "category": "WEB_DESIGN",
+      "tags": [
+        "pricing",
+        "plans",
+        "comparison",
+        "page"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind"
+      ],
+      "fileCount": 19,
+      "version": "1.0.0",
+      "family": "site",
+      "parts": [
+        {
+          "slug": "section-pricing",
+          "version": "2.0.0",
+          "into": "_sections/pricing"
+        },
+        {
+          "slug": "section-faq",
+          "version": "2.0.0",
+          "into": "_sections/faq"
+        },
+        {
+          "slug": "section-cta",
+          "version": "2.0.0",
+          "into": "_sections/cta"
+        }
+      ],
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; sections byte-identical to their pinned versions"
     },
     "page-restaurant-menu": {
       "name": "Restaurant Menu Page",
@@ -4662,146 +5012,171 @@
     },
     "section-cta": {
       "name": "CTA Section",
-      "description": "Call-to-action section with dark, brand, and light background variants",
+      "description": "Call-to-action band with a title, a line of text and its links",
       "type": "component",
       "category": "SECTIONS",
       "tags": [
+        "cta",
         "section",
-        "marketing",
+        "landing",
         "conversion"
-      ],
-      "stack": [
-        "react",
-        "tailwind",
-        "shadcn"
-      ],
-      "fileCount": 2,
-      "version": "1.0.0"
-    },
-    "section-faq": {
-      "name": "FAQ Section",
-      "description": "FAQ section with shadcn accordion and optional category tabs",
-      "type": "component",
-      "category": "SECTIONS",
-      "tags": [
-        "section",
-        "marketing",
-        "content"
-      ],
-      "stack": [
-        "react",
-        "tailwind",
-        "shadcn"
-      ],
-      "fileCount": 2,
-      "version": "1.0.0"
-    },
-    "section-features": {
-      "name": "Features Section",
-      "description": "Features section with icon cards in 3-column or 4-column responsive grid layout",
-      "type": "component",
-      "category": "SECTIONS",
-      "tags": [
-        "section",
-        "marketing",
-        "landing"
-      ],
-      "stack": [
-        "react",
-        "tailwind",
-        "shadcn"
-      ],
-      "fileCount": 2,
-      "version": "1.0.0"
-    },
-    "section-hero": {
-      "name": "Hero Section",
-      "description": "Hero section with centered, split, and video variants — responsive with dark mode support",
-      "type": "component",
-      "category": "SECTIONS",
-      "tags": [
-        "section",
-        "marketing",
-        "landing"
-      ],
-      "stack": [
-        "react",
-        "tailwind",
-        "shadcn"
-      ],
-      "fileCount": 2,
-      "version": "1.0.0"
-    },
-    "section-logo-cloud": {
-      "name": "Logo Cloud Section",
-      "description": "Logo cloud section with static grid or infinite marquee scroll — inline SVG logos, zero dependencies",
-      "type": "component",
-      "category": "SECTIONS",
-      "tags": [
-        "section",
-        "marketing",
-        "social-proof"
       ],
       "stack": [
         "react",
         "tailwind"
       ],
-      "fileCount": 2,
-      "version": "1.0.0"
+      "fileCount": 3,
+      "version": "2.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
+    },
+    "section-faq": {
+      "name": "FAQ Section",
+      "description": "FAQ section on native details: questions open in place, keyboard complete without JavaScript",
+      "type": "component",
+      "category": "SECTIONS",
+      "tags": [
+        "faq",
+        "section",
+        "details",
+        "accordion"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 3,
+      "version": "2.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
+    },
+    "section-features": {
+      "name": "Features Section",
+      "description": "Features section: a grid or alternating rows of items with icon, text and image",
+      "type": "component",
+      "category": "SECTIONS",
+      "tags": [
+        "features",
+        "section",
+        "landing",
+        "grid"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 3,
+      "version": "2.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
+    },
+    "section-hero": {
+      "name": "Hero Section",
+      "description": "Hero section: title, lead, calls to action and an optional image, as a server component with typed content",
+      "type": "component",
+      "category": "SECTIONS",
+      "tags": [
+        "hero",
+        "section",
+        "landing",
+        "cta"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 3,
+      "version": "2.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
+    },
+    "section-logo-cloud": {
+      "name": "Logo Cloud Section",
+      "description": "Logo cloud: a row of client or partner logos, optionally linked",
+      "type": "component",
+      "category": "SECTIONS",
+      "tags": [
+        "logos",
+        "section",
+        "social-proof",
+        "landing"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 3,
+      "version": "2.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
     },
     "section-pricing": {
       "name": "Pricing Section",
-      "description": "Pricing section with tier cards, billing toggle, feature lists, and highlighted popular plan",
+      "description": "Pricing section: plans with prices from minor units, a no-JavaScript interval switch and a highlighted plan",
       "type": "component",
       "category": "SECTIONS",
       "tags": [
+        "pricing",
         "section",
-        "marketing",
-        "pricing"
+        "plans",
+        "landing"
       ],
       "stack": [
         "react",
-        "tailwind",
-        "shadcn"
+        "tailwind"
       ],
-      "fileCount": 2,
-      "version": "1.0.0"
+      "fileCount": 6,
+      "version": "2.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; prices table-tested; mutants caught"
     },
     "section-stats": {
       "name": "Stats Section",
-      "description": "Stats section with animated count-up numbers, separators, and responsive grid",
+      "description": "Stats section: key figures as a description list",
       "type": "component",
       "category": "SECTIONS",
       "tags": [
+        "stats",
         "section",
-        "marketing",
-        "data"
+        "numbers",
+        "landing"
       ],
       "stack": [
         "react",
-        "tailwind",
-        "shadcn"
+        "tailwind"
       ],
-      "fileCount": 2,
-      "version": "1.0.0"
+      "fileCount": 3,
+      "version": "2.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
     },
     "section-testimonials": {
       "name": "Testimonials Section",
-      "description": "Testimonials section with avatar cards, star ratings, and responsive grid layout",
+      "description": "Testimonials section: quotes with name, role and portrait",
       "type": "component",
       "category": "SECTIONS",
       "tags": [
+        "testimonials",
         "section",
-        "marketing",
-        "social-proof"
+        "social-proof",
+        "quotes"
       ],
       "stack": [
         "react",
-        "tailwind",
-        "shadcn"
+        "tailwind"
       ],
-      "fileCount": 2,
-      "version": "1.0.0"
+      "fileCount": 3,
+      "version": "2.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
     },
     "shop-cart": {
       "name": "Shopping Cart",
@@ -5590,6 +5965,111 @@
       ],
       "fileCount": 24,
       "version": "1.0.0"
+    },
+    "starter-landing-page": {
+      "name": "Landing Page Starter",
+      "description": "Company landing page assembled from the website kit: header, footer, cookie consent, SEO, eight sections, legal and error pages, with guard tests",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "landing-page",
+        "website",
+        "consent",
+        "seo"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "zod"
+      ],
+      "fileCount": 124,
+      "version": "1.0.0",
+      "family": "site",
+      "parts": [
+        {
+          "slug": "site-header",
+          "version": "1.0.0",
+          "into": "src/components/site-header"
+        },
+        {
+          "slug": "site-footer",
+          "version": "1.0.0",
+          "into": "src/components/site-footer"
+        },
+        {
+          "slug": "site-cookie-consent",
+          "version": "1.0.0",
+          "into": "src/modules/site-cookie-consent"
+        },
+        {
+          "slug": "site-seo",
+          "version": "1.0.0",
+          "into": "src/utils/site-seo"
+        },
+        {
+          "slug": "section-hero",
+          "version": "2.0.0",
+          "into": "src/components/section-hero"
+        },
+        {
+          "slug": "section-logo-cloud",
+          "version": "2.0.0",
+          "into": "src/components/section-logo-cloud"
+        },
+        {
+          "slug": "section-features",
+          "version": "2.0.0",
+          "into": "src/components/section-features"
+        },
+        {
+          "slug": "section-stats",
+          "version": "2.0.0",
+          "into": "src/components/section-stats"
+        },
+        {
+          "slug": "section-testimonials",
+          "version": "2.0.0",
+          "into": "src/components/section-testimonials"
+        },
+        {
+          "slug": "section-pricing",
+          "version": "2.0.0",
+          "into": "src/components/section-pricing"
+        },
+        {
+          "slug": "section-faq",
+          "version": "2.0.0",
+          "into": "src/components/section-faq"
+        },
+        {
+          "slug": "section-cta",
+          "version": "2.0.0",
+          "into": "src/components/section-cta"
+        },
+        {
+          "slug": "page-legal-imprint",
+          "version": "1.0.0",
+          "into": "src/app/_page-legal-imprint"
+        },
+        {
+          "slug": "page-legal-privacy",
+          "version": "1.0.0",
+          "into": "src/app/_page-legal-privacy"
+        },
+        {
+          "slug": "page-legal-terms",
+          "version": "1.0.0",
+          "into": "src/app/_page-legal-terms"
+        },
+        {
+          "slug": "page-404-error",
+          "version": "1.0.0",
+          "into": "src/app/_page-404-error"
+        }
+      ],
+      "proof": "assembled from its pinned parts byte for byte; installs into an empty folder, passes its own tests, lint and build; a crawl finds no dead link, axe violation or foreign request before consent"
     },
     "starter-marketplace": {
       "name": "Marketplace Starter",
