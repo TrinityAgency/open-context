@@ -1,0 +1,105 @@
+{
+  "name": "blog-post-page",
+  "version": "1.0.0",
+  "title": "Blog Post Page",
+  "description": "Blog post: MDX body, table of contents, reading progress, related posts, share links, breadcrumbs and Article data",
+  "type": "page",
+  "category": "BLOG",
+  "tags": [
+    "blog",
+    "post",
+    "article",
+    "toc"
+  ],
+  "stack": [
+    "react",
+    "next",
+    "tailwind",
+    "mdx",
+    "zod"
+  ],
+  "family": "site",
+  "parts": [
+    {
+      "slug": "blog-content",
+      "version": "1.0.0",
+      "into": "_parts/blog-content"
+    },
+    {
+      "slug": "blog-card",
+      "version": "1.0.0",
+      "into": "_parts/blog-card"
+    },
+    {
+      "slug": "component-breadcrumbs",
+      "version": "1.0.0",
+      "into": "_parts/component-breadcrumbs"
+    },
+    {
+      "slug": "blog-share-buttons",
+      "version": "2.0.0",
+      "into": "_parts/blog-share-buttons"
+    },
+    {
+      "slug": "site-seo",
+      "version": "1.0.0",
+      "into": "_parts/site-seo"
+    }
+  ],
+  "outputDir": "app/blog/[slug]",
+  "files": [
+    "page.tsx",
+    "post-page.tsx",
+    "table-of-contents.tsx",
+    "reading-progress.tsx",
+    "content.ts",
+    "labels.ts",
+    "labels.de.ts",
+    "README.md",
+    "_parts/blog-card/README.md",
+    "_parts/blog-card/blog-card.tsx",
+    "_parts/blog-card/format-date.ts",
+    "_parts/blog-card/labels.de.ts",
+    "_parts/blog-card/labels.ts",
+    "_parts/blog-card/site-types.ts",
+    "_parts/blog-content/README.md",
+    "_parts/blog-content/blog-paths.ts",
+    "_parts/blog-content/blog.ts",
+    "_parts/blog-content/collection.ts",
+    "_parts/blog-content/front-matter.ts",
+    "_parts/blog-content/index.ts",
+    "_parts/blog-content/mdx-components.tsx",
+    "_parts/blog-content/mdx.ts",
+    "_parts/blog-content/reading-time.ts",
+    "_parts/blog-content/site-types.ts",
+    "_parts/blog-share-buttons/README.md",
+    "_parts/blog-share-buttons/labels.de.ts",
+    "_parts/blog-share-buttons/labels.ts",
+    "_parts/blog-share-buttons/share-actions.tsx",
+    "_parts/blog-share-buttons/share-buttons.tsx",
+    "_parts/blog-share-buttons/share-targets.ts",
+    "_parts/component-breadcrumbs/README.md",
+    "_parts/component-breadcrumbs/breadcrumb-json-ld.ts",
+    "_parts/component-breadcrumbs/breadcrumbs.tsx",
+    "_parts/component-breadcrumbs/collapse-trail.ts",
+    "_parts/component-breadcrumbs/labels.de.ts",
+    "_parts/component-breadcrumbs/labels.ts",
+    "_parts/component-breadcrumbs/site-types.ts",
+    "_parts/site-seo/README.md",
+    "_parts/site-seo/index.ts",
+    "_parts/site-seo/json-ld-script.tsx",
+    "_parts/site-seo/json-ld.ts",
+    "_parts/site-seo/metadata.ts",
+    "_parts/site-seo/site-types.ts"
+  ],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; parts byte-identical to their pinned versions",
+  "peerDependencies": {
+    "react": ">=19",
+    "next": ">=16",
+    "tailwindcss": ">=4",
+    "zod": ">=3",
+    "@mdx-js/mdx": ">=3",
+    "yaml": ">=2"
+  },
+  "postMessage": "Installed at app/blog/[slug]/ (served at /blog/<slug>). Posts go in content/blog/ (see app/blog/[slug]/_parts/blog-content/README.md); needs @mdx-js/mdx, yaml and zod. Edit content.ts; see README.md."
+}
