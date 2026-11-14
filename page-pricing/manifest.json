@@ -1,0 +1,66 @@
+{
+  "name": "page-pricing",
+  "version": "1.0.0",
+  "title": "Pricing Page",
+  "description": "Pricing page: plans with an interval switch, a comparison table and questions",
+  "type": "page",
+  "category": "WEB_DESIGN",
+  "tags": [
+    "pricing",
+    "plans",
+    "comparison",
+    "page"
+  ],
+  "stack": [
+    "react",
+    "next",
+    "tailwind"
+  ],
+  "family": "site",
+  "parts": [
+    {
+      "slug": "section-pricing",
+      "version": "2.0.0",
+      "into": "_sections/pricing"
+    },
+    {
+      "slug": "section-faq",
+      "version": "2.0.0",
+      "into": "_sections/faq"
+    },
+    {
+      "slug": "section-cta",
+      "version": "2.0.0",
+      "into": "_sections/cta"
+    }
+  ],
+  "outputDir": "app/page-pricing",
+  "files": [
+    "README.md",
+    "comparison-table.tsx",
+    "content.ts",
+    "labels.de.ts",
+    "labels.ts",
+    "page.tsx",
+    "pricing-page.tsx",
+    "_sections/cta/README.md",
+    "_sections/cta/cta-section.tsx",
+    "_sections/cta/site-types.ts",
+    "_sections/faq/README.md",
+    "_sections/faq/faq-section.tsx",
+    "_sections/faq/site-types.ts",
+    "_sections/pricing/README.md",
+    "_sections/pricing/format-price.ts",
+    "_sections/pricing/labels.de.ts",
+    "_sections/pricing/labels.ts",
+    "_sections/pricing/pricing-section.tsx",
+    "_sections/pricing/site-types.ts"
+  ],
+  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; sections byte-identical to their pinned versions",
+  "peerDependencies": {
+    "react": ">=19",
+    "next": ">=16",
+    "tailwindcss": ">=4"
+  },
+  "postMessage": "Installed at app/page-pricing/ (served at /page-pricing; rename the folder for another path). Edit content.ts; see README.md."
+}
