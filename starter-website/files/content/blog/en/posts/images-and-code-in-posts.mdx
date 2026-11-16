@@ -1,0 +1,51 @@
+---
+title: Images and code in posts
+description: How to add a picture and a code sample to a post, and why both come from this site and nothing else.
+publishedAt: 2026-11-02
+updatedAt: 2026-11-05
+authorIds: [alex-sample, robin-example]
+category: guides
+tags: [mdx, images]
+image:
+  src: /blog/images-and-code.svg
+  alt: A grey frame around an image placeholder above three lines of code
+  width: 1200
+  height: 630
+---
+
+A guide is easier to follow with a picture and a working example. Both are plain Markdown in a post.
+
+## Images
+
+Put the file in `public/blog/` and refer to it from the root of the site. The text in the square brackets describes
+the image for readers who cannot see it:
+
+![Three grey pages stacked on top of each other](/blog/plain-files.svg)
+
+Images load only when they scroll into view, and only from this site. An address on another host stops the build
+with the file and line that named it, so a post can never load something from elsewhere before a visitor agrees.
+
+### The picture at the top
+
+The picture above the post comes from the settings, with its size, so the page does not jump while it loads:
+
+```yaml
+image:
+  src: /blog/images-and-code.svg
+  alt: A grey frame around an image placeholder above three lines of code
+  width: 1200
+  height: 630
+```
+
+## Code
+
+Fence a sample with three backticks and name its language. It keeps its spacing and scrolls sideways when a line is
+longer than the page:
+
+```ts
+export function readingMinutes(words: number, wordsPerMinute = 200): number {
+  return Math.max(1, Math.round(words / wordsPerMinute));
+}
+```
+
+Use single backticks for a name inside a sentence, such as `publishedAt`.

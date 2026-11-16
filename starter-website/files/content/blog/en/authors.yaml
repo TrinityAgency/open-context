@@ -1,0 +1,12 @@
+# The blog's authors. A post names them by id (authorIds); each gets a page at /blog/author/<id>.
+# id: lowercase letters and digits joined by single hyphens. bio: blank lines start a new paragraph.
+# url: a path on this site (/about) or an https address. image: a file in public/, as in a post's front matter.
+- id: alex-sample
+  name: Alex Sample
+  bio: |
+    Alex Sample writes the guides on this blog and tries every step on a fresh project before it goes out.
+
+    Ask Alex about a step that did not work as written: the guide gets fixed, not the reader.
+- id: robin-example
+  name: Robin Example
+  bio: Robin Example writes the news on this blog and keeps every post short enough to read over a coffee.

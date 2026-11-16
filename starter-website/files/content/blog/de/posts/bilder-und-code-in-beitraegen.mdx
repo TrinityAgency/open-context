@@ -1,0 +1,53 @@
+---
+title: Bilder und Code in Beiträgen
+description: Wie ein Beitrag ein Bild und ein Codebeispiel bekommt, und warum beides von dieser Website kommt und von nirgendwo sonst.
+publishedAt: 2026-11-02
+updatedAt: 2026-11-05
+authorIds: [alex-sample, robin-example]
+category: guides
+tags: [mdx, bilder]
+image:
+  src: /blog/images-and-code.svg
+  alt: Ein grauer Rahmen um einen Bildplatzhalter über drei Zeilen Code
+  width: 1200
+  height: 630
+---
+
+Eine Anleitung ist mit einem Bild und einem funktionierenden Beispiel leichter zu verstehen. Beides ist einfaches
+Markdown in einem Beitrag.
+
+## Bilder
+
+Legen Sie die Datei in `public/blog/` ab und verweisen Sie vom Wurzelverzeichnis der Website darauf. Der Text in den
+eckigen Klammern beschreibt das Bild für alle, die es nicht sehen können:
+
+![Drei graue Seiten, übereinander gestapelt](/blog/plain-files.svg)
+
+Bilder laden erst, wenn sie ins Bild scrollen, und nur von dieser Website. Eine Adresse auf einem anderen Server
+stoppt den Build mit Datei und Zeile, die sie nennen. So lädt ein Beitrag nie etwas von anderswo, bevor jemand
+zugestimmt hat.
+
+### Das Bild oben
+
+Das Bild über dem Beitrag kommt aus den Einstellungen, mit seiner Größe, damit die Seite beim Laden nicht springt:
+
+```yaml
+image:
+  src: /blog/images-and-code.svg
+  alt: Ein grauer Rahmen um einen Bildplatzhalter über drei Zeilen Code
+  width: 1200
+  height: 630
+```
+
+## Code
+
+Rahmen Sie ein Beispiel mit drei Backticks ein und nennen Sie seine Sprache. Es behält seine Abstände und scrollt
+seitlich, wenn eine Zeile breiter als die Seite ist:
+
+```ts
+export function readingMinutes(words: number, wordsPerMinute = 200): number {
+  return Math.max(1, Math.round(words / wordsPerMinute));
+}
+```
+
+Einfache Backticks markieren einen Namen im Satz, etwa `publishedAt`.

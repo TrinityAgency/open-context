@@ -1,0 +1,41 @@
+---
+title: Ein Blog aus einfachen Dateien
+description: Jeder Beitrag in diesem Blog ist eine Datei im Repository. Was das für Schreiben, Prüfen und Veröffentlichen bedeutet.
+publishedAt: 2026-09-08
+authorIds: [alex-sample]
+category: guides
+tags: [mdx, veröffentlichen]
+image:
+  src: /blog/plain-files.svg
+  alt: Drei graue Seiten, übereinander gestapelt
+  width: 1200
+  height: 630
+---
+
+Hinter diesem Blog steht keine Datenbank. Jeder Beitrag ist eine Datei in `content/blog/de/posts/`, in Markdown
+geschrieben, mit ein paar Zeilen Einstellungen am Anfang. Die Website liest den Ordner beim Bauen und macht aus jeder
+Datei eine Seite.
+
+## Eine Datei pro Beitrag
+
+Der Dateiname ist die Adresse: `ein-blog-aus-einfachen-dateien.mdx` wird zu `/blog/ein-blog-aus-einfachen-dateien`.
+Die Einstellungen oben, zwischen den beiden Zeilen aus drei Strichen, sagen, wer den Beitrag geschrieben hat, wann
+er erscheint und wohin er gehört:
+
+```yaml
+title: Ein Blog aus einfachen Dateien
+publishedAt: 2026-09-08
+authorIds: [alex-sample]
+category: guides
+```
+
+## Prüfen wie Code
+
+Weil ein Beitrag eine Datei ist, ist jede Änderung daran eine Änderung wie jede andere: Sie lässt sich lesen, bevor
+sie live geht, und die Historie zeigt, wer wann was geändert hat. Ein Beitrag, der noch nicht fertig ist, trägt
+`draft: true` und erscheint nie.
+
+## Veröffentlichen durch Bauen
+
+Die Website wird im Voraus gebaut. Ein neuer Beitrag, auch einer mit späterem Datum, erscheint mit dem ersten Build
+nach seinem Datum: Bauen Sie neu, oder lassen Sie Ihr Hosting regelmäßig bauen.

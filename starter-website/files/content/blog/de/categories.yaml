@@ -1,0 +1,8 @@
+# Die Kategorien des Blogs. Ein Beitrag nennt eine per id (category); jede bekommt eine Seite unter
+# /blog/category/<id>. Die ids sind Teil der Adresse und bleiben englisch.
+- id: guides
+  name: Anleitungen
+  description: Wie man die Beiträge in diesem Blog schreibt, veröffentlicht und pflegt.
+- id: news
+  name: Neuigkeiten
+  description: Was sich an diesem Blog geändert hat und warum.

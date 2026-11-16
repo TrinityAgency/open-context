@@ -1,0 +1,9 @@
+{
+  "source": "design/export/project",
+  "styles": "src/design",
+  "fonts": "public/fonts",
+  "brand": { "from": "assets", "to": "public/brand", "include": ["**/*.svg"] },
+  "catalog": "src/design/catalog.ts",
+  "prefix": "ds-",
+  "approved": []
+}
