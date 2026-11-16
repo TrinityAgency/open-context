@@ -1,0 +1,16 @@
+{
+  "name": "site-seed",
+  "version": "1.0.0",
+  "title": "Site Seed",
+  "description": "Skill that asks what a website is for, picks and installs the website kit starter that fits, then walks the owner through facts, language, design, legal text and release",
+  "type": "skill",
+  "category": "AGENTIC",
+  "tags": ["skill", "seed", "website", "starter", "blog", "portfolio"],
+  "stack": [],
+  "family": "site",
+  "outputDir": ".claude",
+  "files": ["skills/site-seed/SKILL.md"],
+  "proof": "every command, path and script it names exists in the five starters it picks; a scripted run chose the right starter, passed its tests and left the legal text to the owner",
+  "peerDependencies": {},
+  "postMessage": "Installed at .claude/skills/site-seed/SKILL.md. Ask your agent for a website; the skill picks a starter and walks you from install to release."
+}
