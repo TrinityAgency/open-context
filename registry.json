@@ -5693,6 +5693,25 @@
       "vocabVersion": 1,
       "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight at 390 and 1280 px; axe clean; drawer, menus and skip link tested in Chromium"
     },
+    "site-seed": {
+      "name": "Site Seed",
+      "description": "Skill that asks what a website is for, picks and installs the website kit starter that fits, then walks the owner through facts, language, design, legal text and release",
+      "type": "skill",
+      "category": "AGENTIC",
+      "tags": [
+        "skill",
+        "seed",
+        "website",
+        "starter",
+        "blog",
+        "portfolio"
+      ],
+      "stack": [],
+      "fileCount": 1,
+      "version": "1.0.0",
+      "family": "site",
+      "proof": "every command, path and script it names exists in the five starters it picks; a scripted run chose the right starter, passed its tests and left the legal text to the owner"
+    },
     "site-seo": {
       "name": "Site SEO",
       "description": "JSON-LD builders plus canonical and Open Graph helpers",
@@ -5716,25 +5735,25 @@
     },
     "site-starter": {
       "name": "Site Starter",
-      "description": "Company website starter — Next 16, React 19, Tailwind 4 without preflight, a Claude Design export turned into tokens and a typed class catalog (design-sync), guard tests for facts and colours",
+      "description": "Lean company website skeleton: Next 16, React 19, Tailwind 4 without preflight, strict TypeScript, design-sync from a Claude Design export, English with a German switch, guard tests and AGENTS.md",
       "type": "starter",
       "category": "STARTER",
       "tags": [
-        "nextjs",
-        "tailwind",
-        "design-sync",
         "starter",
+        "website",
+        "skeleton",
+        "design-sync",
         "standalone"
       ],
       "stack": [
-        "next",
         "react",
-        "tailwind",
-        "typescript",
-        "vitest"
+        "next",
+        "tailwind"
       ],
-      "fileCount": 27,
-      "version": "1.0.0"
+      "fileCount": 31,
+      "version": "1.1.0",
+      "family": "site",
+      "proof": "installs into an empty folder, passes its own tests, lint and build in English and German; a crawl finds no dead link, axe violation or request to another host; a kit page installs into it and builds"
     },
     "skill-accessibility": {
       "name": "Accessibility Skill",
@@ -6426,6 +6445,147 @@
       "fileCount": 17,
       "version": "1.0.0"
     },
+    "starter-portfolio": {
+      "name": "Portfolio Starter",
+      "description": "Portfolio site assembled from the website kit: projects from MDX files with disciplines, services, about, contact form, MDX blog with feeds, cookie consent, SEO, legal and error pages",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "portfolio",
+        "projects",
+        "website",
+        "blog"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "zod",
+        "mdx"
+      ],
+      "fileCount": 245,
+      "version": "1.0.0",
+      "family": "site",
+      "parts": [
+        {
+          "slug": "site-header",
+          "version": "1.0.0",
+          "into": "src/components/site-header"
+        },
+        {
+          "slug": "site-footer",
+          "version": "1.0.0",
+          "into": "src/components/site-footer"
+        },
+        {
+          "slug": "site-cookie-consent",
+          "version": "1.0.0",
+          "into": "src/modules/site-cookie-consent"
+        },
+        {
+          "slug": "site-seo",
+          "version": "1.0.0",
+          "into": "src/utils/site-seo"
+        },
+        {
+          "slug": "component-pagination",
+          "version": "1.0.0",
+          "into": "src/components/component-pagination"
+        },
+        {
+          "slug": "component-breadcrumbs",
+          "version": "1.0.0",
+          "into": "src/components/component-breadcrumbs"
+        },
+        {
+          "slug": "section-hero",
+          "version": "2.0.0",
+          "into": "src/components/section-hero"
+        },
+        {
+          "slug": "section-logo-cloud",
+          "version": "2.0.0",
+          "into": "src/components/section-logo-cloud"
+        },
+        {
+          "slug": "section-features",
+          "version": "2.0.0",
+          "into": "src/components/section-features"
+        },
+        {
+          "slug": "section-stats",
+          "version": "2.0.0",
+          "into": "src/components/section-stats"
+        },
+        {
+          "slug": "section-testimonials",
+          "version": "2.0.0",
+          "into": "src/components/section-testimonials"
+        },
+        {
+          "slug": "section-faq",
+          "version": "2.0.0",
+          "into": "src/components/section-faq"
+        },
+        {
+          "slug": "section-cta",
+          "version": "2.0.0",
+          "into": "src/components/section-cta"
+        },
+        {
+          "slug": "blog-content",
+          "version": "1.0.0",
+          "into": "src/utils/blog-content"
+        },
+        {
+          "slug": "blog-rss-sitemap",
+          "version": "1.0.0",
+          "into": "src/utils/blog-rss-sitemap"
+        },
+        {
+          "slug": "blog-card",
+          "version": "1.0.0",
+          "into": "src/components/blog-card"
+        },
+        {
+          "slug": "blog-newsletter-cta",
+          "version": "1.0.0",
+          "into": "src/components/blog-newsletter-cta"
+        },
+        {
+          "slug": "blog-share-buttons",
+          "version": "2.0.0",
+          "into": "src/components/blog-share-buttons"
+        },
+        {
+          "slug": "page-contact",
+          "version": "1.0.0",
+          "into": "src/app/_page-contact"
+        },
+        {
+          "slug": "page-legal-imprint",
+          "version": "1.0.0",
+          "into": "src/app/_page-legal-imprint"
+        },
+        {
+          "slug": "page-legal-privacy",
+          "version": "1.0.0",
+          "into": "src/app/_page-legal-privacy"
+        },
+        {
+          "slug": "page-legal-terms",
+          "version": "1.0.0",
+          "into": "src/app/_page-legal-terms"
+        },
+        {
+          "slug": "page-404-error",
+          "version": "1.0.0",
+          "into": "src/app/_page-404-error"
+        }
+      ],
+      "proof": "assembled from its pinned parts byte for byte; installs into an empty folder, passes its tests, lint and build; crawled in English and German: no dead link, axe violation or foreign request"
+    },
     "starter-project-management": {
       "name": "Project Management Starter",
       "description": "Project management with tasks, boards, and timelines",
@@ -6528,6 +6688,158 @@
       ],
       "fileCount": 22,
       "version": "1.0.0"
+    },
+    "starter-website": {
+      "name": "Website Starter",
+      "description": "Company website assembled from the website kit: home, features, pricing, about, contact form, changelog, MDX blog with feeds, cookie consent, SEO, legal and error pages",
+      "type": "starter",
+      "category": "STARTER",
+      "tags": [
+        "starter",
+        "website",
+        "company",
+        "blog",
+        "consent",
+        "seo"
+      ],
+      "stack": [
+        "react",
+        "next",
+        "tailwind",
+        "zod",
+        "mdx"
+      ],
+      "fileCount": 239,
+      "version": "1.0.0",
+      "family": "site",
+      "parts": [
+        {
+          "slug": "site-header",
+          "version": "1.0.0",
+          "into": "src/components/site-header"
+        },
+        {
+          "slug": "site-footer",
+          "version": "1.0.0",
+          "into": "src/components/site-footer"
+        },
+        {
+          "slug": "site-cookie-consent",
+          "version": "1.0.0",
+          "into": "src/modules/site-cookie-consent"
+        },
+        {
+          "slug": "site-seo",
+          "version": "1.0.0",
+          "into": "src/utils/site-seo"
+        },
+        {
+          "slug": "component-pagination",
+          "version": "1.0.0",
+          "into": "src/components/component-pagination"
+        },
+        {
+          "slug": "component-breadcrumbs",
+          "version": "1.0.0",
+          "into": "src/components/component-breadcrumbs"
+        },
+        {
+          "slug": "section-hero",
+          "version": "2.0.0",
+          "into": "src/components/section-hero"
+        },
+        {
+          "slug": "section-logo-cloud",
+          "version": "2.0.0",
+          "into": "src/components/section-logo-cloud"
+        },
+        {
+          "slug": "section-features",
+          "version": "2.0.0",
+          "into": "src/components/section-features"
+        },
+        {
+          "slug": "section-stats",
+          "version": "2.0.0",
+          "into": "src/components/section-stats"
+        },
+        {
+          "slug": "section-testimonials",
+          "version": "2.0.0",
+          "into": "src/components/section-testimonials"
+        },
+        {
+          "slug": "section-pricing",
+          "version": "2.0.0",
+          "into": "src/components/section-pricing"
+        },
+        {
+          "slug": "section-faq",
+          "version": "2.0.0",
+          "into": "src/components/section-faq"
+        },
+        {
+          "slug": "section-cta",
+          "version": "2.0.0",
+          "into": "src/components/section-cta"
+        },
+        {
+          "slug": "blog-content",
+          "version": "1.0.0",
+          "into": "src/utils/blog-content"
+        },
+        {
+          "slug": "blog-rss-sitemap",
+          "version": "1.0.0",
+          "into": "src/utils/blog-rss-sitemap"
+        },
+        {
+          "slug": "blog-card",
+          "version": "1.0.0",
+          "into": "src/components/blog-card"
+        },
+        {
+          "slug": "blog-newsletter-cta",
+          "version": "1.0.0",
+          "into": "src/components/blog-newsletter-cta"
+        },
+        {
+          "slug": "blog-share-buttons",
+          "version": "2.0.0",
+          "into": "src/components/blog-share-buttons"
+        },
+        {
+          "slug": "page-contact",
+          "version": "1.0.0",
+          "into": "src/app/_page-contact"
+        },
+        {
+          "slug": "page-changelog",
+          "version": "1.0.0",
+          "into": "src/app/_page-changelog"
+        },
+        {
+          "slug": "page-legal-imprint",
+          "version": "1.0.0",
+          "into": "src/app/_page-legal-imprint"
+        },
+        {
+          "slug": "page-legal-privacy",
+          "version": "1.0.0",
+          "into": "src/app/_page-legal-privacy"
+        },
+        {
+          "slug": "page-legal-terms",
+          "version": "1.0.0",
+          "into": "src/app/_page-legal-terms"
+        },
+        {
+          "slug": "page-404-error",
+          "version": "1.0.0",
+          "into": "src/app/_page-404-error"
+        }
+      ],
+      "proof": "assembled from its pinned parts byte for byte; installs into an empty folder, passes its tests, lint and build; crawled in English and German: no dead link, axe violation or foreign request"
     },
     "storage-avatar-upload": {
       "name": "Avatar Upload",
