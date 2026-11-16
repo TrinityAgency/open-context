@@ -1,11 +1,14 @@
 // The site's facts live here, once. Pages and components read them; they never copy them.
 // Every value below is sample data: replace it with your own before the site goes live.
+// Text comes in both languages (`en`, `de`); src/content/locale.ts picks one. Facts (name, address) are not text:
+// they exist once.
+import type { Locale } from './locale';
 
 type Link = { href: string; label: string };
 
 export const SITE = {
-  name: 'Nordlicht Immobilien',
-  description: 'Beratung für Kauf, Verkauf und Vermietung von Immobilien.',
+  name: 'Samplework Inc.',
+  description: 'Clear advice and careful work, from the first conversation to the finished result.',
   /** The public origin without a trailing slash; SITE_URL in the environment overrides it. */
   url: 'https://example.com',
 } as const;
@@ -16,49 +19,103 @@ export function siteUrl(): string {
 }
 
 export const CONTACT = {
-  company: 'Nordlicht Immobilien',
-  phoneDisplay: '+49 30 0000000',
-  phoneHref: 'tel:+49300000000',
-  email: 'hallo@example.com',
-  street: 'Musterstraße 1',
-  zipCity: '12345 Musterstadt',
+  company: 'Samplework Inc.',
+  phoneDisplay: '+1 555 0100',
+  phoneHref: 'tel:+15550100',
+  email: 'hello@example.com',
+  street: '1 Sample Street',
+  zipCity: 'Sampletown 12345',
 } as const;
 
-/** The main navigation, in this order. Each entry is a section of the home page until its own page exists. */
-export const NAV: readonly Link[] = [
-  { href: '/#leistungen', label: 'Leistungen' },
-  { href: '/#ueber-uns', label: 'Über uns' },
-  { href: '/#kontakt', label: 'Kontakt' },
-];
+/**
+ * The main navigation, in this order. Each entry is a section of the home page until its own page exists; then point
+ * it at the page (and list the page in src/app/sitemap.ts).
+ */
+export const NAV: Record<Locale, readonly Link[]> = {
+  en: [
+    { href: '/#services', label: 'Services' },
+    { href: '/#about', label: 'About' },
+    { href: '/#contact', label: 'Contact' },
+  ],
+  de: [
+    { href: '/#services', label: 'Leistungen' },
+    { href: '/#about', label: 'Über uns' },
+    { href: '/#contact', label: 'Kontakt' },
+  ],
+};
 
-/** The home page's text. */
-export const HOME = {
-  metaTitle: 'Immobilien kaufen, verkaufen und vermieten',
-  title: 'Ihre Immobilie in guten Händen.',
-  lead: 'Wir begleiten Sie vom ersten Gespräch bis zur Schlüsselübergabe.',
-  services: {
-    title: 'Leistungen',
-    items: [
-      { title: 'Verkaufen', text: 'Wir ermitteln den Wert Ihrer Immobilie und finden passende Käufer.' },
-      { title: 'Kaufen', text: 'Wir suchen mit Ihnen das passende Objekt und prüfen die Unterlagen.' },
-      { title: 'Vermieten', text: 'Wir finden Mieter und kümmern uns um Vertrag und Übergabe.' },
-    ],
+type HomeText = {
+  metaTitle: string;
+  title: string;
+  lead: string;
+  services: { title: string; items: readonly { title: string; text: string }[] };
+  about: { title: string; text: string };
+  contact: { title: string; text: string };
+};
+
+/** The home page's text. The section ids (services, about, contact) are the targets of NAV. */
+export const HOME: Record<Locale, HomeText> = {
+  en: {
+    metaTitle: 'Clear advice and careful work',
+    title: 'Work done well, from start to finish.',
+    lead: 'We listen first, plan with you and deliver what we agreed.',
+    services: {
+      title: 'Services',
+      items: [
+        { title: 'Advice', text: 'We look at where you stand and what you need, and say plainly what we would do.' },
+        { title: 'Planning', text: 'We agree on the steps, the dates and the cost before any work starts.' },
+        { title: 'Delivery', text: 'We do the work, keep you informed and hand over everything you need.' },
+      ],
+    },
+    about: {
+      title: 'About us',
+      text: 'A small team, with one person you can call for every question.',
+    },
+    contact: {
+      title: 'Contact',
+      text: 'Call us or send us an email.',
+    },
   },
-  about: {
-    title: 'Über uns',
-    text: 'Nordlicht Immobilien ist ein kleines Team mit einem Ansprechpartner für jede Immobilie.',
+  de: {
+    metaTitle: 'Klare Beratung und sorgfältige Arbeit',
+    title: 'Gute Arbeit, vom Anfang bis zum Ende.',
+    lead: 'Wir hören zuerst zu, planen mit Ihnen und liefern, was wir vereinbart haben.',
+    services: {
+      title: 'Leistungen',
+      items: [
+        { title: 'Beratung', text: 'Wir sehen uns an, wo Sie stehen und was Sie brauchen, und sagen klar, was wir tun würden.' },
+        { title: 'Planung', text: 'Wir vereinbaren Schritte, Termine und Kosten, bevor die Arbeit beginnt.' },
+        { title: 'Umsetzung', text: 'Wir erledigen die Arbeit, halten Sie auf dem Laufenden und übergeben alles, was Sie brauchen.' },
+      ],
+    },
+    about: {
+      title: 'Über uns',
+      text: 'Ein kleines Team, mit einer festen Ansprechperson für jede Frage.',
+    },
+    contact: {
+      title: 'Kontakt',
+      text: 'Rufen Sie uns an oder schreiben Sie uns eine E-Mail.',
+    },
   },
-  contact: {
-    title: 'Kontakt',
-    text: 'Rufen Sie uns an oder schreiben Sie uns eine E-Mail.',
-  },
-} as const;
+};
 
 /** The page shown for an address that does not exist. */
-export const NOT_FOUND = {
-  title: 'Diese Seite gibt es nicht',
-  text: 'Der Link ist vielleicht veraltet oder falsch geschrieben. Hier geht es weiter:',
-} as const;
+export const NOT_FOUND: Record<Locale, { title: string; text: string }> = {
+  en: {
+    title: 'This page does not exist',
+    text: 'The link may be out of date or mistyped. Here is where to go next:',
+  },
+  de: {
+    title: 'Diese Seite gibt es nicht',
+    text: 'Der Link ist vielleicht veraltet oder falsch geschrieben. Hier geht es weiter:',
+  },
+};
+
+/** The small words of the header, footer and pages. */
+export const UI: Record<Locale, { skipLink: string; mainNav: string; phone: string; email: string; home: string }> = {
+  en: { skipLink: 'Skip to content', mainNav: 'Main navigation', phone: 'Phone', email: 'Email', home: 'Home' },
+  de: { skipLink: 'Zum Inhalt springen', mainNav: 'Hauptnavigation', phone: 'Telefon', email: 'E-Mail', home: 'Startseite' },
+};
 
 /**
  * Phrases that must not appear anywhere on the site; src/content/claims.test.ts checks every source file against
@@ -69,7 +126,7 @@ export const FORBIDDEN: RegExp[] = [
   // Put here what you never want to read on a page, one case-insensitive pattern per line:
   // a promise you cannot prove, an old address or phone number after a move, a product you no longer sell,
   // a competitor's name. For example:
-  //   /kostenlos/i,
-  //   /garantiert/i,
+  //   /risk-free/i,
+  //   /guaranteed/i,
   // The list may stay empty.
 ];

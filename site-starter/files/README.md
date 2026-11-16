@@ -4,8 +4,14 @@ A company website scaffold: Next 16 · React 19 · Tailwind 4 (without preflight
 The design comes from a Claude Design export through `scripts/design-sync.mjs`; guard tests keep facts in one
 place and colours in the design tokens. `next build` writes a self-contained server to `.next/standalone`.
 
-The sample company "Nordlicht Immobilien" and all its contact data are invented: replace them in
+The sample company "Samplework Inc." and all its contact data are invented: replace them in
 `src/content/site.ts`.
+
+**Read `AGENTS.md` before changing pages, facts or the design**: where everything lives, how to add a page, how to
+grow the site with the website kit's templates, and what each guard test protects.
+
+**Language:** English by default. `src/content/locale.ts` holds one switch, `LOCALE`; set it to `'de'` and every
+text, label and the page's `lang` switch to German. Every text in `src/content/site.ts` exists in both languages.
 
 ```
 pnpm install
@@ -16,12 +22,12 @@ pnpm build && pnpm start    # starts .next/standalone/server.js (PORT, HOSTNAME 
 
 `pnpm build` assembles the standalone server: after `next build`, the `postbuild` script
 (`scripts/assemble-standalone.mjs`) copies `.next/static` and `public/` into `.next/standalone`, so
-`pnpm start` serves the styled site. `release-ssh` ships exactly that folder.
+`pnpm start` serves the styled site. That folder is all a server needs (see "Release").
 
 ## How it is built
 
-- **Facts live once** in `src/content/site.ts`: company, contact, navigation, page texts. Pages and components
-  read them and never copy them. `FORBIDDEN` there lists phrases that must appear nowhere on the site;
+- **Facts live once** in `src/content/site.ts`: company, contact, navigation, page texts (in both languages). Pages
+  and components read them and never copy them. `FORBIDDEN` there lists phrases that must appear nowhere on the site;
   `src/content/claims.test.ts` checks every source file (and every static `.html` under `public/`). It starts empty.
 - **Metadata per page**: every `page.tsx` exports its own `title` and `description`; `layout.tsx` holds only the
   defaults and the `%s | <company>` title template. `SITE_URL` in the environment overrides `SITE.url` for
@@ -60,7 +66,8 @@ files are missing" (there is nothing to compare yet). That is why the `design:ch
 **After your first `design:sync`, remove `|| echo "no export yet"`** from `design:check` in `package.json`;
 otherwise a stale generated file would be reported but not fail the tests.
 
-## Next step
+## Release
 
-Release it to a server: `npx @trinity369/use release-ssh`; it ships the assembled `.next/standalone` folder.
-(`next start` does not serve the standalone output; use `pnpm start`.)
+Build with your public origin, `SITE_URL=https://<your-domain> pnpm build`, then run `.next/standalone` with
+`pnpm start` (`PORT` and `HOSTNAME` from the environment) on any host with Node 22, behind HTTPS. A platform that
+builds Next itself needs only `SITE_URL` set. (`next start` does not serve the standalone output; use `pnpm start`.)

@@ -1,10 +1,27 @@
 {
   "name": "site-starter",
-  "version": "1.0.0",
-  "description": "Company website starter — Next 16, React 19, Tailwind 4 without preflight, a Claude Design export turned into tokens and a typed class catalog (design-sync), guard tests for facts and colours",
+  "version": "1.1.0",
+  "title": "Site Starter",
+  "description": "Lean company website skeleton: Next 16, React 19, Tailwind 4 without preflight, strict TypeScript, design-sync from a Claude Design export, English with a German switch, guard tests and AGENTS.md",
+  "type": "starter",
+  "category": "STARTER",
+  "tags": [
+    "starter",
+    "website",
+    "skeleton",
+    "design-sync",
+    "standalone"
+  ],
+  "stack": [
+    "react",
+    "next",
+    "tailwind"
+  ],
+  "family": "site",
   "outputDir": ".",
   "files": [
     ".gitignore",
+    "AGENTS.md",
     "README.md",
     "design-sync.config.json",
     "design/export/README.md",
@@ -21,9 +38,12 @@
     "src/app/pages.test.tsx",
     "src/app/robots.ts",
     "src/app/sitemap.ts",
+    "src/components/HomePage.tsx",
+    "src/components/NotFoundView.tsx",
     "src/components/SiteFooter.tsx",
     "src/components/SiteHeader.tsx",
     "src/content/claims.test.ts",
+    "src/content/locale.ts",
     "src/content/site.ts",
     "src/design/.gitkeep",
     "src/design/README.md",
@@ -32,6 +52,7 @@
     "vitest.config.mts",
     "vitest.setup.ts"
   ],
+  "proof": "installs into an empty folder, passes its own tests, lint and build in English and German; a crawl finds no dead link, axe violation or request to another host; a kit page installs into it and builds",
   "peerDependencies": {
     "next": ">=16",
     "react": ">=19",
@@ -46,5 +67,5 @@
     "eslint-config-next": ">=16",
     "@tailwindcss/postcss": ">=4"
   },
-  "postMessage": "pnpm install · put a Claude Design export under design/export/ · pnpm design:sync · pnpm dev. Next: npx @trinity369/use release-ssh for the server."
+  "postMessage": "pnpm install · pnpm dev · read AGENTS.md before changing pages, facts or the design (a Claude Design export goes under design/export/)."
 }
