@@ -1,6 +1,6 @@
 # Open Context
 
-351 standalone templates for Next.js, React and agent tooling, each installed with one command.
+354 standalone templates for Next.js, React and agent tooling, each installed with one command.
 
 ## Quick start
 
@@ -22,9 +22,9 @@ npx @trinity369/use <template>
 | `--dir <path>` | install into another folder |
 | `--no-overwrite` | keep files that already exist |
 
-## Templates (351)
+## Templates (354)
 
-### AGENTIC (39)
+### AGENTIC (40)
 
 | Template | Type | Description |
 |---|---|---|
@@ -47,6 +47,7 @@ npx @trinity369/use <template>
 | `pipe-security-audit` | pipe | Security audit pipeline — OWASP checks, dependency scanning, secrets detection, and report generation |
 | `prd-architect` | skill | Write and iterate on AI-optimized Product Requirements Documents with full lifecycle support |
 | `prd-discovery` | skill | Product discovery skill — structured brainstorming sessions that produce PRD-ready discovery canvases. Phase-gated conversation with meta-cognitive monitoring, conversation excerpts, pre-decided client protocol, discovery off-ramp, and multi-PRD detection. |
+| `site-seed` | skill | Skill that asks what a website is for, picks and installs the website kit starter that fits, then walks the owner through facts, language, design, legal text and release |
 | `skill-accessibility` | skill | WCAG compliance and accessibility audit skill |
 | `skill-api-design` | skill | REST and GraphQL API design best practices — resource modeling, versioning, error handling, pagination |
 | `skill-copywriter` | skill | Content creation skill — SEO-aware copy, blog posts, headlines, marketing content |
@@ -402,11 +403,11 @@ npx @trinity369/use <template>
 | `sidebar-mobile` | layout | Slide-out mobile drawer sidebar with overlay and close button |
 | `sidebar-settings` | layout | Settings panel sidebar with grouped section links and active highlight |
 
-### STARTER (17)
+### STARTER (19)
 
 | Template | Type | Description |
 |---|---|---|
-| `site-starter` | starter | Company website starter — Next 16, React 19, Tailwind 4 without preflight, a Claude Design export turned into tokens and a typed class catalog (design-sync), guard tests for facts and colours |
+| `site-starter` | starter | Lean company website skeleton: Next 16, React 19, Tailwind 4 without preflight, strict TypeScript, design-sync from a Claude Design export, English with a German switch, guard tests and AGENTS.md |
 | `starter-admin-panel` | starter | Admin panel starter with RBAC, audit log, Cmd+K search, CRUD data tables, forms, auth, and PostgreSQL. Next.js 14, shadcn/ui, TanStack Table, Recharts. |
 | `starter-blog` | starter | Blog with MDX posts, authors, categories, RSS and Atom feeds, newsletter signup, cookie consent, SEO, legal and error pages, assembled from the website kit |
 | `starter-booking-system` | starter | Appointment booking system with calendar view and availability management |
@@ -418,11 +419,13 @@ npx @trinity369/use <template>
 | `starter-job-board` | starter | Next.js 14 job board starter with job listings, search filters, company profiles, application forms, and employer posting. Blue/indigo theme. TypeScript, Tailwind CSS, App Router. |
 | `starter-landing-page` | starter | Company landing page assembled from the website kit: header, footer, cookie consent, SEO, eight sections, legal and error pages, with guard tests |
 | `starter-marketplace` | starter | Two-sided marketplace with listings and profiles |
+| `starter-portfolio` | starter | Portfolio site assembled from the website kit: projects from MDX files with disciplines, services, about, contact form, MDX blog with feeds, cookie consent, SEO, legal and error pages |
 | `starter-project-management` | starter | Project management with tasks, boards, and timelines |
 | `starter-real-estate` | starter | Next.js 14 real estate starter with property listings, search filters, neighborhoods, agent profiles, and contact form. TypeScript, Tailwind CSS, App Router. |
 | `starter-restaurant` | starter | Next.js 14 restaurant starter with menu, reservations, chef team, and testimonials. TypeScript, Tailwind CSS, App Router, shadcn/ui theming. |
 | `starter-saas-minimal` | starter | Next.js 14 SaaS + Shop starter with shadcn/ui, dashboard shell, product catalog, cart, and checkout. TypeScript, Tailwind CSS, App Router. |
 | `starter-social-network` | starter | Social network with feeds, profiles, and messaging |
+| `starter-website` | starter | Company website assembled from the website kit: home, features, pricing, about, contact form, changelog, MDX blog with feeds, cookie consent, SEO, legal and error pages |
 
 ### STORAGE (13)
 
