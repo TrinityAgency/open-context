@@ -1,0 +1,50 @@
+---
+title: Project template
+description: How to write a project on this site, setting by setting. This file is a draft; it never appears on the site.
+publishedAt: 2026-01-05
+authorIds: [alex-sample]
+category: web
+draft: true
+---
+
+This project is a draft (`draft: true`), so the site never shows it. It is here to be read in the editor: copy it
+to start a new project, then change the settings and the text.
+
+## The file
+
+A project is one file in `content/work/en/posts/` (the folder of the site's language). Its name is its address,
+`/work/<name>`: lowercase letters and digits joined by single hyphens, ending in `.mdx`. The folder is called `posts`
+because the work is read by the same loader as the blog; the names `page`, `author` and `category` are taken.
+
+## The settings
+
+A project has the settings of a blog post, read as project fields:
+
+```yaml
+title: A new website for a client      # required, up to 200 characters
+description: One or two sentences.      # required, up to 500; shown on the cards and to search engines
+publishedAt: 2026-03-01                 # required: when the project was finished (a date, or date and time with offset)
+authorIds: [alex-sample]                # required: the people who worked on it, ids from authors.yaml
+category: web                           # required: the discipline, an id from categories.yaml
+image:                                  # the cover: on the cards and at the top of the page
+  src: /work/my-cover.svg               # a file in public/work/
+  alt: What the cover shows
+  width: 1200
+  height: 630
+draft: true                             # optional: true keeps the project off the site
+```
+
+Nothing else: a setting the list does not know, such as `client:`, `year:` or `url:`, stops the build and names the
+file and the setting.
+
+## Client, role and links
+
+They go at the top of the text, as a short list:
+
+```md
+- **Client:** The client's name
+- **Our part:** what the studio did
+- **Link:** [the live site](https://example.com)
+```
+
+Links to other sites are fine. Pictures and embeds from other hosts are not: put your pictures in `public/work/`.

@@ -1,0 +1,11 @@
+# Die Disziplinen. Ein Projekt nennt eine per id (category); jede Disziplin mit einem Projekt bekommt eine Seite unter
+# /work/category/<id>. Die ids sind Teil der Adresse und bleiben in jeder Sprache englisch.
+- id: web
+  name: Websites
+  description: Websites, die wir geplant, gestaltet und gebaut haben und betreuen.
+- id: brand
+  name: Marke
+  description: Namen, Zeichen und die wenigen Regeln, die sie einheitlich halten.
+- id: product
+  name: Produkt
+  description: Werkzeuge und Apps, mit denen Menschen jeden Tag arbeiten.

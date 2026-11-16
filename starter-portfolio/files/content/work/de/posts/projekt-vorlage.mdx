@@ -1,0 +1,52 @@
+---
+title: Projektvorlage
+description: Wie man auf dieser Website ein Projekt schreibt, Einstellung für Einstellung. Diese Datei ist ein Entwurf und erscheint nie auf der Website.
+publishedAt: 2026-01-05
+authorIds: [alex-sample]
+category: web
+draft: true
+---
+
+Dieses Projekt ist ein Entwurf (`draft: true`), deshalb zeigt die Website es nie. Es ist zum Lesen im Editor da:
+Kopieren Sie es, um ein neues Projekt zu beginnen, und ändern Sie dann Einstellungen und Text.
+
+## Die Datei
+
+Ein Projekt ist eine Datei in `content/work/de/posts/` (dem Ordner der Sprache der Website). Ihr Name ist ihre
+Adresse, `/work/<name>`: Kleinbuchstaben und Ziffern, mit einzelnen Bindestrichen verbunden, mit der Endung `.mdx`.
+Der Ordner heißt `posts`, weil die Arbeiten mit demselben Lader gelesen werden wie der Blog; die Namen `page`,
+`author` und `category` sind vergeben.
+
+## Die Einstellungen
+
+Ein Projekt hat die Einstellungen eines Blogbeitrags, gelesen als Projektfelder:
+
+```yaml
+title: Eine neue Website für eine Kundin   # Pflicht, bis 200 Zeichen
+description: Ein oder zwei Sätze.         # Pflicht, bis 500; auf den Karten und für Suchmaschinen
+publishedAt: 2026-03-01                   # Pflicht: wann das Projekt fertig war (Datum, oder Datum und Zeit mit Versatz)
+authorIds: [alex-sample]                  # Pflicht: wer daran gearbeitet hat, ids aus authors.yaml
+category: web                             # Pflicht: die Disziplin, eine id aus categories.yaml
+image:                                    # das Titelbild: auf den Karten und oben auf der Seite
+  src: /work/mein-bild.svg                # eine Datei in public/work/
+  alt: Was das Bild zeigt
+  width: 1200
+  height: 630
+draft: true                               # optional: true hält das Projekt von der Website fern
+```
+
+Sonst nichts: Eine Einstellung, die die Liste nicht kennt, etwa `client:`, `year:` oder `url:`, hält den Build an und
+nennt Datei und Einstellung.
+
+## Kunde, Rolle und Links
+
+Sie stehen oben im Text, als kurze Liste:
+
+```md
+- **Kunde:** der Name der Kundin oder des Kunden
+- **Unser Teil:** was das Studio gemacht hat
+- **Link:** [die Website](https://example.com)
+```
+
+Links zu anderen Websites sind in Ordnung. Bilder und Einbettungen von anderen Servern nicht: Legen Sie Ihre Bilder
+in `public/work/`.

@@ -1,0 +1,36 @@
+---
+title: Feeds für jeden Reader
+description: Dieser Blog hat jetzt einen RSS- und einen Atom-Feed. Folgen Sie ihm in dem Reader, den Sie schon nutzen.
+publishedAt: 2026-10-06T09:00:00+02:00
+authorIds: [robin-example]
+category: news
+tags: [feeds]
+image:
+  src: /blog/feeds.svg
+  alt: Drei graue Bögen, die sich von einem Punkt in der Ecke ausbreiten
+  width: 1200
+  height: 630
+---
+
+Sie müssen nicht auf diese Seite zurückkommen, um zu sehen, ob es etwas Neues gibt. Der Blog hat zwei Feeds, und
+jeder Feed-Reader versteht mindestens einen davon.
+
+## Zwei Feeds, eine Liste
+
+Der [RSS-Feed](/feed.xml) und der [Atom-Feed](/atom.xml) führen dieselben Beiträge, die neuesten zuerst, jeweils mit
+Titel, Datum und kurzer Beschreibung. Zum Lesen des ganzen Beitrags führt der Link hierher.
+
+## Dem Blog folgen
+
+Kopieren Sie die Adresse eines der beiden Feeds in Ihren Reader. Die meisten Reader finden die Feeds auch selbst,
+wenn Sie ihnen die Adresse des Blogs geben, denn jede Seite nennt sie in ihrem Kopf:
+
+```html
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/atom.xml" />
+```
+
+## Was ein Feed nicht tut
+
+Ein Feed ist eine Liste, die Reader von dieser Website abholen. Er setzt kein Cookie, er verrät uns nicht, wer ihn
+liest, und wer diesen Blog öffnet, lädt nichts von einem Feed-Dienst.

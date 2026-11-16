@@ -1,0 +1,9 @@
+# Die Menschen, die an den Projekten arbeiten. Ein Projekt nennt sie per id (authorIds); ihre Namen stehen auf seiner
+# Seite. id: Kleinbuchstaben und Ziffern, mit einzelnen Bindestrichen verbunden; ids bleiben in jeder Sprache englisch.
+# Die Datei hat das Format des Blogs (content/blog/de/authors.yaml): bio, url und image sind optional.
+- id: alex-sample
+  name: Alex Sample
+  bio: Plant jedes Projekt mit der Kundin oder dem Kunden und leitet die Gestaltung.
+- id: casey-example
+  name: Casey Example
+  bio: Baut, was das Studio gestaltet, und betreut es, wenn es live ist.

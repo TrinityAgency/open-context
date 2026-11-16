@@ -1,0 +1,46 @@
+---
+title: Writing a post
+description: The format of a post on this blog, field by field. This file is a draft; it never appears on the site.
+publishedAt: 2026-01-05
+authorIds: [alex-sample]
+category: guides
+tags: [mdx]
+draft: true
+---
+
+This post is a draft (`draft: true`), so the site never shows it. It is here to be read in the editor: copy it to
+start a new post, then change the settings and the text.
+
+## The file
+
+A post is one file in `content/blog/en/posts/` (the folder of the site's language). Its name is its address: lowercase
+letters and digits joined by single hyphens, ending in `.mdx`. The names `page`, `author` and `category` are taken by
+the blog's own pages.
+
+## The settings
+
+Between the two lines of three dashes at the top:
+
+```yaml
+title: Writing a post                   # required, up to 200 characters
+description: One or two sentences.      # required, up to 500 characters; shown on cards and in feeds
+publishedAt: 2026-03-01                 # required: a date, or a date and time with its offset
+updatedAt: 2026-03-05T14:00:00+01:00    # optional, never before publishedAt
+authorIds: [alex-sample]                # required: ids from authors.yaml
+category: guides                        # required: an id from categories.yaml
+tags: [mdx, images]                     # optional
+image:                                  # optional: the picture at the top
+  src: /blog/my-picture.svg             # a file in public/blog/
+  alt: What the picture shows
+  width: 1200
+  height: 630
+draft: true                             # optional: true keeps the post off the site
+```
+
+A post appears once `publishedAt` has passed, at the next build. A date alone counts from midnight UTC that day.
+
+## What the build refuses
+
+The build stops, naming the file and the line, when a post has an unknown setting, a date that does not exist, an
+author or category that is not in the lists, or an image or embed from another host. Posts may contain JSX, so they
+come only from the people who run the site.

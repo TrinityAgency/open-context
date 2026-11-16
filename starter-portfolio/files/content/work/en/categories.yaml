@@ -1,0 +1,11 @@
+# The disciplines. A project names one by id (category); each discipline with a project gets a page at
+# /work/category/<id>. Ids are URL segments and stay English in every language.
+- id: web
+  name: Websites
+  description: Websites we planned, designed and built, and look after.
+- id: brand
+  name: Brand
+  description: Names, marks and the few rules that keep them consistent.
+- id: product
+  name: Product
+  description: Tools and apps that people use every day.
