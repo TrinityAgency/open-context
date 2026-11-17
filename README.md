@@ -504,3 +504,7 @@ Every template is standalone: none imports another. A composite (a page built fr
 ## Adding templates
 
 A manifest carries `name`, `version`, `description`, `outputDir`, `files`, `postMessage`, `type`, `category`, `tags` and `stack`; optionally `title`, `family`, `vocabVersion`, `parts`, `proof` and `peerDependencies`. This README is generated from `registry.json`; the template list is never edited by hand.
+
+## License
+
+[MIT License](LICENSE), copyright SG TRINITY AGENCY LTD: use the templates in any project, commercial or not, change them and pass them on, keeping the copyright notice. A few templates contain code derived from other projects under their own licenses: see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
