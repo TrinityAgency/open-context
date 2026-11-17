@@ -2,6 +2,8 @@
 
 354 standalone templates for Next.js, React and agent tooling, each installed with one command.
 
+Browse, search and preview them at **[open-context.com](https://open-context.com)**; every command and option is explained at [open-context.com/cli](https://open-context.com/cli).
+
 ## Quick start
 
 ```bash
