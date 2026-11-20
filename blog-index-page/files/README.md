@@ -46,11 +46,33 @@ export default function Blog() {
 | `blog-index.tsx` | `BlogIndexPage`: the filter, the cards and the page links, with Next's `Link` |
 | `content.ts` | `LOCALE`, `META`, `CONTENT` (English and German) and `BLOG` |
 | `labels.ts`, `labels.de.ts` | the page's own labels |
-| `_parts/blog-content` | a copy of `blog-content` 1.0.0, byte for byte: reads and checks the posts |
-| `_parts/blog-card` | a copy of `blog-card` 1.0.0: one card |
-| `_parts/component-pagination` | a copy of `component-pagination` 1.0.0: the page links |
+| `_parts/blog-content` | a copy of `blog-content` 2.0.0, byte for byte: reads and checks the posts |
+| `_parts/blog-card` | a copy of `blog-card` 2.0.0: one card |
+| `_parts/component-pagination` | a copy of `component-pagination` 2.0.0: the page links |
 
 Each `_parts` folder has its own README. The folders start with an underscore, so Next never serves them as routes.
+
+## Brand
+
+The page's own markup reads these design tokens (CSS custom properties of the Open Context token contract, version 1);
+each part in `_parts/` reads its own (see its README). Unset, each falls back to the neutral value in brackets, so the
+page looks the same as before with no design system loaded.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-surface` | another filter chip's ground | `#fff` |
+| `--oc-line-strong` | another filter chip's border | `oklch(87% 0 none)` |
+| `--oc-ink` | the title, a filter chip's text, its border under the pointer | `oklch(20.5% 0 none)` |
+| `--oc-ink-body` | the intro, the empty text | `oklch(37.1% 0 none)` |
+| `--oc-brand`, `--oc-on-brand` | the current filter chip ("All posts") and its text | `oklch(20.5% 0 none)`, `#fff` |
+| `--oc-focus` | the focus ring | `oklch(20.5% 0 none)` |
+| `--oc-font-heading` | the title | the page's font |
+| `--oc-font-body` | the filter chips | the page's font |
+
+To set them from a claude.ai design system, use the `design-tokens` template (its `design-sync.mjs` writes them as
+aliases of your design's own tokens, light and dark, and checks every pair the page and its parts draw) and the
+`design-system-seed` skill. To set them by hand, declare them once in your global stylesheet, e.g.
+`:root { --oc-brand: #0b5cad; --oc-on-brand: #fff; }`.
 
 ## Props
 
@@ -94,5 +116,7 @@ None.
 - A post file the build cannot read stops the build with the file and line: a broken draft too, since it is a file
   in your repository.
 - Card images render as plain `img` elements; posts' images live in `public/`.
-- Neutral colours only, with every margin and box set on the element, so it looks the same with or without
-  Tailwind's preflight.
+- Every colour is a design token (Brand), with every margin and box set on the element, so it looks the same with or
+  without Tailwind's preflight. A word wider than the screen breaks instead of running off it.
+- **From 1.x:** the props, routes and `content.ts` are the same; the page and its parts draw in your design tokens,
+  and a filter chip with a long category name wraps inside itself instead of running past the screen.

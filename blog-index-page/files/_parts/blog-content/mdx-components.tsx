@@ -6,20 +6,26 @@ function PlainLink(props: ComponentProps<LinkComponent>) {
   return <a {...props} />;
 }
 
-const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
-const HEADING_2 = 'm-0 mt-10 mb-4 scroll-mt-24 text-2xl font-bold leading-tight text-neutral-900';
-const HEADING_3 = 'm-0 mt-8 mb-3 scroll-mt-24 text-xl font-semibold leading-snug text-neutral-900';
-const HEADING_4 = 'm-0 mt-6 mb-2 text-lg font-semibold leading-snug text-neutral-900';
-const PARAGRAPH = 'm-0 mb-4 leading-relaxed';
-const LINK = `text-neutral-900 underline underline-offset-2 hover:text-neutral-600 ${FOCUS}`;
-const LIST = 'm-0 mb-4 list-disc pl-6 leading-relaxed';
-const ORDERED_LIST = 'm-0 mb-4 list-decimal pl-6 leading-relaxed';
+// The colours, radius and heading font are the token contract's (design-tokens), each with its default, so a project
+// without a design system draws what 1.0.0 drew. Text breaks a word wider than the column (a long compound at 390 px).
+const INK = 'text-[var(--oc-ink,oklch(20.5%_0_none))]';
+const HEADING_FONT = 'font-[family-name:var(--oc-font-heading)]';
+const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--oc-focus,oklch(20.5%_0_none))]';
+const HEADING_2 = `m-0 mt-10 mb-4 scroll-mt-24 text-2xl font-bold leading-tight wrap-break-word ${HEADING_FONT} ${INK}`;
+const HEADING_3 = `m-0 mt-8 mb-3 scroll-mt-24 text-xl font-semibold leading-snug wrap-break-word ${HEADING_FONT} ${INK}`;
+const HEADING_4 = `m-0 mt-6 mb-2 text-lg font-semibold leading-snug wrap-break-word ${HEADING_FONT} ${INK}`;
+const PARAGRAPH = 'm-0 mb-4 leading-relaxed wrap-break-word';
+const LINK = `${INK} underline underline-offset-2 hover:text-[var(--oc-ink-muted,oklch(43.9%_0_none))] ${FOCUS}`;
+const LIST = 'm-0 mb-4 list-disc pl-6 leading-relaxed wrap-break-word';
+const ORDERED_LIST = 'm-0 mb-4 list-decimal pl-6 leading-relaxed wrap-break-word';
 const LIST_ITEM = 'm-0 mt-1 p-0 pl-1';
-const QUOTE = 'm-0 mb-4 box-border border-l-4 border-neutral-300 py-1 pl-4 italic text-neutral-700';
-const CODE = 'rounded bg-neutral-100 px-1 py-0.5 font-mono text-[0.875em] text-neutral-900';
-const PRE = `m-0 mb-4 box-border overflow-x-auto rounded-md bg-neutral-900 p-4 font-mono text-sm leading-relaxed text-white [&_code]:rounded-none [&_code]:bg-transparent [&_code]:p-0 [&_code]:text-[1em] [&_code]:text-inherit ${FOCUS}`;
-const RULE = 'm-0 my-8 h-px border-0 bg-neutral-200';
-const IMAGE = 'm-0 my-6 block h-auto max-w-full rounded-md';
+const QUOTE = 'm-0 mb-4 box-border border-l-4 border-[var(--oc-line-strong,oklch(87%_0_none))] py-1 pl-4 italic wrap-break-word text-[var(--oc-ink-body,oklch(37.1%_0_none))]';
+const CODE = `rounded-[var(--oc-radius,0.25rem)] bg-[var(--oc-surface-sunk,oklch(97%_0_none))] px-1 py-0.5 font-mono text-[0.875em] ${INK}`;
+// A code block is an inverse block, no brand mark (R13): the ink ground with surface text, dark in a light theme and
+// light in a dark one; its code inherits both.
+const PRE = `m-0 mb-4 box-border overflow-x-auto rounded-[calc(var(--oc-radius,0.25rem)*1.5)] bg-[var(--oc-ink,oklch(20.5%_0_none))] p-4 font-mono text-sm leading-relaxed text-[var(--oc-surface,#fff)] [&_code]:rounded-none [&_code]:bg-transparent [&_code]:p-0 [&_code]:text-[1em] [&_code]:text-inherit ${FOCUS}`;
+const RULE = 'm-0 my-8 h-px border-0 bg-[var(--oc-line,oklch(92.2%_0_none))]';
+const IMAGE = 'm-0 my-6 block h-auto max-w-full rounded-[calc(var(--oc-radius,0.25rem)*1.5)]';
 
 function Heading2({ id, children }: ComponentPropsWithoutRef<'h2'>) {
   return (
@@ -111,8 +117,8 @@ function Emphasis({ children }: ComponentPropsWithoutRef<'em'>) {
 }
 
 /**
- * Styled post elements for `<Content components={mdxComponents({ LinkComponent: Link })} />`, the same with and
- * without Tailwind's preflight. h2 and h3 keep their ids (the table of contents links to them). A link to a path on
+ * Styled post elements for `<Content components={mdxComponents({ LinkComponent: Link })} />`, in the project's design
+ * tokens, the same with and without Tailwind's preflight. h2 and h3 keep their ids (the table of contents links to them). A link to a path on
  * this site renders through `LinkComponent` (default: a plain `a`); any other link is a plain `a`.
  */
 export function mdxComponents(options: { LinkComponent?: LinkComponent } = {}): MdxComponents {
