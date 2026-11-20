@@ -1059,14 +1059,15 @@
     },
     "blog-content": {
       "name": "Blog Content Loader",
-      "description": "Typed post collection from MDX files: validated front matter, authors and categories, drafts and scheduled posts hidden, headings and reading time",
+      "description": "Typed post collection from MDX files: validated front matter, authors and categories, drafts and scheduled posts hidden, headings and reading time, and the post elements in the project's design system",
       "type": "utility",
       "category": "BLOG",
       "tags": [
         "blog",
         "mdx",
         "content",
-        "posts"
+        "posts",
+        "design-tokens"
       ],
       "stack": [
         "react",
@@ -1075,10 +1076,11 @@
         "zod"
       ],
       "fileCount": 10,
-      "version": "1.0.0",
+      "version": "2.0.0",
       "family": "site",
       "vocabVersion": 1,
-      "proof": "installs alone on Next 16 (build, typecheck, lint); post body same with and without preflight; axe clean; front matter, visibility, refusals and paging table-tested; mutants caught"
+      "proof": "installs alone on Next 16; post elements equal 1.0.0's; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak; front matter, refusals, paging tested; mutants caught",
+      "tokens": 1
     },
     "blog-index-page": {
       "name": "Blog Index Page",
