@@ -1,10 +1,13 @@
 'use client';
 
 import { useEffect, useId, useRef } from 'react';
-import { FRAME_CLASS, SECONDARY_CLASS, TRIGGER_CLASS } from './dialog';
+import { DESCRIPTION_CLASS, FRAME_CLASS, SECONDARY_CLASS, TITLE_CLASS, TRIGGER_CLASS } from './dialog';
 import { MODAL_LABELS } from './labels';
 import type { AlertDialogProps } from './types';
 import { useNativeDialog, useOpenState } from './use-native-dialog';
+
+const PLACEMENT =
+  'm-auto w-[min(28rem,calc(100%-2rem))] max-w-none rounded-[calc(var(--oc-radius,0.25rem)*2)] border border-solid border-[var(--oc-line,oklch(92.2%_0_none))]';
 
 /**
  * A confirmation on native `<dialog>` with role="alertdialog". Focus starts on Cancel; Escape cancels; a backdrop
@@ -48,14 +51,14 @@ export function AlertDialog({
         role="alertdialog"
         aria-labelledby={titleId}
         aria-describedby={description ? descriptionId : undefined}
-        className={`${FRAME_CLASS} m-auto w-[min(28rem,calc(100%-2rem))] max-w-none rounded-lg border border-solid border-neutral-200${className ? ` ${className}` : ''}`}
+        className={`${FRAME_CLASS} ${PLACEMENT}${className ? ` ${className}` : ''}`}
       >
         <div className="box-border flex flex-col gap-4 p-6">
-          <h2 id={titleId} className="m-0 text-lg leading-8 font-semibold">
+          <h2 id={titleId} className={TITLE_CLASS}>
             {title}
           </h2>
           {description ? (
-            <p id={descriptionId} className="m-0 text-sm text-neutral-600">
+            <p id={descriptionId} className={DESCRIPTION_CLASS}>
               {description}
             </p>
           ) : null}

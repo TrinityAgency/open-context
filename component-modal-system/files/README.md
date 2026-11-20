@@ -2,7 +2,8 @@
 
 Three overlays on the browser's native `<dialog>`: a centred `Dialog`, a `Drawer` along one edge and an
 `AlertDialog` for confirmations. The browser does the hard parts (top layer, inert page, focus trap, Escape); this
-module adds a trigger, the open state, a scroll lock and focus returned to where it came from.
+module adds a trigger, the open state, a scroll lock and focus returned to where it came from. Its colours, fonts and
+corners come from your design system's tokens.
 
 ## Usage
 
@@ -46,6 +47,36 @@ for a close you made by passing `open={false}`.
 const ref = useNativeDialog(open, () => setOpen(false));
 <dialog ref={ref}>…</dialog>
 ```
+
+## Brand
+
+The overlays read these design tokens (CSS custom properties of the Open Context token contract, version 1). Unset,
+each falls back to the neutral value in brackets, so they look the same as before with no design system loaded.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-surface` | the dialog, the drawer, the alert; a secondary button (Cancel) | `#fff` |
+| `--oc-surface-sunk` | the close button and a secondary button under the pointer | `oklch(97% 0 none)` |
+| `--oc-line` | the dialog's, the alert's and the drawer's border | `oklch(92.2% 0 none)` |
+| `--oc-line-strong` | a secondary button's border | `oklch(87% 0 none)` |
+| `--oc-ink` | the title and the content | `oklch(20.5% 0 none)` |
+| `--oc-ink-body` | the close button's cross | `oklch(37.1% 0 none)` |
+| `--oc-ink-muted` | the description | `oklch(43.9% 0 none)` |
+| `--oc-brand` | the trigger and the confirm button | `oklch(20.5% 0 none)` |
+| `--oc-brand-hover` | them under the pointer | `oklch(37.1% 0 none)` |
+| `--oc-on-brand` | their text | `#fff` |
+| `--oc-focus` | the focus ring | `oklch(20.5% 0 none)` |
+| `--oc-scrim` | the veil behind an open overlay (at 50 %) | `oklch(20.5% 0 none)` |
+| `--oc-font-heading` | the title | the page's font |
+| `--oc-font-body` | the buttons | the page's font |
+| `--oc-radius` | the corners (the dialog 2 ×, the buttons 1.5 ×) | `0.25rem` |
+
+`TRIGGER_CLASS` and `SECONDARY_CLASS` (exported from `dialog.tsx`) are the two button looks, for your own buttons
+beside a dialog. To set the tokens from a claude.ai design system, use the `design-tokens` template (its
+`design-sync.mjs` writes them as aliases of your design's own tokens, light and dark, and checks the pairs these draw:
+each ink on the surface, on-brand on brand, the focus ring) and the `design-system-seed` skill. To set them by hand,
+declare them once in your global stylesheet, e.g. `:root { --oc-brand: #0b5cad; --oc-on-brand: #fff; --oc-radius:
+0.5rem; }`.
 
 ## Props
 
@@ -104,3 +135,6 @@ and the labels are plain modules.
 - No animation: the dialogs appear and disappear at once, so there is nothing to switch off for reduced motion.
 - Every margin, border, padding and size of the `dialog` element and the buttons is set in classes, so they look the
   same with or without Tailwind's preflight (which removes `dialog`'s centring margin).
+- 2.0.0: every colour, font and corner is a design token with the neutral look as its fallback; without a design
+  system it draws what 1.0.0 drew. A long button label wraps, and a long word in a title breaks beside the close
+  button.
