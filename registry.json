@@ -5448,24 +5448,47 @@
     },
     "section-stats": {
       "name": "Stats Section",
-      "description": "Stats section: key figures as a description list",
+      "description": "Stats section in three layouts (grid, split, band): key figures as a description list, in the project's design system",
       "type": "component",
       "category": "SECTIONS",
       "tags": [
         "stats",
         "section",
         "numbers",
-        "landing"
+        "landing",
+        "layouts",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "tailwind"
       ],
       "fileCount": 3,
-      "version": "2.0.0",
+      "version": "3.0.0",
       "family": "site",
       "vocabVersion": 1,
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
+      "proof": "installs alone on Next 16; layouts grid, split, band; default look equals 2.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no colour, font or radius leak",
+      "tokens": 1,
+      "layouts": [
+        {
+          "id": "grid",
+          "title": "Grid",
+          "description": "The figures in one, two or four columns below the title; the default.",
+          "usage": "<StatsSection layout=\"grid\" content={{ title, intro, items }} />"
+        },
+        {
+          "id": "split",
+          "title": "Split",
+          "description": "The title and intro beside the figures from md, stacked on a phone.",
+          "usage": "<StatsSection layout=\"split\" content={{ title, intro, items }} />"
+        },
+        {
+          "id": "band",
+          "title": "Band",
+          "description": "A full-width band on the brand colour, title and figures in on-brand.",
+          "usage": "<StatsSection layout=\"band\" content={{ title, items }} />"
+        }
+      ]
     },
     "section-testimonials": {
       "name": "Testimonials Section",
