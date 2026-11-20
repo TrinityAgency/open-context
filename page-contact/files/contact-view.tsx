@@ -41,9 +41,9 @@ const telHref = (phone: string) => {
 };
 
 const LINK =
-  'rounded-sm text-neutral-900 underline underline-offset-2 hover:text-neutral-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
-const CARD = 'box-border rounded-lg border border-solid border-neutral-200 p-4';
-const CARD_LABEL = 'm-0 text-sm font-medium text-neutral-600';
+  'rounded-[var(--oc-radius,0.25rem)] text-[var(--oc-ink,oklch(20.5%_0_none))] underline underline-offset-2 hover:text-[var(--oc-ink-muted,oklch(43.9%_0_none))] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--oc-focus,oklch(20.5%_0_none))]';
+const CARD = 'box-border rounded-[calc(var(--oc-radius,0.25rem)*2)] border border-solid border-[var(--oc-line,oklch(92.2%_0_none))] p-4';
+const CARD_LABEL = 'm-0 text-sm font-medium text-[var(--oc-ink-muted,oklch(43.9%_0_none))]';
 
 /**
  * The contact page body: the title (`h1`), an intro, the form and the contact details with a map. Server
@@ -72,18 +72,18 @@ export function ContactView({ content, startedAt, map, labels, LinkComponent: L 
 
   return (
     <main id="main" tabIndex={-1} className="outline-none">
-      <div className="box-border px-6 py-16 text-neutral-900">
+      <div className="box-border px-6 py-16 text-[var(--oc-ink,oklch(20.5%_0_none))] wrap-break-word">
         <div className="mx-auto max-w-5xl">
-          <h1 className="m-0 text-4xl font-semibold tracking-tight sm:text-5xl">{title}</h1>
-          {intro ? <p className="m-0 mt-5 max-w-2xl text-lg text-neutral-700">{intro}</p> : null}
-          <div className="mt-12 grid gap-12 md:grid-cols-[3fr_2fr]">
+          <h1 className="m-0 text-4xl font-semibold tracking-tight sm:text-5xl font-[family-name:var(--oc-font-heading)]">{title}</h1>
+          {intro ? <p className="m-0 mt-5 max-w-2xl text-lg text-[var(--oc-ink-body,oklch(37.1%_0_none))]">{intro}</p> : null}
+          <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-[3fr_2fr]">
             <ContactForm startedAt={startedAt} labels={l} notice={notice} />
             <section aria-labelledby={detailsId} className="min-w-0">
-              <h2 id={detailsId} className="m-0 text-xl font-semibold">
+              <h2 id={detailsId} className="m-0 text-xl font-semibold font-[family-name:var(--oc-font-heading)]">
                 {l.contact}
               </h2>
               {email || phone || address ? (
-                <ul className="m-0 mt-5 grid list-none gap-4 p-0">
+                <ul className="m-0 mt-5 grid grid-cols-1 list-none gap-4 p-0">
                   {email ? (
                     <li className={CARD}>
                       <p className={CARD_LABEL}>{l.email}</p>

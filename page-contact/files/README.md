@@ -95,6 +95,32 @@ export default function Contact() {
 | `site-types.ts` | the kit's shared types this page uses (`ContactFacts`, `PostalAddress`, …) |
 | `content.ts` | `LOCALE`, `META` and `CONTENT` (English and German) |
 
+## Brand
+
+The page reads these design tokens (CSS custom properties of the Open Context token contract, version 1). Unset, each
+falls back to the neutral value in brackets, so the page looks the same as before with no design system loaded.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-ink` | the title, the headings, the labels, the links, the status, an invalid field's border | `oklch(20.5% 0 none)` |
+| `--oc-ink-body` | the intro | `oklch(37.1% 0 none)` |
+| `--oc-ink-muted` | the notice, the card labels, a link under the pointer | `oklch(43.9% 0 none)` |
+| `--oc-surface` | the fields | `#fff` |
+| `--oc-line-strong` | the fields' border | `oklch(87% 0 none)` |
+| `--oc-line` | the cards' border | `oklch(92.2% 0 none)` |
+| `--oc-brand` | the send button | `oklch(20.5% 0 none)` |
+| `--oc-brand-hover` | the send button under the pointer | `oklch(37.1% 0 none)` |
+| `--oc-on-brand` | the send button's label | `#fff` |
+| `--oc-focus` | the focus ring | `oklch(20.5% 0 none)` |
+| `--oc-radius` | the corners (fields and button at 1.5 times it, cards at twice it) | `0.25rem` |
+| `--oc-font-heading` | the title and "Contact details" | the page's font |
+| `--oc-font-body` | the fields and the send button | the page's font |
+
+To set them from a claude.ai design system, use the `design-tokens` template (its `design-sync.mjs` writes them as
+aliases of your design's own tokens, light and dark, and checks every pair the page draws) and the
+`design-system-seed` skill. To set them by hand, declare them once in your global stylesheet, e.g.
+`:root { --oc-ink: #1d2433; --oc-line: #dfe3ea; }`.
+
 ## Props
 
 `ContactView`:
@@ -133,8 +159,10 @@ same form posts to the server action.
 
 ## Notes
 
-- Neutral colours only, with every margin and box set on the element, so the page looks the same with or without
-  Tailwind's preflight.
+- Every colour is a design token (Brand), with every margin and box set on the element, so the page looks the
+  same with or without Tailwind's preflight. A word wider than the screen breaks instead of running off it.
+- **From 1.x:** the props, the route, the server action and `content.ts` are the same; the page draws in your
+  design tokens, and a long label of the send button wraps inside it.
 - The privacy notice is a line with a link, not a checkbox: answering a message needs no consent. Point
   `privacy.href` at your privacy page.
 
