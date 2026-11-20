@@ -409,7 +409,7 @@ npx @trinity369/use <template>
 
 | Template | Type | Description |
 |---|---|---|
-| `site-starter` | starter | Lean company website skeleton: Next 16, React 19, Tailwind 4 without preflight, strict TypeScript, design-sync from a Claude Design export, English with a German switch, guard tests and AGENTS.md |
+| `site-starter` | starter | Lean company website skeleton: Next 16, React 19, Tailwind 4 without preflight, strict TypeScript, the design tokens every Open Context part reads (a claude.ai design system connects through design-sync), English with a German switch, guard tests and AGENTS.md |
 | `starter-admin-panel` | starter | Admin panel starter with RBAC, audit log, Cmd+K search, CRUD data tables, forms, auth, and PostgreSQL. Next.js 14, shadcn/ui, TanStack Table, Recharts. |
 | `starter-blog` | starter | Blog with MDX posts, authors, categories, RSS and Atom feeds, newsletter signup, cookie consent, SEO, legal and error pages, assembled from the website kit |
 | `starter-booking-system` | starter | Appointment booking system with calendar view and availability management |
