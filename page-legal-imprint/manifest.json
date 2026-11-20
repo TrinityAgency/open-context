@@ -1,22 +1,14 @@
 {
   "name": "page-legal-imprint",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "title": "Imprint Page",
-  "description": "Imprint page: provider identification fields for German and Austrian sites, as marked placeholders",
+  "description": "Imprint page: provider identification fields for German and Austrian sites, as marked placeholders, in the project's design system",
   "type": "page",
   "category": "WEB_DESIGN",
-  "tags": [
-    "legal",
-    "imprint",
-    "impressum",
-    "page"
-  ],
-  "stack": [
-    "react",
-    "next",
-    "tailwind"
-  ],
+  "tags": ["legal", "imprint", "impressum", "page", "design-tokens"],
+  "stack": ["react", "next", "tailwind"],
   "family": "site",
+  "tokens": 1,
   "outputDir": "app/page-legal-imprint",
   "files": [
     "README.md",
@@ -28,11 +20,7 @@
     "page.tsx",
     "placeholders.ts"
   ],
-  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; placeholder marking table-tested; mutants caught",
-  "peerDependencies": {
-    "react": ">=19",
-    "next": ">=16",
-    "tailwindcss": ">=4"
-  },
+  "proof": "installs alone on Next 16; default look equals 1.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; placeholder marking table-tested; mutants caught",
+  "peerDependencies": { "react": ">=19", "next": ">=16", "tailwindcss": ">=4" },
   "postMessage": "Installed at app/page-legal-imprint/ (served at /page-legal-imprint; rename the folder for another path). Edit content.ts; see README.md."
 }
