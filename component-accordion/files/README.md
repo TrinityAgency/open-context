@@ -21,6 +21,26 @@ const faq = [
 `title` and `content` take any React node, so an answer can hold links, lists or images. Each item's `id` lands on
 its `details`, so `/faq#returns` scrolls to it.
 
+## Brand
+
+The accordion reads these design tokens (CSS custom properties of the Open Context token contract, version 1). Unset,
+each falls back to the neutral value in brackets, so it looks the same as before with no design system loaded.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-line` | the lines between the items | `oklch(92.2% 0 none)` |
+| `--oc-ink` | the titles | `oklch(20.5% 0 none)` |
+| `--oc-ink-body` | the answers | `oklch(37.1% 0 none)` |
+| `--oc-ink-subtle` | the chevron | `oklch(55.6% 0 none)` |
+| `--oc-focus` | the focus ring | `oklch(20.5% 0 none)` |
+| `--oc-radius` | the focus ring's corners | `0.25rem` |
+
+The accordion draws no ground of its own: it sits on the page's, usually `--oc-surface`. To set the tokens from a
+claude.ai design system, use the `design-tokens` template (its `design-sync.mjs` writes them as aliases of your
+design's own tokens, light and dark, and checks the pairs this draws: ink and body text on the surface, the focus ring)
+and the `design-system-seed` skill. To set them by hand, declare them once in your global stylesheet, e.g.
+`:root { --oc-ink: #111827; --oc-line: #e5e7eb; }`.
+
 ## Props
 
 | Prop | Type | Default | |
@@ -53,5 +73,7 @@ None.
   browsers simply let several items open.
 - The open item's height does not animate; only the chevron turns. A height animation is left out on purpose: it
   needs either JavaScript or CSS that is not yet in every browser.
-- Neutral colours only, with borders and margins set on the elements, so it looks the same with or without
-  Tailwind's preflight.
+- Every colour is a design token with the neutral look as its fallback, with borders and margins set on the elements,
+  so it looks the same with or without Tailwind's preflight.
+- 2.0.0: the design tokens are new; without a design system it draws what 1.0.0 drew. A long title shrinks beside
+  the chevron, and a word wider than the list breaks.
