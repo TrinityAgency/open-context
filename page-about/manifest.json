@@ -1,44 +1,20 @@
 {
   "name": "page-about",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "title": "About Page",
-  "description": "About page: story, values, figures and team",
+  "description": "About page: story, values, figures and team, in the project's design system; every section takes a layout",
   "type": "page",
   "category": "WEB_DESIGN",
-  "tags": [
-    "about",
-    "company",
-    "team",
-    "page"
-  ],
-  "stack": [
-    "react",
-    "next",
-    "tailwind"
-  ],
+  "tags": ["about", "company", "team", "page", "design-tokens"],
+  "stack": ["react", "next", "tailwind"],
   "family": "site",
+  "tokens": 1,
   "vocabVersion": 1,
   "parts": [
-    {
-      "slug": "section-hero",
-      "version": "2.0.0",
-      "into": "_sections/hero"
-    },
-    {
-      "slug": "section-features",
-      "version": "2.0.0",
-      "into": "_sections/features"
-    },
-    {
-      "slug": "section-stats",
-      "version": "2.0.0",
-      "into": "_sections/stats"
-    },
-    {
-      "slug": "section-cta",
-      "version": "2.0.0",
-      "into": "_sections/cta"
-    }
+    { "slug": "section-hero", "version": "3.0.0", "into": "_sections/hero" },
+    { "slug": "section-features", "version": "3.0.0", "into": "_sections/features" },
+    { "slug": "section-stats", "version": "3.0.0", "into": "_sections/stats" },
+    { "slug": "section-cta", "version": "3.0.0", "into": "_sections/cta" }
   ],
   "outputDir": "app/page-about",
   "files": [
@@ -62,11 +38,7 @@
     "_sections/stats/site-types.ts",
     "_sections/stats/stats-section.tsx"
   ],
-  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; sections byte-identical to their pinned versions",
-  "peerDependencies": {
-    "react": ">=19",
-    "next": ">=16",
-    "tailwindcss": ">=4"
-  },
+  "proof": "installs alone on Next 16; sections byte-identical at 3.0.0; default look equals 1.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; mutants caught",
+  "peerDependencies": { "react": ">=19", "next": ">=16", "tailwindcss": ">=4" },
   "postMessage": "Installed at app/page-about/ (served at /page-about; rename the folder for another path). Edit content.ts; see README.md."
 }

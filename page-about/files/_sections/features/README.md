@@ -1,9 +1,9 @@
 # Features Section
 
-A titled list of features, each with an optional icon, a title, a description and an optional image. Two layouts:
-`grid` (the default) shows cards in one, two or three columns; `rows` gives each feature its own row, text beside
-the image from `md` up, the image side alternating. A server component with typed content: every visible string
-comes in through `content`.
+A titled list of features, each with an optional icon, a title, a description and an optional image, in three
+layouts. Its colours, fonts and corner radius come from your design system's tokens when you load them, and it keeps
+a neutral look when you do not. A server component with typed content: every visible string comes in through
+`content`.
 
 ## Usage
 
@@ -47,12 +47,44 @@ const NextImage: ImageComponent = ({ alt, ...props }) => <Image alt={alt} {...pr
 <FeaturesSection content={content} ImageComponent={NextImage} />
 ```
 
+## Layouts
+
+Pick one with the `layout` prop; leave it out and the features are a `grid`.
+
+| `layout` | What it draws | Example |
+|---|---|---|
+| `grid` | cards in one, two or three columns as the width grows | `<FeaturesSection layout="grid" content={{ title, intro, items }} />` |
+| `rows` | one feature per row, text beside its image from `md`, the image side alternating | `<FeaturesSection layout="rows" content={{ title, items: [{ title, description, image }] }} />` |
+| `split` | the title and intro in one column beside the features from `md`, stacked on a phone | `<FeaturesSection layout="split" content={{ title, intro, items }} />` |
+
+In `rows` a feature without an image keeps its text in the row's first column, as 2.0.0 drew it. The section
+carries `data-layout` with its layout.
+
+## Brand
+
+The section reads these design tokens (CSS custom properties of the Open Context token contract, version 1). Unset,
+each falls back to the neutral value in brackets, so the section looks the same as before with no design system
+loaded.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-ink` | the title, the feature titles, the icons | `oklch(20.5% 0 none)` |
+| `--oc-ink-body` | the intro and the descriptions | `oklch(37.1% 0 none)` |
+| `--oc-surface-sunk` | the icon's box | `oklch(97% 0 none)` |
+| `--oc-font-heading` | the title and the feature titles | the page's font |
+| `--oc-radius` | corners: 1.5 × on the icon's box, 2 × on the images | `0.25rem` |
+
+To set them from a claude.ai design system, use the `design-tokens` template (its `design-sync.mjs` writes them as
+aliases of your design's own tokens, light and dark) and the `design-system-seed` skill. To set them by hand, declare
+them once in your global stylesheet, e.g. `:root { --oc-ink: #1d2b3a; --oc-radius: 0.5rem; }`. A `data-theme` wrapper
+with its own values re-brands everything inside it.
+
 ## Props
 
 | Prop | Type | Default | |
 |---|---|---|---|
 | `content` | `FeaturesContent` | | `{ title, intro?, items: Feature[] }` |
-| `layout` | `'grid' \| 'rows'` | `grid` | cards in columns, or alternating rows |
+| `layout` | `'grid' \| 'rows' \| 'split'` | `grid` | see Layouts |
 | `ImageComponent` | `ImageComponent` | plain `img` | e.g. a `next/image` wrapper |
 | `id` | `string` | | on the `section`, e.g. an anchor target |
 | `className` | `string` | | on the `section` |
@@ -69,6 +101,7 @@ None: the section has no fixed strings. Everything it shows comes from `content`
 
 - The section is a region named by its `h2`; each feature's title is an `h3`, so the page outline lists them.
 - In `rows`, the text comes before the image in reading order on every row; only the visual side alternates.
+- In `split`, the title and intro come before the features in reading order at every width.
 
 ## Client islands
 
@@ -76,6 +109,9 @@ None.
 
 ## Notes
 
-- Neutral colours only, with every margin and box set on the element, so it looks the same with or without
-  Tailwind's preflight.
+- Colours, fonts and radii only through the tokens above, and every margin and box set on the element, so it looks
+  the same with or without Tailwind's preflight, and in a project with shadcn/ui's own variables.
+- Long words break inside their column, so nothing leaves a phone screen.
+- Version 3.0.0 adds the `split` layout and the design tokens. Without a design system it draws what 2.0.0 drew, in
+  `grid` and in `rows`.
 - Version 2.0.0 replaces the shadcn-based 1.0.0: no UI library, server-rendered, content through typed props.

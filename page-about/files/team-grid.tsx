@@ -20,7 +20,7 @@ function PlainImage({ src, alt, width, height, className }: ComponentProps<Image
 }
 
 const LINK =
-  'rounded-sm text-sm text-neutral-900 underline underline-offset-2 hover:text-neutral-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  'rounded-[var(--oc-radius,0.25rem)] text-sm text-[var(--oc-ink,oklch(20.5%_0_none))] underline underline-offset-2 hover:text-[var(--oc-ink-muted,oklch(43.9%_0_none))] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--oc-focus,oklch(20.5%_0_none))]';
 
 /**
  * The team: one card per member with a portrait, the name (`h3`), the role, a short bio and profile links. Server
@@ -31,12 +31,12 @@ export function TeamGrid({ content, LinkComponent: Link = PlainLink, ImageCompon
   const { title, intro, members } = content;
 
   return (
-    <section aria-labelledby={headingId} className="box-border px-6 py-16 text-neutral-900">
+    <section aria-labelledby={headingId} className="box-border px-6 py-16 text-[var(--oc-ink,oklch(20.5%_0_none))] wrap-break-word">
       <div className="mx-auto max-w-5xl">
-        <h2 id={headingId} className="m-0 text-3xl font-semibold tracking-tight">
+        <h2 id={headingId} className="m-0 text-3xl font-semibold tracking-tight font-[family-name:var(--oc-font-heading)]">
           {title}
         </h2>
-        {intro ? <p className="m-0 mt-4 max-w-2xl text-lg text-neutral-700">{intro}</p> : null}
+        {intro ? <p className="m-0 mt-4 max-w-2xl text-lg text-[var(--oc-ink-body,oklch(37.1%_0_none))]">{intro}</p> : null}
         {members.length > 0 ? (
           <ul className="m-0 mt-10 grid list-none grid-cols-1 gap-8 p-0 sm:grid-cols-2 lg:grid-cols-3">
             {members.map((member, i) => (
@@ -50,13 +50,13 @@ export function TeamGrid({ content, LinkComponent: Link = PlainLink, ImageCompon
                     className="mb-4 block size-20 rounded-full object-cover"
                   />
                 ) : null}
-                <h3 className="m-0 text-lg font-semibold">{member.name}</h3>
-                <p className="m-0 mt-1 text-sm font-medium text-neutral-600">{member.role}</p>
-                {member.bio ? <p className="m-0 mt-3 text-neutral-700">{member.bio}</p> : null}
+                <h3 className="m-0 text-lg font-semibold font-[family-name:var(--oc-font-heading)]">{member.name}</h3>
+                <p className="m-0 mt-1 text-sm font-medium text-[var(--oc-ink-muted,oklch(43.9%_0_none))]">{member.role}</p>
+                {member.bio ? <p className="m-0 mt-3 text-[var(--oc-ink-body,oklch(37.1%_0_none))]">{member.bio}</p> : null}
                 {member.links && member.links.length > 0 ? (
                   <ul className="m-0 mt-3 flex list-none flex-wrap gap-x-4 gap-y-1 p-0">
                     {member.links.map((link, j) => (
-                      <li key={j}>
+                      <li key={j} className="max-w-full">
                         <Link href={link.href} className={LINK}>
                           {link.label}
                         </Link>

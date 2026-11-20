@@ -35,9 +35,34 @@ export default function About() {
 | `team-grid.tsx` | `TeamGrid`: one card per team member |
 | `site-types.ts` | the kit's shared types this page uses (`TeamMember`, `SocialLink`, …) |
 | `content.ts` | `LOCALE`, `META` and `CONTENT` (English and German) |
-| `_sections/hero`, `_sections/features`, `_sections/stats`, `_sections/cta` | copies of `section-hero`, `section-features`, `section-stats` and `section-cta` 2.0.0, byte for byte; each folder has its own README |
+| `_sections/hero`, `_sections/features`, `_sections/stats`, `_sections/cta` | copies of `section-hero`, `section-features`, `section-stats` and `section-cta` 3.0.0, byte for byte; each folder has its own README |
 
 The `_sections` folders start with an underscore, so Next never serves them as routes.
+
+## Layouts
+
+Every section takes a `layout` prop; each section's README lists its layouts (`_sections/<name>/README.md`). Leaving
+it out draws what 1.x drew, so this page looks as before. To change one, pass it where `about-page.tsx` calls the
+section, e.g. `<StatsSection layout="band" content={c.stats} />`.
+
+## Brand
+
+The page's own markup, the story (`about-story.tsx`) and the team (`team-grid.tsx`), reads these design tokens (CSS custom properties of the Open Context token
+contract, version 1); each section in `_sections/` reads its own (see its README). Unset, each falls back to the
+neutral value in brackets, so the page looks the same as before with no design system loaded.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-ink` | the headings, the names, the profile links | `oklch(20.5% 0 none)` |
+| `--oc-ink-body` | the story, the intro, the bios | `oklch(37.1% 0 none)` |
+| `--oc-ink-muted` | the roles, a link under the pointer | `oklch(43.9% 0 none)` |
+| `--oc-focus` | the focus ring | `oklch(20.5% 0 none)` |
+| `--oc-radius` | the story image's corners (twice it) | `0.25rem` |
+| `--oc-font-heading` | the headings and the names | the page's font |
+
+To set them from a claude.ai design system, use the `design-tokens` template (its `design-sync.mjs` writes them as
+aliases of your design's own tokens, light and dark, and checks every pair the page draws) and the
+`design-system-seed` skill.
 
 ## Props
 
@@ -75,8 +100,10 @@ None.
 
 ## Notes
 
-- Neutral colours only, with every margin and box set on the element, so the page looks the same with or without
-  Tailwind's preflight.
+- Every colour is a design token (Brand), with every margin and box set on the element, so the page looks the
+  same with or without Tailwind's preflight. A word wider than the screen breaks instead of running off it.
+- **From 1.x:** the props, the route and `content.ts` are the same; the page and its sections draw in your design
+  tokens, and every section takes `layout`.
 - The sample pictures are inline SVG, so the page loads nothing from another host. With `next/image`, pass an
   `ImageComponent` to `AboutStory`, `TeamGrid` and the sections that show images.
 - To change a section beyond its content, edit its copy under `_sections/`; it is your code now.
