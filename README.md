@@ -392,7 +392,7 @@ npx @trinity369/use <template>
 | `section-features` | component | Features section in three layouts (grid, rows, split) that takes its colours, fonts and radius from the project's design system |
 | `section-hero` | component | Hero section in four layouts (split, centered, image, type) that takes its colours, fonts and radius from the project's design system |
 | `section-logo-cloud` | component | Logo cloud in two layouts (grid, split): client or partner logos, optionally linked, in the project's design system |
-| `section-pricing` | component | Pricing section: plans with prices from minor units, a no-JavaScript interval switch and a highlighted plan |
+| `section-pricing` | component | Pricing section in two layouts (grid, rows): plans with prices from minor units, a no-JavaScript interval switch and a highlighted plan, in the project's design system |
 | `section-stats` | component | Stats section in three layouts (grid, split, band): key figures as a description list, in the project's design system |
 | `section-testimonials` | component | Testimonials section in three layouts (grid, centered, wall) that takes its colours, fonts and radius from the project's design system |
 
