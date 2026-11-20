@@ -472,7 +472,7 @@ npx @trinity369/use <template>
 | `page-case-study` | page | Case study template with problem, solution, results |
 | `page-changelog` | page | Changelog page: releases from a typed list with version badges, dates and anchor links, in the project's design system |
 | `page-coming-soon` | page | Coming soon page with countdown timer, email capture form, and social links. Dark gradient background with flip-style countdown animation. |
-| `page-contact` | page | Contact page: a form with a server action, spam traps and validation, contact details and a map link |
+| `page-contact` | page | Contact page: a form with a server action, spam traps and validation, contact details and a map link, in the project's design system |
 | `page-event-landing` | page | Event landing page with speakers, schedule, pricing tiers, and sponsor sections |
 | `page-faq` | page | FAQ page with categories and search |
 | `page-features` | page | Features page: feature groups with icon, text and image, then a call to action |
