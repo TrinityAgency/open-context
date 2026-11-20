@@ -490,7 +490,7 @@ npx @trinity369/use <template>
 | `page-security-trust` | page | Security practices and compliance badges page with trust stats, data handling policies, and responsible disclosure info |
 | `page-status` | page | Service status page with uptime chart, service cards, recent incidents, and subscribe-to-updates section |
 | `page-waitlist` | page | Pre-launch waitlist page with email signup, animated position counter, social sharing, and referral system |
-| `site-cookie-consent` | module | Consent banner, preferences dialog and a gate that holds back anything non-essential until a choice is made |
+| `site-cookie-consent` | module | Consent banner in two layouts (card, bar), preferences dialog and a gate that holds back anything non-essential until a choice is made, in the project's design system |
 | `site-footer` | component | Footer in three layouts (columns, centered, minimal): link columns, contact block, legal links and a cookie-settings hook, in the project's design system |
 | `site-header` | component | Responsive site navigation in three layouts (bar, centered, minimal): mobile drawer, skip link and current-page mark, in the project's design system |
 | `site-seo` | utility | JSON-LD builders plus canonical and Open Graph helpers |
