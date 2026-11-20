@@ -5295,24 +5295,47 @@
     },
     "section-features": {
       "name": "Features Section",
-      "description": "Features section: a grid or alternating rows of items with icon, text and image",
+      "description": "Features section in three layouts (grid, rows, split) that takes its colours, fonts and radius from the project's design system",
       "type": "component",
       "category": "SECTIONS",
       "tags": [
         "features",
         "section",
         "landing",
-        "grid"
+        "grid",
+        "layouts",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "tailwind"
       ],
       "fileCount": 3,
-      "version": "2.0.0",
+      "version": "3.0.0",
       "family": "site",
       "vocabVersion": 1,
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
+      "proof": "installs alone on Next 16; three layouts (grid, rows, split); default look equals 2.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no colour, font or radius leak",
+      "tokens": 1,
+      "layouts": [
+        {
+          "id": "grid",
+          "title": "Grid",
+          "description": "Cards in one, two or three columns as the width grows; the default.",
+          "usage": "<FeaturesSection layout=\"grid\" content={{ title, intro, items }} />"
+        },
+        {
+          "id": "rows",
+          "title": "Rows",
+          "description": "One feature per row, text beside its image from md, the image side alternating.",
+          "usage": "<FeaturesSection layout=\"rows\" content={{ title, items: [{ title, description, image }] }} />"
+        },
+        {
+          "id": "split",
+          "title": "Split",
+          "description": "The title and intro in one column beside the features from md, stacked on a phone.",
+          "usage": "<FeaturesSection layout=\"split\" content={{ title, intro, items }} />"
+        }
+      ]
     },
     "section-hero": {
       "name": "Hero Section",
