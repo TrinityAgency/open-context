@@ -421,7 +421,7 @@ npx @trinity369/use <template>
 | `starter-job-board` | starter | Next.js 14 job board starter with job listings, search filters, company profiles, application forms, and employer posting. Blue/indigo theme. TypeScript, Tailwind CSS, App Router. |
 | `starter-landing-page` | starter | Company landing page assembled from the website kit: header, footer, cookie consent, SEO, eight sections, legal and error pages, all on the design tokens a claude.ai design system sets, with guard tests |
 | `starter-marketplace` | starter | Two-sided marketplace with listings and profiles |
-| `starter-portfolio` | starter | Portfolio site assembled from the website kit: projects from MDX files with disciplines, services, about, contact form, MDX blog with feeds, cookie consent, SEO, legal and error pages |
+| `starter-portfolio` | starter | Portfolio site assembled from the website kit: projects from MDX files with disciplines, services, about, contact form, MDX blog with feeds, cookie consent, SEO, legal and error pages, all on the design tokens a claude.ai design system sets |
 | `starter-project-management` | starter | Project management with tasks, boards, and timelines |
 | `starter-real-estate` | starter | Next.js 14 real estate starter with property listings, search filters, neighborhoods, agent profiles, and contact form. TypeScript, Tailwind CSS, App Router. |
 | `starter-restaurant` | starter | Next.js 14 restaurant starter with menu, reservations, chef team, and testimonials. TypeScript, Tailwind CSS, App Router, shadcn/ui theming. |
