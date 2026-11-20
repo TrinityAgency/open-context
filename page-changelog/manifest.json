@@ -1,22 +1,14 @@
 {
   "name": "page-changelog",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "title": "Changelog Page",
-  "description": "Changelog page: releases from a typed list with version badges, dates and anchor links",
+  "description": "Changelog page: releases from a typed list with version badges, dates and anchor links, in the project's design system",
   "type": "page",
   "category": "WEB_DESIGN",
-  "tags": [
-    "changelog",
-    "releases",
-    "page",
-    "versions"
-  ],
-  "stack": [
-    "react",
-    "next",
-    "tailwind"
-  ],
+  "tags": ["changelog", "releases", "page", "versions", "design-tokens"],
+  "stack": ["react", "next", "tailwind"],
   "family": "site",
+  "tokens": 1,
   "vocabVersion": 1,
   "outputDir": "app/page-changelog",
   "files": [
@@ -29,11 +21,7 @@
     "page.tsx",
     "site-types.ts"
   ],
-  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; ordering and anchors table-tested; mutants caught",
-  "peerDependencies": {
-    "react": ">=19",
-    "next": ">=16",
-    "tailwindcss": ">=4"
-  },
+  "proof": "installs alone on Next 16; default look equals 1.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; version order table-tested; mutants caught",
+  "peerDependencies": { "react": ">=19", "next": ">=16", "tailwindcss": ">=4" },
   "postMessage": "Installed at app/page-changelog/ (served at /page-changelog; rename the folder for another path). Edit content.ts; see README.md."
 }
