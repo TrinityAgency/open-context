@@ -1,11 +1,17 @@
 {
   "name": "design-tokens",
-  "version": "1.0.0",
-  "description": "Design token system with CSS custom properties — colors, typography, spacing, radius, shadows. Uses shadcn/ui defaults as a starting point.",
-  "outputDir": "src/design-system",
-  "files": ["tokens.css", "tailwind.config.ts", "README.md"],
-  "peerDependencies": {
-    "tailwindcss": ">=3"
-  },
-  "postMessage": "Import tokens.css in your global stylesheet and extend your tailwind.config with the provided config."
+  "version": "2.0.0",
+  "title": "Design Tokens",
+  "description": "The Open Context design-token contract for Tailwind 4: utilities for your own code, and design-sync, which turns a claude.ai design system into the tokens every Open Context part reads",
+  "type": "design-system",
+  "category": "DESIGN_SYSTEM",
+  "tags": ["design-tokens", "design-system", "theme", "brand", "tailwind"],
+  "stack": ["tailwind"],
+  "family": "site",
+  "tokens": 1,
+  "outputDir": "src/design-system/design-tokens",
+  "files": ["README.md", "design-sync.config.example.json", "design-sync.mjs", "oc-map.example.json", "oc-tokens.css"],
+  "peerDependencies": { "tailwindcss": ">=4" },
+  "postMessage": "See src/design-system/design-tokens/README.md: import oc-tokens.css after Tailwind, then connect your design system with design-sync.mjs.",
+  "proof": "its utilities, README table, example map and design-sync copy equal the kit's contract and template; the example config points inside a src/ project, whose guards pass the parts; both hosts"
 }
