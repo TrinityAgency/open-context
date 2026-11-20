@@ -1,17 +1,23 @@
 {
   "name": "site-footer",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "title": "Site Footer",
-  "description": "Footer with link columns, contact block, legal links and a cookie-settings hook",
+  "description": "Footer in three layouts (columns, centered, minimal): link columns, contact block, legal links and a cookie-settings hook, in the project's design system",
   "type": "component",
   "category": "WEB_DESIGN",
-  "tags": ["footer", "navigation", "legal", "contact"],
+  "tags": ["footer", "navigation", "legal", "contact", "layouts", "design-tokens"],
   "stack": ["react", "tailwind"],
   "family": "site",
   "vocabVersion": 1,
+  "tokens": 1,
+  "layouts": [
+    { "id": "columns", "title": "Columns", "description": "The identity beside titled link columns, contact and social links; the legal row below; the default.", "usage": "<SiteFooter layout=\"columns\" identity={identity} columns={columns} legal={legal} />" },
+    { "id": "centered", "title": "Centred", "description": "Everything centred: the identity above the columns, the legal row below it.", "usage": "<SiteFooter layout=\"centered\" identity={identity} columns={columns} legal={legal} />" },
+    { "id": "minimal", "title": "Minimal", "description": "One wrapping row: the name, the address, every link, the legal links and the copyright, no titles.", "usage": "<SiteFooter layout=\"minimal\" identity={identity} columns={columns} legal={legal} />" }
+  ],
   "outputDir": "components/site-footer",
   "files": ["site-footer.tsx", "labels.ts", "labels.de.ts", "site-types.ts", "README.md"],
-  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean",
+  "proof": "installs alone on Next 16; layouts columns, centered, minimal; default look equals 1.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak",
   "peerDependencies": { "react": ">=19", "tailwindcss": ">=4" },
-  "postMessage": "See components/site-footer/README.md for props, the German label set and the Next link/image wiring."
+  "postMessage": "See components/site-footer/README.md for the layouts, the design tokens it reads, props, the German label set and the Next link wiring."
 }
