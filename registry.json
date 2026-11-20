@@ -1493,23 +1493,25 @@
     },
     "component-breadcrumbs": {
       "name": "Breadcrumbs",
-      "description": "Breadcrumb trail with overflow that emits its BreadcrumbList data",
+      "description": "Breadcrumb trail with overflow that emits its BreadcrumbList data, in the project's design system",
       "type": "component",
       "category": "COMPONENTS",
       "tags": [
         "breadcrumb",
         "navigation",
-        "json-ld"
+        "json-ld",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "tailwind"
       ],
       "fileCount": 7,
-      "version": "1.0.0",
+      "version": "2.0.0",
       "family": "site",
       "vocabVersion": 1,
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; JSON-LD shape and escaping tested"
+      "proof": "installs alone on Next 16; the overflow measured open; default look equals 1.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak; JSON-LD tested",
+      "tokens": 1
     },
     "component-code-block": {
       "name": "Code Block",
