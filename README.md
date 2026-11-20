@@ -150,7 +150,7 @@ npx @trinity369/use <template>
 | `blog-reading-mode` | component | Distraction-free reading mode toggle — hides nav, widens content, adjusts typography |
 | `blog-rss-sitemap` | utility | RSS 2.0 and Atom feeds and sitemap entries for blog posts, as pure functions for route handlers |
 | `blog-search-results` | page | Blog search results page with query highlighting, filters, and pagination |
-| `blog-share-buttons` | component | Share links for X, LinkedIn, Facebook, Bluesky, WhatsApp and email, plus native share and copy link where the browser has them; no third-party script |
+| `blog-share-buttons` | component | Share links for X, LinkedIn, Facebook, Bluesky, WhatsApp and email, plus native share and copy link where the browser has them, in the project's design system; no third-party script |
 | `blog-tag-cloud` | component | Interactive tag cloud with weighted sizing, color scaling, and staggered animations |
 
 ### COMPONENTS (32)
