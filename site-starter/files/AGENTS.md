@@ -3,8 +3,8 @@
 For whoever changes this site next, a person or a coding agent. Read it before changing pages, facts or the design.
 Run `pnpm test && pnpm lint` after every change; both must pass.
 
-This is the lean skeleton: a home page, a not-found page, a header and a footer. It grows by adding pages and by
-installing templates from the website kit (see "Growing with the kit").
+This is the lean skeleton: a home page, a not-found page, a header, a footer and the design tokens. It grows by adding
+pages and by installing templates from the website kit (see "Growing with the kit").
 
 ## Where facts and text live
 
@@ -42,10 +42,27 @@ Routes stay English in both languages. For a German path, rename the route folde
 
 ## The design
 
-The design comes from a Claude Design export: put it under `design/export/`, run `pnpm design:sync`, and build class
-names with `cx` from the generated `src/design/catalog.ts`. `README.md`, "The design", has the steps and the four
-`design:*` scripts. Until the first export, the header, footer and pages use Tailwind's neutral palette. Colours never
-appear as literals outside `src/design/`: two guards refuse them.
+The site's colours, fonts and corners are the design tokens every Open Context part reads (`--oc-surface`,
+`--oc-ink`, `--oc-brand`, … `--oc-radius`). `src/design-system/design-tokens/` (the `design-tokens` template, a part
+of this site) defines them with neutral defaults; a connected design sets them in `src/design-system/generated/`.
+
+- **Connect a design system** made on claude.ai with the `design-system-seed` skill
+  (`npx @trinity369/use design-system-seed`): put the export, unchanged, under `design/export/`, copy
+  `src/design-system/design-tokens/oc-map.example.json` to `design/oc-map.json` and map every contract token to the
+  design's token that plays its role (`null` where the design has none), then run `pnpm design:sync`. It checks the
+  map and that every text stays readable on its ground before it writes anything; a refusal names the pair, the theme
+  and both colours, and is a question for whoever owns the design, never a reason to bend the map. This site already
+  holds `design-tokens`, its config (`design-sync.config.json`) and the imports in `src/app/globals.css`, so the
+  skill's install and loading steps are done.
+- **The site's own code** names tokens with `design-tokens`' utilities: `bg-oc-surface`, `text-oc-ink`,
+  `border-oc-line`, `rounded-oc-lg`, `font-oc-heading` (its `README.md` lists them all). Never a colour literal, a
+  grey or other palette class, a radius from Tailwind's scale or `font-sans`: `src/design-system/tokens-only.test.ts`
+  and `pnpm design:guards` refuse them.
+- **Structure** is chosen with each installed part's `layout` prop (`layout="split"`, …); the part's `README.md`
+  lists its layouts and what each draws. A part is never restyled with classes.
+- **Never edit `src/design-system/generated/`**: `pnpm design:sync` writes it. To change the design, change it in
+  Claude Design, export it again over `design/export/`, run `pnpm design:sync`, then `pnpm design:diff`.
+  `README.md`, "The design", has the steps and the four `design:*` scripts.
 
 ## Growing with the kit
 
@@ -67,8 +84,9 @@ installed (`.open-context.json`) stays with the site:
 When most of these are needed (features, pricing, about, contact, a blog, the legal pages, consent), start from
 `npx @trinity369/use starter-website` in an empty folder instead: it holds them all, assembled and proven together.
 
-An installed template is a copy of a published one. Change it through its props and its `content.ts`; an edit inside
-its files is lost the next time it is installed.
+An installed template is a copy of a published one. Change it through its props (its `layout` among them) and its
+`content.ts`; an edit inside its files is lost the next time it is installed. Every part reads the design tokens, so
+it takes the connected design without being edited.
 
 ## Consent
 
@@ -102,6 +120,6 @@ or fill it.
 |---|---|
 | `src/app/pages.test.tsx` | in both languages: the home page has one `h1` and a section for every `NAV` anchor; the not-found page has one `h1`, a way home and every `NAV` link; both render `main#main`; the header's first link is the skip link; every `NAV` page is in the sitemap |
 | `src/content/claims.test.ts` | no source file or static page states a `FORBIDDEN` phrase, however it is wrapped |
-| `src/design/no-hardcoded-colour.test.ts` | no colour literal outside `src/design/` (colours come from the design tokens) |
-| `pnpm design:check`, `pnpm design:guards` | the generated design files match the export; no colour literal, unknown wrapper class or hand-written vendor prefix |
+| `src/design-system/tokens-only.test.ts` | the classes in every file under `src/` but the generated design files, the tests and the copy (`src/content/`, a part's `content.ts` and `labels`): no palette, white or black colour class, no radius from Tailwind's scale, no `font-sans` or `font-serif`; design-sync's guards report nothing |
+| `pnpm design:check`, `pnpm design:guards` | the generated design files match the export (before the first export there is nothing to check); no colour literal, unknown wrapper class or hand-written vendor prefix under `src/` |
 | `pnpm typecheck` | the whole site type-checks strictly |

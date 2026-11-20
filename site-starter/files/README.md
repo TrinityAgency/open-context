@@ -1,8 +1,9 @@
 # site-starter
 
 A company website scaffold: Next 16 · React 19 · Tailwind 4 (without preflight) · strict TypeScript · Vitest.
-The design comes from a Claude Design export through `scripts/design-sync.mjs`; guard tests keep facts in one
-place and colours in the design tokens. `next build` writes a self-contained server to `.next/standalone`.
+Its colours, fonts and corners are the design tokens every Open Context part reads (`src/design-system/`); a design
+system made on claude.ai sets them through design-sync, and guard tests keep facts in one place and styling in the
+tokens. `next build` writes a self-contained server to `.next/standalone`.
 
 The sample company "Samplework Inc." and all its contact data are invented: replace them in
 `src/content/site.ts`.
@@ -32,39 +33,46 @@ pnpm build && pnpm start    # starts .next/standalone/server.js (PORT, HOSTNAME 
 - **Metadata per page**: every `page.tsx` exports its own `title` and `description`; `layout.tsx` holds only the
   defaults and the `%s | <company>` title template. `SITE_URL` in the environment overrides `SITE.url` for
   `robots.txt`, `sitemap.xml` and absolute metadata URLs. Add every new page to `src/app/sitemap.ts`.
-- **No colour literal outside `src/design/`**: `src/design/no-hardcoded-colour.test.ts` and `pnpm design:guards`
-  refuse a hex value, `rgb()`, `oklch()` and the like anywhere else. Until your export exists the header and
-  footer use Tailwind's neutral palette.
+- **Tokens only**: the site's own code names the design tokens with the utilities of `design-tokens`
+  (`src/design-system/design-tokens`: `bg-oc-surface`, `text-oc-ink`, `border-oc-line`, `rounded-oc-lg`,
+  `font-oc-heading`). `src/design-system/tokens-only.test.ts` and `pnpm design:guards` refuse a colour literal, a grey
+  or other palette class, a radius from Tailwind's scale and `font-sans` in the classes of every file under `src/` but
+  the generated design files, the tests and the copy (`src/content/`, a part's `content.ts` and `labels`). Until a
+  design is connected the tokens keep their neutral defaults and the page Tailwind's sans stack.
 - **No preflight**: `src/app/globals.css` imports only Tailwind's theme and utilities and declares the layer order
   `theme, base, components, utilities`, so the design's component rules sit below Tailwind's utilities.
 
-## The design: from a Claude Design export to classes
+## The design: from a claude.ai design system to every part
 
-1. Put the export, unchanged, under `design/export/` (see `design/export/README.md`). Set `prefix` in
-   `design-sync.config.json` to the class prefix your export uses (`ds-` is a placeholder): only classes with that
-   prefix reach the catalog.
-2. `pnpm design:sync` writes `src/design/tokens.css`, `src/design/components.css` and `src/design/catalog.ts`
-   (plus fonts under `public/fonts` and brand SVGs under `public/brand`). Commit them; never edit them by hand.
-3. Uncomment the two `src/design/` imports in `src/app/globals.css` and map the colour tokens in its
-   `@theme inline` block, so utilities like `bg-paper` read the tokens.
-4. Name the components you approved in `approved` in `design-sync.config.json`, write thin wrappers in
-   `src/components/ui/`, and build class names with `cx` from `src/design/catalog.ts`.
-   Replace the utilities in `SiteHeader.tsx` and `SiteFooter.tsx` the same way.
-5. After a new export: `pnpm design:sync`, then `pnpm design:diff` lists the classes that were added or removed
+The `design-system-seed` skill (`npx @trinity369/use design-system-seed`) walks an agent through these steps; this
+site already holds `design-tokens`, its config and the imports, so only the export, the map and the sync are left.
+
+1. Put the export, unchanged, under `design/export/` (see `design/export/README.md`).
+2. Copy `src/design-system/design-tokens/oc-map.example.json` to `design/oc-map.json` and write the map: for every
+   contract token, the design's token that plays its role (read the `usage` notes on both sides; `null` only where
+   the design has no such role). `src/design-system/design-tokens/README.md` has the contract's table.
+3. `pnpm design:sync` checks the map and that every text stays readable on its ground in every theme, then writes
+   `src/design-system/generated/tokens.css` (the design's variables and the `--oc-*` tokens), `components.css` and
+   `catalog.ts`, plus fonts under `public/fonts` and brand SVGs under `public/brand`. Commit them; never edit them by
+   hand. `src/app/globals.css` already imports them, so every part and the site's own code take the design at once.
+4. The design's first theme is the default; another applies inside `data-theme="<theme id>"` (on `<html>` for the
+   whole site).
+5. To use the export's own components as well, set `prefix` in `design-sync.config.json` to the class prefix its
+   `bundle.css` uses (`ds-` is a placeholder), name the components you approved in an `approved` list there, write
+   thin wrappers in `src/components/ui/` and build class names with `cx` from `src/design-system/generated/catalog.ts`.
+6. After a new export: `pnpm design:sync`, then `pnpm design:diff` lists the classes that were added or removed
    and the wrappers that still use a removed one.
 
 | script | what it does |
 |---|---|
-| `design:sync` | writes the generated files from the export |
-| `design:check` | fails when the committed generated files differ from a fresh run |
+| `design:sync` | checks the map and the contrast, then writes the generated files from the export |
+| `design:check` | fails when the generated files differ from a fresh run; before the first export there is nothing to check, and it passes |
 | `design:diff` | lists classes added/removed since the committed catalog, and the wrappers they hit |
-| `design:guards` | fails on a colour literal, an unknown wrapper class or a hand-written vendor prefix |
+| `design:guards` | fails on a colour literal, an unknown wrapper class or a hand-written vendor prefix under `src/` |
 
-**Before your first export**, `node scripts/design-sync.mjs --check` stops with "not found, and the generated
-files are missing" (there is nothing to compare yet). That is why the `design:check` script reads
-`node scripts/design-sync.mjs --check || echo "no export yet"`, so `pnpm test` passes on a fresh install.
-**After your first `design:sync`, remove `|| echo "no export yet"`** from `design:check` in `package.json`;
-otherwise a stale generated file would be reported but not fail the tests.
+Each runs `node src/design-system/design-tokens/design-sync.mjs --config design-sync.config.json` (with `--check`,
+`--diff` or `--guards`). `design-sync.mjs` belongs to the `design-tokens` part: update it by installing a newer
+`design-tokens`, never by editing it.
 
 ## Release
 

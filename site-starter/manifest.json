@@ -1,23 +1,15 @@
 {
   "name": "site-starter",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "title": "Site Starter",
-  "description": "Lean company website skeleton: Next 16, React 19, Tailwind 4 without preflight, strict TypeScript, design-sync from a Claude Design export, English with a German switch, guard tests and AGENTS.md",
+  "description": "Lean company website skeleton: Next 16, React 19, Tailwind 4 without preflight, strict TypeScript, the design tokens every Open Context part reads (a claude.ai design system connects through design-sync), English with a German switch, guard tests and AGENTS.md",
   "type": "starter",
   "category": "STARTER",
-  "tags": [
-    "starter",
-    "website",
-    "skeleton",
-    "design-sync",
-    "standalone"
-  ],
-  "stack": [
-    "react",
-    "next",
-    "tailwind"
-  ],
+  "tags": ["starter", "website", "skeleton", "design-tokens", "design-sync", "standalone"],
+  "stack": ["react", "next", "tailwind"],
   "family": "site",
+  "tokens": 1,
+  "parts": [{ "slug": "design-tokens", "version": "2.0.0", "into": "src/design-system/design-tokens" }],
   "outputDir": ".",
   "files": [
     ".gitignore",
@@ -30,7 +22,6 @@
     "package.json",
     "postcss.config.mjs",
     "scripts/assemble-standalone.mjs",
-    "scripts/design-sync.mjs",
     "src/app/globals.css",
     "src/app/layout.tsx",
     "src/app/not-found.tsx",
@@ -45,14 +36,19 @@
     "src/content/claims.test.ts",
     "src/content/locale.ts",
     "src/content/site.ts",
-    "src/design/.gitkeep",
-    "src/design/README.md",
-    "src/design/no-hardcoded-colour.test.ts",
+    "src/design-system/generated/components.css",
+    "src/design-system/generated/tokens.css",
+    "src/design-system/tokens-only.test.ts",
     "tsconfig.json",
     "vitest.config.mts",
-    "vitest.setup.ts"
+    "vitest.setup.ts",
+    "src/design-system/design-tokens/README.md",
+    "src/design-system/design-tokens/design-sync.config.example.json",
+    "src/design-system/design-tokens/design-sync.mjs",
+    "src/design-system/design-tokens/oc-map.example.json",
+    "src/design-system/design-tokens/oc-tokens.css"
   ],
-  "proof": "installs into an empty folder, passes its own tests, lint and build in English and German; a crawl finds no dead link, axe violation or request to another host; a kit page installs into it and builds",
+  "proof": "installs into an empty folder; tests, lint and build pass in English and German; crawled with no dead link, axe violation or other host; nothing leaks under the probe brand; a kit page grows in",
   "peerDependencies": {
     "next": ">=16",
     "react": ">=19",
@@ -67,5 +63,5 @@
     "eslint-config-next": ">=16",
     "@tailwindcss/postcss": ">=4"
   },
-  "postMessage": "pnpm install · pnpm dev · read AGENTS.md before changing pages, facts or the design (a Claude Design export goes under design/export/)."
+  "postMessage": "pnpm install · pnpm dev · read AGENTS.md before changing pages, facts or the design (a claude.ai design system connects with design-system-seed; its export goes under design/export/)."
 }

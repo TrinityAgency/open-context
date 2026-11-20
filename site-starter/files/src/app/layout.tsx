@@ -14,12 +14,12 @@ export const metadata: Metadata = {
 };
 
 // Every page brings its own <main id="main">, the skip link's target, so pages installed from the website kit fit
-// as they are. Colours are Tailwind's neutral palette until the first design:sync; then use the token utilities
-// (globals.css).
+// as they are. The page takes the design tokens: the surface, the ink and the body font (globals.css gives the page
+// Tailwind's sans stack until a design sets one).
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={LOCALE}>
-      <body className="flex min-h-screen flex-col bg-white font-sans text-neutral-900">
+      <body className="flex min-h-screen flex-col bg-oc-surface font-oc-body text-oc-ink">
         <SiteHeader locale={LOCALE} />
         <div className="flex-1">{children}</div>
         <SiteFooter locale={LOCALE} />
