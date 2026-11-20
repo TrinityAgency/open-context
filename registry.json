@@ -5452,24 +5452,47 @@
     },
     "section-testimonials": {
       "name": "Testimonials Section",
-      "description": "Testimonials section: quotes with name, role and portrait",
+      "description": "Testimonials section in three layouts (grid, centered, wall) that takes its colours, fonts and radius from the project's design system",
       "type": "component",
       "category": "SECTIONS",
       "tags": [
         "testimonials",
         "section",
         "social-proof",
-        "quotes"
+        "quotes",
+        "layouts",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "tailwind"
       ],
       "fileCount": 3,
-      "version": "2.0.0",
+      "version": "3.0.0",
       "family": "site",
       "vocabVersion": 1,
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
+      "proof": "installs alone on Next 16; layouts grid, centered, wall; default look equals 2.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no colour, font or radius leak",
+      "tokens": 1,
+      "layouts": [
+        {
+          "id": "grid",
+          "title": "Grid",
+          "description": "Quote cards in one, two or three columns as the width grows; the default.",
+          "usage": "<TestimonialsSection layout=\"grid\" content={{ title, items }} />"
+        },
+        {
+          "id": "centered",
+          "title": "Centred",
+          "description": "One large quote per row, centred, the portrait and name below it.",
+          "usage": "<TestimonialsSection layout=\"centered\" content={{ title, items: [{ quote, name, role, image }] }} />"
+        },
+        {
+          "id": "wall",
+          "title": "Wall",
+          "description": "Quote cards of their own heights in flowing columns, for many quotes of different lengths.",
+          "usage": "<TestimonialsSection layout=\"wall\" content={{ title, items }} />"
+        }
+      ]
     },
     "shop-cart": {
       "name": "Shopping Cart",
