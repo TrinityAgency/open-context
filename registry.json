@@ -1698,7 +1698,7 @@
     },
     "component-modal-system": {
       "name": "Modal System",
-      "description": "Dialog, drawer and alert dialog on native dialog, with focus returned on close",
+      "description": "Dialog, drawer and alert dialog on native dialog, with focus returned on close, in the project's design system",
       "type": "module",
       "category": "COMPONENTS",
       "tags": [
@@ -1706,16 +1706,18 @@
         "dialog",
         "drawer",
         "alert-dialog",
-        "overlay"
+        "overlay",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "tailwind"
       ],
       "fileCount": 9,
-      "version": "1.0.0",
+      "version": "2.0.0",
       "family": "site",
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight, open and closed; axe clean; focus, Escape and backdrop tested in Chromium"
+      "proof": "installs alone on Next 16; dialog, drawer and alert measured open; default look equals 1.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak",
+      "tokens": 1
     },
     "component-pagination": {
       "name": "Pagination",
