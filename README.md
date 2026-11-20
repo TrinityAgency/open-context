@@ -484,7 +484,7 @@ npx @trinity369/use <template>
 | `page-partner-integrations` | page | Integration marketplace with categories, search, and detail panels |
 | `page-podcast-show` | page | Podcast show page with episode list, season filters, and interactive audio player bar |
 | `page-press-kit` | page | Press kit with logos, photos, and brand guidelines |
-| `page-pricing` | page | Pricing page: plans with an interval switch, a comparison table and questions |
+| `page-pricing` | page | Pricing page: plans with an interval switch, a comparison table and questions, in the project's design system; every section takes a layout |
 | `page-restaurant-menu` | page | Digital restaurant menu with category navigation, dietary badges, and elegant dark theme |
 | `page-saas-comparison` | page | SaaS tool comparison page with scoring matrix, card view, and interactive filters |
 | `page-security-trust` | page | Security practices and compliance badges page with trust stats, data handling policies, and responsible disclosure info |
