@@ -5253,24 +5253,47 @@
     },
     "section-cta": {
       "name": "CTA Section",
-      "description": "Call-to-action band with a title, a line of text and its links",
+      "description": "Call-to-action section in three layouts (centered, split, band): a title, a line of text and its links, in the project's design system",
       "type": "component",
       "category": "SECTIONS",
       "tags": [
         "cta",
         "section",
         "landing",
-        "conversion"
+        "conversion",
+        "layouts",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "tailwind"
       ],
       "fileCount": 3,
-      "version": "2.0.0",
+      "version": "3.0.0",
       "family": "site",
       "vocabVersion": 1,
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
+      "proof": "installs alone on Next 16; layouts centered, split, band (focus on-brand); default look equals 2.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak",
+      "tokens": 1,
+      "layouts": [
+        {
+          "id": "centered",
+          "title": "Centred",
+          "description": "Title, text and links centred on a light band; the default.",
+          "usage": "<CtaSection layout=\"centered\" content={{ title, text, ctas }} />"
+        },
+        {
+          "id": "split",
+          "title": "Split",
+          "description": "Title and text beside the links from md, on the light band, stacked on a phone.",
+          "usage": "<CtaSection layout=\"split\" content={{ title, text, ctas }} />"
+        },
+        {
+          "id": "band",
+          "title": "Band",
+          "description": "Centred on a full-width brand-coloured band: text and focus in on-brand, the primary link inverse.",
+          "usage": "<CtaSection layout=\"band\" content={{ title, text, ctas }} />"
+        }
+      ]
     },
     "section-faq": {
       "name": "FAQ Section",
