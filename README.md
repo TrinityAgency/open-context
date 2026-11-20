@@ -475,7 +475,7 @@ npx @trinity369/use <template>
 | `page-contact` | page | Contact page: a form with a server action, spam traps and validation, contact details and a map link, in the project's design system |
 | `page-event-landing` | page | Event landing page with speakers, schedule, pricing tiers, and sponsor sections |
 | `page-faq` | page | FAQ page with categories and search |
-| `page-features` | page | Features page: feature groups with icon, text and image, then a call to action |
+| `page-features` | page | Features page: feature groups with icon, text and image, then a call to action, in the project's design system; every section takes a layout |
 | `page-landing-full` | page | Full landing page: hero, logos, features, figures, testimonials, pricing, questions and a call to action |
 | `page-landing-hero` | page | Short landing page: hero, features and a call to action, assembled from the kit's sections |
 | `page-legal-imprint` | page | Imprint page: provider identification fields for German and Austrian sites, as marked placeholders, in the project's design system |
