@@ -136,15 +136,43 @@ post scheduled for next month therefore breaks this build, not the first build a
 | `countWords`, `readingMinutes` | words without markup; minutes at 200 words per minute, rounded up, at least 1 |
 | `headingId(text)` | the id a heading gets: `Über uns & mehr` → `über-uns-mehr`; repeats get `-1`, `-2` |
 
+## Brand
+
+The post elements read these design tokens (CSS custom properties of the Open Context token contract, version 1).
+Unset, each falls back to the neutral value in brackets, so a post looks the same as before with no design system
+loaded. Paragraphs and list items take the colour of the page around them.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-ink` | headings, links, inline code; the code block's ground | `oklch(20.5% 0 none)` |
+| `--oc-surface` | the code block's text | `#fff` |
+| `--oc-ink-muted` | a link under the pointer | `oklch(43.9% 0 none)` |
+| `--oc-ink-body` | a quote | `oklch(37.1% 0 none)` |
+| `--oc-line-strong` | a quote's border | `oklch(87% 0 none)` |
+| `--oc-surface-sunk` | inline code's ground | `oklch(97% 0 none)` |
+| `--oc-line` | the rule (`---`) | `oklch(92.2% 0 none)` |
+| `--oc-focus` | the focus ring of a link and of a code block | `oklch(20.5% 0 none)` |
+| `--oc-radius` | inline code (1 ×), the code block and images (1.5 ×) | `0.25rem` |
+| `--oc-font-heading` | `h2`, `h3`, `h4` | the page's font |
+
+A code block is an inverse block, no brand mark: the ink ground with surface text, so it is dark on a light theme and
+light on a dark one, and its contrast is the `[surface, ink]` pair. Code keeps the monospace font (`font-mono`): there is
+no code font token. To set the tokens from a claude.ai design system, use the `design-tokens` template (its
+`design-sync.mjs` writes them as aliases of your design's own tokens, light and dark, and checks the pairs these draw:
+ink, body and muted text on the surface, ink on the sunk tint, surface on ink, the focus ring) and the
+`design-system-seed` skill. To set them by hand, declare them once in your global stylesheet, e.g.
+`:root { --oc-ink: #1d2433; --oc-surface: #fff; }`.
+
 ## Props
 
 `createBlog({ dir, now?, includeDrafts?, wordsPerMinute?, mdx? })`: `dir` relative to the project root or absolute;
 `now` decides which scheduled posts show (default: the time of the call); `includeDrafts` for a preview build;
 `mdx: { remarkPlugins?, rehypePlugins? }` adds plugins after the blog's own rules (code highlighting, for example).
 
-`mdxComponents({ LinkComponent? })` styles `h2 h3 h4 p a ul ol li blockquote code pre hr img strong em` with
-Tailwind's neutral scale, the same with and without preflight. `h2` and `h3` keep their ids. Spread your own over it
-to change one element: `{ ...mdxComponents({ LinkComponent: Link }), blockquote: MyQuote }`.
+`mdxComponents({ LinkComponent? })` styles `h2 h3 h4 p a ul ol li blockquote code pre hr img strong em` in your
+design tokens (Brand, below), the same with and without preflight. `h2` and `h3` keep their ids. Headings, paragraphs,
+lists and quotes break a word wider than the column (a long compound on a phone). Spread your own over it to change one
+element: `{ ...mdxComponents({ LinkComponent: Link }), blockquote: MyQuote }`.
 
 The types (`Post`, `Author`, `Category`, `ImageRef`, `LinkComponent`) are in `site-types.ts`.
 
@@ -181,5 +209,8 @@ None. Everything runs on the server at build time (`node:fs`); never import this
 - Images in posts are plain `img` elements with `loading="lazy"`: nothing loads before it is scrolled into view, and
   with the refusals above nothing a post shows loads from another host.
 - There is no code highlighting built in; add a rehype plugin through `mdx.rehypePlugins` if you want one.
+- **From 1.x:** the loader is unchanged. `mdxComponents()` draws in your design tokens (above): with none set it looks as
+  1.x did, except that headings take the heading font when your design sets one and text breaks a word wider than the
+  column instead of running off the page.
 - A route that reads posts per request (`revalidate`) in a standalone build needs `content/blog/**` in
   `outputFileTracingIncludes` in `next.config`; static routes read them at build time and need nothing.

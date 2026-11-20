@@ -1,40 +1,18 @@
 {
   "name": "blog-category-page",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "title": "Category Page",
-  "description": "Blog category page: that category's posts with its description and static pagination",
+  "description": "Blog category page: that category's posts with its description and static pagination, in the project's design system",
   "type": "page",
   "category": "BLOG",
-  "tags": [
-    "blog",
-    "category",
-    "listing",
-    "pagination"
-  ],
-  "stack": [
-    "react",
-    "next",
-    "tailwind",
-    "mdx",
-    "zod"
-  ],
+  "tags": ["blog", "category", "listing", "pagination", "design-tokens"],
+  "stack": ["react", "next", "tailwind", "mdx", "zod"],
   "family": "site",
+  "tokens": 1,
   "parts": [
-    {
-      "slug": "blog-content",
-      "version": "1.0.0",
-      "into": "_parts/blog-content"
-    },
-    {
-      "slug": "blog-card",
-      "version": "1.0.0",
-      "into": "_parts/blog-card"
-    },
-    {
-      "slug": "component-pagination",
-      "version": "1.0.0",
-      "into": "_parts/component-pagination"
-    }
+    { "slug": "blog-content", "version": "2.0.0", "into": "_parts/blog-content" },
+    { "slug": "blog-card", "version": "2.0.0", "into": "_parts/blog-card" },
+    { "slug": "component-pagination", "version": "2.0.0", "into": "_parts/component-pagination" }
   ],
   "outputDir": "app/blog/category/[category]",
   "files": [
@@ -68,7 +46,7 @@
     "_parts/component-pagination/pagination.tsx",
     "_parts/component-pagination/site-types.ts"
   ],
-  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; parts byte-identical to their pinned versions",
+  "proof": "installs alone on Next 16 at app/blog/category/[category]; default look equals 2.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; parts identical; mutants caught",
   "peerDependencies": {
     "react": ">=19",
     "next": ">=16",

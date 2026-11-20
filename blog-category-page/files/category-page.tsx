@@ -22,7 +22,7 @@ const PAGE_LABELS = { en: PAGINATION_LABELS, de: PAGINATION_LABELS_DE };
 const paths = blogPaths(BLOG.base);
 
 const LINK =
-  'font-medium text-neutral-900 underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  'font-medium text-[var(--oc-ink,oklch(20.5%_0_none))] underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--oc-focus,oklch(20.5%_0_none))]';
 
 export type CategoryPageProps = {
   locale: 'en' | 'de';
@@ -48,10 +48,10 @@ export async function CategoryPage({ locale, category: id, page, blog = defaultB
   const labels = CATEGORY_LABELS[locale];
 
   return (
-    <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-12 text-neutral-900 outline-none sm:px-6">
-      <h1 className="m-0 text-4xl font-bold leading-tight">{category.name}</h1>
+    <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-12 text-[var(--oc-ink,oklch(20.5%_0_none))] outline-none wrap-break-word sm:px-6">
+      <h1 className="m-0 text-4xl font-bold leading-tight font-[family-name:var(--oc-font-heading)]">{category.name}</h1>
       {category.description ? (
-        <p className="m-0 mt-3 max-w-2xl text-lg leading-relaxed text-neutral-700">{category.description}</p>
+        <p className="m-0 mt-3 max-w-2xl text-lg leading-relaxed text-[var(--oc-ink-body,oklch(37.1%_0_none))]">{category.description}</p>
       ) : null}
       <p className="m-0 mt-4">
         <Link href={paths.index()} className={LINK}>
@@ -88,7 +88,7 @@ export async function CategoryPage({ locale, category: id, page, blog = defaultB
           />
         </>
       ) : (
-        <p className="m-0 mt-10 text-lg text-neutral-700">{labels.empty}</p>
+        <p className="m-0 mt-10 text-lg text-[var(--oc-ink-body,oklch(37.1%_0_none))]">{labels.empty}</p>
       )}
     </main>
   );

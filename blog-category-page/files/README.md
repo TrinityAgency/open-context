@@ -48,11 +48,29 @@ export default async function Category({ params }: { params: Promise<{ category:
 | `category-page.tsx` | `CategoryPage`: the cards and the page links, with Next's `Link` |
 | `content.ts` | `LOCALE`, `META` and `BLOG` |
 | `labels.ts`, `labels.de.ts` | the page's own labels |
-| `_parts/blog-content` | a copy of `blog-content` 1.0.0, byte for byte: reads and checks the posts and categories |
-| `_parts/blog-card` | a copy of `blog-card` 1.0.0: one card |
-| `_parts/component-pagination` | a copy of `component-pagination` 1.0.0: the page links |
+| `_parts/blog-content` | a copy of `blog-content` 2.0.0, byte for byte: reads and checks the posts and categories |
+| `_parts/blog-card` | a copy of `blog-card` 2.0.0: one card |
+| `_parts/component-pagination` | a copy of `component-pagination` 2.0.0: the page links |
 
 Each `_parts` folder has its own README. The folders start with an underscore, so Next never serves them as routes.
+
+## Brand
+
+The page's own markup reads these design tokens (CSS custom properties of the Open Context token contract, version 1);
+each part in `_parts/` reads its own (see its README). Unset, each falls back to the neutral value in brackets, so the
+page looks the same as before with no design system loaded.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-ink` | the name, the link back to the blog | `oklch(20.5% 0 none)` |
+| `--oc-ink-body` | the description, the empty text | `oklch(37.1% 0 none)` |
+| `--oc-focus` | the focus ring | `oklch(20.5% 0 none)` |
+| `--oc-font-heading` | the name | the page's font |
+
+To set them from a claude.ai design system, use the `design-tokens` template (its `design-sync.mjs` writes them as
+aliases of your design's own tokens, light and dark, and checks every pair the page and its parts draw) and the
+`design-system-seed` skill. To set them by hand, declare them once in your global stylesheet, e.g.
+`:root { --oc-brand: #0b5cad; --oc-on-brand: #fff; }`.
 
 ## Props
 
@@ -92,9 +110,10 @@ None.
 - Drafts and posts dated in the future are left out until the first build after their date.
 - A category id must be lowercase letters, digits and hyphens; it is the URL segment and stays English in both
   languages.
-- Neutral colours only, with every margin and box set on the element, so it looks the same with or without
-  Tailwind's preflight.
+- Every colour is a design token (Brand), with every margin and box set on the element, so it looks the same with or
+  without Tailwind's preflight. A word wider than the screen breaks instead of running off it.
 - **From 1.0.0:** 2.0.0 is a new page. 1.0.0 was one `page.tsx` at `app/blog/category` with its posts written into
   the file and `lucide-react` icons; 2.0.0 reads your posts from `content/blog/` and installs one level deeper, at
   `app/blog/category/[category]`. If you installed 1.0.0, delete `app/blog/category/page.tsx` yourself (or keep it as
   a list of categories): the new version does not replace it.
+- **From 2.x:** the props, routes and `content.ts` are the same; the page and its parts draw in your design tokens.
