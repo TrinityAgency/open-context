@@ -1,17 +1,24 @@
 {
   "name": "section-hero",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "title": "Hero Section",
-  "description": "Hero section: title, lead, calls to action and an optional image, as a server component with typed content",
+  "description": "Hero section in four layouts (split, centered, image, type) that takes its colours, fonts and radius from the project's design system",
   "type": "component",
   "category": "SECTIONS",
-  "tags": ["hero", "section", "landing", "cta"],
+  "tags": ["hero", "section", "landing", "cta", "layouts", "design-tokens"],
   "stack": ["react", "tailwind"],
   "family": "site",
   "vocabVersion": 1,
+  "tokens": 1,
+  "layouts": [
+    { "id": "split", "title": "Split", "description": "Text and image side by side from md, stacked on a phone; the default with an image.", "usage": "<HeroSection layout=\"split\" content={{ title, lead, ctas, image }} />" },
+    { "id": "centered", "title": "Centred", "description": "Text centred in one column, the image (if any) below it; the default without an image.", "usage": "<HeroSection layout=\"centered\" content={{ title, lead, ctas }} />" },
+    { "id": "image", "title": "Image", "description": "The image fills the section and the text sits on a panel over it.", "usage": "<HeroSection layout=\"image\" content={{ title, lead, ctas, image }} />" },
+    { "id": "type", "title": "Type", "description": "Large type, with the lead, a short list and the calls to action beside a rule; no image.", "usage": "<HeroSection layout=\"type\" content={{ title, lead, points, ctas }} />" }
+  ],
   "outputDir": "components/section-hero",
   "files": ["hero-section.tsx", "site-types.ts", "README.md"],
-  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean",
+  "proof": "installs alone on Next 16; four layouts; default look equals 2.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no colour, font or radius leak",
   "peerDependencies": { "react": ">=19", "tailwindcss": ">=4" },
-  "postMessage": "See components/section-hero/README.md for the content props and the Next link/image wiring."
+  "postMessage": "See components/section-hero/README.md for the layouts, the design tokens it reads and the content props."
 }
