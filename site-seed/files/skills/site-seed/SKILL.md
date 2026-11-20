@@ -27,7 +27,8 @@ At most five questions, **one at a time**. Skip a question the owner has already
    `starter-landing-page` or `site-starter` fits better.
 4. **The owner's facts:** the name of the business, email, phone, postal address and the domain (if there is one
    yet).
-5. **Is there a design export** (a Claude Design export), or should the site start plain?
+5. **Is there a design system** made on claude.ai (its export), or the brand's own colours, fonts and corners to write
+   one from? Without either, the site starts in the kit's neutral look.
 
 Never ask for legal text, and never invent a fact. A name, number, address, client, quote, logo or figure that the
 owner has not given stays as the starter's sample, and goes on the list of what is still open (section 7). A sample
@@ -75,6 +76,7 @@ These exist in all five starters, so every step below can rely on them:
 - `src/app/sitemap.ts`: every page the site has (`PAGES`)
 - `src/app/layout.tsx`: the header, footer and language of every page
 - `src/app/globals.css`: Tailwind's theme and the design's tokens
+- `src/design-system/design-tokens/README.md`: the design tokens every part reads, and their utilities
 - `design-sync.config.json` and `design/export/README.md`: where a design export goes
 - the scripts `pnpm dev`, `pnpm build`, `pnpm start`, `pnpm test`, `pnpm lint` and `pnpm design:sync`
 
@@ -123,15 +125,28 @@ tests name the file and the problem.
 
 ## 6. Design
 
-- **With a Claude Design export:** follow the README's "The design" steps: the export under `design/export/`, the
-  prefix in `design-sync.config.json`, `pnpm design:sync`, then the two imports and the colour mapping in
-  `src/app/globals.css`.
-- **Without one:** the site is plain and complete: every part uses only Tailwind's `neutral` scale, white and black.
-  To give it a tone, remap the `neutral` scale in an `@theme inline` block in `src/app/globals.css` onto another
-  Tailwind scale, one line per step, for example `--color-neutral-900: var(--color-stone-900);`. A colour of the
-  owner's own needs a value, and values live only in the design tokens: that waits for a design export.
-- **Never a colour literal outside `src/design/`.** Two guards refuse one (`pnpm test` and `pnpm design:guards`);
-  name a token or a Tailwind colour instead.
+Every part and the starter's own code read one set of design tokens (`src/design-system/design-tokens/README.md`
+lists them): colours, fonts and corners come from there, structure from each part's `layout` prop.
+
+- **With a design system made on claude.ai, or the brand's own values** (which `design-system-seed` writes into an
+  export of the same shape): connect it with the `design-system-seed` skill
+  (`npx @trinity369/use design-system-seed`, run from the site's folder; it installs into `.claude`). Every starter
+  already holds the tokens part, its config and the imports, so the skill's install steps are done; what is left is
+  the export, unchanged, under `design/export/`, the map in `design/oc-map.json` (copied from
+  `src/design-system/design-tokens/oc-map.example.json`: for each contract token the design's token that plays its
+  role) and `pnpm design:sync`. The README's "The design" has the steps. Every part takes the design's colours, fonts
+  and corners at once. When `pnpm design:sync` refuses a text that would be unreadable on its ground, that is a
+  question for whoever owns the design: never bend the map to pass.
+- **Structure:** each installed part's `README.md` lists its layouts and what each draws; choose one with the part's
+  `layout` prop (`layout="split"`) where the owner's content asks for it (portraits for large quotes, an image beside
+  each feature). The starter's pages already choose theirs (most use the default; the feature groups `rows`, the
+  newsletter beside a post `sticky`): change one only where the owner's content asks for it.
+- **Without either:** the site stays in the kit's neutral look, plain and complete. A colour, font or corner of the
+  owner's own waits for their design system or their values: they live only in the design export, never in the
+  site's code.
+- **The site's own code** names the tokens with the tokens part's utilities (`bg-oc-surface`, `text-oc-ink`,
+  `border-oc-line`, `rounded-oc-lg`, `font-oc-heading`). `pnpm test` (`src/design-system/tokens-only.test.ts`) and
+  `pnpm design:guards` refuse a colour literal, a palette class, a radius from Tailwind's scale and `font-sans`.
 
 ## 7. Release
 
@@ -173,6 +188,9 @@ tests name the file and the problem.
   pages' files as installed and say why.
 - Never wire `deliver()` or `subscribe()` to a provider the owner has not chosen, or put a credential in a file.
 - Never leave `pnpm test && pnpm lint` failing after a step, and never delete or weaken a guard test to make it pass.
-- Never write a colour literal outside `src/design/`, and never edit the generated files in `src/design/`.
+- Never write a colour literal, and never edit the generated files in `src/design-system/generated/`.
+- Never put a styling class on a part: its structure is its `layout` prop, its look the design tokens. A class that
+  only places it on the page (margin, width, display, height, a rule beside it in the tokens) is the page's, as the
+  starter's own pages do.
 - Never edit a published part in place.
 - Never load anything from another host before the visitor's consent.
