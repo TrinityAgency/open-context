@@ -964,24 +964,41 @@
     },
     "blog-card": {
       "name": "Blog Card",
-      "description": "Post preview card: image, category, title link, excerpt, date, reading time and authors, as a server component",
+      "description": "Post preview card in two layouts (stacked, split): image, category, title link, excerpt, date, reading time and authors, as a server component in the project's design system",
       "type": "component",
       "category": "BLOG",
       "tags": [
         "blog",
         "card",
         "post",
-        "preview"
+        "preview",
+        "layouts",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "tailwind"
       ],
       "fileCount": 6,
-      "version": "1.0.0",
+      "version": "2.0.0",
       "family": "site",
       "vocabVersion": 1,
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; dates table-tested; mutants caught"
+      "proof": "installs alone on Next 16; layouts stacked, split; default look equals 1.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak; dates tested; mutants caught",
+      "tokens": 1,
+      "layouts": [
+        {
+          "id": "stacked",
+          "title": "Stacked",
+          "description": "The cover above the text, the card filling its grid cell; the default.",
+          "usage": "<BlogCard layout=\"stacked\" post={post} href={href} />"
+        },
+        {
+          "id": "split",
+          "title": "Split",
+          "description": "The cover beside the text from sm, for a one-column list; without a cover it is stacked.",
+          "usage": "<BlogCard layout=\"split\" post={post} href={href} />"
+        }
+      ]
     },
     "blog-category-page": {
       "name": "Category Page",
