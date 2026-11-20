@@ -20,8 +20,16 @@ function subscribe(onChange: () => void) {
 const browserSearch = () => window.location.search;
 const serverSearch = () => '';
 
-const TAB =
-  'm-0 box-border cursor-pointer appearance-none rounded-none border-0 border-b-2 bg-transparent px-4 py-2 font-sans text-sm font-medium focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-neutral-900 motion-safe:transition-colors';
+// Design tokens (Open Context token contract v1): each reads the project's design system once its stylesheet is
+// loaded, and falls back to the kit's neutral look when none is. The selected tab's underline is brand-ink: it is the
+// tab's main mark, and the contract guarantees brand-ink's contrast on the surface ([brand-ink, surface]).
+const FOCUS_COLOUR = 'focus-visible:outline-[var(--oc-focus,oklch(20.5%_0_none))]';
+const TAB = `m-0 box-border cursor-pointer appearance-none rounded-none border-0 border-b-2 bg-transparent px-4 py-2 font-[family-name:var(--oc-font-body)] text-sm font-medium focus-visible:outline-2 focus-visible:-outline-offset-2 ${FOCUS_COLOUR} motion-safe:transition-colors`;
+const TAB_STATE = {
+  active: 'border-[var(--oc-brand-ink,oklch(20.5%_0_none))] text-[var(--oc-ink,oklch(20.5%_0_none))]',
+  inactive: 'border-transparent text-[var(--oc-ink-muted,oklch(43.9%_0_none))] hover:text-[var(--oc-ink,oklch(20.5%_0_none))]',
+} as const;
+const PANEL = `rounded-[var(--oc-radius,0.25rem)] pt-4 text-[var(--oc-ink-body,oklch(37.1%_0_none))] wrap-break-word focus-visible:outline-2 focus-visible:outline-offset-2 ${FOCUS_COLOUR}`;
 
 /** The interactive part of Tabs: selection, roving focus and the optional URL sync. */
 export function TabsClient({ tabs, panels, label, defaultTab, param, className }: TabsClientProps) {
@@ -55,7 +63,7 @@ export function TabsClient({ tabs, panels, label, defaultTab, param, className }
 
   return (
     <div className={className}>
-      <div role="tablist" aria-label={label} className="flex gap-1 overflow-x-auto border-b border-neutral-200">
+      <div role="tablist" aria-label={label} className="flex gap-1 overflow-x-auto border-b border-[var(--oc-line,oklch(92.2%_0_none))]">
         {tabs.map((tab, i) => {
           const active = tab.id === selected;
           return (
@@ -72,7 +80,7 @@ export function TabsClient({ tabs, panels, label, defaultTab, param, className }
               tabIndex={active ? 0 : -1}
               onClick={() => select(tab.id)}
               onKeyDown={(event) => onKeyDown(event, i)}
-              className={`${TAB} ${active ? 'border-neutral-900 text-neutral-900' : 'border-transparent text-neutral-600 hover:text-neutral-900'}`}
+              className={`${TAB} ${active ? TAB_STATE.active : TAB_STATE.inactive}`}
             >
               {tab.label}
             </button>
@@ -87,7 +95,7 @@ export function TabsClient({ tabs, panels, label, defaultTab, param, className }
           aria-labelledby={tabId(tab.id)}
           tabIndex={0}
           hidden={tab.id !== selected}
-          className="rounded-sm pt-4 text-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+          className={PANEL}
         >
           {panels[i]}
         </div>
