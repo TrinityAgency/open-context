@@ -1,16 +1,17 @@
 {
   "name": "blog-share-buttons",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "title": "Share Buttons",
-  "description": "Share links for X, LinkedIn, Facebook, Bluesky, WhatsApp and email, plus native share and copy link where the browser has them; no third-party script",
+  "description": "Share links for X, LinkedIn, Facebook, Bluesky, WhatsApp and email, plus native share and copy link where the browser has them, in the project's design system; no third-party script",
   "type": "component",
   "category": "BLOG",
-  "tags": ["blog", "share", "social", "copy-link"],
+  "tags": ["blog", "share", "social", "copy-link", "design-tokens"],
   "stack": ["react", "tailwind"],
   "family": "site",
+  "tokens": 1,
   "outputDir": "components/blog-share-buttons",
   "files": ["share-buttons.tsx", "share-actions.tsx", "share-targets.ts", "labels.ts", "labels.de.ts", "README.md"],
-  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; share links table-tested",
+  "proof": "installs alone on Next 16; default look equals 2.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak; share links table-tested; mutants caught",
   "peerDependencies": { "react": ">=19", "tailwindcss": ">=4" },
-  "postMessage": "See components/blog-share-buttons/README.md for props, the networks and the German label set."
+  "postMessage": "See components/blog-share-buttons/README.md for the design tokens it reads, props, the networks and the German label set."
 }
