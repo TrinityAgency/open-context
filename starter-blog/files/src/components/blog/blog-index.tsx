@@ -1,4 +1,5 @@
-// Derived from blog-index-page 1.0.0 (same markup): parts through @/, text from src/content/blog.ts.
+// Derived from blog-index-page 2.0.0 (same markup, its tokens as design-tokens' utilities): parts through @/, text from
+// src/content/blog.ts.
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BlogCard } from '@/components/blog-card/blog-card';
@@ -15,10 +16,18 @@ import { paginate } from '@/utils/blog-content/collection';
 const CARD_LABELS = { en: BLOG_CARD_LABELS, de: BLOG_CARD_LABELS_DE };
 const PAGE_LABELS = { en: PAGINATION_LABELS, de: PAGINATION_LABELS_DE };
 
+// The colours and fonts are the token contract's (design-tokens), each with its default, so the page without a design
+// system draws what 1.0.0 drew. The current filter is the brand mark; another filter is an outline chip whose border
+// turns ink under the pointer (an emphasis, not the brand). A chip grows in height for a long category name: it is at
+// most the row's width and its list item may shrink to the row, so it is never squeezed below a word in a row that
+// wraps, and only a word wider than the screen breaks inside it (`wrap-anywhere`: the label is a bare text node in a
+// flex box, whose minimum width `break-word` would leave at that word).
+const FILTER_BASE = 'box-border inline-flex min-h-9 max-w-full items-center rounded-full border border-solid px-4 py-1.5 font-oc-body text-sm wrap-anywhere no-underline';
 const FILTER =
-  'box-border inline-flex h-9 items-center rounded-full border border-solid border-neutral-300 bg-white px-4 font-sans text-sm font-medium text-neutral-900 no-underline hover:border-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  `${FILTER_BASE} border-oc-line-strong bg-oc-surface font-medium text-oc-ink hover:border-oc-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oc-focus`;
 const FILTER_CURRENT =
-  'box-border inline-flex h-9 items-center rounded-full border border-solid border-neutral-900 bg-neutral-900 px-4 font-sans text-sm font-semibold text-white no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  `${FILTER_BASE} border-oc-brand bg-oc-brand font-semibold text-oc-on-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oc-focus`;
+const FILTER_ITEM = 'm-0 min-w-0 max-w-full p-0';
 
 export type BlogIndexPageProps = {
   locale: Locale;
@@ -39,21 +48,21 @@ export async function BlogIndexPage({ locale, page, blog = defaultBlog }: BlogIn
   if (!current) notFound();
 
   return (
-    <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-12 text-neutral-900 outline-none sm:px-6">
-      <h1 className="m-0 text-4xl font-bold leading-tight">{t.title}</h1>
-      <p className="m-0 mt-3 max-w-2xl text-lg leading-relaxed text-neutral-700">{t.intro}</p>
+    <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-12 text-oc-ink outline-none wrap-break-word sm:px-6">
+      <h1 className="m-0 text-4xl font-bold leading-tight font-oc-heading">{t.title}</h1>
+      <p className="m-0 mt-3 max-w-2xl text-lg leading-relaxed text-oc-ink-body">{t.intro}</p>
 
       {categories.length ? (
         <nav aria-label={t.filter} className="mt-8">
           <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
-            <li className="m-0 p-0">
+            <li className={FILTER_ITEM}>
               {/* "All posts" is the filter's current choice on every index page; it is the current page only on page 1. */}
               <Link href={paths.index()} aria-current={current.page === 1 ? 'page' : 'true'} className={FILTER_CURRENT}>
                 {t.all}
               </Link>
             </li>
             {categories.map((category) => (
-              <li key={category.id} className="m-0 p-0">
+              <li key={category.id} className={FILTER_ITEM}>
                 <Link href={paths.category(category.id)} className={FILTER}>
                   {category.name}
                 </Link>
@@ -92,7 +101,7 @@ export async function BlogIndexPage({ locale, page, blog = defaultBlog }: BlogIn
           />
         </>
       ) : (
-        <p className="m-0 mt-10 text-lg text-neutral-700">{t.empty}</p>
+        <p className="m-0 mt-10 text-lg text-oc-ink-body">{t.empty}</p>
       )}
     </main>
   );

@@ -1,0 +1,8 @@
+{
+  "source": "design/export/project",
+  "styles": "src/design-system/generated",
+  "fonts": "public/fonts",
+  "catalog": "src/design-system/generated/catalog.ts",
+  "prefix": "ds-",
+  "contract": "design/oc-map.json"
+}

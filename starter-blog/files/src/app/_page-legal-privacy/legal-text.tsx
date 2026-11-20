@@ -16,12 +16,12 @@ export function LegalText({ text, placeholderLabel }: LegalTextProps) {
   return (
     <>
       {paragraphs.map((paragraph, i) => (
-        <p key={i} className="m-0 mt-4 text-neutral-700 first:mt-0">
+        <p key={i} className="m-0 mt-4 text-[var(--oc-ink-body,oklch(37.1%_0_none))] first:mt-0">
           {splitPlaceholders(paragraph).map((part, j) =>
             'placeholder' in part ? (
               <span key={j}>
                 <span className="sr-only">{`${placeholderLabel} `}</span>
-                <mark data-placeholder className="rounded-sm bg-neutral-200 px-1 text-neutral-900">
+                <mark data-placeholder className="rounded-[var(--oc-radius,0.25rem)] bg-[var(--oc-line,oklch(92.2%_0_none))] px-1 text-[var(--oc-ink,oklch(20.5%_0_none))]">
                   {part.placeholder}
                 </mark>
               </span>

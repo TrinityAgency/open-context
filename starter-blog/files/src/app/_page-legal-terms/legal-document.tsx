@@ -30,7 +30,7 @@ function formatDate(iso: string, locale: string): string {
 }
 
 const LINK =
-  'rounded-sm text-neutral-900 underline underline-offset-2 hover:text-neutral-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  'rounded-[var(--oc-radius,0.25rem)] text-[var(--oc-ink,oklch(20.5%_0_none))] underline underline-offset-2 hover:text-[var(--oc-ink-muted,oklch(43.9%_0_none))] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--oc-focus,oklch(20.5%_0_none))]';
 
 /**
  * Terms: the title, the date of the last update, an intro, a table of contents and one collapsible section (native
@@ -42,18 +42,18 @@ export function TermsDocument({ content, labels, locale = 'en' }: TermsDocumentP
   const { title, updatedAt, intro, sections } = content;
 
   return (
-    <div className="box-border px-6 py-16 text-neutral-900">
+    <div className="box-border px-6 py-16 text-[var(--oc-ink,oklch(20.5%_0_none))] wrap-break-word">
       <div className="mx-auto max-w-3xl">
-        <h1 className="m-0 text-4xl font-semibold tracking-tight">{title}</h1>
-        <p className="m-0 mt-3 text-sm text-neutral-600">
+        <h1 className="m-0 text-4xl font-semibold tracking-tight font-[family-name:var(--oc-font-heading)]">{title}</h1>
+        <p className="m-0 mt-3 text-sm text-[var(--oc-ink-muted,oklch(43.9%_0_none))]">
           {l.updated} <time dateTime={updatedAt}>{formatDate(updatedAt, locale)}</time>
         </p>
         <div className="mt-6 text-lg">
           <LegalText text={intro} placeholderLabel={l.placeholder} />
         </div>
         {sections.length > 0 ? (
-          <nav aria-label={l.contents} className="box-border mt-10 rounded-lg border border-solid border-neutral-200 p-6">
-            <ol className="m-0 grid list-decimal gap-2 pl-5">
+          <nav aria-label={l.contents} className="box-border mt-10 rounded-[calc(var(--oc-radius,0.25rem)*2)] border border-solid border-[var(--oc-line,oklch(92.2%_0_none))] p-6">
+            <ol className="m-0 grid grid-cols-1 list-decimal gap-2 pl-5">
               {sections.map((section) => (
                 <li key={section.id} className="pl-1">
                   <a href={`#${section.id}`} className={LINK}>
@@ -65,18 +65,18 @@ export function TermsDocument({ content, labels, locale = 'en' }: TermsDocumentP
           </nav>
         ) : null}
         {sections.length > 0 ? (
-          <div className="mt-12 border-t border-neutral-200">
+          <div className="mt-12 border-t border-[var(--oc-line,oklch(92.2%_0_none))]">
             {sections.map((section) => (
-              <details key={section.id} className="group border-b border-neutral-200">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-sm py-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 [&::-webkit-details-marker]:hidden">
-                  <h2 className="m-0 text-xl font-semibold tracking-tight">{section.title}</h2>
+              <details key={section.id} className="group border-b border-[var(--oc-line,oklch(92.2%_0_none))]">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-[var(--oc-radius,0.25rem)] py-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--oc-focus,oklch(20.5%_0_none))] [&::-webkit-details-marker]:hidden">
+                  <h2 className="m-0 min-w-0 text-xl font-semibold tracking-tight font-[family-name:var(--oc-font-heading)]">{section.title}</h2>
                   <svg
                     aria-hidden="true"
                     viewBox="0 0 20 20"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth={1.5}
-                    className="block size-5 shrink-0 text-neutral-500 group-open:rotate-180 motion-safe:transition-transform"
+                    className="block size-5 shrink-0 text-[var(--oc-ink-subtle,oklch(55.6%_0_none))] group-open:rotate-180 motion-safe:transition-transform"
                   >
                     <path d="M5 7.5l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>

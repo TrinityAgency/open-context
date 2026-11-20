@@ -1,0 +1,4 @@
+/* A placeholder: `pnpm design:sync` writes this file from the design export (design/export/project) and the map
+   (design/oc-map.json): the design's own variables and the --oc-* tokens every part and the site's own code read, in
+   every theme the design defines. Until then it defines nothing, so everything keeps the tokens' neutral defaults.
+   Never edit it by hand: change the design in Claude Design, export it again, run pnpm design:sync. */

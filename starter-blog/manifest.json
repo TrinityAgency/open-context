@@ -1,101 +1,31 @@
 {
   "name": "starter-blog",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "title": "Blog Starter",
-  "description": "Blog with MDX posts, authors, categories, RSS and Atom feeds, newsletter signup, cookie consent, SEO, legal and error pages, assembled from the website kit",
+  "description": "Blog with MDX posts, authors, categories, RSS and Atom feeds, newsletter signup, cookie consent, SEO, legal and error pages, assembled from the website kit, all on the design tokens a claude.ai design system sets",
   "type": "starter",
   "category": "STARTER",
-  "tags": [
-    "starter",
-    "blog",
-    "mdx",
-    "rss",
-    "website"
-  ],
-  "stack": [
-    "react",
-    "next",
-    "tailwind",
-    "mdx",
-    "zod"
-  ],
+  "tags": ["starter", "blog", "mdx", "rss", "website", "design-tokens"],
+  "stack": ["react", "next", "tailwind", "mdx", "zod"],
   "family": "site",
+  "tokens": 1,
   "parts": [
-    {
-      "slug": "site-header",
-      "version": "1.0.0",
-      "into": "src/components/site-header"
-    },
-    {
-      "slug": "site-footer",
-      "version": "1.0.0",
-      "into": "src/components/site-footer"
-    },
-    {
-      "slug": "site-cookie-consent",
-      "version": "1.0.0",
-      "into": "src/modules/site-cookie-consent"
-    },
-    {
-      "slug": "site-seo",
-      "version": "1.0.0",
-      "into": "src/utils/site-seo"
-    },
-    {
-      "slug": "component-pagination",
-      "version": "1.0.0",
-      "into": "src/components/component-pagination"
-    },
-    {
-      "slug": "component-breadcrumbs",
-      "version": "1.0.0",
-      "into": "src/components/component-breadcrumbs"
-    },
-    {
-      "slug": "blog-content",
-      "version": "1.0.0",
-      "into": "src/utils/blog-content"
-    },
-    {
-      "slug": "blog-rss-sitemap",
-      "version": "1.0.0",
-      "into": "src/utils/blog-rss-sitemap"
-    },
-    {
-      "slug": "blog-card",
-      "version": "1.0.0",
-      "into": "src/components/blog-card"
-    },
-    {
-      "slug": "blog-newsletter-cta",
-      "version": "1.0.0",
-      "into": "src/components/blog-newsletter-cta"
-    },
-    {
-      "slug": "blog-share-buttons",
-      "version": "2.0.0",
-      "into": "src/components/blog-share-buttons"
-    },
-    {
-      "slug": "page-legal-imprint",
-      "version": "1.0.0",
-      "into": "src/app/_page-legal-imprint"
-    },
-    {
-      "slug": "page-legal-privacy",
-      "version": "1.0.0",
-      "into": "src/app/_page-legal-privacy"
-    },
-    {
-      "slug": "page-legal-terms",
-      "version": "1.0.0",
-      "into": "src/app/_page-legal-terms"
-    },
-    {
-      "slug": "page-404-error",
-      "version": "1.0.0",
-      "into": "src/app/_page-404-error"
-    }
+    { "slug": "design-tokens", "version": "2.0.0", "into": "src/design-system/design-tokens" },
+    { "slug": "site-header", "version": "2.0.0", "into": "src/components/site-header" },
+    { "slug": "site-footer", "version": "2.0.0", "into": "src/components/site-footer" },
+    { "slug": "site-cookie-consent", "version": "2.0.0", "into": "src/modules/site-cookie-consent" },
+    { "slug": "site-seo", "version": "1.0.0", "into": "src/utils/site-seo" },
+    { "slug": "component-pagination", "version": "2.0.0", "into": "src/components/component-pagination" },
+    { "slug": "component-breadcrumbs", "version": "2.0.0", "into": "src/components/component-breadcrumbs" },
+    { "slug": "blog-content", "version": "2.0.0", "into": "src/utils/blog-content" },
+    { "slug": "blog-rss-sitemap", "version": "1.0.0", "into": "src/utils/blog-rss-sitemap" },
+    { "slug": "blog-card", "version": "2.0.0", "into": "src/components/blog-card" },
+    { "slug": "blog-newsletter-cta", "version": "2.0.0", "into": "src/components/blog-newsletter-cta" },
+    { "slug": "blog-share-buttons", "version": "3.0.0", "into": "src/components/blog-share-buttons" },
+    { "slug": "page-legal-imprint", "version": "2.0.0", "into": "src/app/_page-legal-imprint" },
+    { "slug": "page-legal-privacy", "version": "2.0.0", "into": "src/app/_page-legal-privacy" },
+    { "slug": "page-legal-terms", "version": "2.0.0", "into": "src/app/_page-legal-terms" },
+    { "slug": "page-404-error", "version": "2.0.0", "into": "src/app/_page-404-error" }
   ],
   "outputDir": ".",
   "files": [
@@ -109,7 +39,6 @@
     "package.json",
     "postcss.config.mjs",
     "scripts/assemble-standalone.mjs",
-    "scripts/design-sync.mjs",
     "src/app/error.tsx",
     "src/app/globals.css",
     "src/app/imprint/page.tsx",
@@ -146,9 +75,6 @@
     "src/content/locale.ts",
     "src/content/site.ts",
     "src/content/subscribe.ts",
-    "src/design/.gitkeep",
-    "src/design/README.md",
-    "src/design/no-hardcoded-colour.test.ts",
     "content/blog/en/authors.yaml",
     "content/blog/en/categories.yaml",
     "content/blog/en/posts/a-blog-in-plain-files.mdx",
@@ -167,6 +93,9 @@
     "tsconfig.json",
     "vitest.config.mts",
     "vitest.setup.ts",
+    "src/design-system/generated/components.css",
+    "src/design-system/generated/tokens.css",
+    "src/design-system/tokens-only.test.ts",
     "src/app/_page-404-error/README.md",
     "src/app/_page-404-error/content.ts",
     "src/app/_page-404-error/error-page.tsx",
@@ -244,6 +173,11 @@
     "src/components/site-header/labels.ts",
     "src/components/site-header/site-header.tsx",
     "src/components/site-header/site-types.ts",
+    "src/design-system/design-tokens/README.md",
+    "src/design-system/design-tokens/design-sync.config.example.json",
+    "src/design-system/design-tokens/design-sync.mjs",
+    "src/design-system/design-tokens/oc-map.example.json",
+    "src/design-system/design-tokens/oc-tokens.css",
     "src/modules/site-cookie-consent/README.md",
     "src/modules/site-cookie-consent/consent-banner.tsx",
     "src/modules/site-cookie-consent/consent-cookie.ts",
@@ -276,7 +210,7 @@
     "src/utils/site-seo/metadata.ts",
     "src/utils/site-seo/site-types.ts"
   ],
-  "proof": "assembled from its pinned parts byte for byte; installs into an empty folder, passes its tests, lint and build; crawl: no dead link, axe violation or foreign request before consent; feeds parse",
+  "proof": "installs into an empty folder; tests, lint and build pass in English and German; crawled with feeds, consent and legal pages: no dead link, axe violation or other host; no leak under the probe brand",
   "peerDependencies": {
     "next": ">=16",
     "react": ">=19",

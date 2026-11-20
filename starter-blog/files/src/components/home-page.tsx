@@ -13,7 +13,7 @@ import type { Blog } from '@/utils/blog-content/blog';
 const CARD_LABELS = { en: BLOG_CARD_LABELS, de: BLOG_CARD_LABELS_DE };
 const NEWSLETTER = { en: NEWSLETTER_LABELS, de: NEWSLETTER_LABELS_DE };
 const LINK =
-  'font-medium text-neutral-900 underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  'font-medium text-oc-ink underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oc-focus';
 
 export type HomePageProps = {
   locale: Locale;
@@ -31,12 +31,12 @@ export async function HomePage({ locale, blog = defaultBlog }: HomePageProps) {
   const latest = posts.slice(0, 3);
 
   return (
-    <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-12 text-neutral-900 outline-none sm:px-6">
-      <h1 className="m-0 max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">{t.home.title}</h1>
-      <p className="m-0 mt-4 max-w-2xl text-lg leading-relaxed text-neutral-700">{t.home.lead}</p>
+    <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-12 text-oc-ink outline-none wrap-break-word sm:px-6">
+      <h1 className="m-0 max-w-3xl text-4xl font-bold leading-tight font-oc-heading sm:text-5xl">{t.home.title}</h1>
+      <p className="m-0 mt-4 max-w-2xl text-lg leading-relaxed text-oc-ink-body">{t.home.lead}</p>
 
       <section aria-labelledby="home-latest" className="mt-14">
-        <h2 id="home-latest" className="m-0 text-2xl font-bold">
+        <h2 id="home-latest" className="m-0 text-2xl font-bold font-oc-heading">
           {t.home.latest}
         </h2>
         {latest.length ? (
@@ -58,7 +58,7 @@ export async function HomePage({ locale, blog = defaultBlog }: HomePageProps) {
             ))}
           </ul>
         ) : (
-          <p className="m-0 mt-6 text-lg text-neutral-700">{t.home.empty}</p>
+          <p className="m-0 mt-6 text-lg text-oc-ink-body">{t.home.empty}</p>
         )}
         <p className="m-0 mt-8">
           <Link href={paths.index()} className={LINK}>

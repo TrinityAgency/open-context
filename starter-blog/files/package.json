@@ -15,10 +15,10 @@
     "start": "node .next/standalone/server.js",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "design:sync": "node scripts/design-sync.mjs",
-    "design:check": "node scripts/design-sync.mjs --check || echo \"no export yet\"",
-    "design:diff": "node scripts/design-sync.mjs --diff",
-    "design:guards": "node scripts/design-sync.mjs --guards",
+    "design:sync": "node src/design-system/design-tokens/design-sync.mjs --config design-sync.config.json",
+    "design:check": "node src/design-system/design-tokens/design-sync.mjs --config design-sync.config.json --check",
+    "design:diff": "node src/design-system/design-tokens/design-sync.mjs --config design-sync.config.json --diff",
+    "design:guards": "node src/design-system/design-tokens/design-sync.mjs --config design-sync.config.json --guards",
     "test": "pnpm design:check && pnpm design:guards && pnpm typecheck && vitest run"
   },
   "dependencies": {

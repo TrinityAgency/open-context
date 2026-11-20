@@ -1,9 +1,10 @@
 # Site Header
 
 The site's header: a skip link, the brand, the main navigation with sub-menus, one call to action, and on narrow
-screens a menu button that opens a drawer with every link. The current page is marked. A server component; the
-sub-menus are native `details`, the drawer is a native popover, so menus open without JavaScript. One small client
-island closes them on a link click, Escape and an outside click.
+screens a menu button that opens a drawer with every link. The current page is marked. Three layouts (`layout`), and
+its colours, fonts and corners come from your design system's tokens. A server component; the sub-menus are native
+`details`, the drawer is a native popover, so menus open without JavaScript. One small client island closes them on a
+link click, Escape and an outside click.
 
 ## Usage
 
@@ -78,6 +79,49 @@ const NextImage: ImageComponent = ({ alt, ...props }) => <Image alt={alt} {...pr
 
 The skip link stays a plain `a`: it jumps within the page.
 
+## Layouts
+
+Pick one with the `layout` prop; leave it out and the header is a `bar`.
+
+| `layout` | What it draws | Example |
+|---|---|---|
+| `bar` | brand, navigation and call to action in one row from `md`; below it the brand and a menu button that opens the drawer | `<SiteHeader layout="bar" identity={identity} nav={nav} currentPath={path} />` |
+| `centered` | from `md` the brand centred on a line of its own, the navigation and the call to action centred below it; below `md` the bar's row | `<SiteHeader layout="centered" identity={identity} nav={nav} currentPath={path} />` |
+| `minimal` | the brand and a menu button at every width (the call to action beside it from `md`); every link lives in the drawer | `<SiteHeader layout="minimal" identity={identity} nav={nav} currentPath={path} />` |
+
+A navigation row that does not fit wraps onto a second line, and a long brand name wraps beside the menu button, so a
+long menu never pushes the page sideways. The header carries `data-layout` with its layout.
+
+## Brand
+
+The header reads these design tokens (CSS custom properties of the Open Context token contract, version 1). Unset,
+each falls back to the neutral value in brackets, so the header looks the same as before with no design system loaded.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-surface` | the header, the drawer, the sub-menu panel, the buttons, the focused skip link, a secondary call to action | `#fff` |
+| `--oc-surface-sunk` | a link, a sub-menu item or a button under the pointer | `oklch(97% 0 none)` |
+| `--oc-line` | the bottom border, the sub-menu panel's border | `oklch(92.2% 0 none)` |
+| `--oc-line-strong` | the buttons' border, a secondary call to action's border | `oklch(87% 0 none)` |
+| `--oc-ink` | the brand name, the current page, a link under the pointer, the buttons' text | `oklch(20.5% 0 none)` |
+| `--oc-ink-soft` | the drawer's links | `oklch(26.9% 0 none)` |
+| `--oc-ink-body` | the navigation's links | `oklch(37.1% 0 none)` |
+| `--oc-ink-subtle` | the chevrons, the drawer's group titles | `oklch(55.6% 0 none)` |
+| `--oc-brand` | a primary call to action | `oklch(20.5% 0 none)` |
+| `--oc-brand-hover` | a primary call to action under the pointer | `oklch(37.1% 0 none)` |
+| `--oc-on-brand` | a primary call to action's text | `#fff` |
+| `--oc-focus` | the focus ring | `oklch(20.5% 0 none)` |
+| `--oc-scrim` | the veil behind the open drawer (at 40 %) | `oklch(20.5% 0 none)` |
+| `--oc-font-heading` | the brand name | the page's font |
+| `--oc-font-body` | the buttons | the page's font |
+| `--oc-radius` | the corners (1.5 ×) | `0.25rem` |
+
+To set them from a claude.ai design system, use the `design-tokens` template (its `design-sync.mjs` writes them as
+aliases of your design's own tokens, light and dark, and checks the pairs this header draws: each ink on the surface,
+ink on the sunk tint, on-brand on brand, the focus ring on both grounds) and the `design-system-seed` skill. To set
+them by hand, declare them once in your global stylesheet, e.g. `:root { --oc-brand: #0b5cad; --oc-on-brand: #fff;
+--oc-radius: 0.5rem; }`. A `data-theme` wrapper with its own values re-brands everything inside it.
+
 ## Props
 
 | Prop | Type | Default | |
@@ -88,6 +132,7 @@ The skip link stays a plain `a`: it jumps within the page.
 | `currentPath` | `string` | | the current pathname |
 | `cta` | `Cta` | | `{ href, label, variant: 'primary' \| 'secondary' }` |
 | `mainId` | `string` | `main` | the skip link's target |
+| `layout` | `'bar' \| 'centered' \| 'minimal'` | `bar` | see Layouts |
 | `labels` | `Partial<SiteHeaderLabels>` | English | see below |
 | `LinkComponent` | `LinkComponent` | plain `a` | e.g. `next/link` |
 | `ImageComponent` | `ImageComponent` | plain `img` | e.g. a `next/image` wrapper |
@@ -114,7 +159,8 @@ import { SITE_HEADER_LABELS_DE } from '@/components/site-header/labels.de';
 
 - The skip link is the first stop of Tab: hidden until focused, then shown at the top left. Enter moves focus to
   `main`.
-- One `nav` landmark named by `labels.nav` is exposed at a time: the row on wide screens, the drawer's on narrow ones.
+- One `nav` landmark named by `labels.nav` is exposed at a time: the row on wide screens, the drawer's on narrow ones
+  (in `minimal`, only the drawer's).
 - The current link carries `aria-current="page"`. A sub-menu whose page is current is marked with `data-current`
   (style hook, no ARIA).
 - Sub-menus: Enter or Space on the item opens it, Tab reaches its links, Escape closes it and returns focus to the
@@ -129,6 +175,8 @@ import { SITE_HEADER_LABELS_DE } from '@/components/site-header/labels.de';
 
 ## Notes
 
-- The breakpoint is Tailwind's `md` (48rem): the row from there up, the drawer below.
-- Neutral colours only, with every margin and box set on the element, so it looks the same with or without Tailwind's
-  preflight.
+- The breakpoint is Tailwind's `md` (48rem): the row from there up, the drawer below (`minimal`: the drawer always).
+- Every colour is a design token with the neutral look as its fallback, and every margin and box is set on the
+  element, so it looks the same with or without Tailwind's preflight.
+- 2.0.0: the design tokens and `layout` are new; without a design system and without `layout` it draws what 1.0.0
+  drew. A link in the drawer now takes ink under the pointer, as the row's links do.
