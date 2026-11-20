@@ -1,22 +1,14 @@
 {
   "name": "page-legal-privacy",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "title": "Privacy Policy Page",
-  "description": "Privacy policy page: table of contents, short summaries and clearly marked placeholders",
+  "description": "Privacy policy page: table of contents, short summaries and clearly marked placeholders, in the project's design system",
   "type": "page",
   "category": "WEB_DESIGN",
-  "tags": [
-    "legal",
-    "privacy",
-    "gdpr",
-    "page"
-  ],
-  "stack": [
-    "react",
-    "next",
-    "tailwind"
-  ],
+  "tags": ["legal", "privacy", "gdpr", "page", "design-tokens"],
+  "stack": ["react", "next", "tailwind"],
   "family": "site",
+  "tokens": 1,
   "outputDir": "app/page-legal-privacy",
   "files": [
     "README.md",
@@ -28,11 +20,7 @@
     "page.tsx",
     "placeholders.ts"
   ],
-  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; placeholder marking table-tested; mutants caught",
-  "peerDependencies": {
-    "react": ">=19",
-    "next": ">=16",
-    "tailwindcss": ">=4"
-  },
+  "proof": "installs alone on Next 16; default look equals 1.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; placeholder marking table-tested; mutants caught",
+  "peerDependencies": { "react": ">=19", "next": ">=16", "tailwindcss": ">=4" },
   "postMessage": "Installed at app/page-legal-privacy/ (served at /page-legal-privacy; rename the folder for another path). Edit content.ts; see README.md."
 }
