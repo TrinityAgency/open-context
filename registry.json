@@ -7040,7 +7040,7 @@
     },
     "starter-website": {
       "name": "Website Starter",
-      "description": "Company website assembled from the website kit: home, features, pricing, about, contact form, changelog, MDX blog with feeds, cookie consent, SEO, legal and error pages",
+      "description": "Company website assembled from the website kit: home, features, pricing, about, contact form, changelog, MDX blog with feeds, cookie consent, SEO, legal and error pages, all on the design tokens a claude.ai design system sets",
       "type": "starter",
       "category": "STARTER",
       "tags": [
@@ -7049,7 +7049,8 @@
         "company",
         "blog",
         "consent",
-        "seo"
+        "seo",
+        "design-tokens"
       ],
       "stack": [
         "react",
@@ -7058,23 +7059,28 @@
         "zod",
         "mdx"
       ],
-      "fileCount": 239,
-      "version": "1.0.0",
+      "fileCount": 243,
+      "version": "2.0.0",
       "family": "site",
       "parts": [
         {
+          "slug": "design-tokens",
+          "version": "2.0.0",
+          "into": "src/design-system/design-tokens"
+        },
+        {
           "slug": "site-header",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/site-header"
         },
         {
           "slug": "site-footer",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/site-footer"
         },
         {
           "slug": "site-cookie-consent",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/modules/site-cookie-consent"
         },
         {
@@ -7084,57 +7090,57 @@
         },
         {
           "slug": "component-pagination",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/component-pagination"
         },
         {
           "slug": "component-breadcrumbs",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/component-breadcrumbs"
         },
         {
           "slug": "section-hero",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-hero"
         },
         {
           "slug": "section-logo-cloud",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-logo-cloud"
         },
         {
           "slug": "section-features",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-features"
         },
         {
           "slug": "section-stats",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-stats"
         },
         {
           "slug": "section-testimonials",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-testimonials"
         },
         {
           "slug": "section-pricing",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-pricing"
         },
         {
           "slug": "section-faq",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-faq"
         },
         {
           "slug": "section-cta",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-cta"
         },
         {
           "slug": "blog-content",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/utils/blog-content"
         },
         {
@@ -7144,51 +7150,52 @@
         },
         {
           "slug": "blog-card",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/blog-card"
         },
         {
           "slug": "blog-newsletter-cta",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/blog-newsletter-cta"
         },
         {
           "slug": "blog-share-buttons",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/blog-share-buttons"
         },
         {
           "slug": "page-contact",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-contact"
         },
         {
           "slug": "page-changelog",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-changelog"
         },
         {
           "slug": "page-legal-imprint",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-legal-imprint"
         },
         {
           "slug": "page-legal-privacy",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-legal-privacy"
         },
         {
           "slug": "page-legal-terms",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-legal-terms"
         },
         {
           "slug": "page-404-error",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-404-error"
         }
       ],
-      "proof": "assembled from its pinned parts byte for byte; installs into an empty folder, passes its tests, lint and build; crawled in English and German: no dead link, axe violation or foreign request"
+      "proof": "installs into an empty folder; tests, lint and build pass in English and German; crawled under alder, marine light and dark and ink: no dead link, overflow, axe violation or other host; no probe leak",
+      "tokens": 1
     },
     "storage-avatar-upload": {
       "name": "Avatar Upload",
