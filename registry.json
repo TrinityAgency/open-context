@@ -3217,22 +3217,24 @@
     },
     "design-tokens": {
       "name": "Design Tokens",
-      "description": "Design token system with CSS custom properties — colors, typography, spacing, radius, shadows. Uses shadcn/ui defaults as a starting point.",
+      "description": "The Open Context design-token contract for Tailwind 4: utilities for your own code, and design-sync, which turns a claude.ai design system into the tokens every Open Context part reads",
       "type": "design-system",
       "category": "DESIGN_SYSTEM",
       "tags": [
-        "tokens",
-        "color",
-        "typography",
-        "spacing",
-        "css-variables"
-      ],
-      "stack": [
-        "css",
+        "design-tokens",
+        "design-system",
+        "theme",
+        "brand",
         "tailwind"
       ],
-      "fileCount": 3,
-      "version": "1.0.0"
+      "stack": [
+        "tailwind"
+      ],
+      "fileCount": 5,
+      "version": "2.0.0",
+      "family": "site",
+      "proof": "its utilities, README table, example map and design-sync copy equal the kit's contract and template; the example config points inside a src/ project, whose guards pass the parts; both hosts",
+      "tokens": 1
     },
     "design-typography-scale": {
       "name": "Typography Scale",
