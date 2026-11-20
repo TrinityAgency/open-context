@@ -170,7 +170,7 @@ npx @trinity369/use <template>
 | `component-form-builder` | module | Multi-step form system with per-step Zod validation, field type rendering, and step progress indicator |
 | `component-image-cropper` | component | Image crop and resize with aspect ratio presets, zoom, and rotation controls |
 | `component-markdown-preview` | component | Live markdown editor with split preview pane and built-in parser |
-| `component-modal-system` | module | Dialog, drawer and alert dialog on native dialog, with focus returned on close |
+| `component-modal-system` | module | Dialog, drawer and alert dialog on native dialog, with focus returned on close, in the project's design system |
 | `component-pagination` | component | Page links from page, page count and an href function, with the pure page-window function |
 | `component-qr-code` | component | QR code generator component with Canvas rendering |
 | `component-signature-pad` | component | Digital signature drawing pad with undo, clear, and PNG/SVG export |
