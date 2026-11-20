@@ -479,7 +479,7 @@ npx @trinity369/use <template>
 | `page-landing-full` | page | Full landing page: hero, logos, features, figures, testimonials, pricing, questions and a call to action |
 | `page-landing-hero` | page | Short landing page: hero, features and a call to action, assembled from the kit's sections |
 | `page-legal-imprint` | page | Imprint page: provider identification fields for German and Austrian sites, as marked placeholders, in the project's design system |
-| `page-legal-privacy` | page | Privacy policy page: table of contents, short summaries and clearly marked placeholders |
+| `page-legal-privacy` | page | Privacy policy page: table of contents, short summaries and clearly marked placeholders, in the project's design system |
 | `page-legal-terms` | page | Terms page: collapsible sections with a table of contents and marked placeholders |
 | `page-partner-integrations` | page | Integration marketplace with categories, search, and detail panels |
 | `page-podcast-show` | page | Podcast show page with episode list, season filters, and interactive audio player bar |
