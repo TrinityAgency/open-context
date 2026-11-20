@@ -3184,17 +3184,22 @@
     },
     "design-system-seed": {
       "name": "Design System Seed",
-      "description": "Design system composition engine — maps brand identity to a cohesive design system from 12 atomic primitives. Generates install plan, brand overrides, and the glue layer that turns packages into one system.",
+      "description": "Skill that connects a design system made on claude.ai to every Open Context part: installs design-tokens, maps the design's tokens onto the token contract, runs design-sync with its contrast checks and loads the result",
       "type": "skill",
       "category": "AGENTIC",
-      "tags": [],
-      "stack": [
-        "react",
-        "tailwind",
-        "css"
+      "tags": [
+        "skill",
+        "seed",
+        "design-system",
+        "design-tokens",
+        "brand",
+        "theme"
       ],
+      "stack": [],
       "fileCount": 1,
-      "version": "1.0.0"
+      "version": "2.0.0",
+      "family": "site",
+      "proof": "every command, flag, file, path, token and utility it names exists in design-tokens 2.0.0, its example config and the token contract; planted mistakes are reported"
     },
     "design-theme-switcher": {
       "name": "Theme Switcher",
