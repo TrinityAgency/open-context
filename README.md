@@ -477,7 +477,7 @@ npx @trinity369/use <template>
 | `page-faq` | page | FAQ page with categories and search |
 | `page-features` | page | Features page: feature groups with icon, text and image, then a call to action, in the project's design system; every section takes a layout |
 | `page-landing-full` | page | Full landing page: hero, logos, features, figures, testimonials, pricing, questions and a call to action |
-| `page-landing-hero` | page | Short landing page: hero, features and a call to action, assembled from the kit's sections |
+| `page-landing-hero` | page | Short landing page: hero, features and a call to action, assembled from the kit's sections, in the project's design system; every section takes a layout |
 | `page-legal-imprint` | page | Imprint page: provider identification fields for German and Austrian sites, as marked placeholders, in the project's design system |
 | `page-legal-privacy` | page | Privacy policy page: table of contents, short summaries and clearly marked placeholders, in the project's design system |
 | `page-legal-terms` | page | Terms page: collapsible sections with a table of contents and marked placeholders, in the project's design system |
