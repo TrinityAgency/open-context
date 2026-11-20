@@ -1,5 +1,5 @@
-// Derived from blog-index-page 1.0.0 and blog-category-page 2.0.0 (the same markup): one unpaged list of project
-// cards, filtered by discipline; text from src/content/work.ts.
+// Derived from blog-index-page 2.0.0 and blog-category-page 3.0.0 (the same markup, its tokens as design-tokens'
+// utilities): one unpaged list of project cards, filtered by discipline; text from src/content/work.ts.
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Locale } from '@/content/locale';
@@ -7,10 +7,16 @@ import { WORK_TEXT, work as defaultWork, workPaths } from '@/content/work';
 import type { Blog } from '@/utils/blog-content/blog';
 import { ProjectCard } from './project-card';
 
+// The current filter is the brand mark; another filter is an outline chip whose border turns ink under the pointer
+// (an emphasis, not the brand). A chip grows in height for a long discipline name: it is at most the row's width and
+// its list item may shrink to the row, so only a word wider than the screen breaks inside it (`wrap-anywhere`: the
+// label is a bare text node in a flex box, whose minimum width `break-word` would leave at that word).
+const FILTER_BASE = 'box-border inline-flex min-h-9 max-w-full items-center rounded-full border border-solid px-4 py-1.5 font-oc-body text-sm wrap-anywhere no-underline';
 const FILTER =
-  'box-border inline-flex h-9 items-center rounded-full border border-solid border-neutral-300 bg-white px-4 font-sans text-sm font-medium text-neutral-900 no-underline hover:border-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  `${FILTER_BASE} border-oc-line-strong bg-oc-surface font-medium text-oc-ink hover:border-oc-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oc-focus`;
 const FILTER_CURRENT =
-  'box-border inline-flex h-9 items-center rounded-full border border-solid border-neutral-900 bg-neutral-900 px-4 font-sans text-sm font-semibold text-white no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  `${FILTER_BASE} border-oc-brand bg-oc-brand font-semibold text-oc-on-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oc-focus`;
+const FILTER_ITEM = 'm-0 min-w-0 max-w-full p-0';
 
 export type WorkIndexProps = {
   locale: Locale;
@@ -34,22 +40,22 @@ export async function WorkIndex({ locale, category: id, work = defaultWork }: Wo
   const filter = disciplines.filter((d) => projects.some((project) => project.category === d.id));
 
   return (
-    <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-12 text-neutral-900 outline-none sm:px-6">
-      <h1 className="m-0 text-4xl font-bold leading-tight">{discipline ? discipline.name : t.title}</h1>
-      <p className="m-0 mt-3 max-w-2xl text-lg leading-relaxed text-neutral-700">
+    <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-12 text-oc-ink outline-none wrap-break-word sm:px-6">
+      <h1 className="m-0 text-4xl font-bold leading-tight font-oc-heading">{discipline ? discipline.name : t.title}</h1>
+      <p className="m-0 mt-3 max-w-2xl text-lg leading-relaxed text-oc-ink-body">
         {discipline ? (discipline.description ?? t.intro) : t.intro}
       </p>
 
       {filter.length ? (
         <nav aria-label={t.filter} className="mt-8">
           <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
-            <li className="m-0 p-0">
+            <li className={FILTER_ITEM}>
               <Link href={workPaths.index()} aria-current={discipline ? undefined : 'page'} className={discipline ? FILTER : FILTER_CURRENT}>
                 {t.all}
               </Link>
             </li>
             {filter.map((d) => (
-              <li key={d.id} className="m-0 p-0">
+              <li key={d.id} className={FILTER_ITEM}>
                 <Link
                   href={workPaths.category(d.id)}
                   aria-current={d.id === discipline?.id ? 'page' : undefined}
@@ -80,7 +86,7 @@ export async function WorkIndex({ locale, category: id, work = defaultWork }: Wo
           ))}
         </ul>
       ) : (
-        <p className="m-0 mt-10 text-lg text-neutral-700">{t.empty}</p>
+        <p className="m-0 mt-10 text-lg text-oc-ink-body">{t.empty}</p>
       )}
     </main>
   );

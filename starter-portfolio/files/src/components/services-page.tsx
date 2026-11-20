@@ -10,7 +10,7 @@ import { JsonLd, faqPageJsonLd } from '@/utils/site-seo';
 /**
  * The services page: a hero, one section per group of services (one item per row, the image side alternating),
  * questions with their FAQPage data, and a call to action. Server component; src/app/services/page.tsx renders it
- * with LOCALE. Derived from `page-features` 1.0.0 plus `section-faq`; its text is SERVICES_PAGE in
+ * with LOCALE. Derived from `page-features` 2.0.0 plus `section-faq`; its text is SERVICES_PAGE in
  * src/content/pages.ts.
  */
 export function ServicesPage({ locale }: { locale: Locale }) {

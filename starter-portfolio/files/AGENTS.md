@@ -26,21 +26,22 @@ Pages and components read these; they never copy a fact. `SITE_URL` in the envir
 
 ## The pages
 
-The services and about pages are this site's own code, derived from the website kit's page templates: the same
-markup, the sections from `src/components/section-*` (each part once), the text from `src/content/pages.ts`.
-Change them here as you like: they are not parts.
+The services and about pages are this site's own code, derived from the website kit's page templates: the same markup
+(the templates' `var(--oc-…)` classes written as `design-tokens`' utilities), the sections from
+`src/components/section-*` (each part once), the text from `src/content/pages.ts`. Change them here as you like: they
+are not parts.
 
 | View | Route | Derived from |
 |---|---|---|
-| `src/components/home-page.tsx` | `src/app/page.tsx` | `starter-landing-page` 1.0.0's home page: hero, logos, testimonials and call to action, plus the newest projects |
-| `src/components/services-page.tsx` | `src/app/services/page.tsx` | `page-features` 1.0.0, plus `section-faq` with the questions as FAQPage data |
-| `src/components/about/about-page.tsx`, `about-story.tsx`, `team-grid.tsx`, `site-types.ts` | `src/app/about/page.tsx` | `page-about` 1.0.0 |
+| `src/components/home-page.tsx` | `src/app/page.tsx` | `starter-landing-page` 2.0.0's home page: hero, logos, testimonials and call to action, plus the newest projects |
+| `src/components/services-page.tsx` | `src/app/services/page.tsx` | `page-features` 2.0.0, plus `section-faq` with the questions as FAQPage data |
+| `src/components/about/about-page.tsx`, `about-story.tsx`, `team-grid.tsx`, `site-types.ts` | `src/app/about/page.tsx` | `page-about` 2.0.0 |
 
 The contact page is a part with logic of its own; its route renders the part's view:
 
 | Route | Renders | Part |
 |---|---|---|
-| `src/app/contact/page.tsx` | `ContactView` with `contactContent(LOCALE)` | `src/app/_page-contact` (`page-contact` 1.0.0) |
+| `src/app/contact/page.tsx` | `ContactView` with `contactContent(LOCALE)` | `src/app/_page-contact` (`page-contact` 2.0.0) |
 
 The work's pages are this site's own code too: see "The work views".
 
@@ -99,14 +100,15 @@ sitemap, the feeds, `subscribe()`).
 
 ## The work views
 
-The work's pages are this site's own code, derived from the blog's page templates. They read the work through
-`src/content/work.ts` and take their text from `WORK_TEXT`:
+The work's pages are this site's own code, derived from the blog's page templates (the same markup, the templates'
+`var(--oc-…)` classes written as `design-tokens`' utilities). They read the work through `src/content/work.ts` and take
+their text from `WORK_TEXT`:
 
 | View | Route files | Derived from |
 |---|---|---|
-| `src/components/work/work-index.tsx` | `src/app/work/page.tsx`, `src/app/work/category/[category]/page.tsx` | `blog-index-page` 1.0.0 and `blog-category-page` 2.0.0: unpaged, the filter lists every discipline with a project |
-| `src/components/work/project-page.tsx` | `src/app/work/[slug]/page.tsx` | `blog-post-page` 1.0.0 without reading time, table of contents, share links and author pages; "More work" from `moreWork` (the same discipline first) |
-| `src/components/work/project-card.tsx` | the cards on the work pages and the home page | `blog-card` 1.0.0, with the year instead of the date, reading time and authors |
+| `src/components/work/work-index.tsx` | `src/app/work/page.tsx`, `src/app/work/category/[category]/page.tsx` | `blog-index-page` 2.0.0 and `blog-category-page` 3.0.0: unpaged, the filter lists every discipline with a project |
+| `src/components/work/project-page.tsx` | `src/app/work/[slug]/page.tsx` | `blog-post-page` 2.0.0 without reading time, table of contents, share links and author pages; "More work" from `moreWork` (the same discipline first) |
+| `src/components/work/project-card.tsx` | the cards on the work pages and the home page | `blog-card` 2.0.0, with the year instead of the date, reading time and authors |
 
 Change them as you like: they are not parts. Every work route is built ahead (`generateStaticParams`,
 `dynamicParams = false`), so an unknown slug or discipline answers 404. The lists are not paged: a portfolio holds
@@ -199,15 +201,16 @@ The blog lives at `/blog`. To serve it elsewhere, say `/journal`: rename the fol
 
 ## The blog views
 
-The blog's pages are this site's own code, derived from the website kit's page templates; they hold the same markup,
-read the parts in `src/` (each part once) and take their text from `src/content/blog.ts`:
+The blog's pages are this site's own code, derived from the website kit's page templates; they hold the same markup (the
+templates' `var(--oc-…)` classes written as `design-tokens`' utilities), read the parts in `src/` (each part once) and
+take their text from `src/content/blog.ts`:
 
 | View | Route files | Derived from |
 |---|---|---|
-| `src/components/blog/blog-index.tsx` | `src/app/blog/page.tsx`, `src/app/blog/page/[page]/page.tsx` | `blog-index-page` 1.0.0 |
-| `src/components/blog/post-page.tsx`, `table-of-contents.tsx`, `reading-progress.tsx` | `src/app/blog/[slug]/page.tsx` | `blog-post-page` 1.0.0 (plus the newsletter beside the post) |
-| `src/components/blog/author-page.tsx` | `src/app/blog/author/[author]/page.tsx` | `blog-author-page` 1.0.0 |
-| `src/components/blog/category-page.tsx` | `src/app/blog/category/[category]/page.tsx`, `…/page/[page]/page.tsx` | `blog-category-page` 2.0.0 |
+| `src/components/blog/blog-index.tsx` | `src/app/blog/page.tsx`, `src/app/blog/page/[page]/page.tsx` | `blog-index-page` 2.0.0 |
+| `src/components/blog/post-page.tsx`, `table-of-contents.tsx`, `reading-progress.tsx` | `src/app/blog/[slug]/page.tsx` | `blog-post-page` 2.0.0 (plus the newsletter beside the post) |
+| `src/components/blog/author-page.tsx` | `src/app/blog/author/[author]/page.tsx` | `blog-author-page` 2.0.0 |
+| `src/components/blog/category-page.tsx` | `src/app/blog/category/[category]/page.tsx`, `…/page/[page]/page.tsx` | `blog-category-page` 3.0.0 |
 
 Change them here as you like: they are not parts. Every blog route is built ahead (`generateStaticParams`,
 `dynamicParams = false`), so an unknown slug, id or page number answers 404.
@@ -263,29 +266,30 @@ is lost the next time the template is installed, and it is no longer the proven 
 
 | Folder | Template | Version |
 |---|---|---|
-| `src/components/site-header` | `site-header` | 1.0.0 |
-| `src/components/site-footer` | `site-footer` | 1.0.0 |
-| `src/modules/site-cookie-consent` | `site-cookie-consent` | 1.0.0 |
+| `src/design-system/design-tokens` | `design-tokens` | 2.0.0 |
+| `src/components/site-header` | `site-header` | 2.0.0 |
+| `src/components/site-footer` | `site-footer` | 2.0.0 |
+| `src/modules/site-cookie-consent` | `site-cookie-consent` | 2.0.0 |
 | `src/utils/site-seo` | `site-seo` | 1.0.0 |
-| `src/components/component-pagination` | `component-pagination` | 1.0.0 |
-| `src/components/component-breadcrumbs` | `component-breadcrumbs` | 1.0.0 |
-| `src/components/section-hero` | `section-hero` | 2.0.0 |
-| `src/components/section-logo-cloud` | `section-logo-cloud` | 2.0.0 |
-| `src/components/section-features` | `section-features` | 2.0.0 |
-| `src/components/section-stats` | `section-stats` | 2.0.0 |
-| `src/components/section-testimonials` | `section-testimonials` | 2.0.0 |
-| `src/components/section-faq` | `section-faq` | 2.0.0 |
-| `src/components/section-cta` | `section-cta` | 2.0.0 |
-| `src/utils/blog-content` | `blog-content` | 1.0.0 |
+| `src/components/component-pagination` | `component-pagination` | 2.0.0 |
+| `src/components/component-breadcrumbs` | `component-breadcrumbs` | 2.0.0 |
+| `src/components/section-hero` | `section-hero` | 3.0.0 |
+| `src/components/section-logo-cloud` | `section-logo-cloud` | 3.0.0 |
+| `src/components/section-features` | `section-features` | 3.0.0 |
+| `src/components/section-stats` | `section-stats` | 3.0.0 |
+| `src/components/section-testimonials` | `section-testimonials` | 3.0.0 |
+| `src/components/section-faq` | `section-faq` | 3.0.0 |
+| `src/components/section-cta` | `section-cta` | 3.0.0 |
+| `src/utils/blog-content` | `blog-content` | 2.0.0 |
 | `src/utils/blog-rss-sitemap` | `blog-rss-sitemap` | 1.0.0 |
-| `src/components/blog-card` | `blog-card` | 1.0.0 |
-| `src/components/blog-newsletter-cta` | `blog-newsletter-cta` | 1.0.0 |
-| `src/components/blog-share-buttons` | `blog-share-buttons` | 2.0.0 |
-| `src/app/_page-contact` | `page-contact` | 1.0.0 |
-| `src/app/_page-legal-imprint` | `page-legal-imprint` | 1.0.0 |
-| `src/app/_page-legal-privacy` | `page-legal-privacy` | 1.0.0 |
-| `src/app/_page-legal-terms` | `page-legal-terms` | 1.0.0 |
-| `src/app/_page-404-error` | `page-404-error` | 1.0.0 |
+| `src/components/blog-card` | `blog-card` | 2.0.0 |
+| `src/components/blog-newsletter-cta` | `blog-newsletter-cta` | 2.0.0 |
+| `src/components/blog-share-buttons` | `blog-share-buttons` | 3.0.0 |
+| `src/app/_page-contact` | `page-contact` | 2.0.0 |
+| `src/app/_page-legal-imprint` | `page-legal-imprint` | 2.0.0 |
+| `src/app/_page-legal-privacy` | `page-legal-privacy` | 2.0.0 |
+| `src/app/_page-legal-terms` | `page-legal-terms` | 2.0.0 |
+| `src/app/_page-404-error` | `page-404-error` | 2.0.0 |
 
 **The owner's files inside parts.** A few files in part folders are yours to replace there:
 
@@ -294,12 +298,37 @@ is lost the next time the template is installed, and it is no longer the proven 
   `src/app/_page-404-error/content.ts`;
 - where contact messages go: `src/app/_page-contact/deliver.ts`.
 
-To change a part's behaviour, change it through its props, labels and content from your own code first. If that is
-not enough, the change belongs in the template: change it there, then install it again into its folder, e.g.
-`npx @trinity369/use blog-card --dir src/components/blog-card`. An install overwrites the folder's files, so **save
-the owner's files above first** and put them back after. Folders starting with `_` are private to Next: they hold
-views, and the short route files (`src/app/contact/page.tsx`, `src/app/imprint/page.tsx`, `not-found.tsx`,
-`error.tsx`, …) render them with `LOCALE`.
+To change a part's behaviour, change it through its props (its `layout` among them: a part's `README.md` lists its
+layouts, where it has any), labels and content from your own code first. If that is not enough, the change belongs in
+the template: change it there, then install it again into its folder, e.g.
+`npx @trinity369/use blog-card --dir src/components/blog-card`. An install overwrites the folder's files, so **save the
+owner's files above first** and put them back after. Folders starting with `_` are private to Next: they hold views, and
+the short route files (`src/app/contact/page.tsx`, `src/app/imprint/page.tsx`, `not-found.tsx`, `error.tsx`, …) render
+them with `LOCALE`.
+
+## The design
+
+The site's colours, fonts and corners are the design tokens every Open Context part reads (`--oc-surface`,
+`--oc-ink`, `--oc-brand`, … `--oc-radius`). `src/design-system/design-tokens/` (the `design-tokens` template, a part
+of this site) defines them with neutral defaults; a connected design sets them in `src/design-system/generated/`.
+
+- **Connect a design system** made on claude.ai with the `design-system-seed` skill
+  (`npx @trinity369/use design-system-seed`): put the export, unchanged, under `design/export/`, copy
+  `src/design-system/design-tokens/oc-map.example.json` to `design/oc-map.json` and map every contract token to the
+  design's token that plays its role (`null` where the design has none), then run `pnpm design:sync`. It checks the
+  map and that every text stays readable on its ground before it writes anything; a refusal names the pair, the theme
+  and both colours, and is a question for whoever owns the design, never a reason to bend the map. This site already
+  holds `design-tokens`, its config (`design-sync.config.json`) and the imports in `src/app/globals.css`, so the
+  skill's install and loading steps are done.
+- **The site's own code** names tokens with `design-tokens`' utilities: `bg-oc-surface`, `text-oc-ink`,
+  `border-oc-line`, `rounded-oc-lg`, `font-oc-heading` (its `README.md` lists them all). Never a colour literal, a
+  grey or other palette class, a radius from Tailwind's scale or `font-sans`: `src/design-system/tokens-only.test.ts`
+  and `pnpm design:guards` refuse them.
+- **Structure** is chosen with each installed part's `layout` prop (`layout="split"`, …); the part's `README.md`
+  lists its layouts and what each draws. A part is never restyled with classes.
+- **Never edit `src/design-system/generated/`**: `pnpm design:sync` writes it. To change the design, change it in
+  Claude Design, export it again over `design/export/`, run `pnpm design:sync`, then `pnpm design:diff`.
+  `README.md`, "The design", has the steps and the four `design:*` scripts.
 
 ## Consent: nothing from another host before a choice
 
@@ -357,6 +386,6 @@ domain (`SITE.url`, or `SITE_URL` as the build reads it):
 | `src/content/blog.test.ts` | both languages' posts load and render (headings, image, code block); drafts stay out of the posts and the sitemap; both feeds parse and list exactly the visible posts; `subscribe()` refuses in production until replaced. Its counts and the render checks describe the sample posts: change them when you replace those |
 | `src/content/claims.test.ts` | no source file, post or project states a `FORBIDDEN` phrase, however it is wrapped; no legal placeholder is left once the site has its own domain |
 | `src/content/legal-guard.test.ts` | the build-time guard: legal placeholders render on the sample domain only |
-| `src/design/no-hardcoded-colour.test.ts` | no colour literal outside `src/design/` (colours come from the design tokens) |
-| `pnpm design:check`, `pnpm design:guards` | the generated design files match the export; no colour literal, unknown wrapper class or hand-written vendor prefix |
+| `src/design-system/tokens-only.test.ts` | the classes in every file under `src/` but the generated design files, the tests and the copy (`src/content/`, a part's `content.ts` and `labels`): no palette, white or black colour class, no radius from Tailwind's scale, no `font-sans` or `font-serif`; design-sync's guards report nothing (the parts pass it by construction) |
+| `pnpm design:check`, `pnpm design:guards` | the generated design files match the export (before the first export there is nothing to check); no colour literal, unknown wrapper class or hand-written vendor prefix under `src/` |
 | `pnpm typecheck` | the whole site, parts included, type-checks strictly |

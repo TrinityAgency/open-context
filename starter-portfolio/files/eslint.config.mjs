@@ -5,6 +5,7 @@ import nextTs from 'eslint-config-next/typescript';
 export default defineConfig([
   ...nextVitals,
   ...nextTs,
-  // scripts/design-sync.mjs is the design-sync template, kept unchanged; it is updated by copying a newer version, not edited.
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'coverage/**', 'next-env.d.ts', 'scripts/design-sync.mjs']),
+  // design-sync.mjs belongs to the design-tokens part (src/design-system/design-tokens): it is updated by installing a
+  // newer version, never edited.
+  globalIgnores(['.next/**', 'out/**', 'build/**', 'coverage/**', 'next-env.d.ts', 'src/design-system/design-tokens/design-sync.mjs']),
 ]);

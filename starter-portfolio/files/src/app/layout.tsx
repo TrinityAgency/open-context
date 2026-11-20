@@ -22,13 +22,13 @@ export const metadata: Metadata = {
 };
 
 // Every page brings its own <main id="main">, the skip link's target. The consent provider shows the banner until a
-// choice is made; the footer's "cookie settings" button opens the choice again.
-// Colours are Tailwind's neutral palette until the first design:sync; then use the token utilities (globals.css).
+// choice is made; the footer's "cookie settings" button opens the choice again. The page takes the design tokens:
+// the surface, the ink and the body font (globals.css gives the page Tailwind's sans stack until a design sets one).
 export default function RootLayout({ children }: { children: ReactNode }) {
   const site = { ...SITE, url: siteUrl() };
   return (
     <html lang={LOCALE}>
-      <body className="flex min-h-screen flex-col bg-white font-sans text-neutral-900">
+      <body className="flex min-h-screen flex-col bg-oc-surface font-oc-body text-oc-ink">
         <ConsentProvider categories={CONSENT_CATEGORIES[LOCALE]} labels={{ en: CONSENT_LABELS, de: CONSENT_LABELS_DE }[LOCALE]}>
           <Header identity={SITE} nav={NAV[LOCALE]} cta={CTA[LOCALE]} />
           <div className="flex-1">{children}</div>

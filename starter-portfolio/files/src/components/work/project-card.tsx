@@ -1,5 +1,5 @@
-// Derived from blog-card 1.0.0 (the same card): a project shows its discipline and the year it was finished instead of
-// a date, reading time and authors.
+// Derived from blog-card 2.0.0 (the same card as its default `stacked`, its tokens as design-tokens' utilities): a
+// project shows its discipline and the year it was finished instead of a date, reading time and authors.
 import { useId, type ComponentProps } from 'react';
 import type { Category, ImageComponent, LinkComponent, Post } from '@/components/blog-card/site-types';
 
@@ -42,9 +42,9 @@ export type ProjectCardProps = {
 };
 
 const CARD =
-  'box-border flex flex-col overflow-hidden rounded-lg border border-solid border-neutral-200 bg-white text-neutral-900';
+  'box-border flex min-w-0 flex-col overflow-hidden rounded-oc-lg border border-solid border-oc-line bg-oc-surface text-oc-ink';
 const TITLE_LINK =
-  'text-neutral-900 no-underline hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  'text-oc-ink no-underline hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oc-focus';
 
 /** A project preview: cover, discipline, title link, description, then the year it was finished. */
 export function ProjectCard({
@@ -70,17 +70,17 @@ export function ProjectCard({
           className="block aspect-[40/21] h-auto w-full object-cover"
         />
       ) : null}
-      <div className="box-border flex flex-1 flex-col gap-2 p-5">
+      <div className="box-border flex min-w-0 flex-1 flex-col gap-2 p-5 wrap-break-word">
         {discipline ? (
-          <p className="m-0 text-xs font-semibold uppercase tracking-wide text-neutral-600">{discipline.name}</p>
+          <p className="m-0 text-xs font-semibold uppercase tracking-wide text-oc-ink-muted">{discipline.name}</p>
         ) : null}
-        <Heading id={titleId} className="m-0 text-lg font-semibold leading-snug">
+        <Heading id={titleId} className="m-0 text-lg font-semibold leading-snug font-oc-heading">
           <Link href={href} className={TITLE_LINK}>
             {project.title}
           </Link>
         </Heading>
-        <p className="m-0 text-sm leading-relaxed text-neutral-700">{project.description}</p>
-        <p className="m-0 mt-auto pt-2 text-xs leading-normal text-neutral-600">
+        <p className="m-0 text-sm leading-relaxed text-oc-ink-body">{project.description}</p>
+        <p className="m-0 mt-auto pt-2 text-xs leading-normal text-oc-ink-muted">
           <time dateTime={project.publishedAt}>{projectDate(project.publishedAt, locale)}</time>
         </p>
       </div>

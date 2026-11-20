@@ -43,6 +43,29 @@ A gap always hides at least two pages (a single hidden page is shown instead), s
 `min(pageCount, 7)` items and keeps its width while you page through. A page outside `1…pageCount` is clamped, a page
 count below 1 gives `[]`, and a non-integer page, page count, `siblings` or `boundaries` throws a `RangeError`.
 
+## Brand
+
+The page links read these design tokens (CSS custom properties of the Open Context token contract, version 1). Unset,
+each falls back to the neutral value in brackets, so they look the same as before with no design system loaded.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-brand` | the current page's ground and border | `oklch(20.5% 0 none)` |
+| `--oc-on-brand` | the current page's number | `#fff` |
+| `--oc-surface` | the other links and the disabled previous or next | `#fff` |
+| `--oc-surface-sunk` | a link under the pointer | `oklch(97% 0 none)` |
+| `--oc-ink` | the links' text | `oklch(20.5% 0 none)` |
+| `--oc-ink-subtle` | a disabled previous or next, the gap | `oklch(55.6% 0 none)` |
+| `--oc-line-strong` | the links' border | `oklch(87% 0 none)` |
+| `--oc-line` | a disabled item's border | `oklch(92.2% 0 none)` |
+| `--oc-focus` | the focus ring | `oklch(20.5% 0 none)` |
+| `--oc-radius` | the corners (1.5 ×) | `0.25rem` |
+
+To set them from a claude.ai design system, use the `design-tokens` template (its `design-sync.mjs` writes them as
+aliases of your design's own tokens, light and dark, and checks the pairs these draw: ink and subtle text on the
+surface, ink on the sunk tint, on-brand on brand, the focus ring) and the `design-system-seed` skill. To set them by
+hand, declare them once in your global stylesheet, e.g. `:root { --oc-brand: #0b5cad; --oc-on-brand: #fff; }`.
+
 ## Props
 
 | Prop | Type | Default | |
@@ -92,6 +115,8 @@ None.
 
 ## Notes
 
-- Neutral colours only, with every margin, border and box size set on the element itself, so it looks the same with
-  or without Tailwind's preflight.
+- Every colour is a design token with the neutral look as its fallback, with every margin, border and box size set
+  on the element itself, so it looks the same with or without Tailwind's preflight.
+- 2.0.0: the design tokens are new; without a design system it draws what 1.0.0 drew. A long previous or next label
+  wraps inside its box instead of pushing the row off the page.
 - Cursor-based pagination is not covered; this component pages by number.

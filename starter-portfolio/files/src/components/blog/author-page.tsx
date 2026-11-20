@@ -1,4 +1,5 @@
-// Derived from blog-author-page 1.0.0 (same markup): parts through @/, text from src/content/blog.ts.
+// Derived from blog-author-page 2.0.0 (same markup, its tokens as design-tokens' utilities): parts through @/, text
+// from src/content/blog.ts.
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BlogCard } from '@/components/blog-card/blog-card';
@@ -10,7 +11,7 @@ import type { Blog } from '@/utils/blog-content/blog';
 
 const CARD_LABELS = { en: BLOG_CARD_LABELS, de: BLOG_CARD_LABELS_DE };
 const LINK =
-  'font-medium text-neutral-900 underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  'font-medium text-oc-ink underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oc-focus';
 
 /** A bio's paragraphs: split on blank lines, trimmed, empty ones left out. */
 export function bioParagraphs(bio: string | undefined): string[] {
@@ -44,7 +45,7 @@ export async function AuthorPage({ locale, author: id, blog = defaultBlog }: Aut
   const website = author.url;
 
   return (
-    <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-12 text-neutral-900 outline-none sm:px-6">
+    <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-12 text-oc-ink outline-none wrap-break-word sm:px-6">
       <header className="flex flex-col gap-6 sm:flex-row sm:items-start">
         {author.image ? (
           <img
@@ -56,9 +57,9 @@ export async function AuthorPage({ locale, author: id, blog = defaultBlog }: Aut
           />
         ) : null}
         <div className="min-w-0 max-w-2xl">
-          <h1 className="m-0 text-4xl font-bold leading-tight">{author.name}</h1>
+          <h1 className="m-0 text-4xl font-bold leading-tight font-oc-heading">{author.name}</h1>
           {bioParagraphs(author.bio).map((paragraph) => (
-            <p key={paragraph} className="m-0 mt-3 text-lg leading-relaxed text-neutral-700">
+            <p key={paragraph} className="m-0 mt-3 text-lg leading-relaxed text-oc-ink-body">
               {paragraph}
             </p>
           ))}
@@ -79,7 +80,7 @@ export async function AuthorPage({ locale, author: id, blog = defaultBlog }: Aut
       </header>
 
       <section aria-labelledby="author-page-posts" className="mt-12">
-        <h2 id="author-page-posts" className="m-0 text-2xl font-bold">
+        <h2 id="author-page-posts" className="m-0 text-2xl font-bold font-oc-heading">
           {t.posts(author.name)}
         </h2>
         {posts.length ? (
@@ -101,7 +102,7 @@ export async function AuthorPage({ locale, author: id, blog = defaultBlog }: Aut
             ))}
           </ul>
         ) : (
-          <p className="m-0 mt-6 text-lg text-neutral-700">{t.empty}</p>
+          <p className="m-0 mt-6 text-lg text-oc-ink-body">{t.empty}</p>
         )}
       </section>
 

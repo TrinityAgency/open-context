@@ -1,6 +1,6 @@
-// Derived from blog-post-page 1.0.0 (the same markup): breadcrumbs, the header, the cover and the body, then more
-// work. A project shows its discipline, the month it was finished and the people's names; no reading time, table of
-// contents, share links or author pages. Text from src/content/work.ts.
+// Derived from blog-post-page 2.0.0 (the same markup, its tokens as design-tokens' utilities): breadcrumbs, the header,
+// the cover and the body, then more work. A project shows its discipline, the month it was finished and the people's
+// names; no reading time, table of contents, share links or author pages. Text from src/content/work.ts.
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Breadcrumbs } from '@/components/component-breadcrumbs/breadcrumbs';
@@ -15,7 +15,7 @@ import { ProjectCard, projectDate } from './project-card';
 
 const TRAIL_LABELS = { en: BREADCRUMBS_LABELS, de: BREADCRUMBS_LABELS_DE };
 const LINK =
-  'text-neutral-900 underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  'text-oc-ink underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oc-focus';
 const MDX = mdxComponents({ LinkComponent: Link });
 
 export type ProjectPageProps = {
@@ -47,13 +47,13 @@ export async function ProjectPage({ locale, slug, work = defaultWork }: ProjectP
   ];
 
   return (
-    <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-10 text-neutral-900 outline-none sm:px-6">
+    <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-10 text-oc-ink outline-none wrap-break-word sm:px-6">
       <Breadcrumbs items={trail} baseUrl={site.url} labels={TRAIL_LABELS[locale]} LinkComponent={Link} />
 
       <header className="mt-8 max-w-3xl">
-        <h1 className="m-0 text-4xl font-bold leading-tight">{project.title}</h1>
-        <p className="m-0 mt-4 text-lg leading-relaxed text-neutral-700">{project.description}</p>
-        <p className="m-0 mt-5 text-sm leading-relaxed text-neutral-600">
+        <h1 className="m-0 text-4xl font-bold leading-tight font-oc-heading">{project.title}</h1>
+        <p className="m-0 mt-4 text-lg leading-relaxed text-oc-ink-body">{project.description}</p>
+        <p className="m-0 mt-5 text-sm leading-relaxed text-oc-ink-muted">
           {discipline ? (
             <>
               <Link href={workPaths.category(discipline.id)} className={LINK}>
@@ -79,7 +79,7 @@ export async function ProjectPage({ locale, slug, work = defaultWork }: ProjectP
           alt={project.image.alt}
           width={project.image.width}
           height={project.image.height}
-          className="m-0 mt-8 block h-auto w-full max-w-4xl rounded-lg"
+          className="m-0 mt-8 block h-auto w-full max-w-4xl rounded-oc-lg"
         />
       ) : null}
 
@@ -89,7 +89,7 @@ export async function ProjectPage({ locale, slug, work = defaultWork }: ProjectP
 
       {more.length ? (
         <section aria-labelledby="project-page-more" className="mt-16">
-          <h2 id="project-page-more" className="m-0 text-2xl font-bold">
+          <h2 id="project-page-more" className="m-0 text-2xl font-bold font-oc-heading">
             {t.more}
           </h2>
           <ul className="m-0 mt-6 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3">

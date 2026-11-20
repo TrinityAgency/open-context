@@ -54,6 +54,29 @@ export default function NotFound() {
 | `site-types.ts` | the kit's shared types these pages use (`LinkItem`, `LinkComponent`) |
 | `content.ts` | `LOCALE`, `NOT_FOUND` and `ERROR` (English and German) |
 
+## Brand
+
+The page reads these design tokens (CSS custom properties of the Open Context token contract, version 1). Unset, each
+falls back to the neutral value in brackets, so the page looks the same as before with no design system loaded.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-ink` | the titles, the links, the reference | `oklch(20.5% 0 none)` |
+| `--oc-ink-body` | the text | `oklch(37.1% 0 none)` |
+| `--oc-ink-muted` | "Reference", a link under the pointer | `oklch(43.9% 0 none)` |
+| `--oc-brand` | Try again | `oklch(20.5% 0 none)` |
+| `--oc-brand-hover` | Try again under the pointer | `oklch(37.1% 0 none)` |
+| `--oc-on-brand` | the label of Try again | `#fff` |
+| `--oc-focus` | the focus ring | `oklch(20.5% 0 none)` |
+| `--oc-radius` | the corners (Try again at 1.5 times it) | `0.25rem` |
+| `--oc-font-heading` | the titles | the page's font |
+| `--oc-font-body` | the label of Try again | the page's font |
+
+To set them from a claude.ai design system, use the `design-tokens` template (its `design-sync.mjs` writes them as
+aliases of your design's own tokens, light and dark, and checks every pair the page draws) and the
+`design-system-seed` skill. To set them by hand, declare them once in your global stylesheet, e.g.
+`:root { --oc-ink: #1d2433; --oc-line: #dfe3ea; }`.
+
 ## Props
 
 `NotFoundView`:
@@ -95,6 +118,8 @@ not-found page is a server component.
 
 ## Notes
 
-- Neutral colours only, with every margin and box set on the element, so the pages look the same with or without
-  Tailwind's preflight.
+- Every colour is a design token (Brand), with every margin and box set on the element, so the page looks the
+  same with or without Tailwind's preflight. A word wider than the screen breaks instead of running off it.
+- **From 1.x:** the views, their props and the two route files are the same; the views draw in your design
+  tokens, and a long label of Try again wraps inside the button.
 - An unknown URL answers with HTTP status 404 and the not-found page.

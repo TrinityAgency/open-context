@@ -10,7 +10,7 @@ import { work as defaultWork, workPaths } from '@/content/work';
 import type { Blog } from '@/utils/blog-content/blog';
 
 const LINK =
-  'rounded-sm font-medium text-neutral-900 underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  'rounded-oc font-medium text-oc-ink underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oc-focus';
 
 export type HomePageProps = {
   locale: Locale;
@@ -32,9 +32,9 @@ export async function HomePage({ locale, work = defaultWork }: HomePageProps) {
     <main id="main" tabIndex={-1} className="outline-none">
       <HeroSection content={c.hero} LinkComponent={Link} />
       {selected.length ? (
-        <section aria-labelledby="home-work" className="box-border px-6 py-16 text-neutral-900">
+        <section aria-labelledby="home-work" className="box-border px-6 py-16 text-oc-ink wrap-break-word">
           <div className="mx-auto max-w-5xl">
-            <h2 id="home-work" className="m-0 text-3xl font-semibold tracking-tight">
+            <h2 id="home-work" className="m-0 text-3xl font-semibold tracking-tight font-oc-heading">
               {c.work.title}
             </h2>
             <ul className="m-0 mt-10 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3">

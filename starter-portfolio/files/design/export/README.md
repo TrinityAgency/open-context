@@ -1,6 +1,6 @@
 # design/export/
 
-Put your Claude Design export here, unchanged, in the importer layout:
+Put your claude.ai design system's export here, unchanged, in the importer layout:
 
 ```
 design/export/
@@ -13,7 +13,8 @@ design/export/
     assets/                optional (SVGs are copied to public/brand)
 ```
 
-`design-sync.config.json` points `source` at `design/export/project`; set its `prefix` to the class prefix the
-export's `bundle.css` uses (for example `ds-` when its classes read `.ds-button`). Then run `pnpm design:sync`.
-To take a new version of the design: replace the export here, run `pnpm design:sync`, then `pnpm design:diff`.
-Change the design in Claude Design, never here: this folder is a copy of the export.
+`design-sync.config.json` points `source` at `design/export/project` and `contract` at `design/oc-map.json`, the map
+from the design's tokens to the design tokens every part reads (copy
+`src/design-system/design-tokens/oc-map.example.json` there and fill it in). Then run `pnpm design:sync`. To take a
+new version of the design: replace the export here, run `pnpm design:sync`, then `pnpm design:diff`. Change the
+design in Claude Design, never here: this folder is a copy of the export.
