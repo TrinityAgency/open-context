@@ -45,24 +45,50 @@ is lost the next time the template is installed, and it is no longer the proven 
 
 | Folder | Template | Version |
 |---|---|---|
-| `src/components/site-header` | `site-header` | 1.0.0 |
-| `src/components/site-footer` | `site-footer` | 1.0.0 |
-| `src/modules/site-cookie-consent` | `site-cookie-consent` | 1.0.0 |
+| `src/design-system/design-tokens` | `design-tokens` | 2.0.0 |
+| `src/components/site-header` | `site-header` | 2.0.0 |
+| `src/components/site-footer` | `site-footer` | 2.0.0 |
+| `src/modules/site-cookie-consent` | `site-cookie-consent` | 2.0.0 |
 | `src/utils/site-seo` | `site-seo` | 1.0.0 |
-| `src/components/section-<name>` (hero, logo-cloud, features, stats, testimonials, pricing, faq, cta) | `section-<name>` | 2.0.0 |
-| `src/app/_page-legal-imprint` | `page-legal-imprint` | 1.0.0 |
-| `src/app/_page-legal-privacy` | `page-legal-privacy` | 1.0.0 |
-| `src/app/_page-legal-terms` | `page-legal-terms` | 1.0.0 |
-| `src/app/_page-404-error` | `page-404-error` | 1.0.0 |
+| `src/components/section-<name>` (hero, logo-cloud, features, stats, testimonials, pricing, faq, cta) | `section-<name>` | 3.0.0 |
+| `src/app/_page-legal-imprint` | `page-legal-imprint` | 2.0.0 |
+| `src/app/_page-legal-privacy` | `page-legal-privacy` | 2.0.0 |
+| `src/app/_page-legal-terms` | `page-legal-terms` | 2.0.0 |
+| `src/app/_page-404-error` | `page-404-error` | 2.0.0 |
 
 The exception is a part's `content.ts`: the legal pages' and the not-found page's text is yours to replace there.
 
-To change a part's behaviour, change it through its props, labels and content from your own code first. If that is
-not enough, the change belongs in the template: change it there, then install it again into its folder, e.g.
+To change a part's behaviour, change it through its props (its `layout` among them: each section's `README.md` lists
+its layouts), labels and content from your own code first. If that is not enough, the change belongs in the template:
+change it there, then install it again into its folder, e.g.
 `npx @trinity369/use section-hero --dir src/components/section-hero`. An install overwrites the folder's files, so
 save a legal or not-found part's `content.ts` first and put it back after. Folders starting with `_` are private to Next:
 they hold views, and the short route files (`src/app/imprint/page.tsx`, `not-found.tsx`, `error.tsx`, …) render them
 with `LOCALE`.
+
+## The design
+
+The site's colours, fonts and corners are the design tokens every Open Context part reads (`--oc-surface`,
+`--oc-ink`, `--oc-brand`, … `--oc-radius`). `src/design-system/design-tokens/` (the `design-tokens` template, a part
+of this site) defines them with neutral defaults; a connected design sets them in `src/design-system/generated/`.
+
+- **Connect a design system** made on claude.ai with the `design-system-seed` skill
+  (`npx @trinity369/use design-system-seed`): put the export, unchanged, under `design/export/`, copy
+  `src/design-system/design-tokens/oc-map.example.json` to `design/oc-map.json` and map every contract token to the
+  design's token that plays its role (`null` where the design has none), then run `pnpm design:sync`. It checks the
+  map and that every text stays readable on its ground before it writes anything; a refusal names the pair, the theme
+  and both colours, and is a question for whoever owns the design, never a reason to bend the map. This site already
+  holds `design-tokens`, its config (`design-sync.config.json`) and the imports in `src/app/globals.css`, so the
+  skill's install and loading steps are done.
+- **The site's own code** names tokens with `design-tokens`' utilities: `bg-oc-surface`, `text-oc-ink`,
+  `border-oc-line`, `rounded-oc-lg`, `font-oc-heading` (its `README.md` lists them all). Never a colour literal, a
+  grey or other palette class, a radius from Tailwind's scale or `font-sans`: `src/design-system/tokens-only.test.ts`
+  and `pnpm design:guards` refuse them.
+- **Structure** is chosen with each installed part's `layout` prop (`layout="split"`, …); the part's `README.md`
+  lists its layouts and what each draws. A part is never restyled with classes.
+- **Never edit `src/design-system/generated/`**: `pnpm design:sync` writes it. To change the design, change it in
+  Claude Design, export it again over `design/export/`, run `pnpm design:sync`, then `pnpm design:diff`.
+  `README.md`, "The design", has the steps and the four `design:*` scripts.
 
 ## Consent: nothing from another host before a choice
 
@@ -101,6 +127,6 @@ domain (`SITE.url`, or `SITE_URL` as the build reads it):
 | `src/app/pages.test.tsx` | the home page has one `h1` and a target for every navigation anchor and in-page link, in both languages; every linked route is in the sitemap; the legal and not-found pages render `main#main` with one `h1` |
 | `src/content/claims.test.ts` | no source file states a `FORBIDDEN` phrase, however it is wrapped; no legal placeholder is left once the site has its own domain |
 | `src/content/legal-guard.test.ts` | the build-time guard: legal placeholders render on the sample domain only |
-| `src/design/no-hardcoded-colour.test.ts` | no colour literal outside `src/design/` (colours come from the design tokens) |
-| `pnpm design:check`, `pnpm design:guards` | the generated design files match the export; no colour literal, unknown wrapper class or hand-written vendor prefix |
+| `src/design-system/tokens-only.test.ts` | the classes in every file under `src/` but the generated design files, the tests and the copy (`src/content/`, a part's `content.ts` and `labels`): no palette, white or black colour class, no radius from Tailwind's scale, no `font-sans` or `font-serif`; design-sync's guards report nothing (the parts pass it by construction) |
+| `pnpm design:check`, `pnpm design:guards` | the generated design files match the export (before the first export there is nothing to check); no colour literal, unknown wrapper class or hand-written vendor prefix under `src/` |
 | `pnpm typecheck` | the whole site, parts included, type-checks strictly |

@@ -1,0 +1,31 @@
+/* Open Context design tokens (contract v1) as Tailwind 4 utilities for your own code: bg-oc-surface, text-oc-ink,
+   border-oc-line, bg-oc-brand, text-oc-on-brand, backdrop:bg-oc-scrim/40, rounded-oc … rounded-oc-xl,
+   font-oc-heading, font-oc-body.
+   Import it once in your main stylesheet, after Tailwind: @import "tailwindcss"; @import "<path>/oc-tokens.css";
+   Each utility reads the token your design system sets (design-sync writes them) and falls back to the neutral
+   default below when none is set. It declares no values on :root, so it never overrides a loaded design system. */
+@theme inline {
+  --color-oc-surface: var(--oc-surface, #fff);
+  --color-oc-surface-alt: var(--oc-surface-alt, oklch(98.5% 0 none));
+  --color-oc-surface-sunk: var(--oc-surface-sunk, oklch(97% 0 none));
+  --color-oc-line: var(--oc-line, oklch(92.2% 0 none));
+  --color-oc-line-strong: var(--oc-line-strong, oklch(87% 0 none));
+  --color-oc-ink: var(--oc-ink, oklch(20.5% 0 none));
+  --color-oc-ink-soft: var(--oc-ink-soft, oklch(26.9% 0 none));
+  --color-oc-ink-body: var(--oc-ink-body, oklch(37.1% 0 none));
+  --color-oc-ink-muted: var(--oc-ink-muted, oklch(43.9% 0 none));
+  --color-oc-ink-subtle: var(--oc-ink-subtle, oklch(55.6% 0 none));
+  --color-oc-ink-faint: var(--oc-ink-faint, oklch(70.8% 0 none));
+  --color-oc-brand: var(--oc-brand, oklch(20.5% 0 none));
+  --color-oc-brand-hover: var(--oc-brand-hover, oklch(37.1% 0 none));
+  --color-oc-on-brand: var(--oc-on-brand, #fff);
+  --color-oc-brand-ink: var(--oc-brand-ink, oklch(20.5% 0 none));
+  --color-oc-focus: var(--oc-focus, oklch(20.5% 0 none));
+  --color-oc-scrim: var(--oc-scrim, oklch(20.5% 0 none));
+  --font-oc-body: var(--oc-font-body);
+  --font-oc-heading: var(--oc-font-heading);
+  --radius-oc: var(--oc-radius, 0.25rem);
+  --radius-oc-md: calc(var(--oc-radius, 0.25rem) * 1.5);
+  --radius-oc-lg: calc(var(--oc-radius, 0.25rem) * 2);
+  --radius-oc-xl: calc(var(--oc-radius, 0.25rem) * 3);
+}

@@ -1,9 +1,9 @@
 {
   "source": "design/export/project",
-  "styles": "src/design",
+  "styles": "src/design-system/generated",
   "fonts": "public/fonts",
   "brand": { "from": "assets", "to": "public/brand", "include": ["**/*.svg"] },
-  "catalog": "src/design/catalog.ts",
+  "catalog": "src/design-system/generated/catalog.ts",
   "prefix": "ds-",
-  "approved": []
+  "contract": "design/oc-map.json"
 }

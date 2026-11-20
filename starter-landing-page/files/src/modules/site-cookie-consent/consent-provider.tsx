@@ -29,6 +29,9 @@ export type ConsentValue = {
   openSettings(): void;
 };
 
+/** The banner's layouts, named as in the kit's layout vocabulary. */
+export type ConsentLayout = 'card' | 'bar';
+
 export type ConsentProviderProps = {
   categories: ConsentCategory[];
   /** Raise it to ask everyone again (a changed privacy policy). Default 1. */
@@ -39,6 +42,11 @@ export type ConsentProviderProps = {
    */
   initialState?: ConsentState | null;
   labels?: Partial<ConsentLabels>;
+  /**
+   * The banner's layout. `card` (the default): a floating card above the bottom of the page. `bar`: a full-width bar
+   * at the bottom, the text beside the choices from `lg`.
+   */
+  layout?: ConsentLayout;
   children: ReactNode;
 };
 
@@ -62,7 +70,7 @@ function cookieValue(header: string): string | null {
  * stored until Accept all, Reject all or Save; then one first-party cookie holds the choice. A click on any element
  * inside `[data-consent-open]` opens the dialog.
  */
-export function ConsentProvider({ categories, policyVersion = 1, initialState, labels, children }: ConsentProviderProps) {
+export function ConsentProvider({ categories, policyVersion = 1, initialState, labels, layout = 'card', children }: ConsentProviderProps) {
   const l = useMemo(() => ({ ...CONSENT_LABELS, ...labels }), [labels]);
   const header = useSyncExternalStore(subscribeNever, readCookieHeader, noCookieHeader);
   const [decided, setDecided] = useState<ConsentState | undefined>(undefined);
@@ -115,7 +123,13 @@ export function ConsentProvider({ categories, policyVersion = 1, initialState, l
   return (
     <ConsentContext.Provider value={value}>
       {ready && state === null ? (
-        <ConsentBanner labels={l} onAcceptAll={value.acceptAll} onRejectAll={value.rejectAll} onSettings={value.openSettings} />
+        <ConsentBanner
+          layout={layout}
+          labels={l}
+          onAcceptAll={value.acceptAll}
+          onRejectAll={value.rejectAll}
+          onSettings={value.openSettings}
+        />
       ) : null}
       {children}
       <ConsentDialog
