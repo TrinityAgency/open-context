@@ -1,35 +1,17 @@
 {
   "name": "blog-author-page",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "title": "Author Page",
-  "description": "Author page: name, portrait, bio, website link and that author's posts",
+  "description": "Author page: name, portrait, bio, website link and that author's posts, in the project's design system",
   "type": "page",
   "category": "BLOG",
-  "tags": [
-    "blog",
-    "author",
-    "bio",
-    "posts"
-  ],
-  "stack": [
-    "react",
-    "next",
-    "tailwind",
-    "mdx",
-    "zod"
-  ],
+  "tags": ["blog", "author", "bio", "posts", "design-tokens"],
+  "stack": ["react", "next", "tailwind", "mdx", "zod"],
   "family": "site",
+  "tokens": 1,
   "parts": [
-    {
-      "slug": "blog-content",
-      "version": "1.0.0",
-      "into": "_parts/blog-content"
-    },
-    {
-      "slug": "blog-card",
-      "version": "1.0.0",
-      "into": "_parts/blog-card"
-    }
+    { "slug": "blog-content", "version": "2.0.0", "into": "_parts/blog-content" },
+    { "slug": "blog-card", "version": "2.0.0", "into": "_parts/blog-card" }
   ],
   "outputDir": "app/blog/author/[author]",
   "files": [
@@ -56,7 +38,7 @@
     "_parts/blog-content/reading-time.ts",
     "_parts/blog-content/site-types.ts"
   ],
-  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; parts byte-identical to their pinned versions",
+  "proof": "installs alone on Next 16 at app/blog/author/[author]; default look equals 1.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; parts byte-identical; mutants caught",
   "peerDependencies": {
     "react": ">=19",
     "next": ">=16",
