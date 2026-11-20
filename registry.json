@@ -1084,14 +1084,15 @@
     },
     "blog-index-page": {
       "name": "Blog Index Page",
-      "description": "Blog listing: post cards with a category filter and static pagination, from MDX files",
+      "description": "Blog listing: post cards with a category filter and static pagination, from MDX files, in the project's design system",
       "type": "page",
       "category": "BLOG",
       "tags": [
         "blog",
         "index",
         "listing",
-        "pagination"
+        "pagination",
+        "design-tokens"
       ],
       "stack": [
         "react",
@@ -1101,26 +1102,27 @@
         "zod"
       ],
       "fileCount": 29,
-      "version": "1.0.0",
+      "version": "2.0.0",
       "family": "site",
       "parts": [
         {
           "slug": "blog-content",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "_parts/blog-content"
         },
         {
           "slug": "blog-card",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "_parts/blog-card"
         },
         {
           "slug": "component-pagination",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "_parts/component-pagination"
         }
       ],
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; parts byte-identical to their pinned versions"
+      "proof": "installs alone on Next 16 at app/blog; default look equals 1.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak; parts byte-identical; mutants caught",
+      "tokens": 1
     },
     "blog-newsletter-cta": {
       "name": "Newsletter CTA",
