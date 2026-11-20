@@ -387,7 +387,7 @@ npx @trinity369/use <template>
 
 | Template | Type | Description |
 |---|---|---|
-| `section-cta` | component | Call-to-action band with a title, a line of text and its links |
+| `section-cta` | component | Call-to-action section in three layouts (centered, split, band): a title, a line of text and its links, in the project's design system |
 | `section-faq` | component | FAQ section on native details in two layouts (centered, split), keyboard complete without JavaScript, in the project's design system |
 | `section-features` | component | Features section in three layouts (grid, rows, split) that takes its colours, fonts and radius from the project's design system |
 | `section-hero` | component | Hero section in four layouts (split, centered, image, type) that takes its colours, fonts and radius from the project's design system |
