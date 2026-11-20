@@ -5274,24 +5274,41 @@
     },
     "section-faq": {
       "name": "FAQ Section",
-      "description": "FAQ section on native details: questions open in place, keyboard complete without JavaScript",
+      "description": "FAQ section on native details in two layouts (centered, split), keyboard complete without JavaScript, in the project's design system",
       "type": "component",
       "category": "SECTIONS",
       "tags": [
         "faq",
         "section",
         "details",
-        "accordion"
+        "accordion",
+        "layouts",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "tailwind"
       ],
       "fileCount": 3,
-      "version": "2.0.0",
+      "version": "3.0.0",
       "family": "site",
       "vocabVersion": 1,
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
+      "proof": "installs alone on Next 16; layouts centered, split; answers measured open; default look equals 2.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak",
+      "tokens": 1,
+      "layouts": [
+        {
+          "id": "centered",
+          "title": "Centred",
+          "description": "One column: the title and intro above the questions; the default.",
+          "usage": "<FaqSection layout=\"centered\" content={{ title, intro, items }} />"
+        },
+        {
+          "id": "split",
+          "title": "Split",
+          "description": "The title and intro beside the questions from lg, stacked below.",
+          "usage": "<FaqSection layout=\"split\" content={{ title, intro, items }} />"
+        }
+      ]
     },
     "section-features": {
       "name": "Features Section",
