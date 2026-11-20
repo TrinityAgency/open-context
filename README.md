@@ -171,7 +171,7 @@ npx @trinity369/use <template>
 | `component-image-cropper` | component | Image crop and resize with aspect ratio presets, zoom, and rotation controls |
 | `component-markdown-preview` | component | Live markdown editor with split preview pane and built-in parser |
 | `component-modal-system` | module | Dialog, drawer and alert dialog on native dialog, with focus returned on close, in the project's design system |
-| `component-pagination` | component | Page links from page, page count and an href function, with the pure page-window function |
+| `component-pagination` | component | Page links from page, page count and an href function, with the pure page-window function, in the project's design system |
 | `component-qr-code` | component | QR code generator component with Canvas rendering |
 | `component-signature-pad` | component | Digital signature drawing pad with undo, clear, and PNG/SVG export |
 | `component-slider-range` | component | Single and dual-handle range slider with tooltips, marks, and keyboard navigation |
