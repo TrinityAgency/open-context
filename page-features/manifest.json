@@ -1,38 +1,18 @@
 {
   "name": "page-features",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "title": "Features Page",
-  "description": "Features page: feature groups with icon, text and image, then a call to action",
+  "description": "Features page: feature groups with icon, text and image, then a call to action, in the project's design system; every section takes a layout",
   "type": "page",
   "category": "WEB_DESIGN",
-  "tags": [
-    "features",
-    "marketing",
-    "page",
-    "sections"
-  ],
-  "stack": [
-    "react",
-    "next",
-    "tailwind"
-  ],
+  "tags": ["features", "marketing", "page", "sections", "design-tokens"],
+  "stack": ["react", "next", "tailwind"],
   "family": "site",
+  "tokens": 1,
   "parts": [
-    {
-      "slug": "section-hero",
-      "version": "2.0.0",
-      "into": "_sections/hero"
-    },
-    {
-      "slug": "section-features",
-      "version": "2.0.0",
-      "into": "_sections/features"
-    },
-    {
-      "slug": "section-cta",
-      "version": "2.0.0",
-      "into": "_sections/cta"
-    }
+    { "slug": "section-hero", "version": "3.0.0", "into": "_sections/hero" },
+    { "slug": "section-features", "version": "3.0.0", "into": "_sections/features" },
+    { "slug": "section-cta", "version": "3.0.0", "into": "_sections/cta" }
   ],
   "outputDir": "app/page-features",
   "files": [
@@ -50,11 +30,7 @@
     "_sections/hero/hero-section.tsx",
     "_sections/hero/site-types.ts"
   ],
-  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; sections byte-identical to their pinned versions",
-  "peerDependencies": {
-    "react": ">=19",
-    "next": ">=16",
-    "tailwindcss": ">=4"
-  },
+  "proof": "installs alone on Next 16; sections byte-identical at 3.0.0; default look equals 1.0.0 (groups in rows); 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; mutants caught",
+  "peerDependencies": { "react": ">=19", "next": ">=16", "tailwindcss": ">=4" },
   "postMessage": "Installed at app/page-features/ (served at /page-features; rename the folder for another path). Edit content.ts; see README.md."
 }
