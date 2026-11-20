@@ -177,7 +177,7 @@ npx @trinity369/use <template>
 | `component-slider-range` | component | Single and dual-handle range slider with tooltips, marks, and keyboard navigation |
 | `component-star-rating` | component | Interactive star rating with half-star support, hover preview, and accessible keyboard navigation |
 | `component-stepper` | component | Step progress indicator with labels, validation states, and click navigation |
-| `component-tabs-system` | component | Tabs with roving focus and optional URL sync |
+| `component-tabs-system` | component | Tabs with roving focus and optional URL sync, in the project's design system |
 | `component-tag-input` | component | Tag input with autocomplete suggestions, validation, and keyboard navigation |
 | `component-timeline` | component | Vertical timeline with alternating layout, icons, and scroll animations |
 | `component-toast-notifications` | component | Stacked toast system with success/error/warning/info variants, auto-dismiss, and pause on hover |
