@@ -41,10 +41,37 @@ export default function Pricing() {
 | `comparison-table.tsx` | `ComparisonTable`: the plans side by side |
 | `labels.ts`, `labels.de.ts` | the comparison's fixed strings, English and German |
 | `content.ts` | `LOCALE`, `META` and `CONTENT` (English and German) |
-| `_sections/pricing`, `_sections/faq`, `_sections/cta` | copies of `section-pricing`, `section-faq` and `section-cta` 2.0.0, byte for byte; each folder has its own README |
+| `_sections/pricing`, `_sections/faq`, `_sections/cta` | copies of `section-pricing`, `section-faq` and `section-cta` 3.0.0, byte for byte; each folder has its own README |
 
 The `_sections` folders start with an underscore, so Next never serves them as routes. The sections carry the ids
 `plans`, `faq` and `contact`.
+
+## Layouts
+
+Every section takes a `layout` prop; each section's README lists its layouts (`_sections/<name>/README.md`). Leaving
+it out draws what 1.x drew, so this page looks as before. To change one, pass it where `pricing-page.tsx` calls the
+section, e.g. `<PricingSection layout="rows" … />`.
+
+## Brand
+
+The page's own markup, the title and the comparison table (`comparison-table.tsx`), reads these design tokens (CSS custom properties of the Open Context token
+contract, version 1); each section in `_sections/` reads its own (see its README). Unset, each falls back to the
+neutral value in brackets, so the page looks the same as before with no design system loaded.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-ink` | the title, the table's headings and marks | `oklch(20.5% 0 none)` |
+| `--oc-ink-body` | the intro, the table's cells | `oklch(37.1% 0 none)` |
+| `--oc-ink-faint` | the dash for a feature a plan lacks | `oklch(70.8% 0 none)` |
+| `--oc-line` | the table's rules | `oklch(92.2% 0 none)` |
+| `--oc-line-strong` | the rule under the plan names | `oklch(87% 0 none)` |
+| `--oc-focus` | the focus ring of the scrolling table | `oklch(20.5% 0 none)` |
+| `--oc-radius` | the corners of that ring | `0.25rem` |
+| `--oc-font-heading` | the title and the table's caption | the page's font |
+
+To set them from a claude.ai design system, use the `design-tokens` template (its `design-sync.mjs` writes them as
+aliases of your design's own tokens, light and dark, and checks every pair the page draws) and the
+`design-system-seed` skill.
 
 ## Props
 
@@ -84,6 +111,8 @@ None.
 
 ## Notes
 
-- Neutral colours only, with every margin and box set on the element, so the page looks the same with or without
-  Tailwind's preflight.
+- Every colour is a design token (Brand), with every margin and box set on the element, so the page looks the
+  same with or without Tailwind's preflight. A word wider than the screen breaks instead of running off it.
+- **From 1.x:** the props, the route, the labels and `content.ts` are the same; the page and its sections draw in your
+  design tokens, and every section takes `layout`.
 - To change a section beyond its content, edit its copy under `_sections/`; it is your code now.

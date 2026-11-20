@@ -18,10 +18,10 @@ export function PricingPage({ locale }: { locale: 'en' | 'de' }) {
   const c = CONTENT[locale];
   return (
     <main id="main" tabIndex={-1} className="outline-none">
-      <div className="box-border px-6 pt-16 text-neutral-900">
+      <div className="box-border px-6 pt-16 text-[var(--oc-ink,oklch(20.5%_0_none))] wrap-break-word">
         <div className="mx-auto max-w-5xl">
-          <h1 className="m-0 text-4xl font-semibold tracking-tight text-balance sm:text-5xl">{c.header.title}</h1>
-          <p className="m-0 mt-5 max-w-2xl text-lg text-neutral-700">{c.header.lead}</p>
+          <h1 className="m-0 text-4xl font-semibold tracking-tight text-balance sm:text-5xl font-[family-name:var(--oc-font-heading)]">{c.header.title}</h1>
+          <p className="m-0 mt-5 max-w-2xl text-lg text-[var(--oc-ink-body,oklch(37.1%_0_none))]">{c.header.lead}</p>
         </div>
       </div>
       <PricingSection
