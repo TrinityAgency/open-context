@@ -390,7 +390,7 @@ npx @trinity369/use <template>
 | `section-cta` | component | Call-to-action band with a title, a line of text and its links |
 | `section-faq` | component | FAQ section on native details: questions open in place, keyboard complete without JavaScript |
 | `section-features` | component | Features section: a grid or alternating rows of items with icon, text and image |
-| `section-hero` | component | Hero section: title, lead, calls to action and an optional image, as a server component with typed content |
+| `section-hero` | component | Hero section in four layouts (split, centered, image, type) that takes its colours, fonts and radius from the project's design system |
 | `section-logo-cloud` | component | Logo cloud: a row of client or partner logos, optionally linked |
 | `section-pricing` | component | Pricing section: plans with prices from minor units, a no-JavaScript interval switch and a highlighted plan |
 | `section-stats` | component | Stats section: key figures as a description list |
