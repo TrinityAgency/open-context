@@ -6416,7 +6416,7 @@
     },
     "starter-blog": {
       "name": "Blog Starter",
-      "description": "Blog with MDX posts, authors, categories, RSS and Atom feeds, newsletter signup, cookie consent, SEO, legal and error pages, assembled from the website kit",
+      "description": "Blog with MDX posts, authors, categories, RSS and Atom feeds, newsletter signup, cookie consent, SEO, legal and error pages, assembled from the website kit, all on the design tokens a claude.ai design system sets",
       "type": "starter",
       "category": "STARTER",
       "tags": [
@@ -6424,7 +6424,8 @@
         "blog",
         "mdx",
         "rss",
-        "website"
+        "website",
+        "design-tokens"
       ],
       "stack": [
         "react",
@@ -6433,23 +6434,28 @@
         "mdx",
         "zod"
       ],
-      "fileCount": 176,
-      "version": "1.0.0",
+      "fileCount": 180,
+      "version": "2.0.0",
       "family": "site",
       "parts": [
         {
+          "slug": "design-tokens",
+          "version": "2.0.0",
+          "into": "src/design-system/design-tokens"
+        },
+        {
           "slug": "site-header",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/site-header"
         },
         {
           "slug": "site-footer",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/site-footer"
         },
         {
           "slug": "site-cookie-consent",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/modules/site-cookie-consent"
         },
         {
@@ -6459,17 +6465,17 @@
         },
         {
           "slug": "component-pagination",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/component-pagination"
         },
         {
           "slug": "component-breadcrumbs",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/component-breadcrumbs"
         },
         {
           "slug": "blog-content",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/utils/blog-content"
         },
         {
@@ -6479,41 +6485,42 @@
         },
         {
           "slug": "blog-card",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/blog-card"
         },
         {
           "slug": "blog-newsletter-cta",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/blog-newsletter-cta"
         },
         {
           "slug": "blog-share-buttons",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/blog-share-buttons"
         },
         {
           "slug": "page-legal-imprint",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-legal-imprint"
         },
         {
           "slug": "page-legal-privacy",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-legal-privacy"
         },
         {
           "slug": "page-legal-terms",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-legal-terms"
         },
         {
           "slug": "page-404-error",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-404-error"
         }
       ],
-      "proof": "assembled from its pinned parts byte for byte; installs into an empty folder, passes its tests, lint and build; crawl: no dead link, axe violation or foreign request before consent; feeds parse"
+      "proof": "installs into an empty folder; tests, lint and build pass in English and German; crawled with feeds, consent and legal pages: no dead link, axe violation or other host; no leak under the probe brand",
+      "tokens": 1
     },
     "starter-booking-system": {
       "name": "Booking System Starter",
