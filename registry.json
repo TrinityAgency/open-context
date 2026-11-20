@@ -1455,23 +1455,25 @@
     },
     "component-accordion": {
       "name": "Accordion",
-      "description": "Disclosure list on native details, keyboard complete without JavaScript",
+      "description": "Disclosure list on native details, keyboard complete without JavaScript, in the project's design system",
       "type": "component",
       "category": "COMPONENTS",
       "tags": [
         "accordion",
         "disclosure",
         "details",
-        "faq"
+        "faq",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "tailwind"
       ],
       "fileCount": 2,
-      "version": "1.0.0",
+      "version": "2.0.0",
       "family": "site",
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; keyboard and exclusive mode tested in Chromium"
+      "proof": "installs alone on Next 16; an answer measured open; default look equals 1.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak; keyboard tested",
+      "tokens": 1
     },
     "component-barcode-scanner": {
       "name": "Barcode Scanner",
