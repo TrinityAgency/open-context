@@ -143,7 +143,7 @@ npx @trinity369/use <template>
 | `blog-card` | component | Post preview card in two layouts (stacked, split): image, category, title link, excerpt, date, reading time and authors, as a server component in the project's design system |
 | `blog-category-page` | page | Blog category page: that category's posts with its description and static pagination |
 | `blog-comments-giscus` | component | Blog comments powered by GitHub Discussions via Giscus — zero database needed |
-| `blog-content` | utility | Typed post collection from MDX files: validated front matter, authors and categories, drafts and scheduled posts hidden, headings and reading time |
+| `blog-content` | utility | Typed post collection from MDX files: validated front matter, authors and categories, drafts and scheduled posts hidden, headings and reading time, and the post elements in the project's design system |
 | `blog-index-page` | page | Blog listing: post cards with a category filter and static pagination, from MDX files |
 | `blog-newsletter-cta` | component | Newsletter signup in three layouts (inline, sticky, split): a form on a server action with validation and a honeypot, in the project's design system; double opt-in stays with the provider |
 | `blog-post-page` | page | Blog post: MDX body, table of contents, reading progress, related posts, share links, breadcrumbs and Article data |
