@@ -1122,14 +1122,16 @@
     },
     "blog-newsletter-cta": {
       "name": "Newsletter CTA",
-      "description": "Newsletter signup, inline or sticky: a form on a server action with validation and a honeypot; double opt-in stays with the provider",
+      "description": "Newsletter signup in three layouts (inline, sticky, split): a form on a server action with validation and a honeypot, in the project's design system; double opt-in stays with the provider",
       "type": "component",
       "category": "BLOG",
       "tags": [
         "blog",
         "newsletter",
         "signup",
-        "email"
+        "email",
+        "layouts",
+        "design-tokens"
       ],
       "stack": [
         "react",
@@ -1137,10 +1139,31 @@
         "zod"
       ],
       "fileCount": 7,
-      "version": "1.0.0",
+      "version": "2.0.0",
       "family": "site",
       "vocabVersion": 1,
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; validation and honeypot table-tested; works without JavaScript; mutants caught"
+      "proof": "installs alone on Next 16; layouts inline, sticky, split; default look equals 1.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; no-JS submit; mutants caught",
+      "tokens": 1,
+      "layouts": [
+        {
+          "id": "inline",
+          "title": "Inline",
+          "description": "A full-width band on the sunk tint, the form under the text; the default (1.x variant inline).",
+          "usage": "<NewsletterCta layout=\"inline\" content={{ title, text, privacy }} action={subscribe} />"
+        },
+        {
+          "id": "sticky",
+          "title": "Sticky",
+          "description": "A framed card that stays in view in a column taller than itself (1.x variant sticky).",
+          "usage": "<NewsletterCta layout=\"sticky\" content={{ title, text, privacy }} action={subscribe} />"
+        },
+        {
+          "id": "split",
+          "title": "Split",
+          "description": "The band with the title and text beside the form from md, stacked on a phone.",
+          "usage": "<NewsletterCta layout=\"split\" content={{ title, text, privacy }} action={subscribe} />"
+        }
+      ]
     },
     "blog-post-page": {
       "name": "Blog Post Page",
