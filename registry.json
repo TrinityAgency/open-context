@@ -6657,7 +6657,7 @@
     },
     "starter-landing-page": {
       "name": "Landing Page Starter",
-      "description": "Company landing page assembled from the website kit: header, footer, cookie consent, SEO, eight sections, legal and error pages, with guard tests",
+      "description": "Company landing page assembled from the website kit: header, footer, cookie consent, SEO, eight sections, legal and error pages, all on the design tokens a claude.ai design system sets, with guard tests",
       "type": "starter",
       "category": "STARTER",
       "tags": [
@@ -6665,7 +6665,8 @@
         "landing-page",
         "website",
         "consent",
-        "seo"
+        "seo",
+        "design-tokens"
       ],
       "stack": [
         "react",
@@ -6673,23 +6674,28 @@
         "tailwind",
         "zod"
       ],
-      "fileCount": 124,
-      "version": "1.0.0",
+      "fileCount": 128,
+      "version": "2.0.0",
       "family": "site",
       "parts": [
         {
+          "slug": "design-tokens",
+          "version": "2.0.0",
+          "into": "src/design-system/design-tokens"
+        },
+        {
           "slug": "site-header",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/site-header"
         },
         {
           "slug": "site-footer",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/site-footer"
         },
         {
           "slug": "site-cookie-consent",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/modules/site-cookie-consent"
         },
         {
@@ -6699,66 +6705,67 @@
         },
         {
           "slug": "section-hero",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-hero"
         },
         {
           "slug": "section-logo-cloud",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-logo-cloud"
         },
         {
           "slug": "section-features",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-features"
         },
         {
           "slug": "section-stats",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-stats"
         },
         {
           "slug": "section-testimonials",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-testimonials"
         },
         {
           "slug": "section-pricing",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-pricing"
         },
         {
           "slug": "section-faq",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-faq"
         },
         {
           "slug": "section-cta",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-cta"
         },
         {
           "slug": "page-legal-imprint",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-legal-imprint"
         },
         {
           "slug": "page-legal-privacy",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-legal-privacy"
         },
         {
           "slug": "page-legal-terms",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-legal-terms"
         },
         {
           "slug": "page-404-error",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-404-error"
         }
       ],
-      "proof": "assembled from its pinned parts byte for byte; installs into an empty folder, passes its own tests, lint and build; a crawl finds no dead link, axe violation or foreign request before consent"
+      "proof": "installs into an empty folder; tests, lint and build pass in English and German; crawled with consent, legal pages and no dead link, axe violation or other host; nothing leaks under the probe brand",
+      "tokens": 1
     },
     "starter-marketplace": {
       "name": "Marketplace Starter",
