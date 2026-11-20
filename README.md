@@ -139,7 +139,7 @@ npx @trinity369/use <template>
 
 | Template | Type | Description |
 |---|---|---|
-| `blog-author-page` | page | Author page: name, portrait, bio, website link and that author's posts |
+| `blog-author-page` | page | Author page: name, portrait, bio, website link and that author's posts, in the project's design system |
 | `blog-card` | component | Post preview card in two layouts (stacked, split): image, category, title link, excerpt, date, reading time and authors, as a server component in the project's design system |
 | `blog-category-page` | page | Blog category page: that category's posts with its description and static pagination |
 | `blog-comments-giscus` | component | Blog comments powered by GitHub Discussions via Giscus — zero database needed |
