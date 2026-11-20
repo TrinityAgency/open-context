@@ -157,7 +157,7 @@ npx @trinity369/use <template>
 
 | Template | Type | Description |
 |---|---|---|
-| `component-accordion` | component | Disclosure list on native details, keyboard complete without JavaScript |
+| `component-accordion` | component | Disclosure list on native details, keyboard complete without JavaScript, in the project's design system |
 | `component-barcode-scanner` | component | Camera-based barcode and QR code scanner using BarcodeDetector API |
 | `component-breadcrumbs` | component | Breadcrumb trail with overflow that emits its BreadcrumbList data |
 | `component-code-block` | component | Syntax-highlighted code block with copy button, line numbers, and language badge |
