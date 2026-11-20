@@ -470,7 +470,7 @@ npx @trinity369/use <template>
 | `page-app-download` | page | Mobile app download page with store badges, phone mockup, features grid, screenshot gallery, and QR code section |
 | `page-careers` | page | Job listings page with filters and apply flow |
 | `page-case-study` | page | Case study template with problem, solution, results |
-| `page-changelog` | page | Changelog page: releases from a typed list with version badges, dates and anchor links |
+| `page-changelog` | page | Changelog page: releases from a typed list with version badges, dates and anchor links, in the project's design system |
 | `page-coming-soon` | page | Coming soon page with countdown timer, email capture form, and social links. Dark gradient background with flip-style countdown animation. |
 | `page-contact` | page | Contact page: a form with a server action, spam traps and validation, contact details and a map link |
 | `page-event-landing` | page | Event landing page with speakers, schedule, pricing tiers, and sponsor sections |
