@@ -145,7 +145,7 @@ npx @trinity369/use <template>
 | `blog-comments-giscus` | component | Blog comments powered by GitHub Discussions via Giscus — zero database needed |
 | `blog-content` | utility | Typed post collection from MDX files: validated front matter, authors and categories, drafts and scheduled posts hidden, headings and reading time |
 | `blog-index-page` | page | Blog listing: post cards with a category filter and static pagination, from MDX files |
-| `blog-newsletter-cta` | component | Newsletter signup, inline or sticky: a form on a server action with validation and a honeypot; double opt-in stays with the provider |
+| `blog-newsletter-cta` | component | Newsletter signup in three layouts (inline, sticky, split): a form on a server action with validation and a honeypot, in the project's design system; double opt-in stays with the provider |
 | `blog-post-page` | page | Blog post: MDX body, table of contents, reading progress, related posts, share links, breadcrumbs and Article data |
 | `blog-reading-mode` | component | Distraction-free reading mode toggle — hides nav, widens content, adjusts typography |
 | `blog-rss-sitemap` | utility | RSS 2.0 and Atom feeds and sitemap entries for blog posts, as pure functions for route handlers |
