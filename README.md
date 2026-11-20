@@ -465,7 +465,7 @@ npx @trinity369/use <template>
 
 | Template | Type | Description |
 |---|---|---|
-| `page-404-error` | page | Not-found and error pages with a way onward: views plus two one-line route files |
+| `page-404-error` | page | Not-found and error pages with a way onward: views plus two one-line route files, in the project's design system |
 | `page-about` | page | About page: story, values, figures and team |
 | `page-app-download` | page | Mobile app download page with store badges, phone mockup, features grid, screenshot gallery, and QR code section |
 | `page-careers` | page | Job listings page with filters and apply flow |
