@@ -141,7 +141,7 @@ npx @trinity369/use <template>
 |---|---|---|
 | `blog-author-page` | page | Author page: name, portrait, bio, website link and that author's posts, in the project's design system |
 | `blog-card` | component | Post preview card in two layouts (stacked, split): image, category, title link, excerpt, date, reading time and authors, as a server component in the project's design system |
-| `blog-category-page` | page | Blog category page: that category's posts with its description and static pagination |
+| `blog-category-page` | page | Blog category page: that category's posts with its description and static pagination, in the project's design system |
 | `blog-comments-giscus` | component | Blog comments powered by GitHub Discussions via Giscus — zero database needed |
 | `blog-content` | utility | Typed post collection from MDX files: validated front matter, authors and categories, drafts and scheduled posts hidden, headings and reading time, and the post elements in the project's design system |
 | `blog-index-page` | page | Blog listing: post cards with a category filter and static pagination, from MDX files, in the project's design system |
