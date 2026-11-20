@@ -5863,24 +5863,47 @@
     },
     "site-header": {
       "name": "Site Header",
-      "description": "Responsive site navigation with mobile drawer, skip link and current-page mark",
+      "description": "Responsive site navigation in three layouts (bar, centered, minimal): mobile drawer, skip link and current-page mark, in the project's design system",
       "type": "component",
       "category": "WEB_DESIGN",
       "tags": [
         "header",
         "navigation",
         "navbar",
-        "mobile-menu"
+        "mobile-menu",
+        "layouts",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "tailwind"
       ],
       "fileCount": 7,
-      "version": "1.0.0",
+      "version": "2.0.0",
       "family": "site",
       "vocabVersion": 1,
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight at 390 and 1280 px; axe clean; drawer, menus and skip link tested in Chromium"
+      "proof": "installs alone on Next 16; layouts bar, centered, minimal; default look equals 1.0.0; drawer and sub-menu measured open; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean",
+      "tokens": 1,
+      "layouts": [
+        {
+          "id": "bar",
+          "title": "Bar",
+          "description": "Brand, navigation and call to action in one row from md, a menu button and drawer below; the default.",
+          "usage": "<SiteHeader layout=\"bar\" identity={identity} nav={nav} currentPath={path} />"
+        },
+        {
+          "id": "centered",
+          "title": "Centred",
+          "description": "The brand centred above a centred navigation row from md; a menu button and drawer below.",
+          "usage": "<SiteHeader layout=\"centered\" identity={identity} nav={nav} currentPath={path} />"
+        },
+        {
+          "id": "minimal",
+          "title": "Minimal",
+          "description": "The brand and a menu button at every width; every link lives in the drawer.",
+          "usage": "<SiteHeader layout=\"minimal\" identity={identity} nav={nav} currentPath={path} />"
+        }
+      ]
     },
     "site-seed": {
       "name": "Site Seed",
