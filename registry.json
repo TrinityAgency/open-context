@@ -5842,24 +5842,47 @@
     },
     "site-footer": {
       "name": "Site Footer",
-      "description": "Footer with link columns, contact block, legal links and a cookie-settings hook",
+      "description": "Footer in three layouts (columns, centered, minimal): link columns, contact block, legal links and a cookie-settings hook, in the project's design system",
       "type": "component",
       "category": "WEB_DESIGN",
       "tags": [
         "footer",
         "navigation",
         "legal",
-        "contact"
+        "contact",
+        "layouts",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "tailwind"
       ],
       "fileCount": 5,
-      "version": "1.0.0",
+      "version": "2.0.0",
       "family": "site",
       "vocabVersion": 1,
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
+      "proof": "installs alone on Next 16; layouts columns, centered, minimal; default look equals 1.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak",
+      "tokens": 1,
+      "layouts": [
+        {
+          "id": "columns",
+          "title": "Columns",
+          "description": "The identity beside titled link columns, contact and social links; the legal row below; the default.",
+          "usage": "<SiteFooter layout=\"columns\" identity={identity} columns={columns} legal={legal} />"
+        },
+        {
+          "id": "centered",
+          "title": "Centred",
+          "description": "Everything centred: the identity above the columns, the legal row below it.",
+          "usage": "<SiteFooter layout=\"centered\" identity={identity} columns={columns} legal={legal} />"
+        },
+        {
+          "id": "minimal",
+          "title": "Minimal",
+          "description": "One wrapping row: the name, the address, every link, the legal links and the copyright, no titles.",
+          "usage": "<SiteFooter layout=\"minimal\" identity={identity} columns={columns} legal={legal} />"
+        }
+      ]
     },
     "site-header": {
       "name": "Site Header",
