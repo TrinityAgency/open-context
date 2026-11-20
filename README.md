@@ -492,7 +492,7 @@ npx @trinity369/use <template>
 | `page-waitlist` | page | Pre-launch waitlist page with email signup, animated position counter, social sharing, and referral system |
 | `site-cookie-consent` | module | Consent banner, preferences dialog and a gate that holds back anything non-essential until a choice is made |
 | `site-footer` | component | Footer with link columns, contact block, legal links and a cookie-settings hook |
-| `site-header` | component | Responsive site navigation with mobile drawer, skip link and current-page mark |
+| `site-header` | component | Responsive site navigation in three layouts (bar, centered, minimal): mobile drawer, skip link and current-page mark, in the project's design system |
 | `site-seo` | utility | JSON-LD builders plus canonical and Open Graph helpers |
 
 ## How it works
