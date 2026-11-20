@@ -10,7 +10,7 @@ import { TeamGrid } from './team-grid';
 
 /**
  * The about page: hero, story, values, figures, team and a call to action. Server component;
- * src/app/about/page.tsx renders it with LOCALE. Derived from `page-about` 1.0.0; its text is ABOUT_PAGE in
+ * src/app/about/page.tsx renders it with LOCALE. Derived from `page-about` 2.0.0; its text is ABOUT_PAGE in
  * src/content/pages.ts.
  */
 export function AboutPage({ locale }: { locale: Locale }) {

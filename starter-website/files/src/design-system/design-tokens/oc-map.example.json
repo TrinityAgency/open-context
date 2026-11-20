@@ -1,0 +1,25 @@
+{
+  "contract": 1,
+  "map": {
+    "surface": "surface-100",
+    "surface-alt": "surface-200",
+    "surface-sunk": "surface-300",
+    "line": "border",
+    "line-strong": "border-strong",
+    "ink": "ink",
+    "ink-soft": "ink-2",
+    "ink-body": "ink-3",
+    "ink-muted": "ink-4",
+    "ink-subtle": "ink-5",
+    "ink-faint": null,
+    "brand": "accent",
+    "brand-hover": "accent-hover",
+    "on-brand": "on-accent",
+    "brand-ink": "accent-text",
+    "focus": "focus",
+    "scrim": null,
+    "font-body": "sans",
+    "font-heading": "display",
+    "radius": "radius-md"
+  }
+}

@@ -45,6 +45,26 @@ SHARE_NETWORKS.map((network) => shareHref(network, { url, title }));
 
 Title and URL are encoded with `encodeURIComponent`, so `&`, `#` and `?` in either arrive intact.
 
+## Brand
+
+The links and buttons read these design tokens (CSS custom properties of the Open Context token contract, version 1).
+Unset, each falls back to the neutral value in brackets, so they look the same as before with no design system loaded.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-surface` | the links' and buttons' ground | `#fff` |
+| `--oc-line-strong` | their border | `oklch(87% 0 none)` |
+| `--oc-ink` | their text, the title line, their border under the pointer | `oklch(20.5% 0 none)` |
+| `--oc-ink-body` | the copy status | `oklch(37.1% 0 none)` |
+| `--oc-focus` | the focus ring | `oklch(20.5% 0 none)` |
+| `--oc-radius` | the corners (1.5 ×) | `0.25rem` |
+| `--oc-font-body` | every text | the page's font |
+
+To set them from a claude.ai design system, use the `design-tokens` template (its `design-sync.mjs` writes them as
+aliases of your design's own tokens, light and dark, and checks the pairs these draw: ink and body text on the
+surface, the focus ring) and the `design-system-seed` skill. To set them by hand, declare them once in your global
+stylesheet, e.g. `:root { --oc-ink: #1d2433; --oc-line-strong: #c7cfdb; }`.
+
 ## Props
 
 | Prop | |
@@ -96,8 +116,12 @@ import { SHARE_LABELS_DE } from '@/components/blog-share-buttons/labels.de';
 - The links carry `rel="noopener noreferrer"`: the network gets the page you share, not the page you came from.
 - Copy link needs a secure page (`https://` or `localhost`); browsers give the clipboard to no other.
 - Text links with network names, no brand logos: no icon package and no trademarks in your bundle.
-- Neutral colours only, with every margin and box set on the element, so it looks the same with or without
-  Tailwind's preflight.
+- Every colour is a design token (Brand), with every margin and box set on the element, so it looks the same with or
+  without Tailwind's preflight.
+- A link or button whose label is wider than the row wraps between words and grows in height; a single word wider
+  than the screen does not break inside it (no network name or label is that long).
+- **From 2.x:** no change is needed: the props and labels are the same. The links and buttons draw in your design
+  tokens (above), in your design's body font when it sets one.
 - **From 1.0.0:** `url`, `title` and `className` work as before. The networks are now links rather than buttons
   that open a popup window, Bluesky, WhatsApp and email were added, and native share and copy link appear only where
   the browser has them. Reinstalling replaces `share-buttons.tsx` and adds the new files.

@@ -10,11 +10,11 @@ export type ComparisonTableProps = {
   labels?: Partial<ComparisonLabels>;
 };
 
-const CELL = 'border-b border-neutral-200 px-4 py-3 align-top';
+const CELL = 'border-b border-oc-line px-4 py-3 align-top';
 
 function Check() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth={1.75} className="block size-5 text-neutral-900">
+    <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth={1.75} className="block size-5 text-oc-ink">
       <path d="M4.5 10.5l3.5 3.5 7.5-8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -22,7 +22,7 @@ function Check() {
 
 function Dash() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth={1.5} className="block size-5 text-neutral-400">
+    <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth={1.5} className="block size-5 text-oc-ink-faint">
       <path d="M6 10h8" strokeLinecap="round" />
     </svg>
   );
@@ -53,21 +53,21 @@ export function ComparisonTable({ content, labels }: ComparisonTableProps) {
     );
 
   return (
-    <div className="box-border px-6 py-16 text-neutral-900">
+    <div className="box-border px-6 py-16 text-oc-ink wrap-break-word">
       <div className="mx-auto max-w-5xl">
         <div
           role="region"
           aria-label={l.table}
           tabIndex={0}
-          className="relative overflow-x-auto rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
+          className="relative overflow-x-auto rounded-oc focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oc-focus"
         >
           <table className="w-full min-w-[40rem] border-collapse text-left text-sm">
-            <caption className="m-0 mb-6 p-0 text-left text-3xl font-semibold tracking-tight">{title}</caption>
+            <caption className="m-0 mb-6 p-0 text-left text-3xl font-semibold tracking-tight font-oc-heading">{title}</caption>
             <thead>
               <tr>
-                <td className="border-b border-neutral-300 px-4 py-3" />
+                <td className="border-b border-oc-line-strong px-4 py-3" />
                 {plans.map((plan) => (
-                  <th key={plan.id} scope="col" className="border-b border-neutral-300 px-4 py-3 text-left text-base font-semibold">
+                  <th key={plan.id} scope="col" className="border-b border-oc-line-strong px-4 py-3 text-left text-base font-semibold">
                     {plan.name}
                   </th>
                 ))}
@@ -76,7 +76,7 @@ export function ComparisonTable({ content, labels }: ComparisonTableProps) {
             <tbody>
               {rows.map((row, i) => (
                 <tr key={i}>
-                  <th scope="row" className={`${CELL} text-left font-normal text-neutral-700`}>
+                  <th scope="row" className={`${CELL} text-left font-normal text-oc-ink-body`}>
                     {row.feature}
                   </th>
                   {plans.map((plan) => (

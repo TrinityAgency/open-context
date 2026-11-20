@@ -8,7 +8,7 @@ import { FEATURES_PAGE } from '@/content/pages';
 /**
  * The features page: a hero, one section per feature group (one item per row, the image side alternating) and a
  * call to action. Server component; src/app/features/page.tsx renders it with LOCALE. Derived from `page-features`
- * 1.0.0; its text is FEATURES_PAGE in src/content/pages.ts.
+ * 2.0.0; its text is FEATURES_PAGE in src/content/pages.ts.
  */
 export function FeaturesPage({ locale }: { locale: Locale }) {
   const c = FEATURES_PAGE[locale];

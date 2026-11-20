@@ -14,16 +14,16 @@ import { COMPARISON_LABELS } from './labels';
 /**
  * The pricing page: a header, the plans with their interval switch, a comparison table, questions and a call to
  * action, with the questions as FAQPage data. Server component; src/app/pricing/page.tsx renders it with LOCALE.
- * Derived from `page-pricing` 1.0.0; its text is PRICING_PAGE in src/content/pages.ts.
+ * Derived from `page-pricing` 2.0.0; its text is PRICING_PAGE in src/content/pages.ts.
  */
 export function PricingPage({ locale }: { locale: Locale }) {
   const c = PRICING_PAGE[locale];
   return (
     <main id="main" tabIndex={-1} className="outline-none">
-      <div className="box-border px-6 pt-16 text-neutral-900">
+      <div className="box-border px-6 pt-16 text-oc-ink wrap-break-word">
         <div className="mx-auto max-w-5xl">
-          <h1 className="m-0 text-4xl font-semibold tracking-tight text-balance sm:text-5xl">{c.header.title}</h1>
-          <p className="m-0 mt-5 max-w-2xl text-lg text-neutral-700">{c.header.lead}</p>
+          <h1 className="m-0 text-4xl font-semibold tracking-tight text-balance sm:text-5xl font-oc-heading">{c.header.title}</h1>
+          <p className="m-0 mt-5 max-w-2xl text-lg text-oc-ink-body">{c.header.lead}</p>
         </div>
       </div>
       <PricingSection

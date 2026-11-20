@@ -4,19 +4,20 @@
 @layer theme, base, components, utilities;
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/utilities.css' layer(utilities);
-/* Uncomment after the first design:sync (pnpm design:sync writes both files into src/design/):
-@import '../design/tokens.css';
-@import '../design/components.css';
-*/
+/* The design, written by `pnpm design:sync` from design/export/ (until the first sync these two files define
+   nothing, and every colour, font and corner keeps the design tokens' neutral default). */
+@import '../design-system/generated/tokens.css';
+@import '../design-system/generated/components.css';
+/* The design tokens as utilities for this site's own code: bg-oc-surface, text-oc-ink, border-oc-line,
+   rounded-oc-lg, font-oc-heading (src/design-system/design-tokens/README.md lists them all). */
+@import '../design-system/design-tokens/oc-tokens.css';
+
+/* The page's font until a design sets one: Tailwind's sans stack. The body's font-oc-body (layout.tsx) takes over
+   once the design maps font-body. */
+html {
+  font-family: var(--font-sans);
+}
 
 body {
   margin: 0;
 }
-
-/* After the first design:sync, let Tailwind utilities read the design tokens, so no colour is written here
-   (src/design/no-hardcoded-colour.test.ts and design:guards refuse one). One line per colour token, e.g.:
-@theme inline {
-  --color-ink: var(--ink);
-  --color-paper: var(--paper);
-}
-   Fonts need no mapping when tokens.css defines --font-sans, which Tailwind's font-sans picks up. */

@@ -14,10 +14,10 @@ export type ContactFormProps = {
 };
 
 const INITIAL: ContactResult = { status: 'idle' };
-const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
-const LABEL = 'm-0 block text-sm font-medium text-neutral-900';
-const FIELD = `m-0 mt-1.5 box-border block w-full appearance-none rounded-md border border-solid border-neutral-300 bg-white px-3 py-2 font-sans text-base text-neutral-900 aria-invalid:border-neutral-900 ${FOCUS}`;
-const ERROR = 'm-0 mt-1.5 text-sm font-medium text-neutral-900';
+const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--oc-focus,oklch(20.5%_0_none))]';
+const LABEL = 'm-0 block text-sm font-medium text-[var(--oc-ink,oklch(20.5%_0_none))]';
+const FIELD = `m-0 mt-1.5 box-border block w-full appearance-none rounded-[calc(var(--oc-radius,0.25rem)*1.5)] border border-solid border-[var(--oc-line-strong,oklch(87%_0_none))] bg-[var(--oc-surface,#fff)] px-3 py-2 font-[family-name:var(--oc-font-body)] text-base text-[var(--oc-ink,oklch(20.5%_0_none))] aria-invalid:border-[var(--oc-ink,oklch(20.5%_0_none))] ${FOCUS}`;
+const ERROR = 'm-0 mt-1.5 text-sm font-medium text-[var(--oc-ink,oklch(20.5%_0_none))]';
 
 /**
  * The contact form: name, email and message, sent through a server action. Client island. It works before
@@ -54,7 +54,7 @@ export function ContactForm({ startedAt, labels, notice }: ContactFormProps) {
   };
 
   return (
-    <form action={formAction} className="m-0 grid min-w-0 gap-5">
+    <form action={formAction} className="m-0 grid min-w-0 grid-cols-1 gap-5">
       <div>
         <label htmlFor={`${id}-name`} className={LABEL}>
           {labels.name}
@@ -86,17 +86,17 @@ export function ContactForm({ startedAt, labels, notice }: ContactFormProps) {
       </div>
       <input type="hidden" name="startedAt" value={kept?.startedAt ?? startedAt} />
 
-      {notice ? <p className="m-0 text-sm text-neutral-600">{notice}</p> : null}
+      {notice ? <p className="m-0 text-sm text-[var(--oc-ink-muted,oklch(43.9%_0_none))]">{notice}</p> : null}
       <div>
         <button
           type="submit"
           disabled={pending}
-          className={`m-0 box-border inline-flex h-10 appearance-none items-center justify-center rounded-md border border-solid border-neutral-900 bg-neutral-900 px-4 font-sans text-sm font-medium text-white hover:bg-neutral-700 disabled:cursor-wait disabled:opacity-60 ${FOCUS}`}
+          className={`m-0 box-border inline-flex min-h-10 max-w-full appearance-none items-center justify-center rounded-[calc(var(--oc-radius,0.25rem)*1.5)] border border-solid border-[var(--oc-brand,oklch(20.5%_0_none))] bg-[var(--oc-brand,oklch(20.5%_0_none))] px-4 py-2 text-center font-[family-name:var(--oc-font-body)] text-sm font-medium wrap-anywhere text-[var(--oc-on-brand,#fff)] hover:bg-[var(--oc-brand-hover,oklch(37.1%_0_none))] disabled:cursor-wait disabled:opacity-60 ${FOCUS}`}
         >
           {pending ? labels.sending : labels.submit}
         </button>
       </div>
-      <p role="status" className="m-0 text-sm font-medium text-neutral-900">
+      <p role="status" className="m-0 text-sm font-medium text-[var(--oc-ink,oklch(20.5%_0_none))]">
         {state.status === 'sent' ? labels.sent : state.status === 'failed' ? labels.failed : null}
       </p>
     </form>

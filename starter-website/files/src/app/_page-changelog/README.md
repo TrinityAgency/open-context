@@ -54,6 +54,31 @@ import { CHANGELOG_LABELS_DE } from '@/app/page-changelog/labels.de';
   read as written, so every visitor sees the same day whatever their time zone. A date that does not exist
   (`2026-02-30`) throws a `RangeError` at build time instead of showing a wrong day.
 
+## Brand
+
+The page reads these design tokens (CSS custom properties of the Open Context token contract, version 1). Unset, each
+falls back to the neutral value in brackets, so the page looks the same as before with no design system loaded.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-ink` | the title, the release headings, the version labels, a permalink under the pointer | `oklch(20.5% 0 none)` |
+| `--oc-ink-body` | the intro and the changes | `oklch(37.1% 0 none)` |
+| `--oc-ink-muted` | the dates | `oklch(43.9% 0 none)` |
+| `--oc-ink-subtle` | the permalink icons | `oklch(55.6% 0 none)` |
+| `--oc-ink-faint` | the dot before each change (decoration) | `oklch(70.8% 0 none)` |
+| `--oc-line-strong` | the outline of a version label | `oklch(87% 0 none)` |
+| `--oc-surface-sunk` | a permalink under the pointer | `oklch(97% 0 none)` |
+| `--oc-brand` | the newest release's label | `oklch(20.5% 0 none)` |
+| `--oc-on-brand` | its text | `#fff` |
+| `--oc-focus` | the focus ring | `oklch(20.5% 0 none)` |
+| `--oc-radius` | the corners (a version label and a permalink at 1.5 times it) | `0.25rem` |
+| `--oc-font-heading` | the title, the release and group headings | the page's font |
+
+To set them from a claude.ai design system, use the `design-tokens` template (its `design-sync.mjs` writes them as
+aliases of your design's own tokens, light and dark, and checks every pair the page draws) and the
+`design-system-seed` skill. To set them by hand, declare them once in your global stylesheet, e.g.
+`:root { --oc-ink: #1d2433; --oc-line: #dfe3ea; }`.
+
 ## Props
 
 `Changelog`:
@@ -90,6 +115,8 @@ None.
 
 ## Notes
 
-- Neutral colours only, with every margin and box set on the element, so the page looks the same with or without
-  Tailwind's preflight.
+- Every colour is a design token (Brand), with every margin and box set on the element, so the page looks the
+  same with or without Tailwind's preflight. A word wider than the screen breaks instead of running off it.
+- **From 1.x:** the props, the route and `content.ts` are the same; the page draws in your design tokens, and a
+  version keeps the kit's monospace (`font-mono`, as code does).
 - The newest release (after sorting) carries the "Latest" badge.

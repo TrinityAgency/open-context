@@ -22,17 +22,17 @@ export function ImprintDocument({ content, labels }: ImprintDocumentProps) {
   const { title, groups } = content;
 
   return (
-    <div className="box-border px-6 py-16 text-neutral-900">
+    <div className="box-border px-6 py-16 text-[var(--oc-ink,oklch(20.5%_0_none))] wrap-break-word">
       <div className="mx-auto max-w-3xl">
-        <h1 className="m-0 text-4xl font-semibold tracking-tight">{title}</h1>
+        <h1 className="m-0 text-4xl font-semibold tracking-tight font-[family-name:var(--oc-font-heading)]">{title}</h1>
         {groups.map((group, i) => (
           <section key={i} className="mt-12">
-            <h2 className="m-0 text-xl font-semibold tracking-tight">{group.title}</h2>
+            <h2 className="m-0 text-xl font-semibold tracking-tight font-[family-name:var(--oc-font-heading)]">{group.title}</h2>
             {group.entries.length > 0 ? (
-              <dl className="m-0 mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-[minmax(0,14rem)_minmax(0,1fr)]">
+              <dl className="m-0 mt-4 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-[minmax(0,14rem)_minmax(0,1fr)]">
                 {group.entries.map((entry, j) => (
                   <div key={j} className="contents">
-                    <dt className="m-0 text-sm font-medium text-neutral-600">{entry.label}</dt>
+                    <dt className="m-0 text-sm font-medium text-[var(--oc-ink-muted,oklch(43.9%_0_none))]">{entry.label}</dt>
                     <dd className="m-0 min-w-0">
                       <LegalText text={entry.value} placeholderLabel={l.placeholder} />
                     </dd>

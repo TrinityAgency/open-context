@@ -15,7 +15,7 @@ import type { Blog } from '@/utils/blog-content/blog';
 
 const CARD_LABELS = { en: BLOG_CARD_LABELS, de: BLOG_CARD_LABELS_DE };
 const LINK =
-  'rounded-sm font-medium text-neutral-900 underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  'rounded-oc font-medium text-oc-ink underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oc-focus';
 
 export type HomePageProps = {
   locale: Locale;
@@ -41,9 +41,9 @@ export async function HomePage({ locale, blog = defaultBlog }: HomePageProps) {
       <StatsSection content={c.stats} />
       <TestimonialsSection content={c.testimonials} />
       {latest.length ? (
-        <section aria-labelledby="home-latest" className="box-border px-6 py-16 text-neutral-900">
+        <section aria-labelledby="home-latest" className="box-border px-6 py-16 text-oc-ink wrap-break-word">
           <div className="mx-auto max-w-5xl">
-            <h2 id="home-latest" className="m-0 text-3xl font-semibold tracking-tight">
+            <h2 id="home-latest" className="m-0 text-3xl font-semibold tracking-tight font-oc-heading">
               {c.latest.title}
             </h2>
             <ul className="m-0 mt-10 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3">

@@ -1,5 +1,5 @@
-// Derived from blog-post-page 1.0.0 (same markup): parts through @/, text from src/content/blog.ts, plus the
-// newsletter signup in the aside under the table of contents.
+// Derived from blog-post-page 2.0.0 (same markup, its tokens as design-tokens' utilities): parts through @/, text from
+// src/content/blog.ts, plus the newsletter signup in the aside under the table of contents.
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { subscribeAction } from '@/app/newsletter-action';
@@ -31,7 +31,7 @@ const LABELS = {
   de: { card: BLOG_CARD_LABELS_DE, share: SHARE_LABELS_DE, trail: BREADCRUMBS_LABELS_DE, newsletter: NEWSLETTER_LABELS_DE },
 };
 const AUTHOR_LINK =
-  'text-neutral-900 underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  'text-oc-ink underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oc-focus';
 // The aside holds the table of contents (2+ headings) and the signup. Below lg it sits above the post and shows only
 // the table of contents (the header's Subscribe link leads to the signup on the home page); without one it is hidden.
 const ASIDE = 'min-w-0 lg:sticky lg:top-6 lg:col-start-2 lg:row-start-1 lg:self-start';
@@ -85,16 +85,16 @@ export async function PostPage({ locale, slug, blog = defaultBlog }: PostPagePro
   return (
     <>
       <ReadingProgress targetId="post-body" />
-      <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-10 text-neutral-900 outline-none sm:px-6">
+      <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-10 text-oc-ink outline-none wrap-break-word sm:px-6">
         <Breadcrumbs items={trail} baseUrl={site.url} labels={l.trail} LinkComponent={Link} />
 
         <header className="mt-8 max-w-3xl">
           {category ? (
-            <p className="m-0 text-xs font-semibold uppercase tracking-wide text-neutral-600">{category.name}</p>
+            <p className="m-0 text-xs font-semibold uppercase tracking-wide text-oc-ink-muted">{category.name}</p>
           ) : null}
-          <h1 className="m-0 mt-2 text-4xl font-bold leading-tight">{post.title}</h1>
-          <p className="m-0 mt-4 text-lg leading-relaxed text-neutral-700">{post.description}</p>
-          <p className="m-0 mt-5 text-sm leading-relaxed text-neutral-600">
+          <h1 className="m-0 mt-2 text-4xl font-bold leading-tight font-oc-heading">{post.title}</h1>
+          <p className="m-0 mt-4 text-lg leading-relaxed text-oc-ink-body">{post.description}</p>
+          <p className="m-0 mt-5 text-sm leading-relaxed text-oc-ink-muted">
             {t.post.published} <time dateTime={post.publishedAt}>{formatPostDate(post.publishedAt, locale)}</time>
             {post.updatedAt ? (
               <>
@@ -120,7 +120,7 @@ export async function PostPage({ locale, slug, blog = defaultBlog }: PostPagePro
             alt={post.image.alt}
             width={post.image.width}
             height={post.image.height}
-            className="m-0 mt-8 block h-auto w-full max-w-3xl rounded-lg"
+            className="m-0 mt-8 block h-auto w-full max-w-3xl rounded-oc-lg"
           />
         ) : null}
 
@@ -130,7 +130,7 @@ export async function PostPage({ locale, slug, blog = defaultBlog }: PostPagePro
             <NewsletterCta
               content={t.newsletter}
               action={subscribeAction}
-              variant="sticky"
+              layout="sticky"
               labels={l.newsletter}
               LinkComponent={Link}
               className={toc ? 'mt-8 hidden lg:block' : 'hidden lg:block'}
@@ -145,12 +145,12 @@ export async function PostPage({ locale, slug, blog = defaultBlog }: PostPagePro
           url={absoluteUrl(paths.post(post.slug), site.url)}
           title={post.title}
           labels={l.share}
-          className="mt-12 max-w-3xl border-t border-neutral-200 pt-8"
+          className="mt-12 max-w-3xl border-t border-oc-line pt-8"
         />
 
         {related.length ? (
           <section aria-labelledby="post-page-related" className="mt-16">
-            <h2 id="post-page-related" className="m-0 text-2xl font-bold">
+            <h2 id="post-page-related" className="m-0 text-2xl font-bold font-oc-heading">
               {t.post.related}
             </h2>
             <ul className="m-0 mt-6 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3">

@@ -51,7 +51,7 @@ export type ContactPageContent = {
 };
 
 // Sample pictures as inline SVG, so nothing loads from another host. Replace them with your own files under public/.
-// Greys are black at an opacity: no colour literal outside src/design/ (src/design/no-hardcoded-colour.test.ts).
+// Greys are black at an opacity: no colour literal anywhere under src/ (design-sync's guards, run by pnpm test).
 const g = (opacity: number) => `fill="black" fill-opacity="${opacity}"`;
 const svg = (viewBox: string, body: string) =>
   'data:image/svg+xml,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}">${body}</svg>`);
