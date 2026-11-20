@@ -1,22 +1,14 @@
 {
   "name": "page-404-error",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "title": "Not-Found and Error Pages",
-  "description": "Not-found and error pages with a way onward: views plus two one-line route files",
+  "description": "Not-found and error pages with a way onward: views plus two one-line route files, in the project's design system",
   "type": "page",
   "category": "WEB_DESIGN",
-  "tags": [
-    "404",
-    "error",
-    "not-found",
-    "page"
-  ],
-  "stack": [
-    "react",
-    "next",
-    "tailwind"
-  ],
+  "tags": ["404", "error", "not-found", "page", "design-tokens"],
+  "stack": ["react", "next", "tailwind"],
   "family": "site",
+  "tokens": 1,
   "vocabVersion": 1,
   "outputDir": "app/page-404-error",
   "files": [
@@ -30,11 +22,7 @@
     "not-found-view.tsx",
     "site-types.ts"
   ],
-  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean",
-  "peerDependencies": {
-    "react": ">=19",
-    "next": ">=16",
-    "tailwindcss": ">=4"
-  },
+  "proof": "installs alone on Next 16 with its README route files; default look of both views equals 1.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; mutants caught",
+  "peerDependencies": { "react": ">=19", "next": ">=16", "tailwindcss": ">=4" },
   "postMessage": "Add app/not-found.tsx and app/error.tsx as shown in app/page-404-error/README.md (one line each)."
 }
