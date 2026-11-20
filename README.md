@@ -419,7 +419,7 @@ npx @trinity369/use <template>
 | `starter-healthcare-portal` | starter | Next.js 14 healthcare patient portal with appointments, health records, doctor profiles, multi-step booking, and department directory. Teal/cyan theme. TypeScript, Tailwind CSS, App Router. |
 | `starter-inventory` | starter | Inventory management with products and stock tracking |
 | `starter-job-board` | starter | Next.js 14 job board starter with job listings, search filters, company profiles, application forms, and employer posting. Blue/indigo theme. TypeScript, Tailwind CSS, App Router. |
-| `starter-landing-page` | starter | Company landing page assembled from the website kit: header, footer, cookie consent, SEO, eight sections, legal and error pages, with guard tests |
+| `starter-landing-page` | starter | Company landing page assembled from the website kit: header, footer, cookie consent, SEO, eight sections, legal and error pages, all on the design tokens a claude.ai design system sets, with guard tests |
 | `starter-marketplace` | starter | Two-sided marketplace with listings and profiles |
 | `starter-portfolio` | starter | Portfolio site assembled from the website kit: projects from MDX files with disciplines, services, about, contact form, MDX blog with feeds, cookie consent, SEO, legal and error pages |
 | `starter-project-management` | starter | Project management with tasks, boards, and timelines |
