@@ -32,7 +32,7 @@ const LABELS = {
   de: { page: POST_PAGE_LABELS_DE, card: BLOG_CARD_LABELS_DE, share: SHARE_LABELS_DE, trail: BREADCRUMBS_LABELS_DE },
 };
 const AUTHOR_LINK =
-  'text-neutral-900 underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900';
+  'text-[var(--oc-ink,oklch(20.5%_0_none))] underline underline-offset-2 hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--oc-focus,oklch(20.5%_0_none))]';
 const MDX = mdxComponents({ LinkComponent: Link });
 
 export type PostPageProps = {
@@ -80,16 +80,16 @@ export async function PostPage({ locale, slug, blog = defaultBlog }: PostPagePro
   return (
     <>
       <ReadingProgress targetId="post-body" />
-      <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-10 text-neutral-900 outline-none sm:px-6">
+      <main id="main" tabIndex={-1} className="mx-auto box-border w-full max-w-6xl px-4 py-10 text-[var(--oc-ink,oklch(20.5%_0_none))] outline-none wrap-break-word sm:px-6">
         <Breadcrumbs items={trail} baseUrl={site.url} labels={l.trail} LinkComponent={Link} />
 
         <header className="mt-8 max-w-3xl">
           {category ? (
-            <p className="m-0 text-xs font-semibold uppercase tracking-wide text-neutral-600">{category.name}</p>
+            <p className="m-0 text-xs font-semibold uppercase tracking-wide text-[var(--oc-ink-muted,oklch(43.9%_0_none))]">{category.name}</p>
           ) : null}
-          <h1 className="m-0 mt-2 text-4xl font-bold leading-tight">{post.title}</h1>
-          <p className="m-0 mt-4 text-lg leading-relaxed text-neutral-700">{post.description}</p>
-          <p className="m-0 mt-5 text-sm leading-relaxed text-neutral-600">
+          <h1 className="m-0 mt-2 text-4xl font-bold leading-tight font-[family-name:var(--oc-font-heading)]">{post.title}</h1>
+          <p className="m-0 mt-4 text-lg leading-relaxed text-[var(--oc-ink-body,oklch(37.1%_0_none))]">{post.description}</p>
+          <p className="m-0 mt-5 text-sm leading-relaxed text-[var(--oc-ink-muted,oklch(43.9%_0_none))]">
             {l.page.published} <time dateTime={post.publishedAt}>{formatPostDate(post.publishedAt, locale)}</time>
             {post.updatedAt ? (
               <>
@@ -115,7 +115,7 @@ export async function PostPage({ locale, slug, blog = defaultBlog }: PostPagePro
             alt={post.image.alt}
             width={post.image.width}
             height={post.image.height}
-            className="m-0 mt-8 block h-auto w-full max-w-3xl rounded-lg"
+            className="m-0 mt-8 block h-auto w-full max-w-3xl rounded-[calc(var(--oc-radius,0.25rem)*2)]"
           />
         ) : null}
 
@@ -134,12 +134,12 @@ export async function PostPage({ locale, slug, blog = defaultBlog }: PostPagePro
           url={absoluteUrl(paths.post(post.slug), site.url)}
           title={post.title}
           labels={l.share}
-          className="mt-12 max-w-3xl border-t border-neutral-200 pt-8"
+          className="mt-12 max-w-3xl border-t border-[var(--oc-line,oklch(92.2%_0_none))] pt-8"
         />
 
         {related.length ? (
           <section aria-labelledby="post-page-related" className="mt-16">
-            <h2 id="post-page-related" className="m-0 text-2xl font-bold">
+            <h2 id="post-page-related" className="m-0 text-2xl font-bold font-[family-name:var(--oc-font-heading)]">
               {l.page.related}
             </h2>
             <ul className="m-0 mt-6 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3">

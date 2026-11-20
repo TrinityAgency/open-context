@@ -1,50 +1,20 @@
 {
   "name": "blog-post-page",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "title": "Blog Post Page",
-  "description": "Blog post: MDX body, table of contents, reading progress, related posts, share links, breadcrumbs and Article data",
+  "description": "Blog post: MDX body, table of contents, reading progress, related posts, share links, breadcrumbs and Article data, in the project's design system",
   "type": "page",
   "category": "BLOG",
-  "tags": [
-    "blog",
-    "post",
-    "article",
-    "toc"
-  ],
-  "stack": [
-    "react",
-    "next",
-    "tailwind",
-    "mdx",
-    "zod"
-  ],
+  "tags": ["blog", "post", "article", "toc", "design-tokens"],
+  "stack": ["react", "next", "tailwind", "mdx", "zod"],
   "family": "site",
+  "tokens": 1,
   "parts": [
-    {
-      "slug": "blog-content",
-      "version": "1.0.0",
-      "into": "_parts/blog-content"
-    },
-    {
-      "slug": "blog-card",
-      "version": "1.0.0",
-      "into": "_parts/blog-card"
-    },
-    {
-      "slug": "component-breadcrumbs",
-      "version": "1.0.0",
-      "into": "_parts/component-breadcrumbs"
-    },
-    {
-      "slug": "blog-share-buttons",
-      "version": "2.0.0",
-      "into": "_parts/blog-share-buttons"
-    },
-    {
-      "slug": "site-seo",
-      "version": "1.0.0",
-      "into": "_parts/site-seo"
-    }
+    { "slug": "blog-content", "version": "2.0.0", "into": "_parts/blog-content" },
+    { "slug": "blog-card", "version": "2.0.0", "into": "_parts/blog-card" },
+    { "slug": "component-breadcrumbs", "version": "2.0.0", "into": "_parts/component-breadcrumbs" },
+    { "slug": "blog-share-buttons", "version": "3.0.0", "into": "_parts/blog-share-buttons" },
+    { "slug": "site-seo", "version": "1.0.0", "into": "_parts/site-seo" }
   ],
   "outputDir": "app/blog/[slug]",
   "files": [
@@ -92,7 +62,7 @@
     "_parts/site-seo/metadata.ts",
     "_parts/site-seo/site-types.ts"
   ],
-  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; parts byte-identical to their pinned versions",
+  "proof": "installs alone on Next 16 at app/blog/[slug]; default look equals 1.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak; parts byte-identical; mutants caught",
   "peerDependencies": {
     "react": ">=19",
     "next": ">=16",

@@ -48,13 +48,36 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
 | `reading-progress.tsx` | `ReadingProgress` (the bar) and `readingProgress` (the pure measure) |
 | `content.ts` | `LOCALE`, `SITE`, `OG_LOCALE` and `BLOG` |
 | `labels.ts`, `labels.de.ts` | the page's own labels |
-| `_parts/blog-content` | a copy of `blog-content` 1.0.0, byte for byte: reads, checks and compiles the posts |
-| `_parts/blog-card` | `blog-card` 1.0.0: the related posts' cards, the date format and the reading-time label |
-| `_parts/component-breadcrumbs` | `component-breadcrumbs` 1.0.0: the trail and its `BreadcrumbList` data |
-| `_parts/blog-share-buttons` | `blog-share-buttons` 2.0.0: the share links |
+| `_parts/blog-content` | a copy of `blog-content` 2.0.0, byte for byte: reads, checks and compiles the posts |
+| `_parts/blog-card` | `blog-card` 2.0.0: the related posts' cards, the date format and the reading-time label |
+| `_parts/component-breadcrumbs` | `component-breadcrumbs` 2.0.0: the trail and its `BreadcrumbList` data |
+| `_parts/blog-share-buttons` | `blog-share-buttons` 3.0.0: the share links |
 | `_parts/site-seo` | `site-seo` 1.0.0: the metadata and the `Article` data |
 
 Each `_parts` folder has its own README. The folders start with an underscore, so Next never serves them as routes.
+
+## Brand
+
+The page's own markup reads these design tokens (CSS custom properties of the Open Context token contract, version 1);
+each part in `_parts/` reads its own (see its README). Unset, each falls back to the neutral value in brackets, so the
+page looks the same as before with no design system loaded.
+
+| Token | Used for | Without a design system |
+|---|---|---|
+| `--oc-ink` | the title, the author links, the contents' title and links under the pointer | `oklch(20.5% 0 none)` |
+| `--oc-ink-body` | the description, the contents' links | `oklch(37.1% 0 none)` |
+| `--oc-ink-muted` | the category, the date line | `oklch(43.9% 0 none)` |
+| `--oc-line` | the rule above the share links | `oklch(92.2% 0 none)` |
+| `--oc-brand-ink` | the reading progress bar | `oklch(20.5% 0 none)` |
+| `--oc-focus` | the focus ring | `oklch(20.5% 0 none)` |
+| `--oc-radius` | the post's image (2 ×) | `0.25rem` |
+| `--oc-font-heading` | the title, "Related posts" | the page's font |
+| `--oc-font-body` | the table of contents | the page's font |
+
+To set them from a claude.ai design system, use the `design-tokens` template (its `design-sync.mjs` writes them as
+aliases of your design's own tokens, light and dark, and checks every pair the page and its parts draw) and the
+`design-system-seed` skill. To set them by hand, declare them once in your global stylesheet, e.g.
+`:root { --oc-brand: #0b5cad; --oc-on-brand: #fff; }`.
 
 ## Props
 
@@ -109,5 +132,8 @@ unmount), and `_parts/blog-share-buttons/share-actions.tsx` (native share and co
 - A post file the build cannot read stops the build with the file and line: a broken draft too, since it is a file
   in your repository.
 - The post's picture renders as a plain `img`; images inside the body load lazily.
-- Neutral colours only, with every margin and box set on the element, so it looks the same with or without
-  Tailwind's preflight.
+- Every colour is a design token (Brand), with every margin and box set on the element, so it looks the same with or
+  without Tailwind's preflight. A word wider than the screen breaks instead of running off it.
+- **From 1.x:** the props, the route and `content.ts` are the same; the page and its parts draw in your design
+  tokens. The reading progress bar takes your brand-ink colour (the brand colour that stays readable on your
+  surface), and a long heading stays inside the table of contents.

@@ -14,7 +14,8 @@ export function readingProgress(rect: { top: number; height: number }, viewportH
 
 /**
  * A thin bar across the top of the window that fills as the reader moves through the element with id `targetId`.
- * Client island; decorative (hidden from screen readers). It updates on scroll and resize, once per frame.
+ * Client island; decorative (hidden from screen readers). It updates on scroll and resize, once per frame. Drawn in
+ * brand-ink, the brand colour that keeps its contrast on the surface (a pale brand would vanish).
  */
 export function ReadingProgress({ targetId }: { targetId: string }) {
   const bar = useRef<HTMLDivElement>(null);
@@ -43,7 +44,7 @@ export function ReadingProgress({ targetId }: { targetId: string }) {
 
   return (
     <div aria-hidden="true" data-reading-progress="" className="pointer-events-none fixed inset-x-0 top-0 z-50 h-1">
-      <div ref={bar} className="h-full origin-left bg-neutral-900" style={{ transform: 'scaleX(0)' }} />
+      <div ref={bar} className="h-full origin-left bg-[var(--oc-brand-ink,oklch(20.5%_0_none))]" style={{ transform: 'scaleX(0)' }} />
     </div>
   );
 }
