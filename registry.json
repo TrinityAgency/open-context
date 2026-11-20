@@ -5389,24 +5389,41 @@
     },
     "section-logo-cloud": {
       "name": "Logo Cloud Section",
-      "description": "Logo cloud: a row of client or partner logos, optionally linked",
+      "description": "Logo cloud in two layouts (grid, split): client or partner logos, optionally linked, in the project's design system",
       "type": "component",
       "category": "SECTIONS",
       "tags": [
         "logos",
         "section",
         "social-proof",
-        "landing"
+        "landing",
+        "layouts",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "tailwind"
       ],
       "fileCount": 3,
-      "version": "2.0.0",
+      "version": "3.0.0",
       "family": "site",
       "vocabVersion": 1,
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean"
+      "proof": "installs alone on Next 16; layouts grid, split; default look equals 2.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no colour, font or radius leak",
+      "tokens": 1,
+      "layouts": [
+        {
+          "id": "grid",
+          "title": "Grid",
+          "description": "A small centred title above the logos in two, three or six columns; the default.",
+          "usage": "<LogoCloudSection layout=\"grid\" content={{ title, logos }} />"
+        },
+        {
+          "id": "split",
+          "title": "Split",
+          "description": "The title beside the logos from md, stacked on a phone.",
+          "usage": "<LogoCloudSection layout=\"split\" content={{ title, logos }} />"
+        }
+      ]
     },
     "section-pricing": {
       "name": "Pricing Section",
