@@ -1,17 +1,22 @@
 {
   "name": "site-cookie-consent",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "title": "Cookie Consent",
-  "description": "Consent banner, preferences dialog and a gate that holds back anything non-essential until a choice is made",
+  "description": "Consent banner in two layouts (card, bar), preferences dialog and a gate that holds back anything non-essential until a choice is made, in the project's design system",
   "type": "module",
   "category": "WEB_DESIGN",
-  "tags": ["cookie", "consent", "privacy", "banner"],
+  "tags": ["cookie", "consent", "privacy", "banner", "layouts", "design-tokens"],
   "stack": ["react", "tailwind", "zod"],
   "family": "site",
   "vocabVersion": 1,
+  "tokens": 1,
+  "layouts": [
+    { "id": "card", "title": "Card", "description": "The banner as a floating card above the bottom of the page; the default.", "usage": "<ConsentProvider layout=\"card\" categories={categories}>…</ConsentProvider>" },
+    { "id": "bar", "title": "Bar", "description": "The banner as a full-width bar at the bottom: the text beside the choices from lg.", "usage": "<ConsentProvider layout=\"bar\" categories={categories}>…</ConsentProvider>" }
+  ],
   "outputDir": "src/modules/site-cookie-consent",
   "files": ["index.ts", "consent-cookie.ts", "consent-provider.tsx", "consent-banner.tsx", "consent-dialog.tsx", "consent-gate.tsx", "labels.ts", "labels.de.ts", "site-types.ts", "README.md"],
-  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; no storage or foreign request before a choice; cookie rules table-tested; mutants caught",
+  "proof": "installs alone on Next 16; layouts card, bar; dialog measured open; default look equals 1.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; no cookie before a choice",
   "peerDependencies": { "react": ">=19", "tailwindcss": ">=4", "zod": ">=3" },
-  "postMessage": "See src/modules/site-cookie-consent/README.md for props, the German label set and the Next link/image wiring."
+  "postMessage": "See src/modules/site-cookie-consent/README.md for the layouts, the design tokens it reads, props, the German label set and the Next link/image wiring."
 }
