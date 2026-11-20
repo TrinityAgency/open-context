@@ -263,7 +263,7 @@ npx @trinity369/use <template>
 | `design-shadow-system` | design-system | Elevation shadow tokens from xs to 2xl with colored shadow variants and dark mode support. CSS custom properties with Tailwind integration. |
 | `design-spacing-grid` | design-system | 4px/8px base grid spacing system with CSS custom properties, layout utilities, and gap classes. Drop-in foundation for consistent spatial rhythm. |
 | `design-theme-switcher` | component | Light/dark/system theme toggle with React context, localStorage persistence, and CSS variable switching. Zero dependencies beyond React. |
-| `design-tokens` | design-system | Design token system with CSS custom properties — colors, typography, spacing, radius, shadows. Uses shadcn/ui defaults as a starting point. |
+| `design-tokens` | design-system | The Open Context design-token contract for Tailwind 4: utilities for your own code, and design-sync, which turns a claude.ai design system into the tokens every Open Context part reads |
 | `design-typography-scale` | design-system | Fluid type scale with prose styles, heading hierarchy, and font stack definitions. Works with any font — system defaults included. |
 
 ### DEVOPS (14)
@@ -503,7 +503,7 @@ Every template is standalone: none imports another. A composite (a page built fr
 
 ## Adding templates
 
-A manifest carries `name`, `version`, `description`, `outputDir`, `files`, `postMessage`, `type`, `category`, `tags` and `stack`; optionally `title`, `family`, `vocabVersion`, `parts`, `proof` and `peerDependencies`. This README is generated from `registry.json`; the template list is never edited by hand.
+A manifest carries `name`, `version`, `description`, `outputDir`, `files`, `postMessage`, `type`, `category`, `tags` and `stack`; optionally `title`, `family`, `vocabVersion`, `parts`, `proof`, `tokens` (the design-token contract version the template reads), `layouts` (the layout variants it offers: `id`, `title`, `description` and a one-line `usage`; the first is the default) and `peerDependencies`. This README is generated from `registry.json`; the template list is never edited by hand.
 
 ## License
 
