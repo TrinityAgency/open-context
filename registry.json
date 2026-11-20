@@ -4027,14 +4027,15 @@
     },
     "page-about": {
       "name": "About Page",
-      "description": "About page: story, values, figures and team",
+      "description": "About page: story, values, figures and team, in the project's design system; every section takes a layout",
       "type": "page",
       "category": "WEB_DESIGN",
       "tags": [
         "about",
         "company",
         "team",
-        "page"
+        "page",
+        "design-tokens"
       ],
       "stack": [
         "react",
@@ -4042,32 +4043,33 @@
         "tailwind"
       ],
       "fileCount": 19,
-      "version": "1.0.0",
+      "version": "2.0.0",
       "family": "site",
       "vocabVersion": 1,
       "parts": [
         {
           "slug": "section-hero",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "_sections/hero"
         },
         {
           "slug": "section-features",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "_sections/features"
         },
         {
           "slug": "section-stats",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "_sections/stats"
         },
         {
           "slug": "section-cta",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "_sections/cta"
         }
       ],
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; sections byte-identical to their pinned versions"
+      "proof": "installs alone on Next 16; sections byte-identical at 3.0.0; default look equals 1.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; mutants caught",
+      "tokens": 1
     },
     "page-app-download": {
       "name": "App Download Page",
