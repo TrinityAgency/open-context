@@ -4127,14 +4127,15 @@
     },
     "page-changelog": {
       "name": "Changelog Page",
-      "description": "Changelog page: releases from a typed list with version badges, dates and anchor links",
+      "description": "Changelog page: releases from a typed list with version badges, dates and anchor links, in the project's design system",
       "type": "page",
       "category": "WEB_DESIGN",
       "tags": [
         "changelog",
         "releases",
         "page",
-        "versions"
+        "versions",
+        "design-tokens"
       ],
       "stack": [
         "react",
@@ -4142,10 +4143,11 @@
         "tailwind"
       ],
       "fileCount": 8,
-      "version": "1.0.0",
+      "version": "2.0.0",
       "family": "site",
       "vocabVersion": 1,
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; ordering and anchors table-tested; mutants caught"
+      "proof": "installs alone on Next 16; default look equals 1.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; version order table-tested; mutants caught",
+      "tokens": 1
     },
     "page-coming-soon": {
       "name": "Coming Soon Page",
