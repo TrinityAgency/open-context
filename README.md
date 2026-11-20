@@ -42,7 +42,7 @@ npx @trinity369/use <template>
 | `context-graph` | starter | Full-stack knowledge graph with hybrid search (vector + graph), RAG document ingestion, React visualization, and CLI + MCP integration. Powered by PostgreSQL + Apache AGE, Qdrant, Redis, and FastAPI. |
 | `context-seed` | skill | Autonomous project seeder — reads a PRD, maps requirements to packages, installs them in dependency order, delegates design system composition to design-system-seed, and delivers a scaffolded project. |
 | `dashboard-seed` | skill | Autonomous dashboard composer — discovers data model and user roles, selects widgets, installs layout + components, and wires navigation. Delivers a working dashboard shell with the right widgets for your domain. |
-| `design-system-seed` | skill | Design system composition engine — maps brand identity to a cohesive design system from 12 atomic primitives. Generates install plan, brand overrides, and the glue layer that turns packages into one system. |
+| `design-system-seed` | skill | Skill that connects a design system made on claude.ai to every Open Context part: installs design-tokens, maps the design's tokens onto the token contract, runs design-sync with its contrast checks and loads the result |
 | `pipe-content-pipeline` | pipe | Content creation pipeline — multi-stage workflow for research, drafting, editing, and publishing content |
 | `pipe-onboarding-automation` | pipe | Automated employee/user onboarding pipeline with configurable steps per role |
 | `pipe-plan-build-review` | pipe | Full agentic pipeline: plan, build, review, fix. Each phase runs as a focused Claude agent with restricted tools and file visibility via .claudeignore. |
