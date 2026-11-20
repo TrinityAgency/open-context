@@ -5467,24 +5467,41 @@
     },
     "section-pricing": {
       "name": "Pricing Section",
-      "description": "Pricing section: plans with prices from minor units, a no-JavaScript interval switch and a highlighted plan",
+      "description": "Pricing section in two layouts (grid, rows): plans with prices from minor units, a no-JavaScript interval switch and a highlighted plan, in the project's design system",
       "type": "component",
       "category": "SECTIONS",
       "tags": [
         "pricing",
         "section",
         "plans",
-        "landing"
+        "landing",
+        "layouts",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "tailwind"
       ],
       "fileCount": 6,
-      "version": "2.0.0",
+      "version": "3.0.0",
       "family": "site",
       "vocabVersion": 1,
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; prices table-tested; mutants caught"
+      "proof": "installs alone on Next 16; layouts grid, rows; default look equals 2.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; prices table-tested; mutants caught",
+      "tokens": 1,
+      "layouts": [
+        {
+          "id": "grid",
+          "title": "Grid",
+          "description": "Plan cards in one, two or three columns as the width grows; the default.",
+          "usage": "<PricingSection layout=\"grid\" content={{ title, intro, plans }} />"
+        },
+        {
+          "id": "rows",
+          "title": "Rows",
+          "description": "One plan per row: name, price and call to action in a line from md, the features in a line below.",
+          "usage": "<PricingSection layout=\"rows\" content={{ title, intro, plans }} />"
+        }
+      ]
     },
     "section-stats": {
       "name": "Stats Section",
