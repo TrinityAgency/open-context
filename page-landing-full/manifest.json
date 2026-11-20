@@ -1,63 +1,23 @@
 {
   "name": "page-landing-full",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "title": "Landing Page (Full)",
-  "description": "Full landing page: hero, logos, features, figures, testimonials, pricing, questions and a call to action",
+  "description": "Full landing page: hero, logos, features, figures, testimonials, pricing, questions and a call to action, in the project's design system; every section takes a layout",
   "type": "page",
   "category": "WEB_DESIGN",
-  "tags": [
-    "landing-page",
-    "marketing",
-    "page",
-    "sections"
-  ],
-  "stack": [
-    "react",
-    "next",
-    "tailwind"
-  ],
+  "tags": ["landing-page", "marketing", "page", "sections", "design-tokens"],
+  "stack": ["react", "next", "tailwind"],
   "family": "site",
+  "tokens": 1,
   "parts": [
-    {
-      "slug": "section-hero",
-      "version": "2.0.0",
-      "into": "_sections/hero"
-    },
-    {
-      "slug": "section-logo-cloud",
-      "version": "2.0.0",
-      "into": "_sections/logo-cloud"
-    },
-    {
-      "slug": "section-features",
-      "version": "2.0.0",
-      "into": "_sections/features"
-    },
-    {
-      "slug": "section-stats",
-      "version": "2.0.0",
-      "into": "_sections/stats"
-    },
-    {
-      "slug": "section-testimonials",
-      "version": "2.0.0",
-      "into": "_sections/testimonials"
-    },
-    {
-      "slug": "section-pricing",
-      "version": "2.0.0",
-      "into": "_sections/pricing"
-    },
-    {
-      "slug": "section-faq",
-      "version": "2.0.0",
-      "into": "_sections/faq"
-    },
-    {
-      "slug": "section-cta",
-      "version": "2.0.0",
-      "into": "_sections/cta"
-    }
+    { "slug": "section-hero", "version": "3.0.0", "into": "_sections/hero" },
+    { "slug": "section-logo-cloud", "version": "3.0.0", "into": "_sections/logo-cloud" },
+    { "slug": "section-features", "version": "3.0.0", "into": "_sections/features" },
+    { "slug": "section-stats", "version": "3.0.0", "into": "_sections/stats" },
+    { "slug": "section-testimonials", "version": "3.0.0", "into": "_sections/testimonials" },
+    { "slug": "section-pricing", "version": "3.0.0", "into": "_sections/pricing" },
+    { "slug": "section-faq", "version": "3.0.0", "into": "_sections/faq" },
+    { "slug": "section-cta", "version": "3.0.0", "into": "_sections/cta" }
   ],
   "outputDir": "app/page-landing-full",
   "files": [
@@ -93,11 +53,7 @@
     "_sections/testimonials/site-types.ts",
     "_sections/testimonials/testimonials-section.tsx"
   ],
-  "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; sections byte-identical to their pinned versions",
-  "peerDependencies": {
-    "react": ">=19",
-    "next": ">=16",
-    "tailwindcss": ">=4"
-  },
+  "proof": "installs alone on Next 16; eight sections byte-identical at 3.0.0; default look equals 1.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; mutants caught",
+  "peerDependencies": { "react": ">=19", "next": ">=16", "tailwindcss": ">=4" },
   "postMessage": "Installed at app/page-landing-full/ (served at /page-landing-full; rename the folder for another path). Edit content.ts; see README.md."
 }
