@@ -6796,7 +6796,7 @@
     },
     "starter-portfolio": {
       "name": "Portfolio Starter",
-      "description": "Portfolio site assembled from the website kit: projects from MDX files with disciplines, services, about, contact form, MDX blog with feeds, cookie consent, SEO, legal and error pages",
+      "description": "Portfolio site assembled from the website kit: projects from MDX files with disciplines, services, about, contact form, MDX blog with feeds, cookie consent, SEO, legal and error pages, all on the design tokens a claude.ai design system sets",
       "type": "starter",
       "category": "STARTER",
       "tags": [
@@ -6804,7 +6804,8 @@
         "portfolio",
         "projects",
         "website",
-        "blog"
+        "blog",
+        "design-tokens"
       ],
       "stack": [
         "react",
@@ -6813,23 +6814,28 @@
         "zod",
         "mdx"
       ],
-      "fileCount": 245,
-      "version": "1.0.0",
+      "fileCount": 249,
+      "version": "2.0.0",
       "family": "site",
       "parts": [
         {
+          "slug": "design-tokens",
+          "version": "2.0.0",
+          "into": "src/design-system/design-tokens"
+        },
+        {
           "slug": "site-header",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/site-header"
         },
         {
           "slug": "site-footer",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/site-footer"
         },
         {
           "slug": "site-cookie-consent",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/modules/site-cookie-consent"
         },
         {
@@ -6839,52 +6845,52 @@
         },
         {
           "slug": "component-pagination",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/component-pagination"
         },
         {
           "slug": "component-breadcrumbs",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/component-breadcrumbs"
         },
         {
           "slug": "section-hero",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-hero"
         },
         {
           "slug": "section-logo-cloud",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-logo-cloud"
         },
         {
           "slug": "section-features",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-features"
         },
         {
           "slug": "section-stats",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-stats"
         },
         {
           "slug": "section-testimonials",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-testimonials"
         },
         {
           "slug": "section-faq",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-faq"
         },
         {
           "slug": "section-cta",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/section-cta"
         },
         {
           "slug": "blog-content",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/utils/blog-content"
         },
         {
@@ -6894,46 +6900,47 @@
         },
         {
           "slug": "blog-card",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/blog-card"
         },
         {
           "slug": "blog-newsletter-cta",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/components/blog-newsletter-cta"
         },
         {
           "slug": "blog-share-buttons",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "src/components/blog-share-buttons"
         },
         {
           "slug": "page-contact",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-contact"
         },
         {
           "slug": "page-legal-imprint",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-legal-imprint"
         },
         {
           "slug": "page-legal-privacy",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-legal-privacy"
         },
         {
           "slug": "page-legal-terms",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-legal-terms"
         },
         {
           "slug": "page-404-error",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "src/app/_page-404-error"
         }
       ],
-      "proof": "assembled from its pinned parts byte for byte; installs into an empty folder, passes its tests, lint and build; crawled in English and German: no dead link, axe violation or foreign request"
+      "proof": "installs into an empty folder; tests, lint and build pass in English and German; crawled with feeds, consent, work and legal pages: no dead link, axe violation or other host; no leak under the probe",
+      "tokens": 1
     },
     "starter-project-management": {
       "name": "Project Management Starter",
