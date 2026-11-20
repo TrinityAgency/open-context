@@ -394,7 +394,7 @@ npx @trinity369/use <template>
 | `section-logo-cloud` | component | Logo cloud: a row of client or partner logos, optionally linked |
 | `section-pricing` | component | Pricing section: plans with prices from minor units, a no-JavaScript interval switch and a highlighted plan |
 | `section-stats` | component | Stats section: key figures as a description list |
-| `section-testimonials` | component | Testimonials section: quotes with name, role and portrait |
+| `section-testimonials` | component | Testimonials section in three layouts (grid, centered, wall) that takes its colours, fonts and radius from the project's design system |
 
 ### SIDEBAR (4)
 
