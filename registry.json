@@ -4412,13 +4412,14 @@
     },
     "page-legal-terms": {
       "name": "Terms Page",
-      "description": "Terms page: collapsible sections with a table of contents and marked placeholders",
+      "description": "Terms page: collapsible sections with a table of contents and marked placeholders, in the project's design system",
       "type": "page",
       "category": "WEB_DESIGN",
       "tags": [
         "legal",
         "terms",
-        "page"
+        "page",
+        "design-tokens"
       ],
       "stack": [
         "react",
@@ -4426,9 +4427,10 @@
         "tailwind"
       ],
       "fileCount": 8,
-      "version": "1.0.0",
+      "version": "2.0.0",
       "family": "site",
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; placeholder marking table-tested; mutants caught"
+      "proof": "installs alone on Next 16; default look equals 1.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts, a section open; axe clean; no leak; placeholders table-tested; mutants caught",
+      "tokens": 1
     },
     "page-partner-integrations": {
       "name": "Partner Integrations Page",
