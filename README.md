@@ -427,7 +427,7 @@ npx @trinity369/use <template>
 | `starter-restaurant` | starter | Next.js 14 restaurant starter with menu, reservations, chef team, and testimonials. TypeScript, Tailwind CSS, App Router, shadcn/ui theming. |
 | `starter-saas-minimal` | starter | Next.js 14 SaaS + Shop starter with shadcn/ui, dashboard shell, product catalog, cart, and checkout. TypeScript, Tailwind CSS, App Router. |
 | `starter-social-network` | starter | Social network with feeds, profiles, and messaging |
-| `starter-website` | starter | Company website assembled from the website kit: home, features, pricing, about, contact form, changelog, MDX blog with feeds, cookie consent, SEO, legal and error pages |
+| `starter-website` | starter | Company website assembled from the website kit: home, features, pricing, about, contact form, changelog, MDX blog with feeds, cookie consent, SEO, legal and error pages, all on the design tokens a claude.ai design system sets |
 
 ### STORAGE (13)
 
