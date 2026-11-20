@@ -1171,14 +1171,15 @@
     },
     "blog-post-page": {
       "name": "Blog Post Page",
-      "description": "Blog post: MDX body, table of contents, reading progress, related posts, share links, breadcrumbs and Article data",
+      "description": "Blog post: MDX body, table of contents, reading progress, related posts, share links, breadcrumbs and Article data, in the project's design system",
       "type": "page",
       "category": "BLOG",
       "tags": [
         "blog",
         "post",
         "article",
-        "toc"
+        "toc",
+        "design-tokens"
       ],
       "stack": [
         "react",
@@ -1188,27 +1189,27 @@
         "zod"
       ],
       "fileCount": 43,
-      "version": "1.0.0",
+      "version": "2.0.0",
       "family": "site",
       "parts": [
         {
           "slug": "blog-content",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "_parts/blog-content"
         },
         {
           "slug": "blog-card",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "_parts/blog-card"
         },
         {
           "slug": "component-breadcrumbs",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "into": "_parts/component-breadcrumbs"
         },
         {
           "slug": "blog-share-buttons",
-          "version": "2.0.0",
+          "version": "3.0.0",
           "into": "_parts/blog-share-buttons"
         },
         {
@@ -1217,7 +1218,8 @@
           "into": "_parts/site-seo"
         }
       ],
-      "proof": "installs alone on Next 16 (build, typecheck, lint); same layout with and without preflight; axe clean; parts byte-identical to their pinned versions"
+      "proof": "installs alone on Next 16 at app/blog/[slug]; default look equals 1.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak; parts byte-identical; mutants caught",
+      "tokens": 1
     },
     "blog-reading-mode": {
       "name": "Reading Mode",
