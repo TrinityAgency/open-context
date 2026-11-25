@@ -35,9 +35,11 @@ pnpm build && pnpm start    # starts .next/standalone/server.js (PORT, HOSTNAME 
   `robots.txt`, `sitemap.xml` and absolute metadata URLs. Add every new page to `src/app/sitemap.ts`.
 - **Tokens only**: the site's own code names the design tokens with the utilities of `design-tokens`
   (`src/design-system/design-tokens`: `bg-oc-surface`, `text-oc-ink`, `border-oc-line`, `rounded-oc-lg`,
-  `font-oc-heading`). `src/design-system/tokens-only.test.ts` and `pnpm design:guards` refuse a colour literal, a grey
-  or other palette class, a radius from Tailwind's scale and `font-sans` in the classes of every file under `src/` but
-  the generated design files, the tests and the copy (`src/content/`, a part's `content.ts` and `labels`). Until a
+  `font-oc-heading`). `src/design-system/tokens-only.test.ts` refuses a grey or other palette class, a radius from
+  Tailwind's scale, `font-sans` and a radius, font or variable in brackets that is no token (`rounded-[6px]`,
+  `font-[Georgia]`, `bg-[var(--color-neutral-100)]`) in the classes of every file under `src/` but the generated
+  design files, the tests and the copy (`src/content/`, a part's `content.ts` and `labels`); `pnpm design:guards`
+  refuses a colour literal, and `pnpm test` runs both. Until a
   design is connected the tokens keep their neutral defaults and the page Tailwind's sans stack.
 - **No preflight**: `src/app/globals.css` imports only Tailwind's theme and utilities and declares the layer order
   `theme, base, components, utilities`, so the design's component rules sit below Tailwind's utilities.
@@ -60,6 +62,7 @@ site already holds `design-tokens`, its config and the imports, so only the expo
 5. To use the export's own components as well, set `prefix` in `design-sync.config.json` to the class prefix its
    `bundle.css` uses (`ds-` is a placeholder), name the components you approved in an `approved` list there, write
    thin wrappers in `src/components/ui/` and build class names with `cx` from `src/design-system/generated/catalog.ts`.
+   `pnpm design:guards` refuses a wrapper that uses those classes while the list is missing.
 6. After a new export: `pnpm design:sync`, then `pnpm design:diff` lists the classes that were added or removed
    and the wrappers that still use a removed one.
 
@@ -68,11 +71,12 @@ site already holds `design-tokens`, its config and the imports, so only the expo
 | `design:sync` | checks the map and the contrast, then writes the generated files from the export |
 | `design:check` | fails when the generated files differ from a fresh run; before the first export there is nothing to check, and it passes |
 | `design:diff` | lists classes added/removed since the committed catalog, and the wrappers they hit |
-| `design:guards` | fails on a colour literal, an unknown wrapper class or a hand-written vendor prefix under `src/` |
+| `design:guards` | fails on a colour literal, an unknown wrapper class or a hand-written vendor prefix under `src/`, and on wrappers over the design's component classes without an `approved` list |
 
 Each runs `node src/design-system/design-tokens/design-sync.mjs --config design-sync.config.json` (with `--check`,
 `--diff` or `--guards`). `design-sync.mjs` belongs to the `design-tokens` part: update it by installing a newer
-`design-tokens`, never by editing it.
+`design-tokens`, never by editing it. Once a design is connected, the generated files change once after an update:
+`pnpm design:check` reports all three out of date until `pnpm design:sync` writes them again.
 
 ## Release
 

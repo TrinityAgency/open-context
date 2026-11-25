@@ -1,6 +1,6 @@
 {
   "name": "site-starter",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "title": "Site Starter",
   "description": "Lean company website skeleton: Next 16, React 19, Tailwind 4 without preflight, strict TypeScript, the design tokens every Open Context part reads (a claude.ai design system connects through design-sync), English with a German switch, guard tests and AGENTS.md",
   "type": "starter",
@@ -9,7 +9,7 @@
   "stack": ["react", "next", "tailwind"],
   "family": "site",
   "tokens": 1,
-  "parts": [{ "slug": "design-tokens", "version": "2.0.0", "into": "src/design-system/design-tokens" }],
+  "parts": [{ "slug": "design-tokens", "version": "2.1.0", "into": "src/design-system/design-tokens" }],
   "outputDir": ".",
   "files": [
     ".gitignore",
