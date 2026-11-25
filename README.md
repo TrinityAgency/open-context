@@ -476,7 +476,7 @@ npx @trinity369/use <template>
 | `page-404-error` | page | Not-found and error pages with a way onward: views plus two one-line route files, in the project's design system |
 | `page-about` | page | About page: story, values, figures and team, in the project's design system; every section takes a layout |
 | `page-app-download` | page | Mobile app download page with store badges, phone mockup, features grid, screenshot gallery, and QR code section |
-| `page-careers` | page | Job listings page with filters and apply flow |
+| `page-careers` | page | Careers page: why work with you, the open positions as an accordion with an apply link each, how you hire and a call to action, in the project's design system |
 | `page-case-study` | page | Case study template with problem, solution, results |
 | `page-changelog` | page | Changelog page: releases from a typed list with version badges, dates and anchor links, in the project's design system |
 | `page-coming-soon` | page | Coming soon page: the launch date as text, a newsletter signup on the page's own server action and a row of links, kept out of search engines, in the project's design system |
