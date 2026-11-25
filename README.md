@@ -1,6 +1,6 @@
 # Open Context
 
-361 standalone templates for Next.js, React and agent tooling, each installed with one command.
+362 standalone templates for Next.js, React and agent tooling, each installed with one command.
 
 Browse, search and preview them at **[open-context.com](https://open-context.com)**; every command and option is explained at [open-context.com/cli](https://open-context.com/cli).
 
@@ -24,7 +24,7 @@ npx @trinity369/use <template>
 | `--dir <path>` | install into another folder |
 | `--no-overwrite` | keep files that already exist |
 
-## Templates (361)
+## Templates (362)
 
 ### AGENTIC (40)
 
@@ -153,7 +153,7 @@ npx @trinity369/use <template>
 | `blog-share-buttons` | component | Share links for X, LinkedIn, Facebook, Bluesky, WhatsApp and email, plus native share and copy link where the browser has them, in the project's design system; no third-party script |
 | `blog-tag-cloud` | component | Interactive tag cloud with weighted sizing, color scaling, and staggered animations |
 
-### COMPONENTS (33)
+### COMPONENTS (34)
 
 | Template | Type | Description |
 |---|---|---|
@@ -190,6 +190,7 @@ npx @trinity369/use <template>
 | `shop-search-filters` | component | Product search with faceted filters: price range, category checkboxes, color swatches, sort dropdown, and active filter badges. shadcn/ui + Tailwind. |
 | `shop-wishlist` | component | Wishlist grid with heart toggle, move-to-cart, share list, localStorage persistence, and empty state. shadcn/ui + Tailwind. |
 | `site-announcement-bar` | component | A one-line notice across the top of every page, with an optional link and a dismiss button that hides it until the page is loaded again (nothing stored, no button without JavaScript); two layouts (bar, band), colours, fonts and radius from the project's design system |
+| `site-call-button` | component | A floating contact card at the bottom corner of every page: call by phone (a tel: link) or write on WhatsApp, Signal or Telegram, plain links that ask nothing of any host before a click; it waits while the cookie banner is up and the page scrolls clear of it; two layouts (card, bar), colours, fonts and radius from the project's design system |
 
 ### CRM (12)
 
