@@ -4224,22 +4224,49 @@
     },
     "page-faq": {
       "name": "FAQ Page",
-      "description": "FAQ page with categories and search",
+      "description": "FAQ page: a hero, the questions grouped by topic with a topic list that jumps to each, a call to action and FAQPage structured data, in the project's design system",
       "type": "page",
       "category": "WEB_DESIGN",
       "tags": [
         "faq",
         "questions",
-        "answers",
-        "search"
+        "help",
+        "page",
+        "structured-data",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "next",
         "tailwind"
       ],
-      "fileCount": 5,
-      "version": "1.0.0"
+      "fileCount": 20,
+      "version": "2.0.0",
+      "family": "site",
+      "parts": [
+        {
+          "slug": "section-hero",
+          "version": "3.0.0",
+          "into": "_sections/hero"
+        },
+        {
+          "slug": "section-faq",
+          "version": "3.0.1",
+          "into": "_sections/faq"
+        },
+        {
+          "slug": "section-cta",
+          "version": "3.0.0",
+          "into": "_sections/cta"
+        },
+        {
+          "slug": "site-seo",
+          "version": "1.0.0",
+          "into": "_parts/site-seo"
+        }
+      ],
+      "proof": "installs alone on Next 16; parts byte-identical; a split FAQ section per topic, the topic list, one FAQPage JSON-LD; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak",
+      "tokens": 1
     },
     "page-features": {
       "name": "Features Page",
