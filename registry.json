@@ -3259,9 +3259,9 @@
       ],
       "stack": [],
       "fileCount": 1,
-      "version": "2.0.0",
+      "version": "2.0.1",
       "family": "site",
-      "proof": "every command, flag, file, path, token and utility it names exists in design-tokens 2.0.0, its example config and the token contract; planted mistakes are reported"
+      "proof": "every command, flag, file, path, token and utility it names exists in design-tokens 2.1.0, its example config and the token contract; planted mistakes are reported"
     },
     "design-theme-switcher": {
       "name": "Theme Switcher",
