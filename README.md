@@ -479,7 +479,7 @@ npx @trinity369/use <template>
 | `page-careers` | page | Job listings page with filters and apply flow |
 | `page-case-study` | page | Case study template with problem, solution, results |
 | `page-changelog` | page | Changelog page: releases from a typed list with version badges, dates and anchor links, in the project's design system |
-| `page-coming-soon` | page | Coming soon page with countdown timer, email capture form, and social links. Dark gradient background with flip-style countdown animation. |
+| `page-coming-soon` | page | Coming soon page: the launch date as text, a newsletter signup on the page's own server action and a row of links, kept out of search engines, in the project's design system |
 | `page-contact` | page | Contact page: a form with a server action, spam traps and validation, contact details and a map link, in the project's design system |
 | `page-event-landing` | page | Event landing page with speakers, schedule, pricing tiers, and sponsor sections |
 | `page-faq` | page | FAQ page: a hero, the questions grouped by topic with a topic list that jumps to each, a call to action and FAQPage structured data, in the project's design system |
