@@ -6133,6 +6133,45 @@
       "fileCount": 2,
       "version": "1.0.0"
     },
+    "site-announcement-bar": {
+      "name": "Announcement Bar",
+      "description": "A one-line notice across the top of every page, with an optional link and a dismiss button that hides it until the page is loaded again (nothing stored, no button without JavaScript); two layouts (bar, band), colours, fonts and radius from the project's design system",
+      "type": "component",
+      "category": "COMPONENTS",
+      "tags": [
+        "announcement",
+        "banner",
+        "notice",
+        "promo",
+        "chrome",
+        "layouts",
+        "design-tokens"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 6,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16; two layouts (bar, band); dismissed until reloaded, nothing stored, no button without JS; 3 sample brands, light and dark, 390/768/1280 px, 2 hosts; axe clean",
+      "tokens": 1,
+      "layouts": [
+        {
+          "id": "bar",
+          "title": "Bar",
+          "description": "A quiet full-width bar in your design's sunk ground, the text and link in ink, centred in one row; the default.",
+          "usage": "<AnnouncementBar content={{ text, link }} LinkComponent={Link} />"
+        },
+        {
+          "id": "band",
+          "title": "Band",
+          "description": "A full-width band on your brand colour, the text, link, dismiss icon and focus rings in on-brand.",
+          "usage": "<AnnouncementBar layout=\"band\" content={{ text, link }} LinkComponent={Link} />"
+        }
+      ]
+    },
     "site-cookie-consent": {
       "name": "Cookie Consent",
       "description": "Consent banner in two layouts (card, bar), preferences dialog and a gate that holds back anything non-essential until a choice is made, in the project's design system",
