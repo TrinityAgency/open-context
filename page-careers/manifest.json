@@ -1,20 +1,78 @@
 {
   "name": "page-careers",
-  "version": "1.0.0",
-  "description": "Job listings page with filters and apply flow",
-  "outputDir": "app/careers",
-  "files": [
-    "page.tsx",
-    "loading.tsx",
-    "components/job-card.tsx",
-    "components/job-filters.tsx",
-    "components/job-detail-modal.tsx"
+  "version": "2.0.0",
+  "title": "Careers Page",
+  "description": "Careers page: why work with you, the open positions as an accordion with an apply link each, how you hire and a call to action, in the project's design system",
+  "type": "page",
+  "category": "WEB_DESIGN",
+  "tags": [
+    "careers",
+    "jobs",
+    "hiring",
+    "page",
+    "design-tokens"
   ],
+  "stack": [
+    "react",
+    "next",
+    "tailwind"
+  ],
+  "family": "site",
+  "tokens": 1,
+  "parts": [
+    {
+      "slug": "section-hero",
+      "version": "3.0.0",
+      "into": "_sections/hero"
+    },
+    {
+      "slug": "section-features",
+      "version": "3.0.0",
+      "into": "_sections/features"
+    },
+    {
+      "slug": "section-process",
+      "version": "1.0.0",
+      "into": "_sections/process"
+    },
+    {
+      "slug": "section-cta",
+      "version": "3.0.0",
+      "into": "_sections/cta"
+    },
+    {
+      "slug": "component-accordion",
+      "version": "2.0.0",
+      "into": "_parts/accordion"
+    }
+  ],
+  "outputDir": "app/page-careers",
+  "files": [
+    "README.md",
+    "careers-page.tsx",
+    "content.ts",
+    "openings.tsx",
+    "page.tsx",
+    "_parts/accordion/README.md",
+    "_parts/accordion/accordion.tsx",
+    "_sections/cta/README.md",
+    "_sections/cta/cta-section.tsx",
+    "_sections/cta/site-types.ts",
+    "_sections/features/README.md",
+    "_sections/features/features-section.tsx",
+    "_sections/features/site-types.ts",
+    "_sections/hero/README.md",
+    "_sections/hero/hero-section.tsx",
+    "_sections/hero/site-types.ts",
+    "_sections/process/README.md",
+    "_sections/process/process-section.tsx",
+    "_sections/process/site-types.ts"
+  ],
+  "proof": "installs alone on Next 16; parts byte-identical; openings as an accordion with an apply link each, measured open; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak",
   "peerDependencies": {
-    "react": ">=18",
-    "next": ">=14",
-    "tailwindcss": ">=3",
-    "lucide-react": ">=0.263"
+    "react": ">=19",
+    "next": ">=16",
+    "tailwindcss": ">=4"
   },
-  "postMessage": "Careers page available at /careers. Edit job listings data in page.tsx."
+  "postMessage": "Installed at app/page-careers/ (served at /page-careers; rename the folder for another path). Edit content.ts; see README.md."
 }
