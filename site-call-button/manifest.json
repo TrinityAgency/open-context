@@ -1,0 +1,22 @@
+{
+  "name": "site-call-button",
+  "version": "1.1.0",
+  "title": "Call Button",
+  "description": "A floating contact card at the bottom corner of every page: call by phone (a tel: link) or write on WhatsApp, Signal or Telegram, plain links that ask nothing of any host before a click; it waits while the cookie banner is up and the page scrolls clear of it; two layouts (card, bar), colours, fonts and radius from the project's design system",
+  "type": "component",
+  "category": "COMPONENTS",
+  "tags": ["call", "phone", "contact", "whatsapp", "messenger", "floating", "chrome", "layouts", "design-tokens"],
+  "stack": ["react", "tailwind"],
+  "family": "site",
+  "vocabVersion": 1,
+  "tokens": 1,
+  "layouts": [
+    { "id": "card", "title": "Card", "description": "A floating card at the bottom corner (end side), the optional title above the links stacked, the first link primary; the default.", "usage": "<CallButton content={{ title, links }} />" },
+    { "id": "bar", "title": "Bar", "description": "On a phone a full-width bar along the bottom edge, the links side by side in equal columns; from md the card.", "usage": "<CallButton layout=\"bar\" content={{ links }} />" }
+  ],
+  "outputDir": "components/site-call-button",
+  "files": ["call-button.tsx", "tel-href.ts", "labels.ts", "labels.de.ts", "site-types.ts", "README.md"],
+  "proof": "installs alone on Next 16; two layouts (card, bar); the footer's last line never under it; hidden while the consent banner is up; 3 sample brands, light and dark, 390/768/1280 px, 2 hosts; axe clean",
+  "peerDependencies": { "react": ">=19", "tailwindcss": ">=4" },
+  "postMessage": "See components/site-call-button/README.md for the layouts, where to place it (last in body, after your footer), the phone and messenger links, the labels (German included) and the design tokens it reads."
+}
