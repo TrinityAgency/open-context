@@ -3298,9 +3298,9 @@
         "tailwind"
       ],
       "fileCount": 5,
-      "version": "2.0.0",
+      "version": "2.1.0",
       "family": "site",
-      "proof": "its utilities, README table, example map and design-sync copy equal the kit's contract and template; the example config points inside a src/ project, whose guards pass the parts; both hosts",
+      "proof": "its utilities, README table, example map and design-sync copy (v4) equal the kit's contract and template; the example config points inside a src/ project, whose guards pass the parts; both hosts",
       "tokens": 1
     },
     "design-typography-scale": {
