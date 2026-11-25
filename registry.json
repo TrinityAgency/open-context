@@ -6232,7 +6232,7 @@
         "zod"
       ],
       "fileCount": 10,
-      "version": "2.0.0",
+      "version": "2.1.0",
       "family": "site",
       "vocabVersion": 1,
       "proof": "installs alone on Next 16; layouts card, bar; dialog measured open; default look equals 1.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; no cookie before a choice",
