@@ -7078,12 +7078,12 @@
         "zod"
       ],
       "fileCount": 128,
-      "version": "2.0.0",
+      "version": "2.1.0",
       "family": "site",
       "parts": [
         {
           "slug": "design-tokens",
-          "version": "2.0.0",
+          "version": "2.1.0",
           "into": "src/design-system/design-tokens"
         },
         {
@@ -7098,7 +7098,7 @@
         },
         {
           "slug": "site-cookie-consent",
-          "version": "2.0.0",
+          "version": "2.1.0",
           "into": "src/modules/site-cookie-consent"
         },
         {
@@ -7138,7 +7138,7 @@
         },
         {
           "slug": "section-faq",
-          "version": "3.0.0",
+          "version": "3.0.1",
           "into": "src/components/section-faq"
         },
         {
