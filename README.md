@@ -482,7 +482,7 @@ npx @trinity369/use <template>
 | `page-coming-soon` | page | Coming soon page with countdown timer, email capture form, and social links. Dark gradient background with flip-style countdown animation. |
 | `page-contact` | page | Contact page: a form with a server action, spam traps and validation, contact details and a map link, in the project's design system |
 | `page-event-landing` | page | Event landing page with speakers, schedule, pricing tiers, and sponsor sections |
-| `page-faq` | page | FAQ page with categories and search |
+| `page-faq` | page | FAQ page: a hero, the questions grouped by topic with a topic list that jumps to each, a call to action and FAQPage structured data, in the project's design system |
 | `page-features` | page | Features page: feature groups with icon, text and image, then a call to action, in the project's design system; every section takes a layout |
 | `page-landing-full` | page | Full landing page: hero, logos, features, figures, testimonials, pricing, questions and a call to action, in the project's design system; every section takes a layout |
 | `page-landing-hero` | page | Short landing page: hero, features and a call to action, assembled from the kit's sections, in the project's design system; every section takes a layout |
