@@ -41,7 +41,7 @@ export default function Pricing() {
 | `comparison-table.tsx` | `ComparisonTable`: the plans side by side |
 | `labels.ts`, `labels.de.ts` | the comparison's fixed strings, English and German |
 | `content.ts` | `LOCALE`, `META` and `CONTENT` (English and German) |
-| `_sections/pricing`, `_sections/faq`, `_sections/cta` | copies of `section-pricing`, `section-faq` and `section-cta` 3.0.0, byte for byte; each folder has its own README |
+| `_sections/pricing`, `_sections/faq`, `_sections/cta` | copies of `section-pricing` and `section-cta` 3.0.0 and `section-faq` 3.0.1, byte for byte; each folder has its own README |
 
 The `_sections` folders start with an underscore, so Next never serves them as routes. The sections carry the ids
 `plans`, `faq` and `contact`.
@@ -115,4 +115,6 @@ None.
   same with or without Tailwind's preflight. A word wider than the screen breaks instead of running off it.
 - **From 1.x:** the props, the route, the labels and `content.ts` are the same; the page and its sections draw in your
   design tokens, and every section takes `layout`.
+- **2.0.1:** the FAQ copy is `section-faq` 3.0.1, which breaks a long word or address in an answer (3.0.0 let it widen
+  the page on a phone); nothing else changed.
 - To change a section beyond its content, edit its copy under `_sections/`; it is your code now.

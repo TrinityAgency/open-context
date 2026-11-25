@@ -111,6 +111,7 @@ None.
 - Colours, fonts and radii only through the tokens above, and every margin and box set on the element, so it looks
   the same with or without Tailwind's preflight, and in a project with shadcn/ui's own variables.
 - Long words break inside their column, so nothing leaves a phone screen.
+- Version 3.0.1 breaks a long word or address in an answer too (3.0.0 let it widen the page on a phone).
 - Version 3.0.0 adds `layout` (`split`) and the design tokens. Without a design system and without `layout` it draws
   what 2.0.0 drew.
 - Version 2.0.0 replaces the shadcn-based 1.0.0: no UI library, no JavaScript, content through typed props.
