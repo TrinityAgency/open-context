@@ -5397,7 +5397,7 @@
         "tailwind"
       ],
       "fileCount": 3,
-      "version": "3.0.0",
+      "version": "3.0.1",
       "family": "site",
       "vocabVersion": 1,
       "proof": "installs alone on Next 16; layouts centered, split; answers measured open; default look equals 2.0.0; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak",
