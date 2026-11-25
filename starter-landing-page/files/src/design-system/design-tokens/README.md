@@ -52,7 +52,9 @@ Colours are `bg-`, `text-`, `border-`, `outline-` … `-oc-<token>`; radii are `
 
    It writes `src/design-system/generated/tokens.css`: your design system's own variables, then one
    `--oc-<token>: var(--<your token>);` alias per contract token, again in every theme block, so a
-   `data-theme="dark"` wrapper switches the parts too. Before writing anything it checks the map (every token named,
+   `data-theme="dark"` wrapper switches the parts too. Each of those theme blocks starts with `color-scheme`: `light`
+   when the theme's `surface` is lighter than its `ink`, `dark` otherwise, so under a dark theme the browser draws its
+   scrollbars and native form controls dark too. Before writing anything it checks the map (every token named,
    every name exists, fonts map to families) and that text stays readable: `ink` on `surface`, `on-brand` on
    `brand` and the other pairs at least 4.5:1 in every theme, and the `focus` ring at least 3:1 on `surface`,
    `surface-alt` and `surface-sunk`. A refusal names the pair, the theme and both colours; it is a question for whoever owns the design
@@ -71,6 +73,11 @@ says there is nothing to check and exits 0); `--diff` lists the classes a re-exp
 `--config design-sync.config.json`: without it the script looks for its config one folder above itself. Add
 `--guards` too: it refuses every colour literal under `src/` (your own code names a token instead), and sets aside
 the contract's own `var(--oc-<token>, <its default>)`, which Open Context parts and `oc-tokens.css` carry inline.
+If you write wrapper components over your design system's own component classes (files in `src/components/ui/`, or
+the folder the config names as `wrappers`, that use a class with the config's `prefix`), the config needs an
+`approved` list, the components you agreed to use, e.g. `"approved": ["Button", "Card"]`: `--guards` refuses such a
+wrapper when the list is missing, and a class whose component is not on it. Files there that use none of those
+classes (a shadcn/ui component, say) need no list.
 
 Your design system's export and your map are yours: they belong in your project, not in a public template.
 
@@ -116,6 +123,10 @@ properties use the `--oc-` prefix and never collide with shadcn/ui's (`--primary
 
 - Version 2.0.0 replaces 1.0.0 (a Tailwind 3 `tailwind.config.ts` with shadcn/ui's HSL variables): the tokens are
   now the Open Context contract, for Tailwind 4, and a design system reaches them through `design-sync.mjs`.
+- Version 2.1.0 (design-sync template v4): every theme block carries its `color-scheme`; `--guards` refuses wrapper
+  components without an `approved` list; the message for a missing catalog names no script path. Run the
+  script once after updating: every generated file's banner names template v4 and `tokens.css` gains the
+  `color-scheme` lines, and `--check` reports the generated files out of date until then.
 - To set the tokens by hand instead, declare them in your stylesheet, e.g.
   `:root { --oc-brand: oklch(45% 0.15 250); --oc-on-brand: #fff; --oc-radius: 0.5rem; }`. A hand-set dark brand
   also needs the page's ground, `body { background: var(--oc-surface); color: var(--oc-ink); }` (step 5): each part
