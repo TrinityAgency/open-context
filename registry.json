@@ -4100,22 +4100,53 @@
     },
     "page-careers": {
       "name": "Careers Page",
-      "description": "Job listings page with filters and apply flow",
+      "description": "Careers page: why work with you, the open positions as an accordion with an apply link each, how you hire and a call to action, in the project's design system",
       "type": "page",
       "category": "WEB_DESIGN",
       "tags": [
         "careers",
         "jobs",
-        "listings",
-        "apply"
+        "hiring",
+        "page",
+        "design-tokens"
       ],
       "stack": [
         "react",
         "next",
         "tailwind"
       ],
-      "fileCount": 5,
-      "version": "1.0.0"
+      "fileCount": 19,
+      "version": "2.0.0",
+      "family": "site",
+      "parts": [
+        {
+          "slug": "section-hero",
+          "version": "3.0.0",
+          "into": "_sections/hero"
+        },
+        {
+          "slug": "section-features",
+          "version": "3.0.0",
+          "into": "_sections/features"
+        },
+        {
+          "slug": "section-process",
+          "version": "1.0.0",
+          "into": "_sections/process"
+        },
+        {
+          "slug": "section-cta",
+          "version": "3.0.0",
+          "into": "_sections/cta"
+        },
+        {
+          "slug": "component-accordion",
+          "version": "2.0.0",
+          "into": "_parts/accordion"
+        }
+      ],
+      "proof": "installs alone on Next 16; parts byte-identical; openings as an accordion with an apply link each, measured open; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak",
+      "tokens": 1
     },
     "page-case-study": {
       "name": "Case Study Page",
