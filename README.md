@@ -1,6 +1,6 @@
 # Open Context
 
-359 standalone templates for Next.js, React and agent tooling, each installed with one command.
+360 standalone templates for Next.js, React and agent tooling, each installed with one command.
 
 Browse, search and preview them at **[open-context.com](https://open-context.com)**; every command and option is explained at [open-context.com/cli](https://open-context.com/cli).
 
@@ -24,7 +24,7 @@ npx @trinity369/use <template>
 | `--dir <path>` | install into another folder |
 | `--no-overwrite` | keep files that already exist |
 
-## Templates (359)
+## Templates (360)
 
 ### AGENTIC (40)
 
@@ -383,7 +383,7 @@ npx @trinity369/use <template>
 | `primitive-spinner` | component | Loading spinner with size (xs/sm/default/lg/xl) and color variants |
 | `primitive-tooltip` | component | Tooltip with configurable placement and delay — convenience wrapper + low-level exports |
 
-### SECTIONS (13)
+### SECTIONS (14)
 
 | Template | Type | Description |
 |---|---|---|
@@ -400,6 +400,7 @@ npx @trinity369/use <template>
 | `section-stats` | component | Stats section in three layouts (grid, split, band): key figures as a description list, in the project's design system |
 | `section-team` | component | Team section in three layouts (grid, rows, minimal) that takes its colours, fonts and radius from the project's design system |
 | `section-testimonials` | component | Testimonials section in three layouts (grid, centered, wall) that takes its colours, fonts and radius from the project's design system |
+| `section-video` | component | A video with its title and text in two layouts (centered, split): a 16:9 cover with a play control that embeds the video only behind your consent gate, and links to it without one; colours, fonts and radius from the project's design system |
 
 ### SIDEBAR (4)
 
