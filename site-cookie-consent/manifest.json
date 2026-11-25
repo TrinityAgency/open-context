@@ -1,6 +1,6 @@
 {
   "name": "site-cookie-consent",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "title": "Cookie Consent",
   "description": "Consent banner in two layouts (card, bar), preferences dialog and a gate that holds back anything non-essential until a choice is made, in the project's design system",
   "type": "module",
