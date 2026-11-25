@@ -6430,7 +6430,7 @@
       ],
       "stack": [],
       "fileCount": 1,
-      "version": "1.1.0",
+      "version": "1.2.0",
       "family": "site",
       "proof": "every command, path and script it names exists in the five starters it picks; a scripted run chose the right starter, passed its tests and left the legal text to the owner"
     },
