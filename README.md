@@ -1,6 +1,6 @@
 # Open Context
 
-354 standalone templates for Next.js, React and agent tooling, each installed with one command.
+355 standalone templates for Next.js, React and agent tooling, each installed with one command.
 
 Browse, search and preview them at **[open-context.com](https://open-context.com)**; every command and option is explained at [open-context.com/cli](https://open-context.com/cli).
 
@@ -24,7 +24,7 @@ npx @trinity369/use <template>
 | `--dir <path>` | install into another folder |
 | `--no-overwrite` | keep files that already exist |
 
-## Templates (354)
+## Templates (355)
 
 ### AGENTIC (40)
 
@@ -383,7 +383,7 @@ npx @trinity369/use <template>
 | `primitive-spinner` | component | Loading spinner with size (xs/sm/default/lg/xl) and color variants |
 | `primitive-tooltip` | component | Tooltip with configurable placement and delay — convenience wrapper + low-level exports |
 
-### SECTIONS (8)
+### SECTIONS (9)
 
 | Template | Type | Description |
 |---|---|---|
@@ -394,6 +394,7 @@ npx @trinity369/use <template>
 | `section-logo-cloud` | component | Logo cloud in two layouts (grid, split): client or partner logos, optionally linked, in the project's design system |
 | `section-pricing` | component | Pricing section in two layouts (grid, rows): plans with prices from minor units, a no-JavaScript interval switch and a highlighted plan, in the project's design system |
 | `section-stats` | component | Stats section in three layouts (grid, split, band): key figures as a description list, in the project's design system |
+| `section-team` | component | Team section in three layouts (grid, rows, minimal) that takes its colours, fonts and radius from the project's design system |
 | `section-testimonials` | component | Testimonials section in three layouts (grid, centered, wall) that takes its colours, fonts and radius from the project's design system |
 
 ### SIDEBAR (4)
