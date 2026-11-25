@@ -1,6 +1,6 @@
 # Open Context
 
-360 standalone templates for Next.js, React and agent tooling, each installed with one command.
+361 standalone templates for Next.js, React and agent tooling, each installed with one command.
 
 Browse, search and preview them at **[open-context.com](https://open-context.com)**; every command and option is explained at [open-context.com/cli](https://open-context.com/cli).
 
@@ -24,7 +24,7 @@ npx @trinity369/use <template>
 | `--dir <path>` | install into another folder |
 | `--no-overwrite` | keep files that already exist |
 
-## Templates (360)
+## Templates (361)
 
 ### AGENTIC (40)
 
@@ -153,7 +153,7 @@ npx @trinity369/use <template>
 | `blog-share-buttons` | component | Share links for X, LinkedIn, Facebook, Bluesky, WhatsApp and email, plus native share and copy link where the browser has them, in the project's design system; no third-party script |
 | `blog-tag-cloud` | component | Interactive tag cloud with weighted sizing, color scaling, and staggered animations |
 
-### COMPONENTS (32)
+### COMPONENTS (33)
 
 | Template | Type | Description |
 |---|---|---|
@@ -189,6 +189,7 @@ npx @trinity369/use <template>
 | `shop-product-grid` | component | Responsive product card grid with image, price, rating, sale badges, add-to-cart, and grid/list toggle |
 | `shop-search-filters` | component | Product search with faceted filters: price range, category checkboxes, color swatches, sort dropdown, and active filter badges. shadcn/ui + Tailwind. |
 | `shop-wishlist` | component | Wishlist grid with heart toggle, move-to-cart, share list, localStorage persistence, and empty state. shadcn/ui + Tailwind. |
+| `site-announcement-bar` | component | A one-line notice across the top of every page, with an optional link and a dismiss button that hides it until the page is loaded again (nothing stored, no button without JavaScript); two layouts (bar, band), colours, fonts and radius from the project's design system |
 
 ### CRM (12)
 
