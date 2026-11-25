@@ -1,0 +1,22 @@
+{
+  "name": "section-references",
+  "version": "1.0.0",
+  "title": "References Section",
+  "description": "Past projects or clients as cards, in two layouts (grid, rows), that takes its colours, fonts and radius from the project's design system",
+  "type": "component",
+  "category": "SECTIONS",
+  "tags": ["references", "projects", "portfolio", "case-studies", "section", "layouts", "design-tokens"],
+  "stack": ["react", "tailwind"],
+  "family": "site",
+  "vocabVersion": 1,
+  "tokens": 1,
+  "layouts": [
+    { "id": "grid", "title": "Grid", "description": "One card per reference with its image, client, meta line, title and description, in one, two or three columns as the width grows; the default.", "usage": "<ReferencesSection layout=\"grid\" content={{ title, intro, items }} />" },
+    { "id": "rows", "title": "Rows", "description": "One reference per row in a card, the image beside the text from md, the image side alternating; without any image it draws the grid.", "usage": "<ReferencesSection layout=\"rows\" content={{ title, items: [{ title, client, description, image, href }] }} />" }
+  ],
+  "outputDir": "components/section-references",
+  "files": ["references-section.tsx", "site-types.ts", "README.md"],
+  "proof": "installs alone on Next 16; two layouts (grid, rows); rows without images draws the grid; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak",
+  "peerDependencies": { "react": ">=19", "tailwindcss": ">=4" },
+  "postMessage": "See components/section-references/README.md for the layouts, the design tokens it reads and the content props."
+}
