@@ -54,6 +54,26 @@ const WHITE_BLACK = /^(?:bg|text|border(?:-[trblxyse])?|outline|ring|fill|stroke
 const RADIUS = /^rounded(?:-(?:t|r|b|l|s|e|tl|tr|br|bl|ss|se|es|ee))?(?:-(?:xs|sm|md|lg|xl|2xl|3xl|4xl))?$/;
 // Tailwind's font families: the tokens' are `font-oc-body` and `font-oc-heading` (`font-mono` stays on code).
 const FONT = /^font-(?:sans|serif)$/;
+// Inside brackets, what the parts write and nothing else: a radius is a step of the base radius
+// (`rounded-[calc(var(--oc-radius,0.25rem)*1.5)]`), a font a weight or a contract font
+// (`font-[family-name:var(--oc-font-body)]`), and a variable a token (`--oc-…`), never `bg-[var(--color-neutral-100)]`
+// or `bg-(--brand)`, whose value the design cannot set.
+const RADIUS_BRACKET = /^rounded(?:-(?:t|r|b|l|s|e|tl|tr|br|bl|ss|se|es|ee))?-\[(.+)\]$/;
+const RADIUS_STEP = /^(?:calc\(var\(--oc-radius,[^()]*\)\*(?:1|1\.5|2|3)\)|var\(--oc-radius,[^()]*\))$/;
+const FONT_BRACKET = /^font-\[(.+)\]$/;
+const FONT_OK = /^(?:\d+|family-name:var\(--oc-font-(?:body|heading)\))$/;
+const VARIABLE = /var\(\s*(--[\w-]+)|-\((?:[a-z-]+:)?(--[\w-]+)\)/g;
+
+/** True when a utility in brackets (or a variable anywhere in the class) is something other than a token. */
+function offBracket(token: string, u: string): boolean {
+  const radius = RADIUS_BRACKET.exec(u);
+  const font = FONT_BRACKET.exec(u);
+  return (
+    (radius !== null && !RADIUS_STEP.test(radius[1] ?? '')) ||
+    (font !== null && !FONT_OK.test(font[1] ?? '')) ||
+    [...token.matchAll(VARIABLE)].some((m) => !(m[1] ?? m[2] ?? '').startsWith('--oc-'))
+  );
+}
 
 /** The utility of a class token: its variants (`md:`, `hover:`, `[&>a]:`) and an important mark dropped. */
 function utilityOf(token: string): string {
@@ -71,7 +91,7 @@ function utilityOf(token: string): string {
 function offences(classes: string): string[] {
   return classes.split(/\s+/).filter((token) => {
     const u = utilityOf(token);
-    return COLOUR.test(u) || WHITE_BLACK.test(u) || RADIUS.test(u) || FONT.test(u);
+    return COLOUR.test(u) || WHITE_BLACK.test(u) || RADIUS.test(u) || FONT.test(u) || offBracket(token, u);
   });
 }
 
@@ -83,13 +103,29 @@ describe('tokens only', () => {
     expect(offences('bg-oc-surface text-oc-ink border-oc-line rounded-oc-lg rounded-full font-oc-heading font-mono whitespace-nowrap')).toEqual([]);
   });
 
+  it('refuses rounded-[6px], font-[Georgia] and bg-[var(--color-neutral-100)]', () => {
+    expect(offences('rounded-[6px] md:font-[Georgia] bg-[var(--color-neutral-100)] rounded-t-[0.5rem] bg-(--brand)')).toEqual([
+      'rounded-[6px]',
+      'md:font-[Georgia]',
+      'bg-[var(--color-neutral-100)]',
+      'rounded-t-[0.5rem]',
+      'bg-(--brand)',
+    ]);
+    // As the installed parts write the tokens: a step of the base radius, a contract font, a weight, a token's variable.
+    expect(
+      offences(
+        'rounded-[calc(var(--oc-radius,0.25rem)*1.5)] rounded-t-[var(--oc-radius,0.25rem)] font-[family-name:var(--oc-font-body)] font-(family-name:--oc-font-heading) font-[600] bg-[var(--oc-brand,oklch(20.5%_0_none))] [:root:has(&)]:scroll-pb-64',
+      ),
+    ).toEqual([]);
+  });
+
   it('reads classes, never prose: comments, the text between tags and words that end in white or black pass', () => {
     const tsx = '// rounded down, black-and-white\nexport const A = () => <p className="rounded-lg">rounded up, off-white</p>;';
     expect(classStrings('a.tsx', tsx).flatMap(offences)).toEqual(['rounded-lg']);
     expect(classStrings('a.css', '/* font-sans */ .x { @apply bg-white; }').flatMap(offences)).toEqual(['bg-white']);
   });
 
-  it('no palette, white or black colour class, no radius from Tailwind\'s scale, no font-sans or font-serif under src/', () => {
+  it('no palette, white or black colour class, no radius from Tailwind\'s scale, no font-sans or font-serif, no radius, font or variable in brackets but a token under src/', () => {
     const found = code.flatMap((f) =>
       [...new Set(classStrings(f, readFileSync(f, 'utf8')).flatMap(offences))].map((c) => `${relative(site, f)}: ${c}`),
     );
