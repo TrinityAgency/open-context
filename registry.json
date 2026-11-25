@@ -4528,7 +4528,7 @@
         "tailwind"
       ],
       "fileCount": 19,
-      "version": "2.0.0",
+      "version": "2.0.1",
       "family": "site",
       "parts": [
         {
@@ -4538,7 +4538,7 @@
         },
         {
           "slug": "section-faq",
-          "version": "3.0.0",
+          "version": "3.0.1",
           "into": "_sections/faq"
         },
         {
@@ -4547,7 +4547,7 @@
           "into": "_sections/cta"
         }
       ],
-      "proof": "installs alone on Next 16; sections byte-identical at 3.0.0; default look equals 1.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; mutants caught",
+      "proof": "installs alone on Next 16; sections byte-identical at 3.0.0 (FAQ 3.0.1); default look equals 1.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; mutants caught",
       "tokens": 1
     },
     "page-restaurant-menu": {
