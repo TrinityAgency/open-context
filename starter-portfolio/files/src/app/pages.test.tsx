@@ -1,5 +1,7 @@
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { cleanup, render, screen, within } from '@testing-library/react';
-import type { ComponentType, ReactElement } from 'react';
+import type { ComponentType, ReactElement, ReactNode } from 'react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { AboutPage } from '@/components/about/about-page';
 import { HomePage } from '@/components/home-page';
@@ -10,7 +12,8 @@ import { paths } from '@/content/blog';
 import { contactContent } from '@/content/contact';
 import { HOME } from '@/content/home';
 import type { Locale } from '@/content/locale';
-import { CONTACT, CTA, FOOTER_COLUMNS, LEGAL, NAV } from '@/content/site';
+import { CONSENT_CATEGORIES, CONTACT, CTA, FOOTER_COLUMNS, LEGAL, NAV } from '@/content/site';
+import { CONSENT_LABELS, CONSENT_LABELS_DE, ConsentProvider } from '@/modules/site-cookie-consent';
 import { workPaths } from '@/content/work';
 import { createBlog } from '@/utils/blog-content/blog';
 import { ContactView } from './_page-contact/contact-view';
@@ -26,6 +29,24 @@ import sitemap from './sitemap';
 import Terms from './terms/page';
 
 afterEach(cleanup);
+
+/**
+ * The consent provider around every page, as src/app/layout.tsx puts it: a kit part behind `Gate={ConsentGate}` (a map,
+ * a video) renders only inside it, its gate closed until a choice is made.
+ */
+function Consent({ locale, children }: { locale: Locale; children: ReactNode }) {
+  return (
+    <ConsentProvider categories={CONSENT_CATEGORIES[locale]} labels={{ en: CONSENT_LABELS, de: CONSENT_LABELS_DE }[locale]}>
+      {children}
+    </ConsentProvider>
+  );
+}
+
+/** Renders a page view or a route as the layout does: inside the consent provider. */
+const renderPage = (ui: ReactElement, locale: Locale = 'en') => render(<Consent locale={locale}>{ui}</Consent>);
+
+/** A link to a file in public/ (a gallery's thumbnail opens its picture): no page, but the file must be there. */
+const isFile = (route: string) => /\.[a-z0-9]+$/i.test(route) && existsSync(join(__dirname, '..', '..', 'public', route));
 
 const LOCALES: Locale[] = ['en', 'de'];
 
@@ -68,7 +89,7 @@ const listedRoutes = async () => new Set((await sitemap()).map((entry) => new UR
 describe.each(LOCALES)('pages (%s)', (locale) => {
   it('every page view renders main#main with one h1', async () => {
     for (const [name, view] of await views(locale)) {
-      const { container } = render(view);
+      const { container } = renderPage(view, locale);
       expect(container.querySelectorAll('main#main'), name).toHaveLength(1);
       expect(screen.getAllByRole('heading', { level: 1 }), name).toHaveLength(1);
       cleanup();
@@ -76,14 +97,14 @@ describe.each(LOCALES)('pages (%s)', (locale) => {
   });
 
   it("the home page's h1 is that locale's hero title", async () => {
-    render(await HomePage({ locale, work: workOf(locale) }));
+    renderPage(await HomePage({ locale, work: workOf(locale) }), locale);
     expect(screen.getAllByRole('heading', { level: 1 }).map((h) => h.textContent)).toEqual([HOME[locale].hero.title]);
   });
 
   it('the home page shows the newest projects, three at most, and links to the work', async () => {
     const work = workOf(locale);
     const newest = (await work.getPosts()).slice(0, 3).map((project) => project.title);
-    render(await HomePage({ locale, work }));
+    renderPage(await HomePage({ locale, work }), locale);
     if (newest.length === 0) {
       expect(screen.queryByRole('region', { name: HOME[locale].work.title })).toBeNull();
       return;
@@ -94,14 +115,14 @@ describe.each(LOCALES)('pages (%s)', (locale) => {
   });
 
   it('the contact page shows the email and phone from site.ts', () => {
-    render(<ContactView content={contactContent(locale)} startedAt={0} />);
+    renderPage(<ContactView content={contactContent(locale)} startedAt={0} />, locale);
     expect(screen.getByRole('link', { name: CONTACT.email }).getAttribute('href')).toBe(`mailto:${CONTACT.email}`);
     expect(screen.getByRole('link', { name: CONTACT.phone })).toBeTruthy();
   });
 
   it('every in-page link a view renders has its target', async () => {
     for (const [name, view] of await views(locale)) {
-      const { container } = render(view);
+      const { container } = renderPage(view, locale);
       const targets = [...container.querySelectorAll('a[href^="#"]')].map((a) => a.getAttribute('href')?.slice(1) ?? '');
       expect(targets.filter((id) => !container.querySelector(`[id="${id}"]`)), name).toEqual([]);
       cleanup();
@@ -113,11 +134,11 @@ describe.each(LOCALES)('pages (%s)', (locale) => {
     // The collections' item and category pages follow LOCALE's content: another locale's slugs are not listed.
     const content = [`${paths.index()}/`, `${workPaths.index()}/`];
     for (const [name, view] of await views(locale)) {
-      const { container } = render(view);
+      const { container } = renderPage(view, locale);
       const routes = [...container.querySelectorAll('a[href^="/"]')]
         .map((a) => routeOf(a.getAttribute('href') ?? ''))
         .filter((route): route is string => route !== null && !content.some((prefix) => route.startsWith(prefix)));
-      expect(routes.filter((route) => !listed.has(route) && !FEEDS.includes(route)), name).toEqual([]);
+      expect(routes.filter((route) => !listed.has(route) && !FEEDS.includes(route) && !isFile(route)), name).toEqual([]);
       cleanup();
     }
   });
@@ -154,9 +175,17 @@ describe('route modules', () => {
     ['imprint', Imprint],
     ['privacy', Privacy],
     ['terms', Terms],
-  ])('%s renders main#main with one h1', (_, Route) => {
-    const { container } = render(<Route />);
+  ])('%s renders main#main with one h1; its in-page links have targets, its site links listed routes', async (_, Route) => {
+    // A page of the site's own is its route file alone (AGENTS.md, "Adding a page"), so its links are read here.
+    const listed = await listedRoutes();
+    const { container } = renderPage(<Route />);
     expect(container.querySelectorAll('main#main')).toHaveLength(1);
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
+    const targets = [...container.querySelectorAll('a[href^="#"]')].map((a) => a.getAttribute('href')?.slice(1) ?? '');
+    expect(targets.filter((id) => !container.querySelector(`[id="${id}"]`))).toEqual([]);
+    const routes = [...container.querySelectorAll('a[href^="/"]')]
+      .map((a) => routeOf(a.getAttribute('href') ?? ''))
+      .filter((route): route is string => route !== null);
+    expect(routes.filter((route) => !listed.has(route) && !FEEDS.includes(route) && !isFile(route))).toEqual([]);
   });
 });

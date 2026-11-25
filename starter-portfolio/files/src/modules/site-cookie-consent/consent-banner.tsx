@@ -71,8 +71,10 @@ export function ConsentBanner({
   );
   const text = <p className={TEXT}>{labels.bannerText}</p>;
 
+  // data-consent-banner marks the banner while it is on the page, so a part fixed to the same edge (the call button)
+  // can step aside until the visitor chooses: CSS reads it as :root:has([data-consent-banner]).
   return (
-    <section aria-labelledby={titleId} data-layout={layout} className={REGION[layout]}>
+    <section aria-labelledby={titleId} data-layout={layout} data-consent-banner className={REGION[layout]}>
       <div className={PANEL[layout]}>
         {layout === 'bar' ? (
           // The text beside the choices from lg (at md the text would be squeezed beside them); below, the choices under it.

@@ -79,7 +79,7 @@ export function FaqSection({ content, layout = 'centered', exclusive = false, id
                   <path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </summary>
-              <div className={`grid gap-3 pb-5 ${INK_BODY}`}>
+              <div className={`grid grid-cols-1 gap-3 pb-5 ${INK_BODY}`}>
                 {paragraphs(item.answer).map((p, j) => (
                   <p key={j} className="m-0">
                     {p}
