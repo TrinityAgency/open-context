@@ -1,20 +1,75 @@
 {
   "name": "page-faq",
-  "version": "1.0.0",
-  "description": "FAQ page with categories and search",
-  "outputDir": "app/faq",
-  "files": [
-    "page.tsx",
-    "loading.tsx",
-    "components/faq-search.tsx",
-    "components/faq-categories.tsx",
-    "components/faq-accordion.tsx"
+  "version": "2.0.0",
+  "title": "FAQ Page",
+  "description": "FAQ page: a hero, the questions grouped by topic with a topic list that jumps to each, a call to action and FAQPage structured data, in the project's design system",
+  "type": "page",
+  "category": "WEB_DESIGN",
+  "tags": [
+    "faq",
+    "questions",
+    "help",
+    "page",
+    "structured-data",
+    "design-tokens"
   ],
+  "stack": [
+    "react",
+    "next",
+    "tailwind"
+  ],
+  "family": "site",
+  "tokens": 1,
+  "parts": [
+    {
+      "slug": "section-hero",
+      "version": "3.0.0",
+      "into": "_sections/hero"
+    },
+    {
+      "slug": "section-faq",
+      "version": "3.0.1",
+      "into": "_sections/faq"
+    },
+    {
+      "slug": "section-cta",
+      "version": "3.0.0",
+      "into": "_sections/cta"
+    },
+    {
+      "slug": "site-seo",
+      "version": "1.0.0",
+      "into": "_parts/site-seo"
+    }
+  ],
+  "outputDir": "app/page-faq",
+  "files": [
+    "README.md",
+    "category-nav.tsx",
+    "content.ts",
+    "faq-page.tsx",
+    "page.tsx",
+    "_parts/site-seo/README.md",
+    "_parts/site-seo/index.ts",
+    "_parts/site-seo/json-ld-script.tsx",
+    "_parts/site-seo/json-ld.ts",
+    "_parts/site-seo/metadata.ts",
+    "_parts/site-seo/site-types.ts",
+    "_sections/cta/README.md",
+    "_sections/cta/cta-section.tsx",
+    "_sections/cta/site-types.ts",
+    "_sections/faq/README.md",
+    "_sections/faq/faq-section.tsx",
+    "_sections/faq/site-types.ts",
+    "_sections/hero/README.md",
+    "_sections/hero/hero-section.tsx",
+    "_sections/hero/site-types.ts"
+  ],
+  "proof": "installs alone on Next 16; parts byte-identical; a split FAQ section per topic, the topic list, one FAQPage JSON-LD; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak",
   "peerDependencies": {
-    "react": ">=18",
-    "next": ">=14",
-    "tailwindcss": ">=3",
-    "lucide-react": ">=0.263"
+    "react": ">=19",
+    "next": ">=16",
+    "tailwindcss": ">=4"
   },
-  "postMessage": "FAQ page available at /faq. Edit questions data in page.tsx. Customize categories in components/faq-categories.tsx."
+  "postMessage": "Installed at app/page-faq/ (served at /page-faq; rename the folder for another path). Edit content.ts; see README.md."
 }
