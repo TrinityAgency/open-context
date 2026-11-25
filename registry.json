@@ -5877,6 +5877,45 @@
         }
       ]
     },
+    "section-video": {
+      "name": "Video Section",
+      "description": "A video with its title and text in two layouts (centered, split): a 16:9 cover with a play control that embeds the video only behind your consent gate, and links to it without one; colours, fonts and radius from the project's design system",
+      "type": "component",
+      "category": "SECTIONS",
+      "tags": [
+        "video",
+        "embed",
+        "consent",
+        "media",
+        "section",
+        "layouts",
+        "design-tokens"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 6,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16; two layouts (centered, split); a gated video, its host not asked before consent; links out without JS; 3 sample brands, light and dark, 390/768/1280 px, 2 hosts; axe clean",
+      "tokens": 1,
+      "layouts": [
+        {
+          "id": "centered",
+          "title": "Centered",
+          "description": "The title and text centred above the video, in one column; the default.",
+          "usage": "<VideoSection layout=\"centered\" Gate={ConsentGate} content={{ title, text, video }} />"
+        },
+        {
+          "id": "split",
+          "title": "Split",
+          "description": "The title and text beside the video from md (the video the wider column), above it on a phone.",
+          "usage": "<VideoSection layout=\"split\" content={{ title, text, video: { title, href, poster } }} />"
+        }
+      ]
+    },
     "shop-cart": {
       "name": "Shopping Cart",
       "description": "Shopping cart sheet with quantity controls, order summary, localStorage persistence, and empty state. shadcn/ui + Tailwind.",
