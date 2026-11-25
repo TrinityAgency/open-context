@@ -1,19 +1,62 @@
 {
   "name": "page-coming-soon",
-  "version": "1.0.0",
-  "description": "Coming soon page with countdown timer, email capture form, and social links. Dark gradient background with flip-style countdown animation.",
-  "outputDir": "app/coming-soon",
-  "files": [
-    "page.tsx",
-    "loading.tsx",
-    "components/countdown-timer.tsx",
-    "components/email-capture.tsx"
+  "version": "2.0.0",
+  "title": "Coming Soon Page",
+  "description": "Coming soon page: the launch date as text, a newsletter signup on the page's own server action and a row of links, kept out of search engines, in the project's design system",
+  "type": "page",
+  "category": "WEB_DESIGN",
+  "tags": [
+    "coming-soon",
+    "launch",
+    "newsletter",
+    "page",
+    "design-tokens"
   ],
+  "stack": [
+    "react",
+    "next",
+    "tailwind",
+    "zod"
+  ],
+  "family": "site",
+  "tokens": 1,
+  "parts": [
+    {
+      "slug": "section-hero",
+      "version": "3.0.0",
+      "into": "_sections/hero"
+    },
+    {
+      "slug": "blog-newsletter-cta",
+      "version": "2.0.0",
+      "into": "_sections/newsletter"
+    }
+  ],
+  "outputDir": "app/page-coming-soon",
+  "files": [
+    "README.md",
+    "actions.ts",
+    "coming-soon-page.tsx",
+    "content.ts",
+    "page.tsx",
+    "subscribe.ts",
+    "_sections/hero/README.md",
+    "_sections/hero/hero-section.tsx",
+    "_sections/hero/site-types.ts",
+    "_sections/newsletter/README.md",
+    "_sections/newsletter/labels.de.ts",
+    "_sections/newsletter/labels.ts",
+    "_sections/newsletter/newsletter-cta.tsx",
+    "_sections/newsletter/newsletter-form.tsx",
+    "_sections/newsletter/newsletter.ts",
+    "_sections/newsletter/site-types.ts"
+  ],
+  "proof": "installs alone on Next 16; parts byte-identical; robots noindex; the signup on its own server action, with and without JavaScript; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean",
   "peerDependencies": {
-    "react": ">=18",
-    "next": ">=14",
-    "tailwindcss": ">=3",
-    "lucide-react": ">=0.263"
+    "react": ">=19",
+    "next": ">=16",
+    "tailwindcss": ">=4",
+    "zod": ">=3"
   },
-  "postMessage": "Coming soon page available at /coming-soon.\nSet your launch date in the LAUNCH_DATE constant in page.tsx.\nUpdate brand name, tagline, and social links to match your project."
+  "postMessage": "Installed at app/page-coming-soon/ (served at /page-coming-soon; rename the folder for another path). Edit content.ts, and replace subscribe() in subscribe.ts before production; see README.md."
 }
