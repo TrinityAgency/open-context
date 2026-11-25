@@ -1,0 +1,22 @@
+{
+  "name": "section-process",
+  "version": "1.0.0",
+  "title": "Process Section",
+  "description": "Numbered steps of how you work, in two layouts (rows, grid), that takes its colours and fonts from the project's design system",
+  "type": "component",
+  "category": "SECTIONS",
+  "tags": ["process", "steps", "how-it-works", "section", "landing", "layouts", "design-tokens"],
+  "stack": ["react", "tailwind"],
+  "family": "site",
+  "vocabVersion": 1,
+  "tokens": 1,
+  "layouts": [
+    { "id": "rows", "title": "Rows", "description": "One step per row, its number in a badge beside the title and description, a rule joining the badges; the default.", "usage": "<ProcessSection layout=\"rows\" content={{ title, intro, steps }} />" },
+    { "id": "grid", "title": "Grid", "description": "The steps in one, two or three columns as the width grows, each number badge above its title.", "usage": "<ProcessSection layout=\"grid\" content={{ title, intro, steps }} />" }
+  ],
+  "outputDir": "components/section-process",
+  "files": ["process-section.tsx", "site-types.ts", "README.md"],
+  "proof": "installs alone on Next 16; two layouts (rows, grid); two-digit numbers fit their badge; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak",
+  "peerDependencies": { "react": ">=19", "tailwindcss": ">=4" },
+  "postMessage": "See components/section-process/README.md for the layouts, the design tokens it reads and the content props."
+}
