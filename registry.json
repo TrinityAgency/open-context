@@ -5550,6 +5550,47 @@
         }
       ]
     },
+    "section-location": {
+      "name": "Location Section",
+      "description": "Where to find a business: address, phone, email and opening hours beside or below a map that loads only behind your consent gate, and links out to the map without one; two layouts (split, stacked), colours, fonts and radius from the project's design system",
+      "type": "component",
+      "category": "SECTIONS",
+      "tags": [
+        "location",
+        "map",
+        "address",
+        "opening-hours",
+        "contact",
+        "consent",
+        "section",
+        "layouts",
+        "design-tokens"
+      ],
+      "stack": [
+        "react",
+        "tailwind"
+      ],
+      "fileCount": 7,
+      "version": "1.0.0",
+      "family": "site",
+      "vocabVersion": 1,
+      "proof": "installs alone on Next 16; two layouts (split, stacked); a gated map whose host is not asked before consent; links out without JS; 3 sample brands, light and dark, 390/768/1280 px, 2 hosts; axe clean",
+      "tokens": 1,
+      "layouts": [
+        {
+          "id": "split",
+          "title": "Split",
+          "description": "The details beside the map from md (the map the wider column), the map below them on a phone; without a map, the details in one column; the default.",
+          "usage": "<LocationSection layout=\"split\" Gate={ConsentGate} content={{ title, contact, hours, map }} />"
+        },
+        {
+          "id": "stacked",
+          "title": "Stacked",
+          "description": "The map above the details in one column at every width.",
+          "usage": "<LocationSection layout=\"stacked\" content={{ title, contact, hours, map: { title, href } }} />"
+        }
+      ]
+    },
     "section-logo-cloud": {
       "name": "Logo Cloud Section",
       "description": "Logo cloud in two layouts (grid, split): client or partner logos, optionally linked, in the project's design system",
