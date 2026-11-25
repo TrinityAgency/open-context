@@ -6474,12 +6474,12 @@
         "tailwind"
       ],
       "fileCount": 35,
-      "version": "2.0.0",
+      "version": "2.1.0",
       "family": "site",
       "parts": [
         {
           "slug": "design-tokens",
-          "version": "2.0.0",
+          "version": "2.1.0",
           "into": "src/design-system/design-tokens"
         }
       ],
