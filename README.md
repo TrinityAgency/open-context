@@ -1,6 +1,6 @@
 # Open Context
 
-358 standalone templates for Next.js, React and agent tooling, each installed with one command.
+359 standalone templates for Next.js, React and agent tooling, each installed with one command.
 
 Browse, search and preview them at **[open-context.com](https://open-context.com)**; every command and option is explained at [open-context.com/cli](https://open-context.com/cli).
 
@@ -24,7 +24,7 @@ npx @trinity369/use <template>
 | `--dir <path>` | install into another folder |
 | `--no-overwrite` | keep files that already exist |
 
-## Templates (358)
+## Templates (359)
 
 ### AGENTIC (40)
 
@@ -383,7 +383,7 @@ npx @trinity369/use <template>
 | `primitive-spinner` | component | Loading spinner with size (xs/sm/default/lg/xl) and color variants |
 | `primitive-tooltip` | component | Tooltip with configurable placement and delay — convenience wrapper + low-level exports |
 
-### SECTIONS (12)
+### SECTIONS (13)
 
 | Template | Type | Description |
 |---|---|---|
@@ -392,6 +392,7 @@ npx @trinity369/use <template>
 | `section-features` | component | Features section in three layouts (grid, rows, split) that takes its colours, fonts and radius from the project's design system |
 | `section-gallery` | component | A gallery of images in two layouts (grid, wall) whose thumbnails open a keyboard-complete lightbox and still open each image without JavaScript, that takes its colours, fonts and radius from the project's design system |
 | `section-hero` | component | Hero section in four layouts (split, centered, image, type) that takes its colours, fonts and radius from the project's design system |
+| `section-location` | component | Where to find a business: address, phone, email and opening hours beside or below a map that loads only behind your consent gate, and links out to the map without one; two layouts (split, stacked), colours, fonts and radius from the project's design system |
 | `section-logo-cloud` | component | Logo cloud in two layouts (grid, split): client or partner logos, optionally linked, in the project's design system |
 | `section-pricing` | component | Pricing section in two layouts (grid, rows): plans with prices from minor units, a no-JavaScript interval switch and a highlighted plan, in the project's design system |
 | `section-process` | component | Numbered steps of how you work, in two layouts (rows, grid), that takes its colours and fonts from the project's design system |
