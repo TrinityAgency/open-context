@@ -1,6 +1,6 @@
 {
   "name": "starter-blog",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "title": "Blog Starter",
   "description": "Blog with MDX posts, authors, categories, RSS and Atom feeds, newsletter signup, cookie consent, SEO, legal and error pages, assembled from the website kit, all on the design tokens a claude.ai design system sets",
   "type": "starter",
@@ -10,10 +10,10 @@
   "family": "site",
   "tokens": 1,
   "parts": [
-    { "slug": "design-tokens", "version": "2.0.0", "into": "src/design-system/design-tokens" },
+    { "slug": "design-tokens", "version": "2.1.0", "into": "src/design-system/design-tokens" },
     { "slug": "site-header", "version": "2.0.0", "into": "src/components/site-header" },
     { "slug": "site-footer", "version": "2.0.0", "into": "src/components/site-footer" },
-    { "slug": "site-cookie-consent", "version": "2.0.0", "into": "src/modules/site-cookie-consent" },
+    { "slug": "site-cookie-consent", "version": "2.1.0", "into": "src/modules/site-cookie-consent" },
     { "slug": "site-seo", "version": "1.0.0", "into": "src/utils/site-seo" },
     { "slug": "component-pagination", "version": "2.0.0", "into": "src/components/component-pagination" },
     { "slug": "component-breadcrumbs", "version": "2.0.0", "into": "src/components/component-breadcrumbs" },

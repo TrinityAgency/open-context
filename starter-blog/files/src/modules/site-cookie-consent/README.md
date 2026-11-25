@@ -138,6 +138,11 @@ In both, Accept all and Reject all share one class: the same colour, size and we
 words; beside the choices, Settings keeps its width and the choices give way. The banner
 carries `data-layout` with its layout; the preferences dialog is the same in both.
 
+While it is on the page the banner also carries `data-consent-banner`, and once the visitor has chosen it is gone.
+Something else fixed to the bottom of the page can step aside until then: CSS reads it as
+`:root:has([data-consent-banner])`. The `site-call-button` template does this (1.1.0 and later): while the banner is
+up the call card steps aside (with JavaScript off it stays, since its links work without it).
+
 ## Brand
 
 The banner and the dialog read these design tokens (CSS custom properties of the Open Context token contract,
@@ -228,3 +233,4 @@ code, safe on the server.
 - 2.0.0: the design tokens and `layout` are new; without a design system and without `layout` it draws what 1.0.0
   drew. The buttons' labels wrap instead of running past a narrow button; the dialog's checkboxes draw the token focus
   ring; `ConsentLayout` is exported.
+- 2.1.0: the banner carries `data-consent-banner` while it is shown (see "Layouts"); nothing else changes.

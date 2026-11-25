@@ -47,10 +47,10 @@ tests.
 
 | Folder | Template | Version |
 |---|---|---|
-| `src/design-system/design-tokens` | `design-tokens` | 2.0.0 |
+| `src/design-system/design-tokens` | `design-tokens` | 2.1.0 |
 | `src/components/site-header` | `site-header` | 2.0.0 |
 | `src/components/site-footer` | `site-footer` | 2.0.0 |
-| `src/modules/site-cookie-consent` | `site-cookie-consent` | 2.0.0 |
+| `src/modules/site-cookie-consent` | `site-cookie-consent` | 2.1.0 |
 | `src/utils/site-seo` | `site-seo` | 1.0.0 |
 | `src/components/component-pagination` | `component-pagination` | 2.0.0 |
 | `src/components/component-breadcrumbs` | `component-breadcrumbs` | 2.0.0 |
@@ -112,6 +112,7 @@ site already holds `design-tokens`, its config and the imports, so only the expo
 5. To use the export's own components as well, set `prefix` in `design-sync.config.json` to the class prefix its
    `bundle.css` uses (`ds-` is a placeholder), name the components you approved in an `approved` list there, write
    thin wrappers in `src/components/ui/` and build class names with `cx` from `src/design-system/generated/catalog.ts`.
+   `pnpm design:guards` refuses a wrapper that uses those classes while the list is missing.
 6. After a new export: `pnpm design:sync`, then `pnpm design:diff` lists the classes that were added or removed
    and the wrappers that still use a removed one.
 
@@ -120,11 +121,12 @@ site already holds `design-tokens`, its config and the imports, so only the expo
 | `design:sync` | checks the map and the contrast, then writes the generated files from the export |
 | `design:check` | fails when the generated files differ from a fresh run; before the first export there is nothing to check, and it passes |
 | `design:diff` | lists classes added/removed since the committed catalog, and the wrappers they hit |
-| `design:guards` | fails on a colour literal, an unknown wrapper class or a hand-written vendor prefix under `src/` |
+| `design:guards` | fails on a colour literal, an unknown wrapper class or a hand-written vendor prefix under `src/`, and on wrappers over the design's component classes without an `approved` list |
 
 Each runs `node src/design-system/design-tokens/design-sync.mjs --config design-sync.config.json` (with `--check`,
 `--diff` or `--guards`). `design-sync.mjs` belongs to the `design-tokens` part: update it by installing a newer
-`design-tokens`, never by editing it.
+`design-tokens`, never by editing it. Once a design is connected, the generated files change once after an update:
+`pnpm design:check` reports all three out of date until `pnpm design:sync` writes them again.
 
 ## Going live
 

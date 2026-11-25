@@ -133,6 +133,11 @@ to "check your inbox" through the `labels` prop. To drop the newsletter, remove 
 4. Its path in `PAGES` in `src/app/sitemap.ts`. `src/app/pages.test.tsx` fails when a `NAV`, `CTA`, `LEGAL` or footer
    link points at a route the sitemap does not list.
 5. Its text in both languages, next to the other content in `src/content/`.
+6. Its route in the `route modules` list of `src/app/pages.test.tsx`, which renders every route inside the
+   consent provider, as the layout does.
+
+A page of your own that arranges parts is this route file alone: its default export renders `main` with the parts,
+their text from `src/content/`, and nothing else of yours (no view component, no helper; see "Growing with the kit").
 
 ## Parts
 
@@ -141,10 +146,10 @@ is lost the next time the template is installed, and it is no longer the proven 
 
 | Folder | Template | Version |
 |---|---|---|
-| `src/design-system/design-tokens` | `design-tokens` | 2.0.0 |
+| `src/design-system/design-tokens` | `design-tokens` | 2.1.0 |
 | `src/components/site-header` | `site-header` | 2.0.0 |
 | `src/components/site-footer` | `site-footer` | 2.0.0 |
-| `src/modules/site-cookie-consent` | `site-cookie-consent` | 2.0.0 |
+| `src/modules/site-cookie-consent` | `site-cookie-consent` | 2.1.0 |
 | `src/utils/site-seo` | `site-seo` | 1.0.0 |
 | `src/components/component-pagination` | `component-pagination` | 2.0.0 |
 | `src/components/component-breadcrumbs` | `component-breadcrumbs` | 2.0.0 |
@@ -168,6 +173,43 @@ legal or not-found part's `content.ts` first and put it back after. Folders star
 hold views, and the short route files (`src/app/imprint/page.tsx`, `not-found.tsx`, `error.tsx`, …) render them with
 `LOCALE`.
 
+## Growing with the kit
+
+The website kit is a set of published templates (family `site`): sections, components, pages and the legal pages,
+each proven on its own; the folders under "Parts" are some of them. Find more with
+`npx @trinity369/use search <words>`, read one with `npx @trinity369/use info <slug>`, and install from this folder
+(the site's root), so the record of what was installed (`.open-context.json`) stays with the site:
+
+- **A component or a section** into its own folder:
+  `npx @trinity369/use <slug> --dir src/components/<slug>`, then import it from `@/components/<slug>/…`. The
+  sections a company site most often adds install this way: `section-team`, `section-process`,
+  `section-references`, `section-gallery`, `section-location` (address, hours and a map) and `section-video`. The
+  map and the video are embeds: see "Consent".
+- **The two pieces of chrome** go in `src/app/layout.tsx`, after installing each into `src/components/<slug>`, both
+  inside `ConsentProvider`: `site-announcement-bar` right after `<Header … />`, and `site-call-button` right after
+  `<SiteFooter … />`. While the cookie banner is up the call button is not drawn; it appears once the visitor has
+  chosen.
+- **A page** into a private folder, as the legal pages are: `npx @trinity369/use <slug> --dir src/app/_<slug>` (a
+  folder whose name starts with `_` is never a route). Its text is its `content.ts` (`META` and `CONTENT`, both
+  languages), the one file of it you write in. Then its route, as "Adding a page" says: `src/app/<route>/page.tsx`
+  sets `export const metadata = blogMetadata({ path: '/<route>', ...META[LOCALE] })` and renders the part's page with
+  this site's `LOCALE` (`<FaqPage locale={LOCALE} />`; the part's `README.md` names it). One exception:
+  `page-coming-soon` says `noindex`, so it is never added to `PAGES` and never linked from `NAV` or the footer (to make
+  it the whole site until launch, render it from `src/app/page.tsx`; its `README.md` says how).
+
+An installed template is a copy of a published one. Change it through its props (its `layout` among them) and its
+`content.ts`; an edit inside its files is lost the next time it is installed. Every part reads the design tokens, so
+it takes the connected design without being edited. Add each new folder to the table under "Parts", with its
+template and version.
+
+**Arranging is all a site writes**, as the kit is proven: the owner's text and facts in `src/content/`, each entry
+written out (no helper that builds entries), pictures in `public/`, the parts' props and their order on a page, and the
+route, metadata, navigation, sitemap and test-list entries a new page needs. Nothing else is written: no component,
+function, hook, event handler, `'use client'` file or test of your own (the starter's views and tests are its own glue).
+Where the owner asks for something no part's props give, such as an announcement that ends by itself on a date, leave it
+to the owner (the bar's line is removed when it is over) and say so: a part that is missing is a question for the kit,
+not code in the site.
+
 ## The design
 
 The site's colours, fonts and corners are the design tokens every Open Context part reads (`--oc-surface`,
@@ -184,13 +226,22 @@ of this site) defines them with neutral defaults; a connected design sets them i
   skill's install and loading steps are done.
 - **The site's own code** names tokens with `design-tokens`' utilities: `bg-oc-surface`, `text-oc-ink`,
   `border-oc-line`, `rounded-oc-lg`, `font-oc-heading` (its `README.md` lists them all). Never a colour literal, a
-  grey or other palette class, a radius from Tailwind's scale or `font-sans`: `src/design-system/tokens-only.test.ts`
-  and `pnpm design:guards` refuse them.
+  grey or other palette class, a radius from Tailwind's scale, `font-sans`, or a radius, font or variable in brackets
+  that is no token (`rounded-[6px]`, `font-[Georgia]`, `bg-[var(--color-neutral-100)]`): `pnpm design:guards`
+  refuses the colour literal, `src/design-system/tokens-only.test.ts` the rest, and `pnpm test` runs both.
 - **Structure** is chosen with each installed part's `layout` prop (`layout="split"`, …); the part's `README.md`
   lists its layouts and what each draws. A part is never restyled with classes.
+- **The design's own components** are optional. Wrappers in `src/components/ui/` that use the export's component
+  classes need an `approved` list in `design-sync.config.json` (the components you agreed to use): `pnpm design:guards`
+  refuses such a wrapper while the list is missing, and a class whose component is not on it. `README.md`, "The
+  design", step 5, has the steps.
 - **Never edit `src/design-system/generated/`**: `pnpm design:sync` writes it. To change the design, change it in
   Claude Design, export it again over `design/export/`, run `pnpm design:sync`, then `pnpm design:diff`.
   `README.md`, "The design", has the steps and the four `design:*` scripts.
+- **Updating `design-tokens`**: install a newer one over its folder
+  (`npx @trinity369/use design-tokens --dir src/design-system/design-tokens`), never edit it. Once a design is
+  connected, the generated files change once after an update: `pnpm design:check` reports all three (`tokens.css`,
+  `components.css`, `catalog.ts`) out of date until `pnpm design:sync` writes them again; commit what it writes.
 
 ## Consent: nothing from another host before a choice
 
@@ -199,7 +250,12 @@ chooses. Until then nothing non-essential is stored and nothing is requested fro
 one first-party cookie, `site_consent`; the footer's "Cookie settings" button opens the choice again. The share links
 under a post are plain links: nothing is loaded from a network until a visitor clicks one.
 
-- **Anything that loads from another host** (a map, a video, a font or script from a CDN) goes inside
+- **A kit part that embeds** (`section-location`'s map, `section-video`'s player) takes the gate as a prop: pass
+  `Gate={ConsentGate}` (from `@/modules/site-cookie-consent`) from any page, a server page included, and it loads
+  the embed only once the visitor allows its category (`category`, `"media"` unless you pass another; it must be one
+  of `CONSENT_CATEGORIES`). It needs no client component of yours. Without `Gate` it never embeds: it links to the
+  map or the video instead.
+- **Any other embed from another host** (a map, a video, a font or script from a CDN) goes inside
   `<ConsentGate category="media" fallback={…}>`, **created in a client component** (`'use client'`). React's server
   renderer preloads every `<img>` and `<link>` it renders, even inside a gate that is still closed, so a gated embed
   written in a server component is requested before consent. The module's `README.md` shows the pattern. The build
@@ -233,6 +289,6 @@ domain (`SITE.url`, or `SITE_URL` as the build reads it):
 | `src/content/blog.test.ts` | both languages' posts load and render (headings, image, code block); drafts stay out of the posts and the sitemap; both feeds parse and list exactly the visible posts; `subscribe()` refuses in production until replaced |
 | `src/content/claims.test.ts` | no source file or post states a `FORBIDDEN` phrase, however it is wrapped; no legal placeholder is left once the site has its own domain |
 | `src/content/legal-guard.test.ts` | the build-time guard: legal placeholders render on the sample domain only |
-| `src/design-system/tokens-only.test.ts` | the classes in every file under `src/` but the generated design files, the tests and the copy (`src/content/`, a part's `content.ts` and `labels`): no palette, white or black colour class, no radius from Tailwind's scale, no `font-sans` or `font-serif`; design-sync's guards report nothing (the parts pass it by construction) |
-| `pnpm design:check`, `pnpm design:guards` | the generated design files match the export (before the first export there is nothing to check); no colour literal, unknown wrapper class or hand-written vendor prefix under `src/` |
+| `src/design-system/tokens-only.test.ts` | the classes in every file under `src/` but the generated design files, the tests and the copy (`src/content/`, a part's `content.ts` and `labels`): no palette, white or black colour class, no radius from Tailwind's scale, no `font-sans` or `font-serif`, no radius, font or variable in brackets but a token (a step of `--oc-radius`, a weight or a contract font, an `--oc-*` variable); design-sync's guards report nothing |
+| `pnpm design:check`, `pnpm design:guards` | the generated design files match the export (before the first export there is nothing to check); no colour literal, unknown wrapper class or hand-written vendor prefix under `src/`, and no wrapper over the design's component classes without an `approved` list in `design-sync.config.json` |
 | `pnpm typecheck` | the whole site, parts included, type-checks strictly |

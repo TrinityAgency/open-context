@@ -1,10 +1,11 @@
 import { cleanup, render, screen } from '@testing-library/react';
-import type { ComponentType } from 'react';
+import type { ComponentType, ReactElement, ReactNode } from 'react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { HomePage } from '@/components/home-page';
 import { BLOG_TEXT } from '@/content/blog';
 import type { Locale } from '@/content/locale';
-import { CTA, FOOTER_COLUMNS, LEGAL, NAV } from '@/content/site';
+import { CONSENT_CATEGORIES, CTA, FOOTER_COLUMNS, LEGAL, NAV } from '@/content/site';
+import { CONSENT_LABELS, CONSENT_LABELS_DE, ConsentProvider } from '@/modules/site-cookie-consent';
 import { createBlog } from '@/utils/blog-content/blog';
 import Imprint from './imprint/page';
 import NotFound from './not-found';
@@ -13,6 +14,21 @@ import sitemap from './sitemap';
 import Terms from './terms/page';
 
 afterEach(cleanup);
+
+/**
+ * The consent provider around every page, as src/app/layout.tsx puts it: a kit part behind `Gate={ConsentGate}` (a map,
+ * a video) renders only inside it, its gate closed until a choice is made.
+ */
+function Consent({ locale, children }: { locale: Locale; children: ReactNode }) {
+  return (
+    <ConsentProvider categories={CONSENT_CATEGORIES[locale]} labels={{ en: CONSENT_LABELS, de: CONSENT_LABELS_DE }[locale]}>
+      {children}
+    </ConsentProvider>
+  );
+}
+
+/** Renders a page view or a route as the layout does: inside the consent provider. */
+const renderPage = (ui: ReactElement, locale: Locale = 'en') => render(<Consent locale={locale}>{ui}</Consent>);
 
 const LOCALES: Locale[] = ['en', 'de'];
 
@@ -27,13 +43,13 @@ const blogOf = (locale: Locale) => createBlog({ dir: `content/blog/${locale}` })
 
 describe.each(LOCALES)('home page (%s)', (locale) => {
   it("has one h1, that locale's home title", async () => {
-    render(await HomePage({ locale, blog: blogOf(locale) }));
+    renderPage(await HomePage({ locale, blog: blogOf(locale) }), locale);
     const h1 = screen.getAllByRole('heading', { level: 1 });
     expect(h1.map((h) => h.textContent)).toEqual([BLOG_TEXT[locale].home.title]);
   });
 
   it('has the #newsletter target and an element for every NAV or CTA anchor that points into it', async () => {
-    const { container } = render(await HomePage({ locale, blog: blogOf(locale) }));
+    const { container } = renderPage(await HomePage({ locale, blog: blogOf(locale) }), locale);
     expect(container.querySelector('section#newsletter form[data-newsletter]')).not.toBeNull();
     const ids = [...NAV[locale].flatMap((item) => [item, ...(item.children ?? [])]), CTA[locale]]
       .filter((item) => item.href.startsWith('/#'))
@@ -45,7 +61,7 @@ describe.each(LOCALES)('home page (%s)', (locale) => {
   it('shows the three newest posts', async () => {
     const blog = blogOf(locale);
     const newest = (await blog.getPosts()).slice(0, 3).map((post) => post.title);
-    render(await HomePage({ locale, blog }));
+    renderPage(await HomePage({ locale, blog }), locale);
     expect(screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual(newest);
   });
 });
@@ -79,7 +95,7 @@ describe('route modules', () => {
     ['privacy', Privacy],
     ['terms', Terms],
   ])('%s renders main#main with one h1', (_, Route) => {
-    const { container } = render(<Route />);
+    const { container } = renderPage(<Route />);
     expect(container.querySelectorAll('main#main')).toHaveLength(1);
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
   });
