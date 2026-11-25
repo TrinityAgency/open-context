@@ -46,11 +46,13 @@ theme, its font families and radii), or the brand's values to write such a file 
    node src/design-system/design-tokens/design-sync.mjs --config design-sync.config.json
    ```
 
-   It checks the map first (every token named, every name exists, the right kind) and the contrast of the contract's
-   text and ground pairs (`ink` on `surface`, `on-brand` on `brand`, …), at least 4.5:1 in every theme the design
-   system defines; then it writes `src/design-system/generated/tokens.css`. A refusal lists every problem. A contrast
-   refusal is a question for whoever owns the design system: report the pair, the theme and both colours, and do not
-   bend the map to make it pass.
+   It checks the map first (every token named, every name exists, the right kind), then two kinds of contrast in
+   every theme the design system defines: the contract's text and ground pairs (`ink` on `surface`, `on-brand` on
+   `brand`, …) at least 4.5:1, and the focus ring (`focus` on `surface`, `surface-alt` and `surface-sunk`) at least
+   3:1. Then it writes `src/design-system/generated/tokens.css`, each theme with its colour scheme (light or dark, by
+   its surface and ink, so the browser draws scrollbars and form controls to match). A refusal lists every problem. A
+   contrast refusal is a question for whoever owns the design system: report the pair, the theme and both colours, and
+   do not bend the map to make it pass.
 6. **Load it once.** In the main stylesheet, after Tailwind: `@import "../design-system/design-tokens/oc-tokens.css";` (the
    utilities for the project's own code: `bg-oc-brand`, `text-oc-ink`, `rounded-oc-lg`, `font-oc-heading`). In the
    root layout, import `src/design-system/generated/tokens.css` once, and give the page the tokens:

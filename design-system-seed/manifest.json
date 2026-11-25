@@ -1,6 +1,6 @@
 {
   "name": "design-system-seed",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "title": "Design System Seed",
   "description": "Skill that connects a design system made on claude.ai to every Open Context part: installs design-tokens, maps the design's tokens onto the token contract, runs design-sync with its contrast checks and loads the result",
   "type": "skill",
@@ -10,7 +10,7 @@
   "family": "site",
   "outputDir": ".claude",
   "files": ["skills/design-system-seed/SKILL.md"],
-  "proof": "every command, flag, file, path, token and utility it names exists in design-tokens 2.0.0, its example config and the token contract; planted mistakes are reported",
+  "proof": "every command, flag, file, path, token and utility it names exists in design-tokens 2.1.0, its example config and the token contract; planted mistakes are reported",
   "peerDependencies": {},
   "postMessage": "Installed at .claude/skills/design-system-seed/SKILL.md. Give your agent your design system's export; the skill maps it onto the parts' design tokens."
 }
