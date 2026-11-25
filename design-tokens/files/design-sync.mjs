@@ -12,12 +12,15 @@
 // With "contract" in the config (a path to oc-map.json), tokens.css also declares the Open Context contract: one
 // `--oc-<token>: var(--<design token>)` alias per contract token, in every theme; the map and the contrast of the
 // contract's text/ground pairs (4.5:1) and non-text pairs (the focus ring, 3:1) are checked first, and nothing is
-// written when a check fails.
+// written when a check fails. Each of those theme blocks starts with `color-scheme`, light or dark by the theme's
+// surface and ink, so the browser draws its scrollbars, form controls and canvas to match.
+// Wrapper components (files in "wrappers" that use a design class) need "approved" in the config: --guards refuses
+// them without it.
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
-export const TEMPLATE_VERSION = '3';
+export const TEMPLATE_VERSION = '4';
 
 /** An error the person running the script can act on (exit code 2). */
 export class DesignSyncError extends Error {}
@@ -289,10 +292,12 @@ export function over(colour, base) {
   return `rgb(${shown.map((c) => Math.round(c * 255000) / 1000).join(' ')})`;
 }
 
+/** The WCAG 2.x relative luminance of an opaque colour (0 to 1). */
+const luminance = (c) => { const [r, g, b] = linearRgb(c); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+
 /** The WCAG 2.x contrast ratio of two opaque colours (1 to 21). */
 export function contrastRatio(a, b) {
-  const lum = (c) => { const [r, g, bl] = linearRgb(c); return 0.2126 * r + 0.7152 * g + 0.0722 * bl; };
-  const [x, y] = [lum(a), lum(b)];
+  const [x, y] = [luminance(a), luminance(b)];
   return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05);
 }
 
@@ -305,7 +310,7 @@ export function checkContract(t, ocMap) {
   }
   const map = ocMap.map;
   const problems = new Set();
-  const { themes, first, colors } = colourModel(t);
+  const { themes, colors } = colourModel(t);
   const colour = new Map(colors.map((c) => [c.name, c.value]));
   const has = {
     color: (n) => colour.has(n),
@@ -328,16 +333,7 @@ export function checkContract(t, ocMap) {
       ? `${key} → "${value}": a ${x.kind} token needs a ${KIND_WORDS[x.kind]}, and "${value}" is a ${KIND_WORDS[other]}`
       : `${key} → "${value}": the design has no ${KIND_WORDS[x.kind]} named "${value}"`);
   }
-  // A theme block redeclares what it defines, and every alias (aliases resolve per theme); the rest inherits the first theme.
-  const valueIn = (name, th, seen = new Set()) => {
-    const v = colour.get(name);
-    if (!v || seen.has(name)) return null;
-    seen.add(name);
-    const own = v[th] ?? v[first];
-    const alias = ALIAS.exec(own);
-    return alias ? valueIn(alias[1], th, seen) : own;
-  };
-  const effective = (key, th) => (map[key] === null ? contract.get(key).default : valueIn(map[key], th));
+  const effective = contractColour(t, map);
   const said = (key) => (map[key] === null ? 'the default' : map[key]);
   // Text on its ground at 4.5:1; a non-text mark (the focus ring) on its ground at 3:1 (WCAG 1.4.3, 1.4.11).
   const checks = [...OC_CONTRACT.pairs.map((p) => [...p, 4.5]), ...OC_CONTRACT.nonText.map((p) => [...p, 3])];
@@ -365,19 +361,50 @@ export function checkContract(t, ocMap) {
   return [...problems];
 }
 
-/** The contract's aliases for a design: colour aliases in the first theme's block and again in every other theme's, fonts and radius on :root. */
+/**
+ * The value a contract colour takes in a theme: the design token the map names, as that theme resolves it (a theme
+ * block redeclares what it defines, and every alias, since aliases resolve per theme; the rest inherits the first
+ * theme), or the contract's default where the map names none. null when the named token or an alias does not resolve.
+ */
+function contractColour(t, map) {
+  const { first, colors } = colourModel(t);
+  const colour = new Map(colors.map((c) => [c.name, c.value]));
+  const valueIn = (name, th, seen = new Set()) => {
+    const v = colour.get(name);
+    if (!v || seen.has(name)) return null;
+    seen.add(name);
+    const own = v[th] ?? v[first];
+    const alias = ALIAS.exec(own);
+    return alias ? valueIn(alias[1], th, seen) : own;
+  };
+  const byName = new Map(OC_CONTRACT.tokens.map((x) => [x.name, x]));
+  return (key, th) => (typeof map[key] === 'string' ? valueIn(map[key], th) : byName.get(key).default);
+}
+
+/** A theme's color-scheme: light when its surface is lighter (higher relative luminance) than its ink, else dark. */
+export function colorScheme(surface, ink) {
+  return luminance(surface) > luminance(ink) ? 'light' : 'dark';
+}
+
+/**
+ * The contract's aliases for a design: colour aliases in the first theme's block and again in every other theme's, each
+ * block led by the theme's color-scheme; fonts and radius on :root.
+ */
 export function contractCss(t, map) {
   const { themes, first } = colourModel(t);
+  const effective = contractColour(t, map);
+  const scheme = (th) => {
+    const [surface, ink] = ['surface', 'ink'].map((k) => effective(k, th) ?? OC_CONTRACT.tokens.find((x) => x.name === k).default);
+    return `  color-scheme: ${colorScheme(surface, ink)};`;
+  };
   const mapped = OC_CONTRACT.tokens.filter((x) => typeof map[x.name] === 'string');
   const colours = mapped.filter((x) => x.kind === 'color').map((x) => `  --oc-${x.name}: var(--${cssName(map[x.name])});`);
   const root = mapped.filter((x) => x.kind !== 'color').map((x) => (x.kind === 'font'
     ? `  --oc-${x.name}: var(--font-${cssName(map[x.name].toLowerCase())});`
     : `  --oc-${x.name}: var(--${cssName(map[x.name])});`));
   const out = [`/* Open Context contract v${OC_CONTRACT.version}: --oc-* aliases of this design's tokens, declared again in every theme */`];
-  if (colours.length > 0) {
-    out.push(`:root, [data-theme="${first}"] {`, ...colours, '}');
-    for (const th of themes.slice(1)) out.push(`[data-theme="${th}"] {`, ...colours, '}');
-  }
+  out.push(`:root, [data-theme="${first}"] {`, scheme(first), ...colours, '}');
+  for (const th of themes.slice(1)) out.push(`[data-theme="${th}"] {`, scheme(th), ...colours, '}');
   if (root.length > 0) out.push(':root {', ...root, '}');
   return `${out.join('\n')}\n`;
 }
@@ -880,10 +907,17 @@ export function runGuards(configPath) {
     }
     const committed = existsSync(cfg.catalog) ? parseCatalogTs(readFileSync(cfg.catalog, 'utf8')) : null;
     const wrappers = wrapperFiles(cfg);
-    if (wrappers.length > 0 && committed === null) violations.push(`wrapper: ${rel(cfg.catalog)} is missing or unreadable; run the design:sync script (node scripts/design-sync.mjs)`);
+    const token = new RegExp(`(?<![A-Za-z0-9_-])${esc(cfg.prefix)}[A-Za-z0-9_-]+`, 'g');
+    // A wrapper is a file there that uses a design class; others (a shadcn/ui component) are not the design's business.
+    const designClass = new RegExp(token.source);
+    const designWrappers = wrappers.filter((w) => designClass.test(w.text));
+    if (designWrappers.length > 0 && committed === null) violations.push(`wrapper: ${rel(cfg.catalog)} is missing or unreadable; run the design:sync script`);
+    // Fail closed: a wrapper is written only for an approved component.
+    if (cfg.approved === null && designWrappers.length > 0) {
+      violations.push(`wrapper: ${rel(resolve(configPath))} has no "approved" list; name the design's components the wrappers may use (${designWrappers.map((w) => w.path).join(', ')} use its classes)`);
+    }
     if (committed !== null) {
       const known = catalogClasses(committed);
-      const token = new RegExp(`(?<![A-Za-z0-9_-])${esc(cfg.prefix)}[A-Za-z0-9_-]+`, 'g');
       for (const w of wrappers) {
         for (const tok of new Set(w.text.match(token) ?? [])) {
           const p = parseClass(tok);
