@@ -1,0 +1,23 @@
+{
+  "name": "section-team",
+  "version": "1.0.0",
+  "title": "Team Section",
+  "description": "Team section in three layouts (grid, rows, minimal) that takes its colours, fonts and radius from the project's design system",
+  "type": "component",
+  "category": "SECTIONS",
+  "tags": ["team", "people", "section", "about", "layouts", "design-tokens"],
+  "stack": ["react", "tailwind"],
+  "family": "site",
+  "vocabVersion": 1,
+  "tokens": 1,
+  "layouts": [
+    { "id": "grid", "title": "Grid", "description": "One member per cell with a round portrait, name, role, bio and links, in one, two or three columns as the width grows; the default.", "usage": "<TeamSection layout=\"grid\" content={{ title, intro, members }} />" },
+    { "id": "rows", "title": "Rows", "description": "One member per row in a card, a large portrait beside the text from md, the portrait side alternating; without any portrait it draws the grid.", "usage": "<TeamSection layout=\"rows\" content={{ title, members: [{ name, role, bio, image }] }} />" },
+    { "id": "minimal", "title": "Minimal", "description": "Names, roles and links in a compact list, no portraits and no bios.", "usage": "<TeamSection layout=\"minimal\" content={{ title, members: [{ name, role, links }] }} />" }
+  ],
+  "outputDir": "components/section-team",
+  "files": ["team-section.tsx", "site-types.ts", "README.md"],
+  "proof": "installs alone on Next 16; three layouts (grid, rows, minimal); grid equals page-about 2.0.0's team grid; 3 sample brands, light and dark, at 390/768/1280 px in two host apps; axe clean; no leak",
+  "peerDependencies": { "react": ">=19", "tailwindcss": ">=4" },
+  "postMessage": "See components/section-team/README.md for the layouts, the design tokens it reads and the content props."
+}
