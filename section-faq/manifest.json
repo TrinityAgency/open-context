@@ -1,6 +1,6 @@
 {
   "name": "section-faq",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "title": "FAQ Section",
   "description": "FAQ section on native details in two layouts (centered, split), keyboard complete without JavaScript, in the project's design system",
   "type": "component",
