@@ -120,8 +120,12 @@ tests name the file and the problem.
   visitor sees "could not be sent" instead of a message lost in silence. They need the owner's providers: an email
   service, a help desk, a newsletter tool. Wire one only with the owner's provider and its credentials from the
   environment; otherwise leave them and put them on the open list.
-- **Consent for embeds.** A map, video, font or script from another host needs a consent category the owner chooses
-  and a `ConsentGate`, as `AGENTS.md` ("Consent") says. Nothing from another host loads before the visitor chooses.
+- **Consent for embeds.** A map, video, font or script from another host needs a consent category the owner chooses,
+  as `AGENTS.md` ("Consent") says. Nothing from another host loads before the visitor chooses. A kit part that embeds
+  (`section-location`'s map, `section-video`'s player) takes the gate as a prop: pass `Gate={ConsentGate}` from the
+  page that holds it, a server page included, with its `category` (`"media"` unless you pass another) one of the
+  categories the consent provider is given (`CONSENT_CATEGORIES` in the starters that ship consent); it needs no
+  client component. Any other embed goes inside a `ConsentGate` created in a client component.
 
 ## 6. Design
 
@@ -145,8 +149,10 @@ lists them): colours, fonts and corners come from there, structure from each par
   owner's own waits for their design system or their values: they live only in the design export, never in the
   site's code.
 - **The site's own code** names the tokens with the tokens part's utilities (`bg-oc-surface`, `text-oc-ink`,
-  `border-oc-line`, `rounded-oc-lg`, `font-oc-heading`). `pnpm test` (`src/design-system/tokens-only.test.ts`) and
-  `pnpm design:guards` refuse a colour literal, a palette class, a radius from Tailwind's scale and `font-sans`.
+  `border-oc-line`, `rounded-oc-lg`, `font-oc-heading`). `pnpm test` runs `pnpm design:guards`, which refuses a
+  colour literal, and `src/design-system/tokens-only.test.ts`, which refuses a palette class, a radius from
+  Tailwind's scale, `font-sans` and a radius, font or variable in brackets that is no token (`rounded-[6px]`,
+  `font-[Georgia]`).
 
 ## 7. Release
 
@@ -171,11 +177,27 @@ lists them): colours, fonts and corners come from there, structure from each par
 - **Find more:** `npx @trinity369/use search <words>`, `npx @trinity369/use info <slug>`, and the whole kit with
   `npx @trinity369/use --list --category WEB_DESIGN` (also `SECTIONS`, `COMPONENTS`, `BLOG`).
 - **Install a member into a starter,** from the site's folder, with `--dir`: a component or section with
-  `npx @trinity369/use <slug> --dir src/components/<slug>`, a page with `npx @trinity369/use <slug> --dir src/app/<route>`.
-  Then wire it as `AGENTS.md` says ("Adding a page": its route in `PAGES`, its link in the navigation, its text in
-  both languages).
+  `npx @trinity369/use <slug> --dir src/components/<slug>`, a page where `AGENTS.md` ("Growing with the kit") puts
+  it: into its route, or, in the starters whose pages set `blogMetadata`, into a private folder beside a route file of
+  its own. Then wire it as `AGENTS.md` says ("Adding a page": its route in `PAGES`, its link in the navigation, its
+  text in both languages).
+- **The company sections** a site most often adds: `section-team`, `section-process`, `section-references`,
+  `section-gallery`, `section-location` (address, hours and a map) and `section-video`, each into
+  `src/components/<slug>` and placed on a page as its `README.md` shows. The map and the video take
+  `Gate={ConsentGate}` (section 5).
+- **The two pieces of chrome** go in `src/app/layout.tsx`: `site-announcement-bar` right after the header, and
+  `site-call-button` right after the footer (inside `ConsentProvider` where the starter has one). While the cookie
+  banner is up the call button is not drawn.
+- **`page-coming-soon`** says `noindex`: it is never added to `PAGES` or linked from the navigation or the footer. To
+  make it the whole site until launch, render it from `src/app/page.tsx`, as its `README.md` says.
 - **Parts are never edited in place.** The folders `AGENTS.md` lists under "Parts" are published templates. Change
   them through their props, labels and content; a change beyond that belongs in the template (`AGENTS.md`, "Parts").
+- **Nothing but content and the design is written.** The owner's text and facts, each entry written out as data (no
+  helper that builds entries); their pictures; the parts' props and their order on a page; and the route, metadata,
+  navigation, sitemap and test-list entries a page needs. A page of your own is its route file, arranging parts. No
+  component, function, hook, event handler, `'use client'` file or test of your own. Where the owner asks for
+  something no part's props give (an announcement that ends by itself on a date), leave it to the owner and say so: a
+  missing part is a question for the kit, never code in the site.
 
 ## Never
 
@@ -193,4 +215,6 @@ lists them): colours, fonts and corners come from there, structure from each par
   only places it on the page (margin, width, display, height, a rule beside it in the tokens) is the page's, as the
   starter's own pages do.
 - Never edit a published part in place.
+- Never write code for the site: no component, function, hook, event handler, `'use client'` file or test of your
+  own; content is written out as data.
 - Never load anything from another host before the visitor's consent.
