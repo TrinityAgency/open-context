@@ -39,7 +39,7 @@ export default function Home() {
 | `page.tsx` | the route: `metadata` and the page, in `LOCALE` |
 | `landing-page.tsx` | `LandingPage({ locale })`: the sections in order, with Next's `Link` for their links |
 | `content.ts` | `LOCALE`, `META` and `CONTENT` (English and German) |
-| `_sections/<name>` | copies of `section-hero`, `-logo-cloud`, `-features`, `-stats`, `-testimonials`, `-pricing`, `-faq` and `-cta` 3.0.0, byte for byte; each folder has its own README |
+| `_sections/<name>` | copies of `section-hero`, `-logo-cloud`, `-features`, `-stats`, `-testimonials`, `-pricing` and `-cta` 3.0.0 and `-faq` 3.0.1, byte for byte; each folder has its own README |
 
 The `_sections` folders start with an underscore, so Next never serves them as routes. The sections carry the ids
 `features`, `pricing`, `faq` and `contact`, so links such as `#pricing` jump to them.
@@ -83,6 +83,8 @@ None.
   same with or without Tailwind's preflight. A word wider than the screen breaks instead of running off it.
 - **From 1.x:** the props, the route and `content.ts` are the same; the sections draw in your design tokens, and every
   section takes `layout`.
+- **2.0.1:** the FAQ copy is `section-faq` 3.0.1, which breaks a long word or address in an answer (3.0.0 let it widen
+  the page on a phone); nothing else changed.
 - The sample pictures and logos are inline SVG, so the page loads nothing from another host. Replace them with your
   own files; with `next/image`, pass an `ImageComponent` to the sections that show images (see their READMEs).
 - To change a section beyond its content, edit its copy under `_sections/`; it is your code now.
