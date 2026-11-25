@@ -1,0 +1,22 @@
+{
+  "name": "section-gallery",
+  "version": "1.0.0",
+  "title": "Gallery Section",
+  "description": "A gallery of images in two layouts (grid, wall) whose thumbnails open a keyboard-complete lightbox and still open each image without JavaScript, that takes its colours, fonts and radius from the project's design system",
+  "type": "component",
+  "category": "SECTIONS",
+  "tags": ["gallery", "images", "lightbox", "photos", "section", "layouts", "design-tokens"],
+  "stack": ["react", "tailwind"],
+  "family": "site",
+  "vocabVersion": 1,
+  "tokens": 1,
+  "layouts": [
+    { "id": "grid", "title": "Grid", "description": "Square tiles in two columns, three from md and four from lg, each image cut to its square; the default.", "usage": "<GallerySection layout=\"grid\" content={{ title, intro, images }} />" },
+    { "id": "wall", "title": "Wall", "description": "Flowing columns, two and three from md, each image at its own ratio, no row alignment.", "usage": "<GallerySection layout=\"wall\" content={{ title, images: [{ src, alt, width, height, caption, full }] }} />" }
+  ],
+  "outputDir": "components/section-gallery",
+  "files": ["gallery-section.tsx", "lightbox.tsx", "labels.ts", "labels.de.ts", "site-types.ts", "README.md"],
+  "proof": "installs alone on Next 16; two layouts (grid, wall); a lightbox by keyboard; thumbnails open their image without JS; 3 sample brands, light and dark, 390/768/1280 px in two hosts; axe clean; no leak",
+  "peerDependencies": { "react": ">=19", "tailwindcss": ">=4" },
+  "postMessage": "See components/section-gallery/README.md for the layouts, the lightbox, the labels (German included), the design tokens it reads and how to pass a next/image wrapper."
+}
