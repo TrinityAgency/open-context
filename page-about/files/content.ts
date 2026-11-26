@@ -3,8 +3,8 @@ import type { CtaContent } from './_sections/cta/cta-section';
 import type { FeaturesContent } from './_sections/features/features-section';
 import type { HeroContent } from './_sections/hero/hero-section';
 import type { StatsContent } from './_sections/stats/stats-section';
+import type { TeamContent } from './_sections/team/team-section';
 import type { AboutStoryContent } from './about-story';
-import type { TeamGridContent } from './team-grid';
 
 /** The page's language: picks the text below. Set it to 'de' for the German set (and `lang` in your root layout). */
 export const LOCALE = 'en' as 'en' | 'de';
@@ -25,7 +25,7 @@ export type AboutContent = {
   story: AboutStoryContent;
   values: FeaturesContent;
   stats: StatsContent;
-  team: TeamGridContent;
+  team: TeamContent;
   cta: CtaContent;
 };
 

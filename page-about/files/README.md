@@ -32,33 +32,36 @@ export default function About() {
 | `page.tsx` | the route: `metadata` and the page, in `LOCALE` |
 | `about-page.tsx` | `AboutPage({ locale })`: the sections in order, with Next's `Link` for links |
 | `about-story.tsx` | `AboutStory`: a heading, paragraphs and an optional image |
-| `team-grid.tsx` | `TeamGrid`: one card per team member |
 | `site-types.ts` | the kit's shared types this page uses (`TeamMember`, `SocialLink`, …) |
 | `content.ts` | `LOCALE`, `META` and `CONTENT` (English and German) |
 | `_sections/hero`, `_sections/features`, `_sections/stats`, `_sections/cta` | copies of `section-hero`, `section-features`, `section-stats` and `section-cta` 3.0.0, byte for byte; each folder has its own README |
+| `_sections/team` | the team: a copy of `section-team` 1.0.0, byte for byte, with its own README |
 
 The `_sections` folders start with an underscore, so Next never serves them as routes.
 
 ## Layouts
 
-Every section takes a `layout` prop; each section's README lists its layouts (`_sections/<name>/README.md`). Leaving
-it out draws what 1.x drew, so this page looks as before. To change one, pass it where `about-page.tsx` calls the
-section, e.g. `<StatsSection layout="band" content={c.stats} />`.
+Every section, the team included, takes a `layout` prop; each section's README lists its layouts
+(`_sections/<name>/README.md`). Leaving it out draws what the page drew before, so it looks as before. To change one,
+pass it where `about-page.tsx` calls the section, e.g. `<StatsSection layout="band" content={c.stats} />`.
+
+The team (`TeamSection`) has three: `grid` (the default: one member per cell with a round portrait), `rows` (one
+member per row in a card, a large portrait beside the text) and `minimal` (names, roles and links only). For a team
+in cards: `<TeamSection layout="rows" content={c.team} LinkComponent={Link} />`.
 
 ## Brand
 
-The page's own markup, the story (`about-story.tsx`) and the team (`team-grid.tsx`), reads these design tokens (CSS custom properties of the Open Context token
-contract, version 1); each section in `_sections/` reads its own (see its README). Unset, each falls back to the
-neutral value in brackets, so the page looks the same as before with no design system loaded.
+The page's own markup, the story (`about-story.tsx`), reads these design tokens (CSS custom properties of the Open
+Context token contract, version 1); each section in `_sections/`, the team included, reads its own (see its README).
+Unset, each falls back to the neutral value in brackets, so the page looks the same as before with no design system
+loaded.
 
 | Token | Used for | Without a design system |
 |---|---|---|
-| `--oc-ink` | the headings, the names, the profile links | `oklch(20.5% 0 none)` |
-| `--oc-ink-body` | the story, the intro, the bios | `oklch(37.1% 0 none)` |
-| `--oc-ink-muted` | the roles, a link under the pointer | `oklch(43.9% 0 none)` |
-| `--oc-focus` | the focus ring | `oklch(20.5% 0 none)` |
+| `--oc-ink` | the story's heading | `oklch(20.5% 0 none)` |
+| `--oc-ink-body` | the story's paragraphs | `oklch(37.1% 0 none)` |
 | `--oc-radius` | the story image's corners (twice it) | `0.25rem` |
-| `--oc-font-heading` | the headings and the names | the page's font |
+| `--oc-font-heading` | the story's heading | the page's font |
 
 To set them from a claude.ai design system, use the `design-tokens` template (its `design-sync.mjs` writes them as
 aliases of your design's own tokens, light and dark, and checks every pair the page draws) and the
@@ -73,13 +76,15 @@ aliases of your design's own tokens, light and dark, and checks every pair the p
 | `content` | `{ title, paragraphs: string[], image? }` | | the paragraphs render in order |
 | `ImageComponent` | `ImageComponent` | plain `img` | e.g. a `next/image` wrapper |
 
-`TeamGrid`:
+`TeamSection` (`_sections/team/team-section.tsx`; its README has the rest):
 
 | Prop | Type | Default | |
 |---|---|---|---|
 | `content` | `{ title, intro?, members: TeamMember[] }` | | an empty `members` renders the heading and intro only |
+| `layout` | `'grid' \| 'rows' \| 'minimal'` | `'grid'` | `rows` without any portrait draws `grid` |
 | `LinkComponent` | `LinkComponent` | plain `a` | renders the profile links, e.g. `next/link` |
 | `ImageComponent` | `ImageComponent` | plain `img` | renders the portraits |
+| `id`, `className` | `string` | | on the section |
 
 A `TeamMember` is `{ name, role, bio?, image?, links? }`; a link is `{ network, label, href }`, shown as its
 `label`. A portrait with an empty `alt` is decorative, because the name sits right beside it.
@@ -102,8 +107,12 @@ None.
 
 - Every colour is a design token (Brand), with every margin and box set on the element, so the page looks the
   same with or without Tailwind's preflight. A word wider than the screen breaks instead of running off it.
+- **From 2.0:** the route, `AboutPage` and `content.ts` are the same, and so is the look. The team is now the part
+  `section-team` in `_sections/team` (`TeamSection`, the same props as `TeamGrid` plus `layout`, `id` and
+  `className`; its content type is `TeamContent`); to change its look, pass `layout`. Installing 2.1 over 2.0 leaves
+  the old `team-grid.tsx` behind, which nothing imports any more: delete it.
 - **From 1.x:** the props, the route and `content.ts` are the same; the page and its sections draw in your design
   tokens, and every section takes `layout`.
 - The sample pictures are inline SVG, so the page loads nothing from another host. With `next/image`, pass an
-  `ImageComponent` to `AboutStory`, `TeamGrid` and the sections that show images.
+  `ImageComponent` to `AboutStory` and to the sections that show images (`TeamSection` among them).
 - To change a section beyond its content, edit its copy under `_sections/`; it is your code now.

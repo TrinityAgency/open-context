@@ -1,6 +1,6 @@
 {
   "name": "page-about",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "title": "About Page",
   "description": "About page: story, values, figures and team, in the project's design system; every section takes a layout",
   "type": "page",
@@ -14,6 +14,7 @@
     { "slug": "section-hero", "version": "3.0.0", "into": "_sections/hero" },
     { "slug": "section-features", "version": "3.0.0", "into": "_sections/features" },
     { "slug": "section-stats", "version": "3.0.0", "into": "_sections/stats" },
+    { "slug": "section-team", "version": "1.0.0", "into": "_sections/team" },
     { "slug": "section-cta", "version": "3.0.0", "into": "_sections/cta" }
   ],
   "outputDir": "app/page-about",
@@ -24,7 +25,6 @@
     "content.ts",
     "page.tsx",
     "site-types.ts",
-    "team-grid.tsx",
     "_sections/cta/README.md",
     "_sections/cta/cta-section.tsx",
     "_sections/cta/site-types.ts",
@@ -36,9 +36,12 @@
     "_sections/hero/site-types.ts",
     "_sections/stats/README.md",
     "_sections/stats/site-types.ts",
-    "_sections/stats/stats-section.tsx"
+    "_sections/stats/stats-section.tsx",
+    "_sections/team/README.md",
+    "_sections/team/site-types.ts",
+    "_sections/team/team-section.tsx"
   ],
-  "proof": "installs alone on Next 16; sections byte-identical at 3.0.0; default look equals 1.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; mutants caught",
+  "proof": "installs alone on Next 16; sections byte-identical (3.0.0, section-team 1.0.0); default look equals 2.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; mutants caught",
   "peerDependencies": { "react": ">=19", "next": ">=16", "tailwindcss": ">=4" },
   "postMessage": "Installed at app/page-about/ (served at /page-about; rename the folder for another path). Edit content.ts; see README.md."
 }
