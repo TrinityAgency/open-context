@@ -4050,8 +4050,8 @@
         "next",
         "tailwind"
       ],
-      "fileCount": 19,
-      "version": "2.0.0",
+      "fileCount": 21,
+      "version": "2.1.0",
       "family": "site",
       "vocabVersion": 1,
       "parts": [
@@ -4071,12 +4071,17 @@
           "into": "_sections/stats"
         },
         {
+          "slug": "section-team",
+          "version": "1.0.0",
+          "into": "_sections/team"
+        },
+        {
           "slug": "section-cta",
           "version": "3.0.0",
           "into": "_sections/cta"
         }
       ],
-      "proof": "installs alone on Next 16; sections byte-identical at 3.0.0; default look equals 1.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; mutants caught",
+      "proof": "installs alone on Next 16; sections byte-identical (3.0.0, section-team 1.0.0); default look equals 2.0.0; 3 brands, light and dark, at 390/768/1280 px in two hosts; axe clean; no leak; mutants caught",
       "tokens": 1
     },
     "page-app-download": {
