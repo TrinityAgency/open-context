@@ -32,7 +32,7 @@ export default function About() {
 | `page.tsx` | the route: `metadata` and the page, in `LOCALE` |
 | `about-page.tsx` | `AboutPage({ locale })`: the sections in order, with Next's `Link` for links |
 | `about-story.tsx` | `AboutStory`: a heading, paragraphs and an optional image |
-| `site-types.ts` | the kit's shared types this page uses (`TeamMember`, `SocialLink`, …) |
+| `site-types.ts` | the kit's shared types (`ImageComponent` and `ImageRef` for the story; `TeamMember`, `SocialLink` and `LinkComponent` kept from 2.0) |
 | `content.ts` | `LOCALE`, `META` and `CONTENT` (English and German) |
 | `_sections/hero`, `_sections/features`, `_sections/stats`, `_sections/cta` | copies of `section-hero`, `section-features`, `section-stats` and `section-cta` 3.0.0, byte for byte; each folder has its own README |
 | `_sections/team` | the team: a copy of `section-team` 1.0.0, byte for byte, with its own README |
@@ -107,10 +107,15 @@ None.
 
 - Every colour is a design token (Brand), with every margin and box set on the element, so the page looks the
   same with or without Tailwind's preflight. A word wider than the screen breaks instead of running off it.
-- **From 2.0:** the route, `AboutPage` and `content.ts` are the same, and so is the look. The team is now the part
+- **From 2.0:** the route, `AboutPage`, the content and the look are the same. The team is now the part
   `section-team` in `_sections/team` (`TeamSection`, the same props as `TeamGrid` plus `layout`, `id` and
-  `className`; its content type is `TeamContent`); to change its look, pass `layout`. Installing 2.1 over 2.0 leaves
-  the old `team-grid.tsx` behind, which nothing imports any more: delete it.
+  `className`; its content type `TeamContent` has `TeamGridContent`'s shape); to change its look, pass `layout`.
+  Installing 2.1 over 2.0 leaves the old `team-grid.tsx` behind. Before you delete it, change every file of yours that
+  still imports from `./team-grid`:
+  - a `content.ts` you kept from 2.0: `import type { TeamContent } from './_sections/team/team-section';` in place of
+    the `./team-grid` import, and `team: TeamContent;` in `AboutContent`;
+  - an `about-page.tsx` you kept (`--no-overwrite`): `import { TeamSection } from './_sections/team/team-section';`
+    in place of the `./team-grid` import, and `<TeamSection` for `<TeamGrid`.
 - **From 1.x:** the props, the route and `content.ts` are the same; the page and its sections draw in your design
   tokens, and every section takes `layout`.
 - The sample pictures are inline SVG, so the page loads nothing from another host. With `next/image`, pass an
